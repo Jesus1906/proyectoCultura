@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="registro.css">
 </head>
 
 <body>
@@ -77,14 +76,29 @@
             Bien!
           </div>
         </div>
-        <div class="col-md-4 mb-3">
+
+
+        <div class="form-group col-md-2">
+          <label for="inputPassword4">Contraseña</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+
+
+        <div class="form-group col-md-2">
+          <label for="inputPassword4">Confirmar Contraseña</label>
+          <input type="password" class="form-control" id="inputPassword4">
+        </div>
+
+        <div class="col-md-3 mb-3">
           <label for="validationServer06">Telefono</label>
           <input type="text" class="form-control is-valid" id="validationServer06" value="Otto" required>
           <div class="valid-feedback">
             Bien!
           </div>
         </div>
+
       </div>
+
 
       <div class="row">
         <label for="inputState"> Fecha de Nacimiento</label>
@@ -100,7 +114,7 @@
           <input type="text" class="form-control" placeholder="Año (AAAA)">
         </div>
       </div>
-      
+
       <div class="form-row">
         <div class="col-md-3 mb-3">
           <label for="validationServer07">Status de Servicio</label>
@@ -148,18 +162,12 @@
             Please select a valid state.
           </div>
         </div>
-      
+
       </div>
-      <div class="form-group modal-dialog text-center">
-        <label for="exampleFormControlFile1">Agrega una foto</label>
-        <img src="ImagenescULTURA/índice.jpg" alt="">
-        <div class="col-md-10 col-center">
-          <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        </div>
-      </div>
+     
       <div class="row">
-        <div class="col-md-6"></div>
-        <div class="col align-self-center">
+        <div class="col-md-5"></div>
+        <div class="col">
           <button class="btn btn-primary" type="submit">Registrar</button>
         </div>
       </div>
@@ -167,11 +175,11 @@
 
     <br>
     <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Well done!</h4>
-      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so
-        that you can see how spacing within an alert works with this kind of content.</p>
+      <h4 class="alert-heading">¡Buen Trabajo!</h4>
+      <p>Tu registro esta siendo procesado. Te enviaremos un correo al email proporcionado para terminar tu proceso
+        satisfactoriamente</p>
       <hr>
-      <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+      <p class="mb-0">Sigue las instrucciones cuidadosamente</p>
     </div>
   </div>
 
