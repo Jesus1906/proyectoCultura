@@ -1,0 +1,29 @@
+.carousel-inner img {
+    height: 400px;
+}
+
+.center{
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid darkslategray 2px;
+    padding-bottom: 20px;
+}
+
+.footer{
+    display: flex;
+    padding: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.item {
+    height: 50px;
+    width: 50px;
+    background-color: darkturquoise;
+}
+
+body{
+    background-color: mintcream;
+}
