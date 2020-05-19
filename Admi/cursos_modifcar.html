@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Ofertar Curso</title>
+    <title>Modificar Curso</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
 
     <div class="container">
         <div class="row">
-            
+
             <div class="col-sm-2">
                 <h5>Seleccione el curso</h5>
                 <li> Primer Nivel
@@ -55,15 +55,15 @@
                     <ul>Nombre Curso</ul>
                 </li>
             </div>
-            
+
             <div class="col ">
                 <div class="modal-dialog text-center">
                     <h3>Nombre Curso</h3>
                     <h4>Matricula</h4>
                     <img src="../ImaCursos/VIDA CON PROPOSITO.jpg" alt="Responsive image" height="360px">
                     <p><strong>Aquí llevará una breve descripción del curso</strong> </p>
-                </div>        
-                 
+                </div>
+
                 <div class="row">
                     <label for="inputState"> Nombre del Curso</label>
                 </div>
@@ -76,9 +76,16 @@
                     <label for="inputState"> Nivel</label>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <input type="text" class="form-control" placeholder="Nivel">
                     </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Status de Curso</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
                 </div>
                 <div class="row">
                     <label for="inputState"> Curso Anterior</label>
@@ -110,7 +117,7 @@
                 <div class="form-row">
                     <div class="col-md-5">
                         <input type="text" class="form-control" placeholder="Agregar Temario">
-                        
+
                     </div>
                     <button type="button" class="btn btn-outline-primary">Subir</button>
                 </div>
@@ -120,7 +127,7 @@
                 <div class="form-row">
                     <div class="col-md-5">
                         <input type="text" class="form-control" placeholder="Agregar Manual">
-                        
+
                     </div>
                     <button type="button" class="btn btn-outline-primary">Subir</button>
                 </div>
@@ -130,7 +137,7 @@
                 <div class="form-row">
                     <div class="col-md-5">
                         <input type="text" class="form-control" placeholder="Agregar Examen">
-                       
+
                     </div>
                     <button type="button" class="btn btn-outline-primary">Subir</button>
                 </div>
@@ -140,7 +147,7 @@
                 <div class="form-row">
                     <div class="col-md-5">
                         <input type="text" class="form-control" placeholder="Agregar Hoja de Respuestas">
-                        
+
                     </div>
                     <button type="button" class="btn btn-outline-primary">Subir</button>
                 </div>
@@ -148,23 +155,28 @@
                     <label for="inputState">Imagen del Curso</label>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-12">
-                         
-                        <button type="button" class="btn btn-outline-primary">Subir</button>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" placeholder="Agregar Imagen">
+
                     </div>
+                    <button type="button" class="btn btn-outline-primary">Subir</button>
                 </div>
+
+
+                <br>
+
                 <div class="row">
                     <button type="button" class="btn btn-primary btn-lg btn-block">Modificar</button>
                 </div>
-                
-                 
+
+
 
 
             </div>
-         
+
 
         </div>
-        
+
 
 
     </div>

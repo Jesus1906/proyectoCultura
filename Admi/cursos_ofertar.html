@@ -32,7 +32,7 @@
     </nav>
 
     <div class="modal-dialog text-center">
-        <h1>Consultar Cursos</h1>
+        <h1>Ofertar Cursos</h1>
     </div>
 
     <div class="container">
@@ -63,7 +63,14 @@
                 </div>              
             </div>
             <div class="col ">
-                 
+                <div class="row">
+                    <label for="inputState">Fecha de Inscripción</label>
+                </div>
+                <div class="form-row">
+                    <div class="col ">
+                        <input type="text" class="form-control" placeholder="DD/MM/AA">
+                    </div>
+                </div>
                 <div class="row">
                     <label for="inputState">Fecha de Inicio</label>
                 </div>
@@ -81,6 +88,21 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <label for="inputState">Horario</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Matutino</option>
+                      <option>Vespertino</option>
+                    </select>
+                 </div>
+                <div class="row">
+                    <label for="inputState">Cupo Minimo</label>
+                </div>
+                <div class="form-row">
+                    <div class="col ">
+                        <input type="text" class="form-control" placeholder="10">
+                    </div>
+                </div>
+                <div class="form-row">
                     <label for="inputState">Profesor</label>
                     <select id="inputState" class="form-control">
                       <option selected>Profesor</option>
@@ -94,9 +116,13 @@
                       <option>option1</option>
                     </select>
                 </div>
-
-
-            </div>
+                <div class="form-row">
+                    <label for="inputState">Periodo</label>
+                    <select id="inputState" class="form-control">
+                      <option selected>Ene-Marzo</option>
+                      <option>Marzo-Mayo</option>
+                    </select>
+                </div>
 
         </div>
 
