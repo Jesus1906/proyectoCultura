@@ -53,28 +53,28 @@
       <div class="form-row">
         <div class="col-md-3 mb-3">
           <label for="validationServer01">Primer Nombre</label>
-          <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required name = "firsName">
+          <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required name = "firstName">
           <div class="valid-feedback">
             Bien!
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationServer02">Segundo Nombre (Opcional)</label>
-          <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+          <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required name = "secondName">
           <div class="valid-feedback">
             Bien!
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationServer03">Apellido Paterno</label>
-          <input type="text" class="form-control is-valid" id="validationServer03" value="Otto" required>
+          <input type="text" class="form-control is-valid" id="validationServer03" value="Otto" required name = "firstLastName">
           <div class="valid-feedback">
             Bien!
           </div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationServer04">Apellido Materno</label>
-          <input type="text" class="form-control is-valid" id="validationServer04" value="Otto" required>
+          <input type="text" class="form-control is-valid" id="validationServer04" value="Otto" required name = "secondLastName">
           <div class="valid-feedback">
             Bien!
           </div>
@@ -83,7 +83,7 @@
       <div class="form-row">
         <div class="col-md-4 mb-3">
           <label for="validationServer05">Correo Electronico</label>
-          <input type="text" class="form-control is-valid" id="validationServer05" value="Mark" required>
+          <input type="text" class="form-control is-valid" id="validationServer05" value="Mark" required name = "email">
           <div class="valid-feedback">
             Bien!
           </div>
@@ -92,7 +92,7 @@
 
         <div class="form-group col-md-2">
           <label for="inputPassword4">Contraseña</label>
-          <input type="password" class="form-control" id="inputPassword4">
+          <input type="password" class="form-control" id="inputPassword4" name = "password">
         </div>
 
 
@@ -103,7 +103,7 @@
 
         <div class="col-md-3 mb-3">
           <label for="validationServer06">Telefono</label>
-          <input type="text" class="form-control is-valid" id="validationServer06" value="Otto" required>
+          <input type="text" class="form-control is-valid" id="validationServer06" value="Otto" required name = "phone">
           <div class="valid-feedback">
             Bien!
           </div>
@@ -117,23 +117,23 @@
       </div>
       <div class="form-row">
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="Día (DD)">
+          <input type="text" class="form-control" placeholder="Día (DD)" name = "day">
         </div>
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="Mes (MM)">
+          <input type="text" class="form-control" placeholder="Mes (MM)" name = "month">
         </div>
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="Año (AAAA)">
+          <input type="text" class="form-control" placeholder="Año (AAAA)" name "year">
         </div>
       </div>
 
       <div class="form-row">
         <div class="col-md-3 mb-3">
           <label for="validationServer07">Status de Servicio</label>
-          <select class="custom-select is-invalid" id="validationServer07" required>
+          <select class="custom-select is-invalid" id="validationServer07" required name = "statusService">
             <option selected disabled value="">Elige...</option>
-            <option>Si</option>
-            <option>No</option>
+            <option value = "yes">Si</option>
+            <option value = "no">No</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid state.
@@ -141,10 +141,10 @@
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationServer08">Status de Bautizo</label>
-          <select class="custom-select is-invalid" id="validationServer08" required>
+          <select class="custom-select is-invalid" id="validationServer08" required name = "statusBautizo">
             <option selected disabled value="">Elige...</option>
-            <option>Si</option>
-            <option>No</option>
+            <option value = "yes">Si</option>
+            <option value = "no">No</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid state.
@@ -152,7 +152,7 @@
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationServer09">Lider Grupo Familiar</label>
-          <select class="custom-select is-invalid" id="validationServer09" required>
+          <select class="custom-select is-invalid" id="validationServer09" required name = "lider">
             <option selected disabled value="">Elige...</option>
             <?php
               $lideres = new LiderController();
@@ -171,13 +171,13 @@
         </div>
         <div class="col-md-3 mb-3">
           <label for="validationServer10">Estado Civil</label>
-          <select class="custom-select is-invalid" id="validationServer10" required>
+          <select class="custom-select is-invalid" id="validationServer10" required name = "statusCivil">
             <option selected disabled value="">Elige...</option>
-            <option>Soltero(a)</option>
-            <option>Casado(a)</option>
-            <option>Divorciado(a)</option>
-            <option>Viudo(a)</option>
-            <option>Union Libre</option>
+            <option value = "solter(a)">Soltero(a)</option>
+            <option value = "Casado(a)">Casado(a)</option>
+            <option value = "Divorciado(a)">Divorciado(a)</option>
+            <option value = "Viudo(a)">Viudo(a)</option>
+            <option value = "Union Libre">Union Libre</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid state.
