@@ -8,4 +8,5 @@ class Adjunto extends Model{
     protected $table = 'adjunto'; //le decimos al orm que la clase usara la tabla adjunto
     protected $primaryKey = 'matriculaAdjunto';
     public $incrementing = false;
+    
 }

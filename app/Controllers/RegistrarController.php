@@ -10,6 +10,27 @@ class RegistrarController extends BaseController{
       $this->iniciarControladorBase();
    }
 
+   public function regUsuario($queReg, $quienReg){
+      if($_SERVER['REQUEST_METHOD']== 'POST'){
+         switch($quienReg){
+            case '3':{
+               echo "Admin reg";
+            }
+            break;
+            case '2':{
+               echo "Adjun reg";
+            }
+            break;
+            case '1':{
+               echo "Alumn reg";
+            }
+            break;
+         }// fin de switch
+      }else{
+         die('Error al realizar Registro');
+      }
+   }
+
    public function getAlumno(){
       return Alumno::all();
    }
@@ -18,7 +39,7 @@ class RegistrarController extends BaseController{
    public function regAlumno($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
       $alumno = new Alumno();
-      $alumno->matriculaAlumno = 11;
+      $alumno->matriculaAlumno = 22;
       $alumno->firstName = $post['firstName'];
       $alumno->secondName = $post['secondName'];
       $alumno->firstLastName = $post['firstLastName'];
@@ -39,24 +60,5 @@ class RegistrarController extends BaseController{
       $alumno->save();
    }
 
-   public function regUsuario($queReg, $quienReg){
-      if($_SERVER['REQUEST_METHOD']== 'POST'){
-         switch($quienReg){
-            case '3':{
-               echo "Admin reg";
-            }
-            break;
-            case '2':{
-               echo "Adjun reg";
-            }
-            break;
-            case '1':{
-               echo "Alumn reg";
-            }
-            break;
-         }// fin de switch
-      }else{
-         die('Error al realizar Registro');
-      }
-   }//fin funcion registrar usuario
+   //fin funcion registrar usuario
 }
