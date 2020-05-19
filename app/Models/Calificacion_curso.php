@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 class Calificacion_curso extends Model{
     
     protected $table = 'calificacion_curso';
+    protected $primaryKey = 'idCalificacion_Curso';
 
 }

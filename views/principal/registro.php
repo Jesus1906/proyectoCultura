@@ -1,11 +1,12 @@
 <?php
   require_once '../../vendor/autoload.php';
   use App\Controllers\LiderController;
-  use App\Controllers\AlumnoController;
-  $alumno = new AlumnoController;
+  use App\Controllers\RegistrarController;
+
+  $alumno = new RegistrarController();
+
   if($_SERVER["REQUEST_METHOD"] == 'POST'){
-    $alumno->newAlumno($_POST);
-    var_dump($_POST);
+    $alumno->regAlumno($_POST);
   }
 
 ?>
@@ -123,7 +124,7 @@
           <input type="text" class="form-control" placeholder="Mes (MM)" name = "month">
         </div>
         <div class="col-md-4">
-          <input type="text" class="form-control" placeholder="Año (AAAA)" name "year">
+          <input type="text" class="form-control" placeholder="Año (AAAA)" name = "year">
         </div>
       </div>
 
