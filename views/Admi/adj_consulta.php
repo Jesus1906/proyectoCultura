@@ -35,31 +35,37 @@
     </div>
     
     <div class="container">
-        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-              aria-label="Search">
-          </form>
-          <div class="row">
-            <div class=" col-sm-3">
-                <label for="inputState">Filtro de Busqueda</label>
-                <select id="inputState" class="form-control">
-                <option selected value="nothing">Seleccione un filtro</option>
-                <option value = "all">Todos los adjuntos</option>
-                <option value = "matricula">Matricula</option>
-                <option value = "name">Nombre(s)</option>
-                <option value = "apPaterno">Apellido paterno</option>
-                <option value = "apMaterno">Apellido materno</option>
-                <option value = "phone">Telefono</option>
-                
-                </select>
-             </div>
-             <div class="row">
-                <div class="col align-self-end">
-                    <a href="adj_modificar.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar Adjunto</a>
-                  </div>
-              </div>
-        </div>
+        <form>
+
+            <div class="form-row justify-content-center">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda"
+                aria-label="Search">
+            </div>
+            <br>
+
+            <div class="form-row">
+               
+                <div class=" col-sm-4 justify-content-center">             
+                    <select id="inputState" class="custom-select">
+                    <option selected disable value="nothing">Filtrar por</option>
+                    <option value = "all">Todos los adjuntos</option>
+                    <option value = "matricula">Matricula</option>
+                    <option value = "name">Nombre(s)</option>
+                    <option value = "apPaterno">Apellido paterno</option>
+                    <option value = "apMaterno">Apellido materno</option>
+                    <option value = "phone">Telefono</option>               
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-outline-success">Aplicar Filtros</button>
+                </div>
+            </div>
+
+        </form>
+          
+
+
         <div class="row">
             
             <div class="col-sm-12">    
@@ -67,7 +73,7 @@
                     <h3>Adjuntos</h3>                    
                 </div> 
                   
-                  <table class="table">
+                <table class="table">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Matricula</th>
@@ -94,18 +100,17 @@
                       </tr>
                       
                     </tbody>
-                  </table>
-                  
-                  
-                  
+                </table>        
             </div>
-            <div class="row">
-                <div class="col align-self-end">
-                    <button type="button" class="btn btn-secondary">Imprimir</button>
-                    <button type="button" class="btn btn-success">Aplicar Filtros</button>
-                  </div>
-              </div>
             
+        </div>
+
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col">
+                <button type="submit" class="btn btn-secondary">Imprimir</button>
+                <button type="submit" class="btn btn-primary">Editar Datos</button>                  
+            </div>
         </div>
         
     </div>
