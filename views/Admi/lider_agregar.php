@@ -1,3 +1,15 @@
+<?php
+  require_once '../../vendor/autoload.php';
+  use App\Controllers\RegistrarController;
+
+  $regController = new RegistrarController();
+
+  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $regController->regLider($_POST);
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +53,19 @@
     <div class="container">
 
         <div class="row">
-            <label for="inputState"> Nombre</label>
+            <label for="inputState">Primer Nombre</label>
         </div>
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Nombre  ">
+                <input type="text" class="form-control" placeholder="Nombre" name = "firstName">
+            </div>
+        </div>
+        <div class="row">
+            <label for="inputState"> Segundo Nombre</label>
+        </div>
+        <div class="form-row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Nombre" name = "secondName">
             </div>
         </div>
         <div class="row">
@@ -53,7 +73,7 @@
         </div>
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Apellido Paterno">
+                <input type="text" class="form-control" placeholder="Apellido Paterno" name="firstLastName">
             </div>
         </div>
         <div class="row">
@@ -61,7 +81,7 @@
         </div>
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Apellido Materno">
+                <input type="text" class="form-control" placeholder="Apellido Materno" name = "secondLastName">
             </div>
         </div>
         <div class="row">
@@ -69,18 +89,9 @@
         </div>
         <div class="form-row">
             <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Telefono">
+                <input type="text" class="form-control" placeholder="Telefono" name = "phone">
             </div>
         </div>
-        <div class="row">
-            <label for="inputState">Zona de Grupo Familiar</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Si tiene mas de una, separalo por comas">
-            </div>
-        </div>
-
         <br>
 
         <div class="row justify-content-md-center">
