@@ -1,3 +1,14 @@
+<?php
+  require_once '../../vendor/autoload.php';
+
+  use App\Controllers\{RegistrarController};
+
+  $admin = new RegistrarController();
+  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $admin->regAdministrador($_POST);
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +50,7 @@
 
 
     <div class="container">
-        <form>
+        <form action="" method="POST">
 
             <div class="form-row">
                 <div class="col-sm-6">
@@ -92,7 +103,7 @@
 <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
                     Agregar
                 </button>
             </div>

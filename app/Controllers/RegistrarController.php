@@ -67,7 +67,7 @@ class RegistrarController extends BaseController{
 
    public function regAdministrador($post){
       $administrador = new Administrador();
-      $administrador->matriculaAdministrador = 22;
+      $administrador->matriculaAdministrador = 11;
       $administrador->firstName = $post['firstName'];
       $administrador->secondName = $post['secondName'];
       $administrador->firstLastName = $post['firstLastName'];
