@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,15 +44,19 @@
             <div class=" col-sm-3">
                 <label for="inputState">Filtro de Busqueda</label>
                 <select id="inputState" class="form-control">
-                <option selected></option>
-                <option>Orden Alfabetico</option>
+                <option selected value="nothing">Seleccione un filtro</option>
+                <option value = "all">Todos los adjuntos</option>
+                <option value = "matricula">Matricula</option>
+                <option value = "name">Nombre(s)</option>
+                <option value = "apPaterno">Apellido paterno</option>
+                <option value = "apMaterno">Apellido materno</option>
+                <option value = "phone">Telefono</option>
                 
                 </select>
              </div>
              <div class="row">
                 <div class="col align-self-end">
                     <a href="adj_modificar.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar Adjunto</a>
-                    
                   </div>
               </div>
         </div>
@@ -65,7 +70,7 @@
                   <table class="table">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">Matricula</th>
                         <th scope="col">Primer Nombre</th>
                          
                         <th scope="col">Ap Paterno</th>
@@ -87,12 +92,7 @@
                         <td> </td>
                         <td></td>
                       </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                      </tr>
+                      
                     </tbody>
                   </table>
                   
@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col align-self-end">
                     <button type="button" class="btn btn-secondary">Imprimir</button>
-                    <button type="button" class="btn btn-success">Finalizar</button>
+                    <button type="button" class="btn btn-success">Aplicar Filtros</button>
                   </div>
               </div>
             

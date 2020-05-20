@@ -8,11 +8,13 @@ class ConsultaController extends BaseController{
         $this->iniciarControladorBase();
     }
 
-    public function getLideres(){
+    public function getAllLideres(){
         return Lider_celula::all();
     }
 
-    public function getAlumno(){
+    public function getAllAlumno(){
         return Alumno::all();
-     }
+    }
+
+
 }

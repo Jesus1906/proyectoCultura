@@ -157,7 +157,7 @@ use App\Controllers\{ConsultaController, RegistrarController};
             <option selected disabled value="">Elige...</option>
             <?php
               $lideres = new ConsultaController();
-              $lideres = $lideres->getLideres();  
+              $lideres = $lideres->getAllLideres();  
               for($i = 0; $i < count($lideres); $i++) {
                 $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
                 echo '<option value = ' . $lideres[$i]['id'] . '>' . $name . '</option>';
