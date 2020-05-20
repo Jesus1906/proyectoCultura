@@ -9,7 +9,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
-    <title>Perfil</title>
+    <title>Agregar Curso</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                 </li>
             </ul>
             <a class="nav-link" href="cursos_alumn.html">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="Clasi_adm.html"">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
@@ -40,111 +40,125 @@
 
     <div class="container">
         
-        <div class="row">
-            <label for="inputState"> Nombre del Curso</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Nombre del Curso">
-            </div>
-        </div>
-        <div class="row">
-            <label for="inputState"> Nivel</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Nivel">
-            </div>
-        </div>
-        <div class="row">
-            <label for="inputState"> Curso Anterior</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Curso Anterior">
-            </div>
-        </div>
-        <div class="row">
-            <label for="inputState">Curso Siguiente</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Curso Siguiente">
-            </div>
-        </div>
-        <div class="row">
-            <label for="inputState">Descripción</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Escriba una Descripción del Curso">
-            </div>
-        </div>
-        <div class="row">
-            <label for="inputState">Temario</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Agregar Temario">
-                
-            </div>
-            <button type="button" class="btn btn-outline-primary">Subir</button>
-        </div>
-        <div class="row">
-            <label for="inputState">Manual</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Agregar Manual">
-                
-            </div>
-            <button type="button" class="btn btn-outline-primary">Subir</button>
-        </div>
-        <div class="row">
-            <label for="inputState">Examen</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Agregar Examen">
+        <form>
+            <div class="row">
                
             </div>
-            <button type="button" class="btn btn-outline-primary">Subir</button>
-        </div>
-        <div class="row">
-            <label for="inputState">Hoja de respuestas</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Agregar Hoja de Respuestas">
+            <div class="form-row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-4">
+                    <label for="inputState">Nombre del Curso</label>
+                    <input type="text" class="form-control" placeholder="Nombre del Curso"  required name = "name">
+                </div>
+                <div class="col-sm-2">
+                    <label for="inputState">Nombre del Curso</label>
+                    <input type="text" class="form-control" placeholder="2"  required name = "nivel">
+                </div>
+            </div>
+            
+            
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="inputState">Curso Anterior</label>
+                    <select class="custom-select" id="validationServer07" required name = "">
+                        <option selected disabled value="">Elige...</option>
+                        <option>Name Curso</option>
+                        <option>Name Curso</option>
+                      </select>
+                </div>
+                <div class="col-sm-4">
+                    <label for="inputState">Curso Siguiente</label>
+                    <select class="custom-select" id="validationServer07" required name = "">
+                        <option selected disabled value="">Elige...</option>
+                        <option>Name Curso</option>
+                        <option>Name Curso</option>
+                    </select>
+                </div>
+            </div>
+           
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-md-4">
+                    <label for="inputState">Descripción</label>
+                    <input type="text" class="form-control" placeholder="Escriba una Descripción del Curso">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState">Temario</label>
+                    <input type="text" class="form-control" placeholder="Agregar Temario">  
+                    <button type="button" class="btn btn-outline-primary">Subir</button>                
+                </div>               
+            </div>
+            
+            <div class="row">
                 
             </div>
-            <button type="button" class="btn btn-outline-primary">Subir</button>
-        </div>
-        <div class="row">
-            <label for="inputState">Imagen del Curso</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-5">
-                 
-                <button type="button" class="btn btn-outline-primary">Subir</button>
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-md-4">
+                    <label for="inputState">Manual</label>
+                    <input type="text" class="form-control" placeholder="Agregar Manual">
+                    <button type="button" class="btn btn-outline-primary">Subir</button>
+                </div>
+               
+                <div class="col-md-4">
+                    <label for="inputState">Examen</label>
+                    <input type="text" class="form-control" placeholder="Agregar Examen">
+                    <button type="button" class="btn btn-outline-primary">Subir</button>
+                </div>              
             </div>
-        </div>
-        <div class="form-row">
-            <div class="col-md-5">
-                 
-                <a class="btn btn-success btn-lg" href="#" role="button">Agregrar</a>
+
+            <div class="row">
+                
             </div>
-        </div>
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-md-4">
+                    <label for="inputState">Hoja de respuestas</label>
+                    <input type="text" class="form-control" placeholder="Agregar Hoja de Respuestas">
+                    <button type="button" class="btn btn-outline-primary">Subir</button>
+                </div>
+                <div class="col-md-4">
+                    <label for="inputState">Imagen del Curso</label>
+                    <input type="text" class="form-control" placeholder="Agregar Imagen">
+                    <button type="button" class="btn btn-outline-primary">Subir</button>
+                </div>              
+            </div>
+<br>
+            <!-- Button trigger modal -->
+            <div class="row justify-content-md-center">
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                    Agregar
+                </button>
+            </div>
+            
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Curso Agregado</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            El Curso ha sido agregado con éxito
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        
 
     </div>
-   
-    <div class="jumbotron modal-dialog text-center">
-     <h1 class="display-4">Curso Agregado</h1>
-      
-     <hr class="my-4">
-     <p>El curso ha sido agregado con éxito</p>
-     <a class="btn btn-success btn-lg" href="#" role="button">Aceptar</a>
-   </div>
         
 </div>
 

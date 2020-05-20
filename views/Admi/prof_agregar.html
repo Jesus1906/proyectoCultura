@@ -39,69 +39,92 @@
     
 
     <div class="container">
-        
-        <div class="row">
-            <label for="inputState"> Nombre</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Nombre  ">
+        <form>
+
+            <div class="form-row">
+                <div class="col-sm-6">
+                    <label for="inputState">Primer Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" required name="firstName">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputState">Segundo Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" required name="secondName">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <label for="inputState"> Apellido Paterno</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Apellido Paterno">
+
+            <div class="form-row">
+                <div class="col-sm-6">
+                    <label for="inputState"> Apellido Paterno</label>
+                    <input type="text" class="form-control" placeholder="Apellido Paterno" required
+                        name="firstLastName">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputState"> Apellido Materno</label>
+                    <input type="text" class="form-control" placeholder="Apellido Materno" required
+                        name="secondLastName">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <label for="inputState"> Apellido Materno</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Apellido Materno">
+
+
+            <div class="form-row">
+                <div class="col-sm-6">
+                    <label for="inputState">Telefono</label>
+                    <input type="text" class="form-control" placeholder="Telefono" required name="phone">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputState">Correo</label>
+                    <input type="text" class="form-control" placeholder="Correo Electronico" required name="email">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <label for="inputState">Telefono</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Telefono">
+
+            <div class="row">
+                <label for="inputState"> Fecha de Nacimiento</label>
             </div>
-        </div>
-        
-        <div class="row">
-            <label for="inputState"> Fecha de Nacimiento</label>
-        </div>
-        <div class="form-row">
-            <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="19">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Día (DD)" name="day">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Mes (MM)" name="month">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Año (AAAA)" name="year">
+                </div>
             </div>
-            <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="06">
-            </div>
-            <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="1998">
-            </div>
-        </div>
-        <br>
-  
+<br>
+            <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="button" class="btn btn-primary">Agregar</button>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                    Agregar
+                </button>
             </div>
+            
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+                role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Profesor Agregado</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            El Profesor ha sido agregado con éxito
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
     </div>
    
-    <div class="jumbotron modal-dialog text-center">
-     <h1 class="display-4">Profesor Agregado</h1>
-      
-     <hr class="my-4">
-     <p>El Profesor ha sido agregado con éxito</p>
-     <a class="btn btn-success btn-lg" href="#" role="button">Aceptar</a>
-   </div>
         
 </div>
 
