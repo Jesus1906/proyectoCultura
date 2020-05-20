@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Alumno;
+use App\Models\Lider_celula;
 
 
 class RegistrarController extends BaseController{
@@ -35,7 +36,16 @@ class RegistrarController extends BaseController{
       return Alumno::all();
    }
 
-
+   public function regLider($post){
+      $lider = new Lider_celula();
+      $lider->firstName = $post['firstName'];
+      $lider->secondName = $post['secondName'];
+      $lider->firstLastName = $post['firstLastName'];
+      $lider->secondLastName = $post['secondLastName'];
+      $lider->phone = $post['phone'];
+      $lider->save();
+   }
+   
    public function regAlumno($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
       $alumno = new Alumno();
