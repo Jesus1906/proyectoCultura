@@ -65,7 +65,7 @@ class RegistrarController extends BaseController{
       $alumno->save();
    }
 
-   public function regAdjunto($post){
+   public function regAdministrador($post){
       $administrador = new Administrador();
       $administrador->matriculaAdministrador = 22;
       $administrador->firstName = $post['firstName'];
@@ -78,10 +78,10 @@ class RegistrarController extends BaseController{
       $administrador->save();
    }
 
-   public function regAdministrador($post){
+   public function regAdjunto($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
       $adjunto = new Adjunto();
-      $adjunto->matriculaAjunto = 22;
+      $adjunto->matriculaAdjunto = 11;
       $adjunto->firstName = $post['firstName'];
       $adjunto->secondName = $post['secondName'];
       $adjunto->firstLastName = $post['firstLastName'];

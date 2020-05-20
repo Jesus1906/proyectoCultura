@@ -1,3 +1,15 @@
+<?php
+  require_once '../../vendor/autoload.php';
+
+use App\Controllers\{RegistrarController};
+
+  $adjunto = new RegistrarController();
+  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $adjunto->regAdjunto($_POST);
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +51,7 @@
 
 
     <div class="container">
-        <form>
+        <form action = "" method = "POST">
 
             <div class="form-row">
                 <div class="col-sm-6">
@@ -103,10 +115,10 @@
                     <input type="text" class="form-control" placeholder="Año (AAAA)" name="year">
                 </div>
             </div>
-<br>
+            <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
                     Agregar
                 </button>
             </div>
@@ -128,7 +140,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Aceptar</button>
+                            <button type="button" class="btn btn-primary" action = "" method = "POST">Aceptar</button>
                         </div>
                     </div>
                 </div>
