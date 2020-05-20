@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Alumno;
-use App\Models\Lider_celula;
+use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso};
 
 
 class RegistrarController extends BaseController{
@@ -32,10 +31,6 @@ class RegistrarController extends BaseController{
       }
    }
 
-   public function getAlumno(){
-      return Alumno::all();
-   }
-
    public function regLider($post){
       $lider = new Lider_celula();
       $lider->firstName = $post['firstName'];
@@ -45,7 +40,7 @@ class RegistrarController extends BaseController{
       $lider->phone = $post['phone'];
       $lider->save();
    }
-   
+
    public function regAlumno($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
       $alumno = new Alumno();
@@ -69,6 +64,55 @@ class RegistrarController extends BaseController{
       $alumno->Lider_Celula_id = $post['lider'];
       $alumno->save();
    }
+
+   public function regAdjunto($post){
+      $administrador = new Administrador();
+      $administrador->matriculaAdministrador = 22;
+      $administrador->firstName = $post['firstName'];
+      $administrador->secondName = $post['secondName'];
+      $administrador->firstLastName = $post['firstLastName'];
+      $administrador->secondLastName = $post['secondLastName'];
+      $administrador->email = $post['email'];
+      $administrador->password = password_hash($post['password'], PASSWORD_DEFAULT);
+      $administrador->phone = $post['phone'];
+      $administrador->save();
+   }
+
+   public function regAdministrador($post){
+      $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
+      $adjunto = new Adjunto();
+      $adjunto->matriculaAjunto = 22;
+      $adjunto->firstName = $post['firstName'];
+      $adjunto->secondName = $post['secondName'];
+      $adjunto->firstLastName = $post['firstLastName'];
+      $adjunto->secondLastName = $post['secondLastName'];
+      $adjunto->birthday = $birthday;
+      $adjunto->email = $post['email'];
+      $adjunto->password = password_hash($post['password'], PASSWORD_DEFAULT);
+      $adjunto->phone = $post['phone'];
+      $adjunto->save();
+   }
+
+   public function regProfesor($post){
+      $profesor = new Profesor();
+      $profesor->firstName = $post['firstName'];
+      $profesor->secondName = $post['secondName'];
+      $profesor->firstLastName = $post['firstLastName'];
+      $profesor->secondLastName = $post['secondLastName'];
+      $profesor->email = $post['email'];
+      $profesor->phone = $post['phone'];
+      $profesor->save();
+   }
+
+   public function regCurso($post){
+      $curso = new Curso();
+      $curso->name = $post['name'];
+      $curso->nivel = $post['nivel'];
+      $curso->descripcion = $post['descripcion'];
+      $curso->cursoAnterior = $post['cursoAnterior'];
+      $curso->cursoSiguiente = $post['cursoSiguiente'];
+   }
+
 
    //fin funcion registrar usuario
 }

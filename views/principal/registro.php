@@ -1,7 +1,7 @@
 <?php
   require_once '../../vendor/autoload.php';
-  use App\Controllers\LiderController;
-  use App\Controllers\RegistrarController;
+
+use App\Controllers\{ConsultaController, RegistrarController};
 
   $alumno = new RegistrarController();
 
@@ -156,7 +156,7 @@
           <select class="custom-select is-invalid" id="validationServer09" required name = "lider">
             <option selected disabled value="">Elige...</option>
             <?php
-              $lideres = new LiderController();
+              $lideres = new ConsultaController();
               $lideres = $lideres->getLideres();  
               for($i = 0; $i < count($lideres); $i++) {
                 $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
