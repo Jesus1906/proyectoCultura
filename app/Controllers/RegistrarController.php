@@ -81,7 +81,7 @@ class RegistrarController extends BaseController{
    public function regAdjunto($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
       $adjunto = new Adjunto();
-      $adjunto->matriculaAdjunto = 11;
+      $adjunto->matriculaAdjunto = 41;
       $adjunto->firstName = $post['firstName'];
       $adjunto->secondName = $post['secondName'];
       $adjunto->firstLastName = $post['firstLastName'];
