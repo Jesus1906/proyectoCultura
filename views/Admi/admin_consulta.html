@@ -34,80 +34,84 @@
     </div>
     
     <div class="container">
-        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-              aria-label="Search">
-          </form>
-          <div class="row">
-            <div class=" col-sm-3">
-                <label for="inputState">Filtro de Busqueda</label>
-                <select id="inputState" class="form-control">
-                <option selected></option>
-                <option>Orden Alfabetico</option>
-                
-                </select>
-             </div>
-             <div class="row">
-                <div class="col align-self-end">
-                    <a href="adj_modificar.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
-                    
-                  </div>
-              </div>
+      <form class="">
+  
+        <div class="form-row justify-content-center">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda" aria-label="Search"
+            name="parametro">
         </div>
-        <div class="row">
-            
-            <div class="col-sm-12">    
-                <div class="modal-dialog text-center">
-                    <h3>Administradores</h3>                    
-                </div> 
-                  
-                  <table class="table">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Primer Nombre</th>
-                         
-                        <th scope="col">Ap Paterno</th>
-                        <th scope="col">Ap Materno</th>
-                        <th scope="col">Telefono</th>
-                         
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td> </td>
-                        <td> </td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  
-                  
-                  
-            </div>
-            <div class="row">
-                <div class="col align-self-end">
-                    <button type="button" class="btn btn-secondary">Imprimir</button>
-                    <button type="button" class="btn btn-success">Finalizar</button>
-                  </div>
-              </div>
-            
+        <br>
+        <div class="form-row">
+  
+          <div class=" col-sm-4">
+            <select id="inputState" class="custom-select" name="filtro">
+              <option selected disable value="all">Todos los Administradores</option>
+              <option value="name">Nombre(s)</option>
+              <option value="apPaterno">Apellido paterno</option>
+              <option value="apMaterno">Apellido materno</option>
+              <option value="phone">Telefono</option>
+            </select>
+          </div>
+          <div class="col-sm-4">
+            <button type="submit" class="btn btn-outline-success">Aplicar Filtros</button>
+          </div>
         </div>
+  
+      </form>
+  
+      <div class="row">
+  
+        <div class="col-sm-12">
+          <div class="modal-dialog text-center">
+            <h3>Administradores</h3>
+          </div>
+  
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Primer Nombre</th>
+                <th scope="col">Ap Paterno</th>
+                <th scope="col">Ap Materno</th>
+                <th scope="col">Telefono </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td> </td>
+                <td> </td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
         
+  
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col">
+            <button type="submit" class="btn btn-secondary">Imprimir</button>
+            <button type="submit" class="btn btn-primary">Editar Datos</button>
+        </div>
+      </div>
+      
     </div>
 
 
