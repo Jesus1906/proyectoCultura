@@ -1,23 +1,22 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\{Alumno, Adjunto, Administrador};
+use App\Controllers\ConsultaController;
 
 
 class MatriculaController extends BaseController{
 
-   public function __construct($usr){
+   public function __construct(){
       $this->iniciarControladorBase();
-      $this->usr = $usr;
-
    }
 
    public function asignarMatricula($usr){
+      $consulta = new ConsultaController;
       //crear matricula de 5 digitos XXXXX
       //ultimo digito para asignar matricula 1.- Alumno 2.-Adjunto 3.-Administrador
       switch($usr){
          case "Alu":{
-            $matricula = getMatricula('Alu');
+            $matricula = $consulta->getMatricula('Alu');
             if($matricula !=false){
                $matricula+=10;
             }else{
@@ -28,7 +27,7 @@ class MatriculaController extends BaseController{
          }
          break;
          case "Adj":{
-            $matricula = getMatricula('Adj');
+            $matricula = $consulta->getMatricula('Adj');
             if($matricula !=false){
                $matricula+=10;
             }else{
@@ -39,7 +38,7 @@ class MatriculaController extends BaseController{
          }
          break;
          case"Adm":{
-            $matricula = getMatricula('Adm');
+            $matricula = $consulta->getMatricula('Adm');
             if($matricula !=false){
                $matricula+=10;
             }else{

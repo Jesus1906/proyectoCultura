@@ -43,7 +43,7 @@ class RegistrarController extends BaseController{
 
    public function regAlumno($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
-      $matricula = new MatriculaController('alum');
+      $matricula = new MatriculaController('alu');
       $alumno = new Alumno();
       $alumno->matriculaAlumno = $matricula->asignarMatricula();
       $alumno->firstName = $post['firstName'];
@@ -67,7 +67,7 @@ class RegistrarController extends BaseController{
    }
 
    public function regAdministrador($post){
-      $matricula = new MatriculaController('admi');
+      $matricula = new MatriculaController('adm');
       $administrador = new Administrador();
       $administrador->matriculaAdministrador = $matricula->asignarMatricula();
       $administrador->firstName = $post['firstName'];
@@ -82,7 +82,7 @@ class RegistrarController extends BaseController{
 
    public function regAdjunto($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
-      $matricula = new MatriculaController('adju');
+      $matricula = new MatriculaController('adj');
       $adjunto = new Adjunto();
       $adjunto->matriculaAdjunto = $matricula->asignarMatricula();
       $adjunto->firstName = $post['firstName'];

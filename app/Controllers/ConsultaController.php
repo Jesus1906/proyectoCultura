@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Lider_celula, Alumno, Adjunto};
+use App\Models\{Lider_celula, Alumno, Adjunto, Administrador};
 
 class ConsultaController extends BaseController
 {
