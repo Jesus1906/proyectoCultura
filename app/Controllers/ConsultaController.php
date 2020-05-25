@@ -47,4 +47,42 @@ class ConsultaController extends BaseController
                 break;
         }
     }
+
+    public function getMatricula($usr){
+      //obtener el ultimo id registrado en la tabla en caso ser true retornar el id
+      //si no existe id previo retornar false
+      switch($usr){
+         case 'Adm' : {
+            $row = Administrador::count();
+         if($row!=0 || $row!=null){
+               $matricula ;
+               return $matricula;
+            }else{
+               return false;
+            }
+         }
+         break;
+
+         case 'Adj' : {
+         if(/*Consulta del ultimo id en tabla adjunto*/ false ){
+               $matricula /*Consulta ultimo id*/;
+               return $matricula;
+            }else{
+               return false;
+            }
+         }
+         break;
+
+         case 'Alu' : {
+         if(/*Consulta del ultimo id en tabla alu*/ false ){
+               $matricula  /*Consulta ultimo id*/;
+               return $matricula;
+            }else{
+               return false;
+            }
+         }
+         break;
+      }//switch
+   }//fin getmatricula
+
 }
