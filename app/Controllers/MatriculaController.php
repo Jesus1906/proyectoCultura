@@ -16,9 +16,10 @@ class MatriculaController extends BaseController{
       //ultimo digito para asignar matricula 1.- Alumno 2.-Adjunto 3.-Administrador
       switch($usr){
          case "Alu":{
-            $matricula = $consulta->getMatricula('Alu');
+            $matricula = $consulta->getMatricula('alu');
             if($matricula !=false){
                $matricula+=10;
+               return $matricula;
             }else{
                //en caso de que no exista matricula crear una nueva
                $matricula = 10011;
@@ -27,9 +28,10 @@ class MatriculaController extends BaseController{
          }
          break;
          case "Adj":{
-            $matricula = $consulta->getMatricula('Adj');
+            $matricula = $consulta->getMatricula('adj');
             if($matricula !=false){
                $matricula+=10;
+               return $matricula;
             }else{
                //en caso de que no exista matricula crear una nueva
                $matricula = 10012;
@@ -38,9 +40,10 @@ class MatriculaController extends BaseController{
          }
          break;
          case"Adm":{
-            $matricula = $consulta->getMatricula('Adm');
+            $matricula = $consulta->getMatricula('adm');
             if($matricula !=false){
                $matricula+=10;
+               return $matricula;
             }else{
                //en caso de que no exista matricula crear una nueva
                $matricula = 10013;
