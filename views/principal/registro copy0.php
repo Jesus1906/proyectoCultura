@@ -5,7 +5,7 @@ use App\Controllers\{ConsultaController, RegistrarController, MatriculaControlle
 
    $mat = new ConsultaController();
 
-  $datos = $mat->getMatricula('Adm');
+  $datos = $mat->getMatricula('Adj');
   echo "<br><br><br>";
   var_dump($datos);
 

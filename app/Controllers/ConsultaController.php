@@ -54,9 +54,9 @@ class ConsultaController extends BaseController
       switch($usr){
          case 'Adm' : {
             $row = Administrador::count();
-         if($row!=0 || $row!=null){
-               $matricula ;
-               return $matricula;
+         if($row!=0){
+               $matricula = 1000 + $row . "3";
+               return (int)$matricula;
             }else{
                return false;
             }
@@ -64,9 +64,10 @@ class ConsultaController extends BaseController
          break;
 
          case 'Adj' : {
-         if(/*Consulta del ultimo id en tabla adjunto*/ false ){
-               $matricula /*Consulta ultimo id*/;
-               return $matricula;
+            $row = Adjunto::count();
+         if($row!=0){
+               $matricula = 1000 + $row . "2";
+               return (int)$matricula;
             }else{
                return false;
             }
@@ -74,9 +75,10 @@ class ConsultaController extends BaseController
          break;
 
          case 'Alu' : {
-         if(/*Consulta del ultimo id en tabla alu*/ false ){
-               $matricula  /*Consulta ultimo id*/;
-               return $matricula;
+            $row = Alumno::count();
+         if($row!=0){
+               $matricula = 1000 + $row . "1";
+               return (int)$matricula;
             }else{
                return false;
             }
