@@ -43,9 +43,9 @@ class RegistrarController extends BaseController{
 
    public function regAlumno($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
-      $matricula = new MatriculaController('alu');
+      $matricula = new MatriculaController();
       $alumno = new Alumno();
-      $alumno->matriculaAlumno = $matricula->asignarMatricula();
+      $alumno->matriculaAlumno = $matricula->asignarMatricula('alu');
       $alumno->firstName = $post['firstName'];
       $alumno->secondName = $post['secondName'];
       $alumno->firstLastName = $post['firstLastName'];
@@ -67,9 +67,9 @@ class RegistrarController extends BaseController{
    }
 
    public function regAdministrador($post){
-      $matricula = new MatriculaController('adm');
+      $matricula = new MatriculaController();
       $administrador = new Administrador();
-      $administrador->matriculaAdministrador = $matricula->asignarMatricula();
+      $administrador->matriculaAdministrador = $matricula->asignarMatricula('adm');
       $administrador->firstName = $post['firstName'];
       $administrador->secondName = $post['secondName'];
       $administrador->firstLastName = $post['firstLastName'];
@@ -82,9 +82,9 @@ class RegistrarController extends BaseController{
 
    public function regAdjunto($post){
       $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
-      $matricula = new MatriculaController('adj');
+      $matricula = new MatriculaController();
       $adjunto = new Adjunto();
-      $adjunto->matriculaAdjunto = $matricula->asignarMatricula();
+      $adjunto->matriculaAdjunto = $matricula->asignarMatricula('adj');
       $adjunto->firstName = $post['firstName'];
       $adjunto->secondName = $post['secondName'];
       $adjunto->firstLastName = $post['firstLastName'];
