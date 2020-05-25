@@ -31,19 +31,21 @@ class ConsultaController extends BaseController
     {
         switch ($post['filtro']) {
             case 'matricula': {
-                    return Adjunto::find($post['parametro'])->first();
-                }
+                var_dump($post['parametro']);
+                return Adjunto::find($post['parametro']);
+            }
                 break;
 
             case 'name': {
-                    $names = explode(' ', $post['parametro']);
-                    return Adjunto::where('firstName',$names[0]);
-                }
+                $names = explode(' ', $post['parametro']);
+                return Adjunto::where('firstName',$names[0])->get();
+            }
                 break;
 
             case 'apPaterno': {
-                return Adjunto::where('firstLastName',$post['parametro']);
-                }
+                $registro = Adjunto::where('firstLastName',$post['parametro'])->get();
+                return $registro;
+            }
                 break;
         }
     }

@@ -2,12 +2,14 @@
 require_once '../../vendor/autoload.php';
 
 use App\Controllers\{ConsultaController};
+use App\Models\Adjunto;
 
 $adjuntos = new ConsultaController();
-
+$filtro = "none";
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
     $adjuntos = $adjuntos->getAllAdjunto();
 } else {
+    $filtro = $_POST['filtro'];
     $adjuntos = $adjuntos->getAdjunto($_POST);
 }
 
@@ -98,7 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                     </thead>
                     <tbody>
                         <?php
-                        if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+                        if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+
                             foreach ($adjuntos as $adjunto) {
                                 echo '<tr>';
                                 echo '<th scope="row">' . $adjunto['matriculaAdjunto'] . '</th>';
@@ -108,16 +111,15 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                                 echo '<td>' . $adjunto['phone'] . '</td>';
                                 echo '</tr>';
                             }
-                        }else{
-                            if(true){
-                                echo '<tr>';
-                                echo '<th scope="row">' . $adjuntos['matriculaAdjunto'] . '</th>';
-                                echo '<td>' . $adjuntos['firstName'] . ' ' . $adjuntos['secondName'] . '</td>';
-                                echo '<td>' . $adjuntos['firstLastName'] . '</td>';
-                                echo '<td>' . $adjuntos['secondLastName'] . '</td>';
-                                echo '<td>' . $adjuntos['phone'] . '</td>';
-                                echo '</tr>';
-                            }
+                        } else {
+                            echo ("ho");
+                            echo '<tr>';
+                            echo '<th scope="row">' . $adjuntos['matriculaAdjunto'] . '</th>';
+                            echo '<td>' . $adjuntos['firstName'] . ' ' . $adjuntos[0]['secondName'] . '</td>';
+                            echo '<td>' . $adjuntos['firstLastName'] . '</td>';
+                            echo '<td>' . $adjuntos['secondLastName'] . '</td>';
+                            echo '<td>' . $adjuntos['phone'] . '</td>';
+                            echo '</tr>';
                         }
                         ?>
                     </tbody>
