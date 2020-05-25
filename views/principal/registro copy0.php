@@ -1,13 +1,14 @@
 <?php
   require_once '../../vendor/autoload.php';
 
-use App\Controllers\{ConsultaController, RegistrarController, MatriculaController};
+use App\Controllers\{ValidatorController};
 
-   $mat = new ConsultaController();
+   $val = new ValidatorController();
+   $pass1 = "  1";
+   $pass2 = "  1";
 
-  $datos = $mat->getMatricula('Adj');
-  echo "<br><br><br>";
-  var_dump($datos);
+   $valido = $val->validarPassIgual($pass1, $pass2);
+  var_dump($valido);
 
 ?>
 
