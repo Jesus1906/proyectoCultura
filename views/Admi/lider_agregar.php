@@ -51,26 +51,29 @@
 
 
     <div class="container">
+        <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
         <form>
 
             <div class="form-row">
-                <div class="col-sm-6">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Primer Nombre</label>
                     <input type="text" class="form-control" placeholder="Nombre" required name="firstName">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Segundo Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" required name="secondName">
+                <div class="col-sm-4">
+                    <label for="inputState">Segundo Nombre (Opcional)</label>
+                    <input type="text" class="form-control" placeholder="Nombre"  name="secondName">
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Paterno</label>
                     <input type="text" class="form-control" placeholder="Apellido Paterno" required
                         name="firstLastName">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Materno</label>
                     <input type="text" class="form-control" placeholder="Apellido Materno" required
                         name="secondLastName">
@@ -79,10 +82,10 @@
 
 
             <div class="form-row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Telefono</label>
-                    <input type="text" class="form-control" placeholder="Telefono" required name="phone">
+                    <input type="tel" class="form-control" placeholder="55 1234 5678" pattern="[0-9]{2} [0-9]{4} [0-9]{4}" required name="phone">
                 </div>
                 
             </div>
@@ -90,7 +93,7 @@
 <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
                     Agregar
                 </button>
             </div>

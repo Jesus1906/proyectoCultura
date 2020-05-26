@@ -20,7 +20,7 @@ use App\Controllers\{ConsultaController, RegistrarController};
   <title>Registro</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="validation.js"></script>
+    
 
 </head>
 
@@ -50,7 +50,7 @@ use App\Controllers\{ConsultaController, RegistrarController};
     <h1>Registro Alumno</h1>
   </div>
   <div class="container">
-        <form action="" method="POST"class="needs-validation" novalidate>
+        <form action="" method="POST">
             <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
             <div class="modal-dialog text-center">
                 <h3>Datos Personales</h3>
@@ -171,13 +171,13 @@ use App\Controllers\{ConsultaController, RegistrarController};
                         required name="email">
                         <div class="invalid-feedback">Llena el campo</div>
                         <div class="valid-feedback">Ok!</div>
-                    <label for="inputPassword4">Contraseña</label>
-                    <input type="password" class="form-control" id="inputPassword4" name="password" required
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" required
                         minlength="8" maxlength="20">
                     <div class="invalid-feedback">Debe contener mínimo 8 carácteres</div>
                     <div class="valid-feedback">Ok!</div>
-                    <label for="inputPassword4">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="inputPassword4" required>    
+                    <label for="password1">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="password1" required>    
 
                     <div class="invalid-feedback">Las contraseñas no Coinciden</div>
                     <div class="valid-feedback">Ok!</div>

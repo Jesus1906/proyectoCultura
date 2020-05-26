@@ -50,53 +50,60 @@
 
 
     <div class="container">
+    <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
         <form action="" method="POST">
 
             <div class="form-row">
-                <div class="col-sm-6">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Primer Nombre</label>
                     <input type="text" class="form-control" placeholder="Nombre" required name="firstName">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Segundo Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" required name="secondName">
+                <div class="col-sm-4">
+                    <label for="inputState">Segundo Nombre (Opcional)</label>
+                    <input type="text" class="form-control" placeholder="Nombre" name="secondName">
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Paterno</label>
                     <input type="text" class="form-control" placeholder="Apellido Paterno" required
                         name="firstLastName">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Materno</label>
                     <input type="text" class="form-control" placeholder="Apellido Materno" required
                         name="secondLastName">
                 </div>
             </div>
 
-
+            <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
             <div class="form-row">
-                <div class="col-sm-6">
+            
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Telefono</label>
                     <input type="text" class="form-control" placeholder="Telefono" required name="phone">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="inputState">Correo</label>
-                    <input type="text" class="form-control" placeholder="Correo Electronico" required name="email">
+                    <input type="email" class="form-control" placeholder="Correo Electronico" required name="email">
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Contraseña</label>
-                    <input type="text" class="form-control" placeholder="Debe contener minimo 8 digitos" required
-                        name="password">
+                    <input type="password" class="form-control" placeholder="Debe contener minimo 8 digitos" required
+                    minlength="8" maxlength="20" name="password">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="inputState">Confirmar Contraseña</label>
-                    <input type="text" class="form-control" placeholder="******">
+                    <input type="password" class="form-control" placeholder="Ingresa Nuevamente tu Contraseña" 
+                    minlength="8" maxlength="20">
                 </div>
             </div>
 
