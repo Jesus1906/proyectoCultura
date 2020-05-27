@@ -51,74 +51,74 @@ use App\Controllers\{RegistrarController};
 
 
     <div class="container">
+        <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
         <form action = "" method = "POST">
 
             <div class="form-row">
-                <div class="col-sm-6">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Primer Nombre</label>
                     <input type="text" class="form-control" placeholder="Nombre" required name="firstName">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Segundo Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" required name="secondName">
+                <div class="col-sm-4">
+                    <label for="inputState">Segundo Nombre (Opcional)</label>
+                    <input type="text" class="form-control" placeholder="Nombre" name="secondName">
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Paterno</label>
                     <input type="text" class="form-control" placeholder="Apellido Paterno" required
                         name="firstLastName">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Materno</label>
                     <input type="text" class="form-control" placeholder="Apellido Materno" required
                         name="secondLastName">
                 </div>
             </div>
-
-
+            <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
             <div class="form-row">
-                <div class="col-sm-6">
-                    <label for="inputState">Telefono</label>
-                    <input type="text" class="form-control" placeholder="Telefono" required name="phone">
+                <div class="col-sm-4"></div>
+                <div class="col-md-4">
+                    <label for="birthday"> Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" required name="birthday">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Correo</label>
-                    <input type="text" class="form-control" placeholder="Correo Electronico" required name="email">
+            </div>
+
+            <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
+            <div class="form-row">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="phone">Telefono</label>
+                <input type="tel" class="form-control" id="phone" placeholder="55 1234 5678" pattern="[0-9]{2} [0-9]{4} [0-9]{4}" required name="phone">
+                </div>
+                <div class="col-sm-4">
+                    <label for="email">Correo</label>
+                    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required name="email">
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
-                    <label for="inputState">Contraseña</label>
-                    <input type="text" class="form-control" placeholder="Debe contener minimo 8 digitos" required
-                        name="password">
+            <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="contraseña">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Debe contener minimo 8 digitos" required
+                    id="contraseña" name="password" minlength="8" maxlength="20">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Confirmar Contraseña</label>
-                    <input type="text" class="form-control" placeholder="******">
+                <div class="col-sm-4">
+                    
+                    <label for="contraseña1">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" id="contraseña1" placeholder="Ingresa Nuevamente tu Contraseña" minlength="8" maxlength="20">
                 </div>
-            </div>
-
-            <div class="row">
-                <label for="inputState"> Fecha de Nacimiento</label>
-            </div>
-            <div class="form-row">
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Día (DD)" name="day">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Mes (MM)" name="month">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Año (AAAA)" name="year">
-                </div>
+                              
             </div>
             <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" >
                     Agregar
                 </button>
             </div>

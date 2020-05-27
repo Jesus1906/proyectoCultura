@@ -36,114 +36,84 @@
         <h1>Agregar un Curso</h1>
     </div>
 
-    
+
 
     <div class="container">
-        
+        <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
         <form>
-            <div class="row">
-               
-            </div>
             <div class="form-row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-4">
                     <label for="inputState">Nombre del Curso</label>
-                    <input type="text" class="form-control" placeholder="Nombre del Curso"  required name = "name">
+                    <input type="text" class="form-control" placeholder="Nombre del Curso" required name="name">
                 </div>
                 <div class="col-sm-2">
-                    <label for="inputState">Nombre del Curso</label>
-                    <input type="text" class="form-control" placeholder="2"  required name = "nivel">
+                    <label for="inputState">Nivel del Curso</label>
+                    <input type="number" class="form-control" placeholder="2" required name="nivel">
                 </div>
             </div>
-            
-            
+
+
             <div class="form-row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-4">
-                    <label for="inputState">Curso Anterior</label>
-                    <select class="custom-select" id="validationServer07" required name = "">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                    <label for="curanterior">Curso Anterior</label>
+                    <select class="custom-select" id="curanterior" required name="cursoAnterior">
                         <option selected disabled value="">Elige...</option>
                         <option>Name Curso</option>
                         <option>Name Curso</option>
-                      </select>
+                    </select>
                 </div>
-                <div class="col-sm-4">
-                    <label for="inputState">Curso Siguiente</label>
-                    <select class="custom-select" id="validationServer07" required name = "">
+                <div class="col-sm-3">
+                    <label for="cursiguiente">Curso Siguiente</label>
+                    <select class="custom-select" id="cursiguiente" required name="cursoSiguiente">
                         <option selected disabled value="">Elige...</option>
                         <option>Name Curso</option>
                         <option>Name Curso</option>
                     </select>
                 </div>
             </div>
-           
+
             <div class="form-row">
-                <div class="col-sm-2"></div>
-                <div class="col-md-4">
+                <div class="col-sm-3"></div>
+                <div class="col-md-6">
                     <label for="inputState">Descripción</label>
-                    <textarea class="form-control" placeholder="Escriba una Descripción del Curso"></textarea>
+                    <textarea class="form-control" placeholder="Escriba una Descripción del Curso" required
+                        name="descripcion"></textarea>
                 </div>
-                <div class="col-md-4">
-                    <label for="inputState">Temario</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                      </div>               
-                </div>               
             </div>
             
-            <div class="row">
-                
-            </div>
+            
             <div class="form-row">
-                <div class="col-sm-2"></div>
+                <div class="col-sm-4"></div>
                 <div class="col-md-4">
-                    <label for="inputState">Manual</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                      </div>
+                    <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
+
+                    <label for="temario">Temario</label>
+                    <input type="file" class="form-control-file" id="temario" lang="es" required name="">
+                    <label for="manual">Manual</label>
+                    <input type="file" class="form-control-file" id="manual" lang="es" required name="">
+                    <label for="examen">Examen</label>
+                    <input type="file" class="form-control-file" id="examen" lang="es" required name="">
+                    <label for="respuestas">Hojas de Respuestas</label>
+                    <input type="file" class="form-control-file" id="respuestas" lang="es" required name="">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" class="form-control-file" id="imagen" lang="es" required name="">
                 </div>
-               
-                <div class="col-md-4">
-                    <label for="inputState">Examen</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                      </div>
-                </div>              
+
+
             </div>
 
-            <div class="row">
-                
-            </div>
-            <div class="form-row">
-                <div class="col-sm-2"></div>
-                <div class="col-md-4">
-                    <label for="inputState">Hoja de respuestas</label>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                        <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                      </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="custom-file mb-3">
-                        <label for="inputState">Imagen</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-                            <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
-                          </div>
-                      </div>
-                </div>              
-            </div>
-<br>
+
+
+            <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
                     Agregar
                 </button>
             </div>
-            
+
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -168,11 +138,11 @@
             </div>
 
         </form>
-        
+
 
     </div>
-        
-</div>
+
+    </div>
 
 
 
