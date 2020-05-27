@@ -36,69 +36,61 @@
         <h1>Agregar un Profesor</h1>
     </div>
 
-    
+
 
     <div class="container">
-        <form>
+        <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
+        <form action="" method="POST">
 
             <div class="form-row">
-                <div class="col-sm-6">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState">Primer Nombre</label>
                     <input type="text" class="form-control" placeholder="Nombre" required name="firstName">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Segundo Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre" required name="secondName">
+                <div class="col-sm-4">
+                    <label for="inputState">Segundo Nombre (Opcional)</label>
+                    <input type="text" class="form-control" placeholder="Nombre" name="secondName">
                 </div>
             </div>
 
             <div class="form-row">
-                <div class="col-sm-6">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Paterno</label>
                     <input type="text" class="form-control" placeholder="Apellido Paterno" required
                         name="firstLastName">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <label for="inputState"> Apellido Materno</label>
                     <input type="text" class="form-control" placeholder="Apellido Materno" required
                         name="secondLastName">
                 </div>
             </div>
 
-
+            <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
             <div class="form-row">
-                <div class="col-sm-6">
-                    <label for="inputState">Telefono</label>
-                    <input type="text" class="form-control" placeholder="Telefono" required name="phone">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="phone">Telefono</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="55 1234 5678"
+                        pattern="[0-9]{2} [0-9]{4} [0-9]{4}" required name="phone">
                 </div>
-                <div class="col-sm-6">
-                    <label for="inputState">Correo</label>
-                    <input type="text" class="form-control" placeholder="Correo Electronico" required name="email">
+                <div class="col-sm-4">
+                    <label for="email">Correo</label>
+                    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required
+                        name="email">
                 </div>
             </div>
 
-            <div class="row">
-                <label for="inputState"> Fecha de Nacimiento</label>
-            </div>
-            <div class="form-row">
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Día (DD)" name="day">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Mes (MM)" name="month">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Año (AAAA)" name="year">
-                </div>
-            </div>
-<br>
+            <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal">
                     Agregar
                 </button>
             </div>
-            
+
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
@@ -106,17 +98,17 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Profesor Agregado</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Adjunto Agregado</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            El Profesor ha sido agregado con éxito
+                            El Adjunto ha sido agregado con éxito
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Aceptar</button>
+                            <button type="button" class="btn btn-primary" action="" method="POST">Aceptar</button>
                         </div>
                     </div>
                 </div>
@@ -124,9 +116,8 @@
         </form>
 
     </div>
-   
-        
-</div>
+
+
 
 
 
