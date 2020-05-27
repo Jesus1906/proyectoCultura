@@ -2,7 +2,6 @@
 require_once '../../vendor/autoload.php';
 
 use App\Controllers\{ConsultaController};
-use App\Models\Adjunto;
 
 $adjuntos = new ConsultaController();
 $filtro = "none";
@@ -62,12 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
                 <div class=" col-sm-4 justify-content-center">
                     <select id="inputState" class="custom-select" name="filtro">
-                        <option selected disable value="all">Todos los adjuntos</option>
+                        <option selected value="all">Todos los adjuntos</option>
                         <option value="matricula">Matricula</option>
                         <option value="name">Nombre(s)</option>
                         <option value="apPaterno">Apellido paterno</option>
-                        <option value="apMaterno">Apellido materno</option>
-                        <option value="phone">Telefono</option>
                     </select>
                 </div>
                 <div class="col-sm-4">
@@ -91,10 +88,10 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                         <tr>
                             <th scope="col">Matricula</th>
                             <th scope="col">Primer Nombre</th>
-
                             <th scope="col">Ap Paterno</th>
                             <th scope="col">Ap Materno</th>
                             <th scope="col">Telefono</th>
+                            <th scope="col">Email </th>
 
                         </tr>
                     </thead>
@@ -109,17 +106,18 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                                 echo '<td>' . $adjunto['firstLastName'] . '</td>';
                                 echo '<td>' . $adjunto['secondLastName'] . '</td>';
                                 echo '<td>' . $adjunto['phone'] . '</td>';
+                                echo '<td>' . $adjunto['email'] . '</td>';
                                 echo '</tr>';
                             }
-                        } else {
-                            echo ("ho");
+                        } else if($filtro == "matricula"){
                             echo '<tr>';
                             echo '<th scope="row">' . $adjuntos['matriculaAdjunto'] . '</th>';
-                            echo '<td>' . $adjuntos['firstName'] . ' ' . $adjuntos[0]['secondName'] . '</td>';
+                            echo '<td>' . $adjuntos['firstName'] . ' ' . $adjuntos['secondName'] . '</td>';
                             echo '<td>' . $adjuntos['firstLastName'] . '</td>';
                             echo '<td>' . $adjuntos['secondLastName'] . '</td>';
                             echo '<td>' . $adjuntos['phone'] . '</td>';
-                            echo '</tr>';
+                            echo '<td>' . $adjuntos['email'] . '</td>';
+                            echo '</option> </tr>';
                         }
                         ?>
                     </tbody>

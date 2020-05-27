@@ -1,7 +1,7 @@
 <?php
   require_once '../../vendor/autoload.php';
 
-use App\Controllers\{ValidatorController};
+use App\Controllers\{ValidatorController, ConsultaController};
 
    $val = new ValidatorController();
    $pass1 = "  1";

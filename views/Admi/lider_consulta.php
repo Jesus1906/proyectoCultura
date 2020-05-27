@@ -1,3 +1,19 @@
+<?php
+require_once '../../vendor/autoload.php';
+
+use App\Controllers\{ConsultaController};
+use App\Models\Lider_celula;
+
+$lideres = new ConsultaController();
+$filtro = "none";
+if ($_SERVER["REQUEST_METHOD"] == 'GET') {
+  $lideres = $lideres->getAllLideres();
+} else {
+  $filtro = $_POST['filtro'];
+  $lideres = $lideres->getLider($_POST);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +52,7 @@
     </div>
 
     <div class="container">
-        <form class="">
+        <form class="" action="" method="POST">
     
           <div class="form-row justify-content-center">
             <i class="fas fa-search" aria-hidden="true"></i>
@@ -48,11 +64,9 @@
     
             <div class=" col-sm-4">
               <select id="inputState" class="custom-select" name="filtro">
-                <option selected disable value="all">Todos los Líderes</option>
+                <option selected value="all">Todos los Líderes</option>
                 <option value="name">Nombre(s)</option>
                 <option value="apPaterno">Apellido paterno</option>
-                <option value="apMaterno">Apellido materno</option>
-                <option value="phone">Telefono</option>
               </select>
             </div>
             <div class="col-sm-4">
@@ -79,24 +93,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td> </td>
-                  <td> </td>
-                  <td> </td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td> </td>
-                  <td> </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td> </td>
-                  <td> </td>
-                  <td> </td>
-                </tr>
+              <?php
+            if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+
+              foreach ($lideres as $lider) {
+                echo '<tr>';
+                echo '<th scope="row">' . $lider['firstName'] . ' ' . $lider['secondName'] . '</th>';
+                echo '<td>' . $lider['firstLastName'] . '</td>';
+                echo '<td>' . $lider['secondLastName'] . '</td>';
+                echo '<td>' . $lider['phone'] . '</td>';
+                echo '</tr>';
+              }
+            }
+            ?>
               </tbody>
             </table>
           </div>
