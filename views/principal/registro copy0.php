@@ -4,11 +4,14 @@
 use App\Controllers\{ValidatorController};
 
    $val = new ValidatorController();
-   $pass1 = "  1";
-   $pass2 = "  1";
-
-   $valido = $val->validarPassIgual($pass1, $pass2);
-  var_dump($valido);
+   $min = null;
+   $max = null;
+   $dato = "12-12-2019";
+   $num = 0;
+   $valido=$val->validarEdad($dato);
+   var_dump($valido);
+   $err = $val->validarErrores();
+   var_dump($err);
 
 ?>
 
