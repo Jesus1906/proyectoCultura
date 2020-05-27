@@ -39,7 +39,7 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
 $routerContainer = new RouterContainer();// creamos una instancia de la clase
 $map = $routerContainer->getMap();//obtenemos el mapa de rutas 
 
-$map->get('index', '/proyectoCultura/', '../views/principal/principal.html');
+$map->get('index', '/proyectoCultura/', '../views/principal/index.html');
 
 $matcher = $routerContainer->getMatcher();//obtenemos el matcher
 $route = $matcher->match($request);
