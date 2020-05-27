@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Lider_celula, Alumno, Adjunto, Administrador};
+use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor};
 
 class ConsultaController extends BaseController
 {
@@ -15,6 +15,11 @@ class ConsultaController extends BaseController
     public function getAllLideres()
     {
         return Lider_celula::all();
+    }
+
+    public function getAllProfesor()
+    {
+        return Profesor::all();
     }
 
     public function getAllAlumno()
@@ -32,7 +37,8 @@ class ConsultaController extends BaseController
         return Administrador::all();
     }
 
-    public function getAdjunto($post){
+    public function getAdjunto($post)
+    {
         switch ($post['filtro']) {
             case 'matricula': {
                     return Adjunto::find($post['parametro']);
@@ -41,24 +47,29 @@ class ConsultaController extends BaseController
 
             case 'name': {
                     $names = explode(' ', $post['parametro']);
-                    return Adjunto::where('firstName', $names[0])->get();
+                    return Adjunto::where('firstName', $names[0])
+                        ->orWhere('secondName', $names[0])
+                        ->get();
                 }
                 break;
 
-            case 'apPaterno': {
-                    $registro = Adjunto::where('firstLastName', $post['parametro'])->get();
-                    return $registro;
+            case 'apellido': {
+                    $apellido = explode(' ', $post['parametro']);
+                    return Adjunto::where('firstLastName', $apellido[0])
+                        ->orWhere('secondLastName', $apellido[0])
+                        ->get();
                 }
                 break;
             case 'all': {
-                    
+
                     return $this->getAllAdjunto();
                 }
                 break;
         }
     }
 
-    public function getAlumno($post){
+    public function getAlumno($post)
+    {
         switch ($post['filtro']) {
             case 'matricula': {
                     return Alumno::find($post['parametro']);
@@ -67,68 +78,109 @@ class ConsultaController extends BaseController
 
             case 'name': {
                     $names = explode(' ', $post['parametro']);
-                    return Alumno::where('firstName', $names[0])->get();
+                    return Alumno::where('firstName', $names[0])
+                        ->orWhere('secondName', $names[0])->get();
                 }
                 break;
 
-            case 'apPaterno': {
-                    $registro = Alumno::where('firstLastName', $post['parametro'])->get();
-                    return $registro;
+            case 'apellido': {
+                    $apellido = explode(' ', $post['parametro']);
+                    return Alumno::where('firstLastName', $apellido[0])
+                        ->orWhere('secondLastName', $apellido[0])
+                        ->get();
                 }
                 break;
             case 'all': {
-                    
+
                     return $this->getAllAlumno();
                 }
                 break;
         }
     }
 
-    public function getLider($post){
+    public function getLider($post)
+    {
         switch ($post['filtro']) {
+            case 'id': {
+                    return Lider_celula::find($post['parametro']);
+                }
+                break;
             case 'name': {
                     $names = explode(' ', $post['parametro']);
-                    return Lider_celula::where('firstName', $names[0])->get();
+                    return Lider_celula::where('firstName', $names[0])
+                        ->orWhere('secondName', $names[0])->get();
                 }
                 break;
 
-            case 'apPaterno': {
-                    $registro = Lider_celula::where('firstLastName', $post['parametro'])->get();
-                    return $registro;
+            case 'apellido': {
+                    $apellido = explode(' ', $post['parametro']);
+                    return Lider_celula::where('firstLastName', $apellido[0])
+                        ->orWhere('secondLastName', $apellido[0])
+                        ->get();
                 }
                 break;
             case 'all': {
-                    
+
                     return $this->getAllLideres();
                 }
                 break;
         }
     }
-    
-    public function getAdministrador($post){
+    public function getProfesor($post)
+    {
+        switch ($post['filtro']) {
+            case 'Profesor_Matricula': {
+                return Profesor::find($post['parametro']);
+            }
+            break;
+            case 'name': {
+                    $names = explode(' ', $post['parametro']);
+                    return Profesor::where('firstName', $names[0])
+                        ->orWhere('secondName', $names[0])->get();
+                }
+                break;
+
+            case 'apellido': {
+                    $apellido = explode(' ', $post['parametro']);
+                    return Profesor::where('firstLastName', $apellido[0])
+                        ->orWhere('secondLastName', $apellido[0])
+                        ->get();
+                }
+                break;
+            case 'all': {
+
+                    return $this->getAllProfesor();
+                }
+                break;
+        }
+    }
+
+    public function getAdministrador($post)
+    {
         switch ($post['filtro']) {
             case 'matricula': {
                 return Administrador::find($post['parametro']);
             }
             break;
+            case 'name': {
+                    $names = explode(' ', $post['parametro']);
+                    return Administrador::where('firstname', $names[0])
+                        ->orWhere('secondName', $names[0])->get();
+                }
+                break;
 
-        case 'name': {
-                $names = explode(' ', $post['parametro']);
-                return Administrador::where('firstName', $names[0])->get();
-            }
-            break;
-
-        case 'apPaterno': {
-                $registro = Administrador::where('firstLastName', $post['parametro'])->get();
-                return $registro;
-            }
-            break;
-        case 'all': {
-                
-                return $this->getAllAdmin();
-            }
-            break;
-    }
+            case 'apellido': {
+                    $apellido = explode(' ', $post['parametro']);
+                    return Administrador::where('firstLastName', $apellido[0])
+                        ->orWhere('secondLastName', $apellido[0])
+                        ->get();
+                }
+                break;
+            case 'all': {
+                    return $this->getAllAdmin();
+                }
+                break;
+        }
     }
 
     public function getMatricula($usr)

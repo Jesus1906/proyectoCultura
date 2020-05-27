@@ -1,3 +1,15 @@
+
+<?php
+  require_once '../../vendor/autoload.php';
+  use App\Controllers\RegistrarController;
+
+  $regController = new RegistrarController();
+
+  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+    $regController->regProfesor($_POST);
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

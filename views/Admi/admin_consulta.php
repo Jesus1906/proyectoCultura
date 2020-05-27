@@ -62,9 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
         <div class=" col-sm-4">
           <select id="inputState" class="custom-select" name="filtro">
             <option selected value="all">Todos los Administradores</option>
-            <option value="matricula">Matricula</option>
             <option value="name">Nombre(s)</option>
-            <option value="apPaterno">Apellido paterno</option>
+            <option value="apellido">Apellido(s)</option>
           </select>
         </div>
         <div class="col-sm-4">
@@ -84,8 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
         <table class="table">
           <thead class="thead-light">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Primer Nombre</th>
+              <th scope="col">Nombres</th>
               <th scope="col">Ap Paterno</th>
               <th scope="col">Ap Materno</th>
               <th scope="col">Telefono </th>
@@ -98,23 +96,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
               foreach ($administradores as $administrador) {
                 echo '<tr>';
-                echo '<th scope="row">' . $administrador['matriculaAdministrador'] . '</th>';
-                echo '<td>' . $administrador['firstName'] . ' ' . $administrador['secondName'] . '</td>';
+                echo '<th scope="row">' . $administrador['firstname'] . ' ' . $administrador['secondName'] . '</th>';
                 echo '<td>' . $administrador['firstLastName'] . '</td>';
                 echo '<td>' . $administrador['secondLastName'] . '</td>';
                 echo '<td>' . $administrador['phone'] . '</td>';
                 echo '<td>' . $administrador['email'] . '</td>';
                 echo '</tr>';
               }
-            } else if ($filtro == "matricula") {
-              echo '<tr>';
-              echo '<th scope="row">' . $administradores['matriculaAdministrador'] . '</th>';
-              echo '<td>' . $administradores['firstName'] . ' ' . $administradores['secondName'] . '</td>';
-              echo '<td>' . $administradores['firstLastName'] . '</td>';
-              echo '<td>' . $administradores['secondLastName'] . '</td>';
-              echo '<td>' . $administradores['phone'] . '</td>';
-              echo '<td>' . $administradores['email'] . '</td>';
-              echo '</option> </tr>';
             }
             ?>
           </tbody>

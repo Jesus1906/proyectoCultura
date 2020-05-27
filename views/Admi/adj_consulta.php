@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                         <option selected value="all">Todos los adjuntos</option>
                         <option value="matricula">Matricula</option>
                         <option value="name">Nombre(s)</option>
-                        <option value="apPaterno">Apellido paterno</option>
+                        <option value="apellido">Apellido(s)</option>
                     </select>
                 </div>
                 <div class="col-sm-4">

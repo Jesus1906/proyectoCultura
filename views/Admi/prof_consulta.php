@@ -3,13 +3,13 @@ require_once '../../vendor/autoload.php';
 
 use App\Controllers\{ConsultaController};
 
-$alumnos = new ConsultaController();
+$profesores = new ConsultaController();
 $filtro = "none";
 if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-  $alumnos = $alumnos->getAllAlumno();
+  $profesores = $profesores->getAllProfesor();
 } else {
   $filtro = $_POST['filtro'];
-  $alumnos = $alumnos->getAlumno($_POST);
+  $profesores = $profesores->getProfesor($_POST);
 }
 
 ?>
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <title>Consulta Alumnos</title>
+  <title>Consulta Profesores</title>
 </head>
 
 <body>
@@ -45,11 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
   </nav>
 
   <div class="modal-dialog text-center">
-    <h2>Consulta de Alumnos</h2>
+    <h2>Consulta de Profesores</h2>
   </div>
 
   <div class="container">
-    <form class="" action="" method="POST">
+    <form class="">
 
       <div class="form-row justify-content-center">
         <i class="fas fa-search" aria-hidden="true"></i>
@@ -60,8 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
 
         <div class=" col-sm-4">
           <select id="inputState" class="custom-select" name="filtro">
-            <option selected value="all">Todos los Alumnos</option>
-            <option value="matricula">Matricula</option>
+            <option selected value="all">Todos los Profesores</option>
             <option value="name">Nombre(s)</option>
             <option value="apellido">Apellido(s)</option>
           </select>
@@ -70,59 +69,39 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
           <button type="submit" class="btn btn-outline-success">Aplicar Filtros</button>
         </div>
       </div>
+
     </form>
 
     <div class="row">
 
       <div class="col-sm-12">
         <div class="modal-dialog text-center">
-          <h3>Alumnos</h3>
+          <h3>Profesores</h3>
         </div>
 
         <table class="table">
           <thead class="thead-light">
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Nombre(s)</th>
               <th scope="col">Ap Paterno</th>
               <th scope="col">Ap Materno</th>
-              <th scope="col">Email</th>
-              <th scope="col">Lider Grupo Familiar</th>
               <th scope="col">Telefono </th>
-              <th scope="col">Oficio </th>
-              <th scope="col">Fecha de Nacimiento </th>
-
+              <th scope="col">Email </th>
             </tr>
           </thead>
           <tbody>
             <?php
             if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
 
-              foreach ($alumnos as $alumno) {
+              foreach ($profesores as $profesor) {
                 echo '<tr>';
-                echo '<th scope="row">' . $alumno['matriculaAlumno'] . '</th>';
-                echo '<td>' . $alumno['firstName'] . ' ' . $alumno['secondName'] . '</td>';
-                echo '<td>' . $alumno['firstLastName'] . '</td>';
-                echo '<td>' . $alumno['secondLastName'] . '</td>';
-                echo '<td>' . $alumno['email'] . '</td>';
-                echo '<td>' . $alumno['Lider_Celula_id'] . '</td>';
-                echo '<td>' . $alumno['cellPhone'] . '</td>';
-                echo '<td>' . $alumno['serviseStatus'] . '</td>';
-                echo '<td>' . $alumno['birthday'] . '</td>';
+                echo '<th scope="row">' . $profesor['firstName'] . ' ' . $profesor['secondName'] . '</th>';
+                echo '<td>' . $profesor['firstLastName'] . '</td>';
+                echo '<td>' . $profesor['secondLastName'] . '</td>';
+                echo '<td>' . $profesor['phone'] . '</td>';
+                echo '<td>' . $profesor['email'] . '</td>';
                 echo '</tr>';
               }
-            } else if ($filtro == "matricula") {
-              echo '<tr>';
-              echo '<th scope="row">' . $alumnos['matriculaAlumno'] . '</th>';
-              echo '<td>' . $alumnos['firstName'] . ' ' . $alumnos['secondName'] . '</td>';
-              echo '<td>' . $alumnos['firstLastName'] . '</td>';
-              echo '<td>' . $alumnos['secondLastName'] . '</td>';
-              echo '<td>' . $alumnos['email'] . '</td>';
-              echo '<td>' . $alumnos['Lider_Celula_id'] . '</td>';
-              echo '<td>' . $alumnos['cellPhone'] . '</td>';
-              echo '<td>' . $alumnos['serviseStatus'] . '</td>';
-              echo '<td>' . $alumnos['birthday'] . '</td>';
-              echo '</option> </tr>';
             }
             ?>
           </tbody>
