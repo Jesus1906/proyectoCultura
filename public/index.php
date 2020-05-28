@@ -1,51 +1,53 @@
 <?php
-require_once '../vendor/autoload.php';
+   require_once '../vendor/autoload.php';
 
-ini_set('display_errors', 1); //inicilizar las variables de php
-ini_set('display_starup_error', 1);
-error_reporting(E_ALL); //todos los errores
+   use Aura\Router\RouterContainer;
+   use App\Controllers\RouteController;
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-use Aura\Router\RouterContainer; // declaramos que usaremos el route container de aura
+   define('RUTA_URL','/proyectocultura/' );
+   define('RUTA_CONTROLLER', 'App\Controllers');
 
-$capsule = new Capsule;
+   $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
+      $_SERVER,
+      $_GET,
+      $_POST,
+      $_COOKIE,
+      $_FILES
+   );
 
-$capsule->addConnection([
-    'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'culturafiladelfia',
-    'username'  => 'root',
-    'password'  => '',
-    'charset'   => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix'    => '',
-]);
+   $routerContainer = new RouterContainer();
 
-// Make this Capsule instance available globally via static methods... (optional)
-$capsule->setAsGlobal();
+   $map = $routerContainer->getMap();
 
-// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
-$capsule->bootEloquent();
+   $map->get('/', RUTA_URL, [
+      'controlador' => RUTA_CONTROLLER . '\RouteController',
+      'accion' => 'vistaHome',
+   ]);
 
-$request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
-    $_SERVER,
-    $_GET,
-    $_POST,
-    $_COOKIE,
-    $_FILES
-);
+   $map->get('registro', RUTA_URL . 'registro', [
+      'controlador' => RUTA_CONTROLLER . '\RouteController',
+      'accion' => 'vistaRegistro',
+   ]);
 
+   $map->post('guardarRegistro', RUTA_URL . 'registro', [
+      'controlador' => RUTA_CONTROLLER . '\RouteController',
+      'accion' => 'vistaRegistro',
+   ]);
 
-$routerContainer = new RouterContainer();// creamos una instancia de la clase
-$map = $routerContainer->getMap();//obtenemos el mapa de rutas 
+   //map get(nombre que se le da en url, url que debe hacer match, handler o accion a realizar )
 
-$map->get('index', '/proyectoCultura/', '../views/principal/index.html');
+   $matcher = $routerContainer->getMatcher();
 
-$matcher = $routerContainer->getMatcher();//obtenemos el matcher
-$route = $matcher->match($request);
+   $route = $matcher->match($request);
 
-if(!$route){
-    echo 'No Route';
-}else{
-    require $route->handler;
-}
+   if(!$route){
+      echo 'No hay ruta <br>';
+      var_dump($map);
+   }else{
+      $datosHandler = $route->handler;
+      $nombreAccion = $datosHandler['accion'];
+      $nombreControlador = $datosHandler['controlador'];
+
+      $controlador =  new $nombreControlador;
+      $controlador->$nombreAccion($request);
+   }

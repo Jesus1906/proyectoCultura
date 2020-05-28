@@ -14,7 +14,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Style -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://localhost/proyectocultura/views/principal/styles.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div id="carouselExampleIndicators1" class="carousel slide" data-ride="carousel">
-                    
+
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="../../ImagenescULTURA/Inscripciones.jpg" class="d-block w-100"
@@ -237,7 +237,7 @@
             </div>
 
 
-            
+
         </div>
     </section>
 
