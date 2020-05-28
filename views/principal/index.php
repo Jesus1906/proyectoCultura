@@ -14,7 +14,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Style -->
-    <link rel="stylesheet" href="http://localhost/proyectocultura/views/principal/styles.css">
+    <link rel="stylesheet" href="http://localhost/proyectoCultura/views/principal/styles.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
