@@ -1,15 +1,3 @@
-<?php
-  require_once '../../vendor/autoload.php';
-
-use App\Controllers\{RegistrarController};
-
-  $adjunto = new RegistrarController();
-  if($_SERVER["REQUEST_METHOD"] == 'POST'){
-    $adjunto->regAdjunto($_POST);
-  }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
