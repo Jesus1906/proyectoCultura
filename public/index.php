@@ -4,7 +4,8 @@
    use Aura\Router\RouterContainer;
    use App\Controllers\RouteController;
 
-   define('RUTA_URL','/proyectoCultura/' );
+   define('RUTA_URL','/proyectocultura/' );
+   define('RUTA_SERVER' , 'http://localhost/proyectocultura/');
    define('RUTA_CONTROLLER', 'App\Controllers');
 
    $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(

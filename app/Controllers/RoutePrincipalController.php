@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-class RouteController{
+class RoutePrincipalController{
 
    public function vistaHome(){
       include "../app/views/principal/index.php";
