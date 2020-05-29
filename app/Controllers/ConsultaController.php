@@ -38,7 +38,7 @@ class ConsultaController extends BaseController
     }
 
     public function getAdjunto($post)
-    {
+    {   
         switch ($post['filtro']) {
             case 'matricula': {
                     return Adjunto::find($post['parametro']);

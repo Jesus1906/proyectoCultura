@@ -1,18 +1,3 @@
-<?php
-require_once '../../vendor/autoload.php';
-
-use App\Controllers\{ConsultaController};
-
-$adjuntos = new ConsultaController();
-$filtro = "none";
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-    $adjuntos = $adjuntos->getAllAdjunto();
-} else {
-    $filtro = $_POST['filtro'];
-    $adjuntos = $adjuntos->getAdjunto($_POST);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
                     </thead>
                     <tbody>
                         <?php
-                        if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+                        if ($request->getMethod() == 'GET' || $filtro != "matricula") {
 
                             foreach ($adjuntos as $adjunto) {
                                 echo '<tr>';

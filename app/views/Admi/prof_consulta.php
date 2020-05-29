@@ -1,18 +1,3 @@
-<?php
-require_once '../../vendor/autoload.php';
-
-use App\Controllers\{ConsultaController};
-
-$profesores = new ConsultaController();
-$filtro = "none";
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-  $profesores = $profesores->getAllProfesor();
-} else {
-  $filtro = $_POST['filtro'];
-  $profesores = $profesores->getProfesor($_POST);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
   </div>
 
   <div class="container">
-    <form class="">
+    <form class="" action="" method="POST">
 
       <div class="form-row justify-content-center">
         <i class="fas fa-search" aria-hidden="true"></i>
@@ -91,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
           </thead>
           <tbody>
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+            if ($request->getMethod() == 'GET' || $filtro != "matricula") {
 
               foreach ($profesores as $profesor) {
                 echo '<tr>';

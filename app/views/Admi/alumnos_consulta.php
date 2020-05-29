@@ -1,18 +1,4 @@
-<?php
-require_once '../../vendor/autoload.php';
 
-use App\Controllers\{ConsultaController};
-
-$alumnos = new ConsultaController();
-$filtro = "none";
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-  $alumnos = $alumnos->getAllAlumno();
-} else {
-  $filtro = $_POST['filtro'];
-  $alumnos = $alumnos->getAlumno($_POST);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
           </thead>
           <tbody>
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+            if ($request->getMethod() || $filtro != "matricula") {
 
               foreach ($alumnos as $alumno) {
                 echo '<tr>';

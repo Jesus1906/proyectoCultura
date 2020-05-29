@@ -1,19 +1,3 @@
-<?php
-require_once '../../vendor/autoload.php';
-
-use App\Controllers\{ConsultaController};
-use App\Models\Lider_celula;
-
-$lideres = new ConsultaController();
-$filtro = "none";
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-  $lideres = $lideres->getAllLideres();
-} else {
-  $filtro = $_POST['filtro'];
-  $lideres = $lideres->getLider($_POST);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
           </thead>
           <tbody>
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+            if ($request->getMethod() == 'GET' || $filtro != "matricula") {
 
               foreach ($lideres as $lider) {
                 echo '<tr>';

@@ -1,19 +1,3 @@
-<?php
-require_once '../../vendor/autoload.php';
-
-use App\Controllers\{ConsultaController};
-
-$administradores = new ConsultaController();
-$filtro = "none";
-if ($_SERVER["REQUEST_METHOD"] == 'GET') {
-  $administradores = $administradores->getAllAdmin();
-} else {
-  $filtro = $_POST['filtro'];
-  $administradores = $administradores->getAdministrador($_POST);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'GET') {
           </thead>
           <tbody>
             <?php
-            if ($_SERVER["REQUEST_METHOD"] == 'GET' || $filtro != "matricula") {
+            if ($request->getMethod() || $filtro != "matricula") {
 
               foreach ($administradores as $administrador) {
                 echo '<tr>';
