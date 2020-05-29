@@ -26,15 +26,34 @@
    ]);
 
    $map->get('registro', RUTA_URL . 'registro', [
-      'controlador' => RUTA_CONTROLLER . '\RouteController',
+      'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
       'accion' => 'vistaRegistro',
    ]);
 
    $map->post('guardarRegistro', RUTA_URL . 'registro', [
-      'controlador' => RUTA_CONTROLLER . '\RouteController',
+      'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
       'accion' => 'vistaRegistro',
    ]);
 
+   $map->get('cursos', RUTA_URL . 'curso', [
+      'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
+      'accion' => 'vistaCurso',
+   ]);
+
+   $map->get('login', RUTA_URL . 'login', [
+      'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
+      'accion' => 'vistaLogin',
+   ]);
+
+   $map->get('gAgregarAdj', RUTA_URL . 'Registro/adjunto', [
+      'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
+      'accion' => 'vistaRegistro',
+   ]);
+
+   $map->post('gAgregarAdj', RUTA_URL . 'Registro/adjunto', [
+      'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
+      'accion' => 'vistaRegistro',
+   ]);
    //map get(nombre que se le da en url, url que debe hacer match, handler o accion a realizar )
 
    $matcher = $routerContainer->getMatcher();

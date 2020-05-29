@@ -24,366 +24,12 @@
     <link rel="shortcut icon" href="http://localhost/proyectocultura/ImagenescULTURA/logo.jpg" />
 
     <title>Cultura Filadelfia</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Titillium Web', sans-serif;
-        }
-
-        .bgDark {
-            background-color: #1a1a1a;
-        }
-
-        .bgLight {
-            background-color: #ffffff;
-        }
-
-        .bgLightGrey {
-            background-color: #f5f5f5;
-        }
-
-        .colorDark {
-            color: #1a1a1a !important;
-        }
-
-        h1 {
-            font-size: 66px;
-            font-weight: 700;
-            line-height: 80px;
-        }
-
-        h2 {
-            font-size: 48px;
-            margin-bottom: 30px;
-        }
-
-        h3 {
-            font-size: 33px;
-        }
-
-        h5 {
-            margin-bottom: 0px;
-        }
-
-        p {
-            font-size: 18px;
-            color: #999999;
-            line-height: 1.8;
-            margin-bottom: 0px;
-        }
-
-        a:hover {
-            text-decoration: none;
-        }
-
-        a i {
-            font-size: 22px;
-            color: #ffffff;
-        }
-
-        .btn {
-            font-size: 14px;
-            padding: 15px 26px;
-            min-width: 160px;
-            border-radius: 2px;
-            display: inline-block;
-        }
-
-        .btn i {
-            font-size: 14px;
-            margin-left: 5px;
-        }
-
-        .btn-primary {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            border: 2px solid #1a1a1a;
-        }
-
-        .btn-secondary {
-            background-color: #ffffff;
-            color: #1a1a1a;
-            border: 2px solid #ffffff;
-        }
-
-
-        .btn-alternate {
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: #1a1a1a;
-            border: 2px solid #1a1a1a;
-        }
-
-        .btn-secondary:hover {
-            background-color: #ffffff;
-            color: #1a1a1a;
-            border: 2px solid #ffffff;
-        }
-
-        .btn-secondary:focus {
-            background-color: #ffffff !important;
-            outline: none;
-            border: 2px solid #ffffff !important;
-            box-shadow: none;
-        }
-
-        .logo-brand {
-            max-width: 180px;
-            min-width: 160px;
-        }
-
-        .margintop-xs {
-            margin-top: 15px;
-        }
-
-        .margintop-sm {
-            margin-top: 30px;
-        }
-
-        .margintop-lg {
-            margin-top: 60px;
-        }
-
-        section {
-            padding: 120px 0;
-        }
-
-        .divider {
-            border-bottom: 2px solid #f5f5f5;
-        }
-
-        .content-center {
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-            text-align: center;
-        }
-
-        .full-width {
-            width: 100%;
-        }
-
-        .form-control {
-            font-size: 14px;
-            border: 1px solid #cacaca;
-            padding: 15px;
-            border-radius: 2px;
-        }
-
-        .form-control:focus {
-            border: 1px solid #1a1a1a;
-            outline: none;
-            box-shadow: none;
-        }
-
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
-            min-height: 100px;
-        }
-
-        .nav-link {
-            color: #1a1a1a;
-        }
-
-        .nav-link:hover {
-            color: #1a1a1a;
-        }
-
-        .navbar-toggler {
-            font-size: 40px;
-        }
-
-        .navbar-toggler:focus {
-            outline: none;
-        }
-
-
-
-        /* //////////////
-   Portfolio
-//////////////*/
-
-        .portfolio-container {
-            position: relative;
-            overflow: hidden;
-            margin: 10px 0;
-            border-radius: 2px;
-        }
-
-        .portfolio-container img {
-            -moz-transition: all 0.8s;
-            -webkit-transition: all 0.8s;
-            transition: all 0.8s;
-        }
-
-        .portfolio-container:hover img {
-            -moz-transform: scale(1.2);
-            -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-        }
-
-
-        /* //////////////
-   Testimonial
-//////////////*/
-
-        .carousel {
-            min-height: 240px;
-            padding: 40px;
-            border-radius: 2px;
-            text-align: center;
-        }
-
-        .carousel-item p {
-            font-size: 26px;
-            font-weight: 400;
-            color: #1a1a1a;
-        }
-
-        .carousel-indicators li {
-            background-color: #1a1a1a;
-            width: 15px;
-            height: 15px;
-            border-radius: 2px;
-            margin: 0 8px;
-        }
-
-        .carousel-control-next,
-        .carousel-control-prev {
-            color: #ffffff;
-            opacity: 1;
-            width: 5%;
-        }
-
-        .control-button {
-            background-color: #1a1a1a;
-            opacity: 1;
-            width: 50px;
-            height: 50px;
-            padding: 10px;
-            border: 1px solid #1a1a1a;
-            border-radius: 50px;
-            font-size: 20px;
-        }
-
-        .carousel-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .testimonial-user {
-            max-width: 240px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .testimonial-user h6 {
-            margin-bottom: 0px;
-        }
-
-        .testimonial-user span {
-            font-size: 12px;
-        }
-
-        .testimonial-user img {
-            border-radius: 50%;
-            max-width: 50px;
-            text-align: center;
-        }
-
-
-
-        /* //////////////
-   Footer
-//////////////*/
-
-        footer {
-            padding: 80px 0;
-            text-align: center;
-            color: #ffffff;
-        }
-
-        footer a {
-            color: #ffffff;
-        }
-
-        footer a:hover {
-            color: #ffffff;
-        }
-
-        footer .list-inline .list-inline-item {
-            padding: 10px 15px;
-        }
-
-        /* //////////////
-   Media queries
-//////////////*/
-
-        @media (max-width: 575.98px) {
-            h1 {
-                font-size: 40px;
-                line-height: normal;
-            }
-
-            .portfolio-details h2 {
-                font-size: 32px;
-            }
-
-            .plans {
-                min-width: unset;
-                padding: 40px;
-            }
-
-            .carousel-item p {
-                font-size: 20px;
-            }
-
-            .footer-menu {
-                display: block !important;
-                padding: 20px 0 !important;
-                font-size: 20px;
-
-            }
-        }
-
-        @media (min-width: 576px) and (max-width: 767.98px) {}
-
-        @media (min-width: 768px) and (max-width: 991.98px) {
-            .portfolio-details h2 {
-                font-size: 30px;
-            }
-
-            .plans {
-                min-width: unset;
-                padding: 40px 20px;
-            }
-        }
-
-        @media (min-width: 992px) and (max-width: 1199.98px) {}
-
-        @media (min-width: 1200px) {}
-    </style>
-
 </head>
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#inicio">
-            <img src="http://localhost/proyectocultura/ImagenescULTURA/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
+        <a class="navbar-brand" href="/proyectocultura">
+            <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
                 loading="lazy">
             Cultura Filadelfia</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -393,13 +39,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
+<<<<<<< HEAD
                     <a class="nav-link" href="">Inicio<span class="sr-only">(current)</span></a>
+=======
+                    <a class="nav-link" href="/proyectocultura">Inicio<span class="sr-only">(current)</span></a>
+>>>>>>> 5948dfb52f2f707942e917402adf22885b94289a
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#info">Sobre Nosotros<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="info">Sobre Nosotros<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#cursos">Cursos</a>
+                    <a class="nav-link" href="cursos">Cursos</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -419,12 +69,12 @@
                             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="registro.php">Registrarme</a>
+                        <a class="dropdown-item" href="registro">Registrarme</a>
                         <a class="dropdown-item" href="#">Recuperar Contraseña</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="registro.php">Registrarme</a>
+                    <a class="nav-link" href="registro">Registrarme</a>
                 </li>
             </ul>
         </div>
@@ -437,11 +87,11 @@
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="http://localhost/proyectocultura/ImagenescULTURA/Inscripciones.jpg" class="d-block w-100"
+                            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/Inscripciones.jpg" class="d-block w-100"
                                 style="height: 600px; width: 300px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="http://localhost/proyectocultura/ImagenescULTURA/70008709_2501561010074382_6545377534010440019_n.jpg"
+                            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/70008709_2501561010074382_6545377534010440019_n.jpg"
                                 class="d-block w-100" style="height: 600px; width: 300px;">
                         </div>
 
@@ -482,28 +132,28 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="portfolio-container">
-                        <img src="http://localhost/proyectocultura/ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 01">
+                        <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 01">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="portfolio-container">
-                        <img src="http://localhost/proyectocultura/ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 02">
+                        <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 02">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="portfolio-container">
-                        <img src="http://localhost/proyectocultura/ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 03">
+                        <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 03">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="portfolio-container">
-                        <img src="http://localhost/proyectocultura/ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 04">
+                        <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 04">
                     </div>
                 </div>
             </div>
             <div class="text-center margintop-sm">
                 <p class="">¿Listo para inscribirte?</p>
-                <a href="registro.php" class="text-dark"><b>Hazlo Aquí</b></a>
+                <a href="registro" class="text-dark"><b>Hazlo Aquí</b></a>
             </div>
         </div>
     </section>
@@ -523,7 +173,7 @@
                             <div class="testimonial-user">
                                 <div class="row">
                                     <div class="col-md-3 col-3">
-                                        <img src="http://localhost/proyectocultura/ImaCursos/VIDA CON PROPOSITO.jpg" class="img-fluid" alt="">
+                                        <img src="<?php echo RUTA_SERVER ?>ImaCursos/VIDA CON PROPOSITO.jpg" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-9 col-9">
                                         <h6>Nombre de curso</h6>
@@ -541,7 +191,7 @@
                             <div class="testimonial-user">
                                 <div class="row">
                                     <div class="col-sm-3 col-3">
-                                        <img src="http://localhost/proyectocultura/ImaCursos/PORTADA.FB1.jpg" class="img-fluid" alt="">
+                                        <img src="<?php echo RUTA_SERVER ?>ImaCursos/PORTADA.FB1.jpg" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-sm-9 col-9">
                                         <h6>Nombre de curso</h6>
@@ -559,7 +209,7 @@
                             <div class="testimonial-user">
                                 <div class="row">
                                     <div class="col-md-3 col-3">
-                                        <img src="http://localhost/proyectocultura/ImaCursos/PORTADA.AUT.jpg" class="img-fluid" alt="">
+                                        <img src="<?php echo RUTA_SERVER?>ImaCursos/PORTADA.AUT.jpg" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-9 col-9">
                                         <h6>Nombre de Curso</h6>
@@ -591,7 +241,7 @@
 
     <footer class="bgDark">
         <div class="container">
-            <img src="http://localhost/proyectocultura/ImagenescULTURA/logo.jpg" alt="..." class="rounded-circle" style="width: 90px; height: 90px;">
+            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/logo.jpg" alt="..." class="rounded-circle" style="width: 90px; height: 90px;">
 
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="https://www.instagram.com/cultura.filadelfia/" target="_blank"><i class="icon ion-logo-instagram"></i></a></li>
@@ -599,7 +249,6 @@
                 <li class="list-inline-item"><a href="https://www.ministerios-filadelfia.org/" target="_blank"><i class="icon ion-logo-dribbble"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.facebook.com/Cultura-Filadelfia-187327808340452" target="_blank"><i class="icon ion-logo-facebook"></i></a></li>
             </ul>
-
         </div>
     </footer>
 
