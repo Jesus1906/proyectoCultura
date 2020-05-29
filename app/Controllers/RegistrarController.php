@@ -42,7 +42,6 @@ class RegistrarController extends BaseController{
    }
 
    public function regAlumno($post){
-      $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
       $matricula = new MatriculaController();
       $alumno = new Alumno();
       $alumno->matriculaAlumno = $matricula->asignarMatricula('alu');
@@ -52,7 +51,7 @@ class RegistrarController extends BaseController{
       $alumno->secondLastName = $post['secondLastName'];
       $alumno->cellPhone = $post['phone'];
       $alumno->housePhone = null;//este
-      $alumno->birthday = $birthday;
+      $alumno->birthday = $post['birthday'];
       $alumno->maritalStatus = $post['statusCivil'];
       $alumno->serviseStatus = $post['statusService'];
       $alumno->statusBautizo = $post['statusBautizo'];

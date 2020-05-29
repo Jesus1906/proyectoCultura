@@ -35,7 +35,7 @@ class RouteAdminController
 
     public function gAgregarALU()
     {
-        require_once '../principal/registro.php';
+        require_once '../app/views/principal/registro.php';
     }
 
     public function pAgregarALU($request)
@@ -43,7 +43,7 @@ class RouteAdminController
         $alumno = new RegistrarController();
         $postData = $request->getParsedBody();
         $alumno->regAlumno($postData);
-        require_once '../principal/registro.php';
+        require_once '../app/views/principal/registro.php';
     }
     
     public function gAgregarLIDER()
