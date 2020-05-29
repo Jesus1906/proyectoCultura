@@ -2,11 +2,11 @@
 
 use App\Controllers\{ConsultaController, RegistrarController};
 
-  $alumno = new RegistrarController();
+$alumno = new RegistrarController();
 
-  if($_SERVER["REQUEST_METHOD"] == 'POST'){
+if ($_SERVER["REQUEST_METHOD"] == 'POST') {
     $alumno->regAlumno($_POST);
-  }
+}
 
 ?>
 
@@ -14,41 +14,37 @@ use App\Controllers\{ConsultaController, RegistrarController};
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="principal.html"><img src="./ImagenescULTURA/logo.jpg" alt=""></a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="principal.html"><img src="./ImagenescULTURA/logo.jpg" alt=""></a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto lr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="cursos.html">Cursos <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="principal.html">Home</a>
-        </li>
-      </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto lr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="cursos.html">Cursos <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="principal.html">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div class="modal-dialog text-center">
+        <h1>Registro Alumno</h1>
     </div>
-  </nav>
-  <br>
-  <br>
-  <div class="modal-dialog text-center">
-    <h1>Registro Alumno</h1>
-  </div>
-  <div class="container">
+    <div class="container">
         <form action="" method="POST">
             <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
             <div class="modal-dialog text-center">
@@ -117,7 +113,7 @@ use App\Controllers\{ConsultaController, RegistrarController};
 
             <div class="form-row">
 
-                
+
                 <div class="col-sm-5">
                     <div class="modal-dialog text-center">
                         <h3>Datos Iglesia</h3>
@@ -142,14 +138,14 @@ use App\Controllers\{ConsultaController, RegistrarController};
                     <select class="custom-select" id="validationServer09" required name="lider">
                         <option selected disabled value="">Elige...</option>
                         <?php
-                              $lideres = new ConsultaController();
-                              $lideres = $lideres->getAllLideres();  
-                              for($i = 0; $i < count($lideres); $i++) {
-                                $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
-                                echo '<option value = ' . $lideres[$i]['id'] . '>' . $name . '</option>';
-                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                              }
-                            ?>
+                        $lideres = new ConsultaController();
+                        $lideres = $lideres->getAllLideres();
+                        for ($i = 0; $i < count($lideres); $i++) {
+                            $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
+                            echo '<option value = ' . $lideres[$i]['id'] . '>' . $name . '</option>';
+                            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        }
+                        ?>
                     </select>
                     <div class="invalid-feedback">Llena el campo</div>
                     <div class="valid-feedback">Ok!</div>
@@ -161,30 +157,27 @@ use App\Controllers\{ConsultaController, RegistrarController};
                     </div>
                     <div class="justify-content-center">
                         <label for="validationServer06">Telefono</label>
-                        <input type="text" class="form-control" id="validationServer06" placeholder="(55) 1234 5678"
-                        required name="phone">
-                        <div class="invalid-feedback">Llena el campo</div>
-                    <div class="valid-feedback">Ok!</div>
-                        <label for="validationServer05">Correo Electronico</label>
-                        <input type="email" class="form-control" id="validationServer05" placeholder="micorreo@ejemplo.com"
-                        required name="email">
+                        <input type="text" class="form-control" id="validationServer06" placeholder="(55) 1234 5678" required name="phone">
                         <div class="invalid-feedback">Llena el campo</div>
                         <div class="valid-feedback">Ok!</div>
-                    <label for="password">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password" required
-                        minlength="8" maxlength="20">
-                    <div class="invalid-feedback">Debe contener mínimo 8 carácteres</div>
-                    <div class="valid-feedback">Ok!</div>
-                    <label for="password1">Confirmar Contraseña</label>
-                    <input type="password" class="form-control" id="password1" required>    
+                        <label for="validationServer05">Correo Electronico</label>
+                        <input type="email" class="form-control" id="validationServer05" placeholder="micorreo@ejemplo.com" required name="email">
+                        <div class="invalid-feedback">Llena el campo</div>
+                        <div class="valid-feedback">Ok!</div>
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" required minlength="8" maxlength="20">
+                        <div class="invalid-feedback">Debe contener mínimo 8 carácteres</div>
+                        <div class="valid-feedback">Ok!</div>
+                        <label for="password1">Confirmar Contraseña</label>
+                        <input type="password" class="form-control" id="password1" required>
 
-                    <div class="invalid-feedback">Las contraseñas no Coinciden</div>
-                    <div class="valid-feedback">Ok!</div>
+                        <div class="invalid-feedback">Las contraseñas no Coinciden</div>
+                        <div class="valid-feedback">Ok!</div>
                     </div>
-                    
+
                 </div>
             </div>
-            
+
             <br>
             <div class="form-row">
                 <div class="col-sm-5"></div>
@@ -195,8 +188,7 @@ use App\Controllers\{ConsultaController, RegistrarController};
                     </button>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -224,30 +216,24 @@ use App\Controllers\{ConsultaController, RegistrarController};
     </div>
 
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>
