@@ -8,34 +8,68 @@ class RouteAdminController
 
     public function gAgregarAdj()
     {
-        require_once '../app/views/Admi/adj_agregar.php';
+        require_once '../app/views/Admi/adj_agregar.html';
     }
 
-    public function pAgregarAdj()
+    public function pAgregarAdj($request)
     {
         $adjunto = new RegistrarController();
-        $adjunto->regAdjunto($_POST);
-        require_once '../app/views/Admi/adj_agregar.php';
+        $postData = $request->getParsedBody();
+        $adjunto->regAdjunto($postData);
+        
+        require_once '../app/views/Admi/adj_agregar.html';
     }
 
-    public function AgregarADM()
+    public function gAgregarADM()
     {
-        require_once '../app/views/Admi/admin_agregar.php';
+        require_once '../app/views/Admi/admin_agregar.html';
     }
 
-    public function AgregarALU()
+    public function pAgregarADM($request)
+    {
+        $admin = new RegistrarController();
+        $postData = $request->getParsedBody();
+        $admin->regAdministrador($postData);
+        require_once '../app/views/Admi/admin_agregar.html';
+    }
+
+    public function gAgregarALU()
     {
         require_once '../principal/registro.php';
     }
 
-    public function AgregarLIDER()
+    public function pAgregarALU($request)
     {
-        require_once '../app/views/Admi/lider_agregar.php';
+        $alumno = new RegistrarController();
+        $postData = $request->getParsedBody();
+        $alumno->regAlumno($postData);
+        require_once '../principal/registro.php';
+    }
+    
+    public function gAgregarLIDER()
+    {
+        require_once '../app/views/Admi/lider_agregar.html';
     }
 
-    public function AgregarPROF()
+    public function pAgregarLIDER($request)
     {
-        require_once '../app/views/Admi/prof_agregar.php';
+        $lider = new RegistrarController();
+        $postData = $request->getParsedBody();
+        $lider->regLider($postData);
+        require_once '../app/views/Admi/lider_agregar.html';
+    }
+
+    public function gAgregarPROF()
+    {
+        require_once '../app/views/Admi/prof_agregar.html';
+    }
+
+    public function pAgregarPROF($request)
+    {
+        $profesor = new RegistrarController();
+        $postData = $request->getParsedBody();
+        $profesor->regProfesor($postData);
+        require_once '../app/views/Admi/prof_agregar.html';
     }
 
     public function consultaAdj()

@@ -1,15 +1,3 @@
-<?php
-
-use App\Controllers\{ConsultaController, RegistrarController};
-
-$alumno = new RegistrarController();
-
-if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-    $alumno->regAlumno($_POST);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,6 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                     <select class="custom-select" id="validationServer09" required name="lider">
                         <option selected disabled value="">Elige...</option>
                         <?php
+                        use App\Controllers\ConsultaController;
                         $lideres = new ConsultaController();
                         $lideres = $lideres->getAllLideres();
                         for ($i = 0; $i < count($lideres); $i++) {

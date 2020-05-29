@@ -39,11 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-<<<<<<< HEAD
-                    <a class="nav-link" href="">Inicio<span class="sr-only">(current)</span></a>
-=======
                     <a class="nav-link" href="/proyectocultura">Inicio<span class="sr-only">(current)</span></a>
->>>>>>> 5948dfb52f2f707942e917402adf22885b94289a
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="info">Sobre Nosotros<span class="sr-only">(current)</span></a>
