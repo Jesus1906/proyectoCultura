@@ -5,7 +5,7 @@ use Respect\Validation\Validator as v;
 
 class ValidatorController{
 
-   private $error;
+   private $error = [];
 
    public function validarEdad($edad){
       //funcion para validad la edad minima para usar,en este caso es 18
@@ -13,7 +13,7 @@ class ValidatorController{
       //validamos que no sea este vacio
       if(!v::stringType()->validate($edad)){
          //si lo que esta entrando no es una cadena regresa false
-         $this->error[]="Tipo de dato invalido";
+         $this->error[]="Tipo de dato invalido en Edad";
          return false;
       }
 
@@ -35,7 +35,7 @@ class ValidatorController{
       //funcion que valida si el password es igual en 2 campos, requiere un string retorna un bolean
       if(!v::stringType()->validate($pass1)&&!v::stringType()->validate($pass2)){
          //si lo que esta entrando no es una cadena regresa false
-         $this->error[]="Tipo de dato invalido";
+         $this->error[]="Tipo de dato invalido en Contraseña";
          return false;
       }
 
@@ -77,7 +77,7 @@ class ValidatorController{
 
       if(!v::stringType()->validate($correo)){
          //si lo que esta entrando no es una cadena regresa false
-         $this->error[]="Tipo de dato invalido";
+         $this->error[]="Tipo de dato invalido en Correo";
          return false;
       }
       //checar que no este vacio el correo enviado
@@ -100,7 +100,7 @@ class ValidatorController{
 
       if(!v::stringType()->validate($num)){
          //si lo que esta entrando no es una cadena regresa false
-         $this->error[]="Tipo de dato invalido";
+         $this->error[]="Tipo de dato invalido en Telefono";
          return false;
       }
 
@@ -122,7 +122,7 @@ class ValidatorController{
             return true;
          }else{
             //valor lleno, nulo no importa y el numero NO es valido regresa false
-            $this->error[]="Numero invalido";
+            $this->error[]="Numero de telefono invalido";
             return false;
          }
       }
@@ -133,7 +133,7 @@ class ValidatorController{
 
       if(!v::stringType()->validate($cadena)){
          //si lo que esta entrando no es una cadena regresa false
-         $this->error[]="Tipo de dato invalido";
+         $this->error[]="Tipo de dato invalido en Texto";
          return false;
       }
 
@@ -149,7 +149,7 @@ class ValidatorController{
          //no importa si requiere o no nulo mientras se envie string lo valida
          if(!v::stringType()->length($min,$max)->validate($cadena)){
             //checa el tamaño y si no corresponde al valor entre el max y el min retorna falso, en caso de no especificar un max o min estos deben ingresarse como null
-            $this->error[]="Tamaño invalido";
+            $this->error[]="Tamaño invalido texto";
             return false;
          }
       }

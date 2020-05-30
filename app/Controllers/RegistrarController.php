@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso};
-
+use App\Controllers\ValidatorController;
 
 class RegistrarController extends BaseController{
    public function __construct()
@@ -44,25 +44,55 @@ class RegistrarController extends BaseController{
    public function regAlumno($post){
       $matricula = new MatriculaController();
       $alumno = new Alumno();
+      $val = new ValidatorController();
+
       $alumno->matriculaAlumno = $matricula->asignarMatricula('alu');
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
       $alumno->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
       $alumno->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
       $alumno->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
       $alumno->secondLastName = $post['secondLastName'];
+
+      $val->validarTelefono($post['phone'], false);
       $alumno->cellPhone = $post['phone'];
+
       $alumno->housePhone = null;//este
+
+      $val->validarEdad($post['birthday']);
       $alumno->birthday = $post['birthday'];
+
       $alumno->maritalStatus = $post['statusCivil'];
       $alumno->serviseStatus = $post['statusService'];
       $alumno->statusBautizo = $post['statusBautizo'];
+
+      $val->validarCorreo($post['email']);
       $alumno->email = $post['email'];
-      $alumno->password = password_hash($post['password'], PASSWORD_DEFAULT); 
+
+      $val->validarPassIgual($post['password'], $post['password1']);
+      $alumno->password = password_hash($post['password'], PASSWORD_DEFAULT);
+
       $alumno->photo = null;
       $alumno->activo = 'true';
       $alumno->pago = false;
       $alumno->pagoCongelado = false;
       $alumno->Lider_Celula_id = $post['lider'];
-      $alumno->save();
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $alumno->save();
+         return 'Exito al guardar';
+      }
    }
 
    public function regAdministrador($post){

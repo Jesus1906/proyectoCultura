@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor};
+use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso};
 
 class ConsultaController extends BaseController
 {
@@ -38,7 +38,7 @@ class ConsultaController extends BaseController
     }
 
     public function getAdjunto($post)
-    {   
+    {
         switch ($post['filtro']) {
             case 'matricula': {
                     return Adjunto::find($post['parametro']);
@@ -222,5 +222,10 @@ class ConsultaController extends BaseController
                 break;
         } //switch
     } //fin getmatricula
+
+    public function getAllCursos(){
+
+      return Curso::all();
+   }
 
 }

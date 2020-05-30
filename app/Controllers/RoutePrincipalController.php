@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Controllers\ConsultaController;
 class RoutePrincipalController{
 
    public function vistaHome(){
@@ -8,16 +9,32 @@ class RoutePrincipalController{
    }
 
    public function vistaRegistro($request){
+      //se instancian las clases registro consulta
       $lideres = new ConsultaController();
-      $lideres = $lideres->getAllLideres();
-
       $alumno = new RegistrarController();
 
-      if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-          $alumno->regAlumno($_POST);
-      }
+      //se obtienen los daots
+      $lideres = $lideres->getAllLideres();
 
+      if ($request->getMethod() == 'POST') {
+         $datos = $request->getParsedBody();
+         $exito = $alumno->regAlumno($datos);
+         var_dump($exito);
+      }
       require_once '../app/views/principal/registro.php';
+   }//fin vista registro
+
+   public function vistaCursos(){
+      //se instancian consultas
+      $consulta = new ConsultaController();
+
+      //se obtienen los daots
+      $cursos = $consulta->getAllCursos();
+      include "../app/views/principal/cursos.php";
+   }
+
+   public function vistaLogin(){
+      include "../app/views/principal/login.php";
    }
 
 }
