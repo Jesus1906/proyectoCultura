@@ -38,11 +38,5 @@ if (!$route) {
    $nombreControlador = $datosHandler['controlador'];
 
    $controlador =  new $nombreControlador;
-   $controlador->$nombreAccion($request);
-   //foreach($response->getHeaders() as $name => $values){ esto es para los redireccionamientos
-      //   foreach($values as $value){
-      //       header(sprintf('%s: %s', $name, $value), false);
-      //   }
-      //}
-      //http_response_code($response->getStatusCode());
+   $response = $controlador->$nombreAccion($request);
 }

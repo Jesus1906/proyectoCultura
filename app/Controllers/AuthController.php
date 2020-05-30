@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\{Alumno, Administrador, Adjunto};
-use Illuminate\Support\Facades\Redirect;
 use Laminas\Diactoros\Response\RedirectResponse;
 
 class AuthController extends BaseController{
@@ -37,13 +36,15 @@ class AuthController extends BaseController{
 
         if($user){
             if(password_verify($postData['password'], $user->password)){
-                return new RedirectResponse($ruta);
+                header(sprintf('%s: %s', 'location', $ruta), false);// cuando el usuario logra ingresar se agrega el redireccionamiento a los headers
             }else{
-                echo "wrong";
+                header(sprintf('%s: %s', 'location', '/proyectocultura/'), false);
+                echo 'wrong';
             }
             
         }else{
-            echo 'Not Found';
+            header(sprintf('%s: %s', 'location', '/proyectocultura/'), false);
+            echo 'not Found';
         }
 
     }

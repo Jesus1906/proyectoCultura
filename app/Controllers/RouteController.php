@@ -4,7 +4,7 @@ namespace App\Controllers;
 class RouteController{
 
    public function vistaHome(){
-      include "../app/views/principal/index.php";
+      require_once "../app/views/principal/index.php";
    }
 
    public function vistaRegistro($request){
