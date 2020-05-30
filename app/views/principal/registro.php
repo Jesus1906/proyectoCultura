@@ -10,7 +10,7 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="principal.html"><img src="./ImagenescULTURA/logo.jpg" alt=""></a>
+        <a class="navbar-brand" href="<?Php echo RUTA_URL ?>"><img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" alt=""></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,10 +19,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto lr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="cursos.html">Cursos <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="cursos">Cursos <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="principal.html">Home</a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>">Home</a>
                 </li>
             </ul>
         </div>
@@ -126,9 +126,6 @@
                     <select class="custom-select" id="validationServer09" required name="lider">
                         <option selected disabled value="">Elige...</option>
                         <?php
-                        use App\Controllers\ConsultaController;
-                        $lideres = new ConsultaController();
-                        $lideres = $lideres->getAllLideres();
                         for ($i = 0; $i < count($lideres); $i++) {
                             $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
                             echo '<option value = ' . $lideres[$i]['id'] . '>' . $name . '</option>';
@@ -158,7 +155,7 @@
                         <div class="invalid-feedback">Debe contener mínimo 8 carácteres</div>
                         <div class="valid-feedback">Ok!</div>
                         <label for="password1">Confirmar Contraseña</label>
-                        <input type="password" class="form-control" id="password1" required>
+                        <input type="password" class="form-control" id="password1" name="password1" required>
 
                         <div class="invalid-feedback">Las contraseñas no Coinciden</div>
                         <div class="valid-feedback">Ok!</div>

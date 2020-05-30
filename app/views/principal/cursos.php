@@ -13,7 +13,7 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="principal.html"><img src="../../ImagenescULTURA/logo.jpg" alt=""></a>
+        <a class="navbar-brand" href="<?php echo RUTA_URL ?>"><img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" alt=""></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,13 +23,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto lr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="principal.html">Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>">Inicio <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="registro.html">Registrarme</a>
+                    <a class="nav-link" href="registro">Registrarme</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Iniciar Sesion</a>
+                    <a class="nav-link" href="login">Iniciar Sesion</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
 
                 <div class="modal-dialog text-center">
                     <h3>Nombre Curso</h3>
-                    <img src="../../ImaCursos/VIDA CON PROPOSITO.jpg" alt="" height="360px">
+                    <img src="<?php echo RUTA_SERVER ?>/ImaCursos/VIDA CON PROPOSITO.jpg" alt="" height="360px">
                     <p><strong>Aquí llevará una breve descripción del curso</strong> </p>
                 </div>
 
@@ -72,21 +72,21 @@
             <div class="col-sm-4">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src="../../ImagenescULTURA/entrega.jpg" class="rounded-circle" alt="..." width="120">
+                        <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/entrega.jpg" class="rounded-circle" alt="..." width="120">
                     </div>
                     <div class="col-sm-4">
-                        <img src="../../ImagenescULTURA/entrega.jpg" class="rounded-circle" alt="..." width="120">
+                        <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/entrega.jpg" class="rounded-circle" alt="..." width="120">
                     </div>
                     <div class="col-sm-4">
-                        <img src="../../ImagenescULTURA/entrega.jpg" class="rounded-circle" alt="..." width="120">
+                        <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/entrega.jpg" class="rounded-circle" alt="..." width="120">
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
 
-        
+
     </div>
 
 

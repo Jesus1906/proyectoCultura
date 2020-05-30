@@ -16,7 +16,7 @@ class Web
             'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'inicioALU',
         ]);
-        
+
         $map->get('/', RUTA_URL, [
             'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'vistaHome',
@@ -32,9 +32,9 @@ class Web
             'accion' => 'vistaRegistro',
         ]);
 
-        $map->get('cursos', RUTA_URL . 'curso', [
+        $map->get('cursos', RUTA_URL . 'cursos', [
             'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
-            'accion' => 'vistaCurso',
+            'accion' => 'vistaCursos',
         ]);
 
         $map->get('login', RUTA_URL . 'login', [
@@ -98,7 +98,7 @@ class Web
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'AgregarPROF',
         ]);
-        //////////////////////////////////////////////////// ---fin controlador Admin Registro 
+        //////////////////////////////////////////////////// ---fin controlador Admin Registro
         //////////////////////////////////////////////////// ---inicio controlador Admin consulta
         $map->get('gConsultaADJ', RUTA_URL . 'adm/consulta/adjunto', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
