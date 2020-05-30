@@ -7,6 +7,9 @@ use App\Controllers\{ConsultaController};
 
 class RouteAdminController
 {
+    public function inicioADM(){
+        require_once '../app/views/Admi/clasi_adm.html';
+    }
 
     public function AgregarAdj($request)
     {

@@ -23,4 +23,8 @@ class RouteController{
       require_once '../app/views/principal/registro.php';
    }
 
+   public function inicioALU(){
+      require_once '../app/views/Alumno/principal_alumno.html';
+   }
+
 }

@@ -53,14 +53,14 @@
                         Iniciar Sesion
                     </a>
                     <div class="dropdown-menu">
-                        <form class="px-1 py-3">
+                        <form class="px-1 py-3" action="/proyectocultura/auth" method="POST">
                             <div class="form-group">
-                                <label for="exampleDropdownFormEmail1">Correo Electronico</label>
-                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="micorreo@ejemplo.com" required name="">
+                                <label for="exampleDropdownFormEmail1">No. de Cuenta</label>
+                                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="micorreo@ejemplo.com" name="cuenta">
                             </div>
                             <div class="form-group">
                                 <label for="exampleDropdownFormPassword1">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" required name="">
+                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="password">
                             </div>
                             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                         </form>
