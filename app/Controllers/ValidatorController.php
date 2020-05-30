@@ -7,7 +7,7 @@ class ValidatorController{
 
    private $error = [];
 
-   public function validarEdad($edad){
+   public function validarEdad($edad, $min){
       //funcion para validad la edad minima para usar,en este caso es 18
       //requiere un string con la fecha de nacimiento en formato 'YYYY-MM-DD' o 'DD-MM-YYY'
       //validamos que no sea este vacio
@@ -21,14 +21,24 @@ class ValidatorController{
          $this->error[]="Edad no puede estar vacia";
          return false;
       }
-      //validamos la edad minima
-      if(v::MinAge(15)->validate($edad)){
-         return true;
+
+      if($min == null){
+         //revisa el año actual y lo compara con el año ingresado
+         $FechaActual = date();
+         if($edad > $FechaActual){
+            $this->error[] = "Fecha incorrecta, mayor a fecha actual";
+            return false;
+         }
       }else{
-         $this->error[]="Edad menor al limite (15)";
-         return false;
+         //validamos la edad minima
+         if(v::MinAge($min)->validate($edad)){
+            return true;
+         }else{
+            $this->error[]="Edad menor al limite (15)";
+            return false;
+         }
+         //retorna un bolean
       }
-      //retorna un bolean
    }//val edad|
 
    public function validarPassIgual($pass1, $pass2){
@@ -163,6 +173,20 @@ class ValidatorController{
       }else {
          return false;
       }
-   }
+   }//validar errores
+
+   public function validarNumero($num){
+      //valida un numero y que este entre ciertos valores
+      if(!v::IntVal()->validate($num)){
+         $this->error[]= "Tipo de dato Invalido en Numero";
+         return false;
+      }
+
+      if(V::Between(1,2)->validate($num)){
+         return true;
+      }else{
+         $this->error[]="Numero fuera de rango";
+      }
+   }//fin validar numero
 
 }//fin clase validador
