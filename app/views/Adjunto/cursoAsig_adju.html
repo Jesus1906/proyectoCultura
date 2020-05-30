@@ -61,20 +61,47 @@
             </div>
 
             <div class="col-sm-4">
-                <dt class="col-sm-4">Profesor</dt>
-                <dd class="col-sm-12">Nombre del Profesor asignado</dd>
-                <dt class="col-sm-4">Adjunto</dt>
-                <dd class="col-sm-12">Nombre del Adjunto asignado</dd>
-                <dt class="col-sm-4">Listas</dt>
-                <dd class="col-sm-8"><a href="#">LISTA GRUPAL</a></dd>
-                <dt class="col-sm-4">Manual</dt>
-                <dd class="col-sm-8"><a href="#">Manual</a></dd>
-                <dt class="col-sm-4">Examen</dt>
-                <dd class="col-sm-8"><a href="#">Examen</a></dd>
-                <dt class="col-sm-4">Clave Hoja de Respuestas</dt>
-                <dd class="col-sm-8"><a href="#">Respuestas</a></dd>
+                <form action="">
+                    <div class="form-row">
+                        <input type="text" name="profe" id="profe" value="nombre del Profesor asignado" disabled>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <input type="text" name="adjunto" id="adjunto" value="nombre del Adjunto asignado" disabled>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <label for="list">Lista de Alumnos </label>
+                        <a href="listasAsignadas.html" class="btn btn-outline-info" role="button" id="list">Ver Lista
+                            Grupal</a>
+                    </div>
+                    <br>
+
+                    <div class="form-row">
+                        <input type="url" name="manual" id="manual" value="link al manual">
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <input type="url" name="examen" id="examen" value="link al examen">
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <input type="url" name="hojaRespuestas" id="hojaRespuestas"
+                            value="link a la hoja de respuestas">
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-12">
+                            <label for="grupoWhats">Link a Grupo de Whatsapp</label>
+                            <input type="text" name="grupoWhats" id="grupoWhats"
+                                placeholder="Inserta el link de grupo">
+                        </div>
+                        
+                    </div>
 
 
+                </form>
+                <br>
+                <button type="submit" class="btn btn-primary">Enviar cambios</button>
             </div>
         </div>
 
