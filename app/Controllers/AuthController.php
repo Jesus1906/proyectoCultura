@@ -25,6 +25,7 @@ class AuthController extends BaseController{
                 break;
             case '2': {
                     $user = Adjunto::find($postData['cuenta']);
+                    $ruta .= 'adj';
                 }
                 break;
             case '3': {

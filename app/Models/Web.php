@@ -7,6 +7,7 @@ class Web
 
     public function cargarRutas($map)
     {
+        //////////////////////////////////////////////////////////////--autenticacion de usuarios
         $map->post('auth', RUTA_URL . 'auth', [
             'controlador' => RUTA_CONTROLLER . '\AuthController',
             'accion' => 'autenticacionUsuario',
@@ -16,6 +17,18 @@ class Web
             'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'inicioALU',
         ]);
+
+        $map->get('inicioADJ', RUTA_URL . 'adj', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'inicioADJ',
+        ]);
+
+        $map->get('inicioADM', RUTA_URL . 'adm', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'inicioADM',
+        ]);
+        /////////////////////////////////////////////////////////////////////
+
 
         $map->get('/', RUTA_URL, [
             'controlador' => RUTA_CONTROLLER . '\RouteController',
@@ -42,10 +55,6 @@ class Web
             'accion' => 'vistaLogin',
         ]);
 
-        $map->get('inicioADM', RUTA_URL . 'adm', [
-            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
-            'accion' => 'inicioADM',
-        ]);
         //////////////////////////////////////////////////// ---inicio controlador Admin Registro
         $map->get('gAgregarAdj', RUTA_URL . 'adm/registro/adjunto', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
