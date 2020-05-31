@@ -30,7 +30,7 @@ class AuthController extends BaseController{
                 break;
             case '3': {
                     $user = Administrador::find($postData['cuenta']);
-                    $ruta .= 'alm';
+                    $ruta .= 'adm';
                 }
                 break;
         }
@@ -45,7 +45,6 @@ class AuthController extends BaseController{
             
         }else{
             header(sprintf('%s: %s', 'location', '/proyectocultura/'), false);
-            echo 'not Found';
         }
 
     }
