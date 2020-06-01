@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="principal.css">
 
-    <link rel="stylesheet" href="principal_adm.css">
-    <title>Adjunto</title>
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adm/principal_adm.css">
+    <title>Administradores</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
             
             <div class="col-sm-12" id="question">
                 <div>
-                    <p id="question-p">Adjuntos</p>
+                    <p id="question-p">Más Administradores</p>
                 </div>
             </div>
             
@@ -49,13 +49,13 @@
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-6 proceso">
-                    <a href="adj_agregar.html"><img class="img-proceso"
+                    <a href="admin_agregar.html"><img class="img-proceso"
                              src="https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Agregar</label>
                 </div>
                 <div class="col-sm-6 proceso">
-                    <a href="adj_consulta.html"><img class="img-proceso"
+                    <a href="admin_consulta.html"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2015/03/30/18/25/magnifying-glass-699777_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consultar</label>

@@ -24,7 +24,11 @@ class RouteController{
    }
 
    public function inicioALU(){
-      require_once '../app/views/Alumno/principal_alumno.html';
+      if ($_SESSION['user'] == 'alumno') {
+         require_once '../app/views/Alumno/principal_alumno.php';
+     } else {
+         echo 'No eres alumno';
+     }
    }
 
 }

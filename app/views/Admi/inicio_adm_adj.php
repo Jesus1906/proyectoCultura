@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="principal.css">
 
-    <link rel="stylesheet" href="principal_adm.css">
-    <title>Alumnos</title>
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adm/principal_adm.css">
+    <title>Adjunto</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
             
             <div class="col-sm-12" id="question">
                 <div>
-                    <p id="question-p">Consulta</p>
+                    <p id="question-p">Adjuntos</p>
                 </div>
             </div>
             
@@ -48,30 +48,19 @@
 
         <div id="margen-proceso">
             <div class="row">
-                <div class="col-sm-4 proceso">
-                    <a href="adj_consulta.html"><img class="img-proceso"
-                             src="https://businessman.ru/static/img/a/65633/443700/73899.jpg"
+                <div class="col-sm-6 proceso">
+                    <a href="adj_agregar.html"><img class="img-proceso"
+                             src="https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg"
                             alt="inscripcion"></a>
-                    <label for="inscripcion">Consulta de Adjuntos</label>
+                    <label for="inscripcion">Agregar</label>
                 </div>
-                <div class="col-sm-4 proceso">
-                    <a href="alumnos_consulta.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2017/02/24/02/37/classroom-2093744_960_720.jpg"
+                <div class="col-sm-6 proceso">
+                    <a href="adj_consulta.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2015/03/30/18/25/magnifying-glass-699777_960_720.jpg"
                             alt="DatosGenerales"></a>
-                    <label for="DatosGenerales">Consulta de Alumnos </label>
+                    <label for="DatosGenerales">Consultar</label>
                 </div>
-                <div class="col-sm-4 proceso">
-                    <a href="prof_consulta.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2016/11/29/09/41/bag-1868758_960_720.jpg"
-                            alt="historial"></a>
-                    <label for="historial">Consulta de Profesores</label>
-                </div>
-                <div class="col-sm-4 proceso">
-                    <a href="cursos_consulta.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2016/09/13/08/08/board-1666644_960_720.jpg"
-                            alt="historial"></a>
-                    <label for="historial">Consulta de Cursos</label>
-                </div>
+                
             </div>
 
             
