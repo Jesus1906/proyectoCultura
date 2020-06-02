@@ -87,6 +87,20 @@ class RouteAdminController
         }
     }
 
+    public function AgregarCurso($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            if ($request->getMethod() == 'POST') {
+                $curso = new RegistrarController();
+                $postData = $request->getParsedBody();
+                $curso->regCurso($postData, $request);
+            }
+            require_once '../app/views/Admi/cursos_agregar.html';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
     public function consultaADJ($request)
     {
         if ($_SESSION['user'] == 'admi') {

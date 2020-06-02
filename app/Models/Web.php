@@ -131,6 +131,18 @@ class Web
             'accion' => 'AgregarPROF',
             'auth' => true
         ]);
+
+        $map->get('gAgregarCurso', RUTA_URL . 'adm/registro/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'AgregarCurso',
+            'auth' => true
+        ]);
+
+        $map->post('pAgregarACurso', RUTA_URL . 'adm/registro/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'AgregarCurso',
+            'auth' => true
+        ]);
         //////////////////////////////////////////////////// ---fin controlador Admin Registro
         //////////////////////////////////////////////////// ---inicio controlador Admin consulta
         $map->get('gConsultaADJ', RUTA_URL . 'adm/consulta/adjunto', [

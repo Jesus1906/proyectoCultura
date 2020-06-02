@@ -1,37 +1,41 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso};
 use App\Controllers\ValidatorController;
 
-class RegistrarController extends BaseController{
+class RegistrarController extends BaseController
+{
    public function __construct()
    {
       $this->iniciarControladorBase();
    }
 
-   public function regUsuario($queReg, $quienReg){
-      if($_SERVER['REQUEST_METHOD']== 'POST'){
-         switch($quienReg){
-            case '3':{
-               echo "Admin reg";
-            }
-            break;
-            case '2':{
-               echo "Adjun reg";
-            }
-            break;
-            case '1':{
-               echo "Alumn reg";
-            }
-            break;
-         }// fin de switch
-      }else{
+   public function regUsuario($queReg, $quienReg)
+   {
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+         switch ($quienReg) {
+            case '3': {
+                  echo "Admin reg";
+               }
+               break;
+            case '2': {
+                  echo "Adjun reg";
+               }
+               break;
+            case '1': {
+                  echo "Alumn reg";
+               }
+               break;
+         } // fin de switch
+      } else {
          die('Error al realizar Registro');
       }
    }
 
-   public function regLider($post){
+   public function regLider($post)
+   {
       $lider = new Lider_celula();
       $val = new ValidatorController();
 
@@ -53,15 +57,16 @@ class RegistrarController extends BaseController{
       //validacion de errores
       $error = $val->validarErrores();
 
-      if($error!=false){
+      if ($error != false) {
          return $error;
-      }else{
+      } else {
          $lider->save();
          return 'Exito al guardar';
       }
    }
 
-   public function regAlumno($post){
+   public function regAlumno($post)
+   {
       $matricula = new MatriculaController();
       $alumno = new Alumno();
       $val = new ValidatorController();
@@ -83,7 +88,7 @@ class RegistrarController extends BaseController{
       $val->validarTelefono($post['phone'], false);
       $alumno->cellPhone = $post['phone'];
 
-      $alumno->housePhone = null;//este
+      $alumno->housePhone = null; //este
 
       $val->validarEdad($post['birthday'], 15);
       $alumno->birthday = $post['birthday'];
@@ -107,15 +112,16 @@ class RegistrarController extends BaseController{
       //validacion de errores
       $error = $val->validarErrores();
 
-      if($error!=false){
+      if ($error != false) {
          return $error;
-      }else{
+      } else {
          $alumno->save();
          return 'Exito al guardar';
       }
    }
 
-   public function regAdministrador($post){
+   public function regAdministrador($post)
+   {
       $matricula = new MatriculaController();
       $administrador = new Administrador();
       $val = new ValidatorController();
@@ -146,15 +152,16 @@ class RegistrarController extends BaseController{
       //validacion de errores
       $error = $val->validarErrores();
 
-      if($error!=false){
+      if ($error != false) {
          return $error;
-      }else{
+      } else {
          $administrador->save();
          return 'Exito al guardar';
       }
    }
 
-   public function regAdjunto($post){
+   public function regAdjunto($post)
+   {
       $matricula = new MatriculaController();
       $adjunto = new Adjunto();
       $val = new ValidatorController();
@@ -188,15 +195,16 @@ class RegistrarController extends BaseController{
       //validacion de errores
       $error = $val->validarErrores();
 
-      if($error!=false){
+      if ($error != false) {
          return $error;
-      }else{
+      } else {
          $adjunto->save();
          return 'Exito al guardar';
       }
    }
 
-   public function regProfesor($post){
+   public function regProfesor($post)
+   {
       $profesor = new Profesor();
       $val = new ValidatorController();
 
@@ -221,15 +229,16 @@ class RegistrarController extends BaseController{
       //validacion de errores
       $error = $val->validarErrores();
 
-      if($error!=false){
+      if ($error != false) {
          return $error;
-      }else{
+      } else {
          $profesor->save();
          return 'Exito al guardar';
       }
    }
 
-   public function regCurso($post){
+   public function regCurso($post, $request)
+   {
       $curso = new Curso();
       $val = new ValidatorController();
 
@@ -248,14 +257,43 @@ class RegistrarController extends BaseController{
       $val->validarTexto($post['cursoSiguiente'], null, null, false);
       $curso->cursoSiguiente = $post['cursoSiguiente'];
 
-      //validacion de errores
-      $error = $val->validarErrores();
+      $files = $request->getUploadedFiles(); //obtenemos todos los archivos que se estan subiendo
+      $temario = $files['temario']; // obtenemos el temario de los archivos subidos
+      $manual = $files['manual'];
+      $examen = $files['examen'];
+      $hoja = $files['hojaRespuestas'];
+      $imgCurso = $files['imgCurso'];
 
-      if($error!=false){
-         return $error;
-      }else{
-         $curso->save();
-         return 'Exito al guardar';
+      if (
+         $temario->getError() == UPLOAD_ERR_OK && $manual->getError() == UPLOAD_ERR_OK
+         && $examen->getError() == UPLOAD_ERR_OK && $hoja->getError() == UPLOAD_ERR_OK
+         && $imgCurso->getError() == UPLOAD_ERR_OK
+      ) {
+         // preguntamos si hay algun error en la subida del archivo
+         $fileName = $temario->getClientFilename(); //obtenemos el nombre del archivo
+         $temario->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+
+         $fileName = $manual->getClientFilename(); //obtenemos el nombre del archivo
+         $manual->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+
+         $fileName = $examen->getClientFilename(); //obtenemos el nombre del archivo
+         $examen->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+
+         $fileName = $hoja->getClientFilename(); //obtenemos el nombre del archivo
+         $hoja->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+
+         $fileName = $imgCurso->getClientFilename(); //obtenemos el nombre del archivo
+         $imgCurso->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+
+         //validacion de errores
+         $error = $val->validarErrores();
+
+         if ($error != false) {
+            return $error;
+         } else {
+            //$curso->save();
+            //return 'Exito al guardar';
+         }
       }
    }
 }
