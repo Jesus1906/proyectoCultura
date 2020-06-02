@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="<?php echo RUTA_SERVER ?>/public/estilos/styles.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo RUTA_SERVER ?>/public/estilos/principal/styles.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
@@ -28,7 +28,7 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/proyectocultura">
+        <a class="navbar-brand" href="<?Php echo RUTA_URL ?>">
             <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
                 loading="lazy">
             Cultura Filadelfia</a>
@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/proyectocultura">Inicio<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?php echo RUTA_URL ?>">Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="info">Sobre Nosotros<span class="sr-only">(current)</span></a>
@@ -53,14 +53,14 @@
                         Iniciar Sesion
                     </a>
                     <div class="dropdown-menu">
-                        <form class="px-1 py-3">
+                        <form class="px-1 py-3" action="/proyectocultura/auth" method="POST">
                             <div class="form-group">
-                                <label for="exampleDropdownFormEmail1">Correo Electronico</label>
-                                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="micorreo@ejemplo.com" required name="">
+                                <label for="exampleDropdownFormEmail1">No. de Cuenta</label>
+                                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="micorreo@ejemplo.com" name="cuenta">
                             </div>
                             <div class="form-group">
                                 <label for="exampleDropdownFormPassword1">Contraseña</label>
-                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" required name="">
+                                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="password">
                             </div>
                             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                         </form>

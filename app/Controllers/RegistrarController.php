@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso};
-
+use App\Controllers\ValidatorController;
 
 class RegistrarController extends BaseController{
    public function __construct()
@@ -33,84 +33,229 @@ class RegistrarController extends BaseController{
 
    public function regLider($post){
       $lider = new Lider_celula();
+      $val = new ValidatorController();
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
       $lider->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
       $lider->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
       $lider->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
       $lider->secondLastName = $post['secondLastName'];
+
+      $val->validarTelefono($post['phone'], false);
       $lider->phone = $post['phone'];
-      $lider->save();
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $lider->save();
+         return 'Exito al guardar';
+      }
    }
 
    public function regAlumno($post){
       $matricula = new MatriculaController();
       $alumno = new Alumno();
+      $val = new ValidatorController();
+
       $alumno->matriculaAlumno = $matricula->asignarMatricula('alu');
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
       $alumno->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
       $alumno->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
       $alumno->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
       $alumno->secondLastName = $post['secondLastName'];
+
+      $val->validarTelefono($post['phone'], false);
       $alumno->cellPhone = $post['phone'];
+
       $alumno->housePhone = null;//este
+
+      $val->validarEdad($post['birthday'], 15);
       $alumno->birthday = $post['birthday'];
+
       $alumno->maritalStatus = $post['statusCivil'];
       $alumno->serviseStatus = $post['statusService'];
       $alumno->statusBautizo = $post['statusBautizo'];
+
+      $val->validarCorreo($post['email']);
       $alumno->email = $post['email'];
-      $alumno->password = password_hash($post['password'], PASSWORD_DEFAULT); 
+
+      $val->validarPassIgual($post['password'], $post['password1']);
+      $alumno->password = password_hash($post['password'], PASSWORD_DEFAULT);
+
       $alumno->photo = null;
       $alumno->activo = 'true';
       $alumno->pago = false;
       $alumno->pagoCongelado = false;
       $alumno->Lider_Celula_id = $post['lider'];
-      $alumno->save();
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $alumno->save();
+         return 'Exito al guardar';
+      }
    }
 
    public function regAdministrador($post){
       $matricula = new MatriculaController();
       $administrador = new Administrador();
+      $val = new ValidatorController();
+
       $administrador->matriculaAdministrador = $matricula->asignarMatricula('adm');
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
       $administrador->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
       $administrador->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
       $administrador->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
       $administrador->secondLastName = $post['secondLastName'];
+
+      $val->validarCorreo($post['email']);
       $administrador->email = $post['email'];
+
+      $val->validarPassIgual($post['password'], $post['password1']);
       $administrador->password = password_hash($post['password'], PASSWORD_DEFAULT);
+
+      $val->validarTelefono($post['phone'], false);
       $administrador->phone = $post['phone'];
-      $administrador->save();
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $administrador->save();
+         return 'Exito al guardar';
+      }
    }
 
    public function regAdjunto($post){
       $matricula = new MatriculaController();
       $adjunto = new Adjunto();
+      $val = new ValidatorController();
+
       $adjunto->matriculaAdjunto = $matricula->asignarMatricula('adj');
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
       $adjunto->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
       $adjunto->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
       $adjunto->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
       $adjunto->secondLastName = $post['secondLastName'];
+
+      $val->validarEdad($post['birthday'], null);
       $adjunto->birthday = $post['birthday'];
+
+      $val->validarCorreo($post['email']);
       $adjunto->email = $post['email'];
+
+      $val->validarPassIgual($post['password'], $post['password1']);
       $adjunto->password = password_hash($post['password'], PASSWORD_DEFAULT);
+
+      $val->validarTelefono($post['phone'], false);
       $adjunto->phone = $post['phone'];
-      $adjunto->save();
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $adjunto->save();
+         return 'Exito al guardar';
+      }
    }
 
    public function regProfesor($post){
       $profesor = new Profesor();
+      $val = new ValidatorController();
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
       $profesor->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
       $profesor->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
       $profesor->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
       $profesor->secondLastName = $post['secondLastName'];
+
+      $val->validarCorreo($post['email']);
       $profesor->email = $post['email'];
+
+      $val->validarTelefono($post['phone'], false);
       $profesor->phone = $post['phone'];
-      $profesor->save();
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $profesor->save();
+         return 'Exito al guardar';
+      }
    }
 
    public function regCurso($post){
       $curso = new Curso();
+      $val = new ValidatorController();
+
+      $val->validarTexto($post['name'], 4, 50, false);
       $curso->name = $post['name'];
+
+      $val->validarNumero($post['nivel']);
       $curso->nivel = $post['nivel'];
+
+      $val->validarTexto($post['descripcion'], 1, null, false);
       $curso->descripcion = $post['descripcion'];
+
+      $val->validarTexto($post['cursoAnterior'], null, null, false);
       $curso->cursoAnterior = $post['cursoAnterior'];
+
+      $val->validarTexto($post['cursoSiguiente'], null, null, false);
       $curso->cursoSiguiente = $post['cursoSiguiente'];
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if($error!=false){
+         return $error;
+      }else{
+         $curso->save();
+         return 'Exito al guardar';
+      }
    }
 }

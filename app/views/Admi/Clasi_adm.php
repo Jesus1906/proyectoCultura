@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href=" principal.css">
 
-    <link rel="stylesheet" href="principal_alumno.css">
-    <title>Inicio Alumno</title>
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adm/principal_adm.css">
+    <title>Inicio Administrador</title>
 </head>
 
 <body>
@@ -30,9 +30,9 @@
                     <a class="nav-link" href="#">-</a>
                 </li>
             </ul>
-            <a class="nav-link" href="principal_alumno.html">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="../principal.html">Cerrar Sesion <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>" >Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
@@ -40,7 +40,7 @@
         <div class="row" id="primer_row">
             <div class="col-sm-4">
                 <div>
-                    <p id="welcome">Bienvenido: Name alumno</p>
+                    <p id="welcome">Bienvenido: <?php echo $_SESSION['nombre']; ?></p>
                 </div>
             </div>
             <div class="col-sm-4" id="question">
@@ -54,46 +54,73 @@
                         src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto">
                 </div>
                 <div class="text-center">
-                    <a href="datosGenerales.html">Editar Perfil</a>
+                    <a href="perfil_admin.html">Editar Perfil</a>
                 </div>
-                
             </div>
         </div>
 
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-4 proceso">
-                    <a href="Inscripciones.html"><img class="img-proceso"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRg3v02DXz6qzLL7OYXDAgzin88H9VionrteEoe70E8uN7l6YCX&usqp=CAU"
+                    <a href="inico_adm_cursos.html"><img class="img-proceso"
+                             src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg"
                             alt="inscripcion"></a>
-                    <label for="inscripcion">Inscripción</label>
+                    <label for="inscripcion">Cursos</label>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="datosGenerales.html"><img class="img-proceso"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU"
+                    <a href="inicio_adm_Eva.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg"
                             alt="DatosGenerales"></a>
-                    <label for="DatosGenerales">Datos Generales</label>
+                    <label for="DatosGenerales">Evaluaciones</label>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="historial.html"><img class="img-proceso"
-                            src="https://businessman.ru/static/img/a/65633/443700/73899.jpg"
+                    <a href="inicio_adm_cons.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg"
                             alt="historial"></a>
-                    <label for="historial">Historial</label>
+                    <label for="historial">Consulta</label>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm-6 proceso">
-                    <a href="comprobantes.html"><img class="img-proceso"
-                            src="https://www.elnuevosiglo.com.co/sites/default/files/styles/noticia_interna/public/2020-03/curso.jpg"
+                <div class="col-sm-4 proceso">
+                    <a href="inicio_adm_alumnos.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2017/02/24/02/37/classroom-2093744_960_720.jpg"
                             alt="comprobante"></a>
-                    <label for="comprobante">Comprobantes de Inscripción</label>
+                    <label for="comprobante">Alumnos</label>
                 </div>
-                <div class="col-sm-6 proceso">
-                    <a href="cursos_alumn.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg"
+                <div class="col-sm-4 proceso">
+                    <a href="inicio_adm_prof.html"><img class="img-proceso"
+                        src="https://cdn.pixabay.com/photo/2016/11/29/09/41/bag-1868758_960_720.jpg"
                             alt="cursos"></a>
-                    <label for="cursos">Cursos</label>
+                    <label for="cursos">Profesores</label>
+                </div>
+                <div class="col-sm-4 proceso">
+                    <a href="inicio_adm_adj.html"><img class="img-proceso"
+                        src="https://businessman.ru/static/img/a/65633/443700/73899.jpg"
+                            alt="cursos"></a>
+                    <label for="cursos">Adjuntos</label>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-sm-4 proceso">
+                    <a href="inicio_adm_lider.html"><img class="img-proceso"
+                            src="https://th.bing.com/th/id/OIP.zsT3UMNeo2t37Sxf9Ox4HwHaE8?w=238&h=160&c=7&o=5&pid=1.7"
+                            alt="comprobante"></a>
+                    <label for="comprobante">Lideres de Grupos Familiares</label>
+                </div>
+                <div class="col-sm-4 proceso">
+                    <a href="inicio_adm_administrador.html"><img class="img-proceso"
+                            src="https://www.aycelaborytax.com/wp-content/uploads/2019/02/tipos-administrador.jpg"
+                            alt="comprobante"></a>
+                    <label for="comprobante">Administradores</label>
+                </div>
+                <div class="col-sm-4 proceso">
+                    <a href="#"><img class="img-proceso"
+                        src="https://th.bing.com/th/id/OIP.JiW4Ok-WRn-tsAGeUl8ROQHaEb?w=300&h=179&c=7&o=5&pid=1.7"
+                            alt="cursos"></a>
+                    <label for="cursos">Reportes</label>
                 </div>
             </div>
         </div>

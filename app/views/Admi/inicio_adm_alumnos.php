@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="principal.css">
 
-    <link rel="stylesheet" href="principal_adm.css">
-    <title>Profesor</title>
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adm/principal_adm.css">
+    <title>Alumnos</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
             
             <div class="col-sm-12" id="question">
                 <div>
-                    <p id="question-p">Profesores</p>
+                    <p id="question-p">Alumnos</p>
                 </div>
             </div>
             
@@ -48,23 +48,36 @@
 
         <div id="margen-proceso">
             <div class="row">
+                <div class="col-sm-2"></div>
                 <div class="col-sm-4 proceso">
-                    <a href="prof_agregar.html"><img class="img-proceso"
-                             src="https://cdn.pixabay.com/photo/2015/01/08/18/23/white-board-593309_960_720.jpg"
+                    <a href="../registro.html"><img class="img-proceso"
+                             src="https://cdn.pixabay.com/photo/2014/04/05/11/07/empty-314554_960_720.jpg"
                             alt="inscripcion"></a>
-                    <label for="inscripcion">Inscribir</label>
+                    <label for="inscripcion">Registrar</label>
                 </div>
+                
                 <div class="col-sm-4 proceso">
-                    <a href="prof_consulta.html"><img class="img-proceso"
+                    <a href="alumnos_consulta.html"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2018/09/26/09/24/board-3704097_960_720.jpg"
-                            alt="DatosGenerales"></a>
-                    <label for="DatosGenerales">Consultar</label>
-                </div>
-                <div class="col-sm-4 proceso">
-                    <a href="prof_eva.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2016/01/28/09/27/one-hundred-1165990_960_720.jpg"
                             alt="historial"></a>
-                    <label for="historial">Evaluaciones</label>
+                    <label for="historial">Consultar alumnos</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4 proceso">
+                    <a href="../Adjunto/pagos.html"><img class="img-proceso"
+                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU"
+                            alt="inscripcion"></a>
+                    <label for="inscripcion">Pagos de Alumnos</label>
+                </div>
+
+                <div class="col-sm-4 proceso">
+                    <a href="cursos_listas.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2017/07/04/08/15/district-2470306_960_720.jpg"
+                            alt="DatosGenerales"></a>
+                    <label for="DatosGenerales">Listas por Grupo</label>
                 </div>
             </div>
 

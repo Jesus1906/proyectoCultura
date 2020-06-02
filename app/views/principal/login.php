@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesion</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
     <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="login.css">
-    
+
+    <link rel="stylesheet" type="text/css" href="<?php echo RUTA_SERVER ?>/estilos/principal/login.css">
+
 </head>
 <body>
     <div class="modal-dialog text-center">
         <div class="col-sm-8 main-section">
             <div class="modal-content">
                 <div class="col-12 user-img">
-                    <img src="../../ImagenescULTURA/índice.jpg"/>
+                    <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/índice.jpg"/>
                 </div>
                 <form class="col-12" th:action="@{/login}" method="get">
                     <div class="form-group" id="user-group">
@@ -33,7 +33,7 @@
                     <a href="#">Recuperar Contraseña</a>
                 </div>
                 <div class="col-12">
-                    <a href="registro.html">Registrarme</a>
+                    <a href="registro">Registrarme</a>
                 </div>
             </div>
         </div>

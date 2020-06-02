@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="principal.css">
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adj/principal.css">
 
-    <link rel="stylesheet" href="principal_adm.css">
-    <title>Alumnos</title>
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adj/principal_adju.css">
+    <title>Inicio Adjunto</title>
 </head>
 
 <body>
@@ -31,57 +31,68 @@
                 </li>
             </ul>
             <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="principal_adjunto.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>" >Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
     <div class="container">
         <div class="row" id="primer_row">
-            
-            <div class="col-sm-12" id="question">
+            <div class="col-sm-4">
                 <div>
-                    <p id="question-p">Alumnos</p>
+                <p id="welcome">Bienvenido: <?php echo $_SESSION['nombre']; ?></p>
                 </div>
             </div>
-            
+            <div class="col-sm-4" id="question">
+                <div>
+                    <p id="question-p">¿Qué desea hacer?</p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div id="foto">
+                    <img class="perfil"
+                        src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto">
+                </div>
+                <div class="text-center">
+                    <a href="perfil_adju.html">Editar Perfil</a>
+                </div>
+            </div>
         </div>
 
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4 proceso">
-                    <a href="../registro.html"><img class="img-proceso"
-                             src="https://cdn.pixabay.com/photo/2014/04/05/11/07/empty-314554_960_720.jpg"
+                    <a href="cursoAsig_adju.html"><img class="img-proceso"
+                             src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg"
                             alt="inscripcion"></a>
-                    <label for="inscripcion">Registrar</label>
+                    <label for="inscripcion">Consultar Curso Asignado</label>
+                </div>
+                <div class="col-sm-4 proceso">
+                    <a href="pagos.html"><img class="img-proceso"
+                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU"
+                            alt="inscripcion"></a>
+                    <label for="inscripcion">Pagos de Alumnos</label>
                 </div>
                 
-                <div class="col-sm-4 proceso">
-                    <a href="alumnos_consulta.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2018/09/26/09/24/board-3704097_960_720.jpg"
-                            alt="historial"></a>
-                    <label for="historial">Consultar alumnos</label>
-                </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4 proceso">
-                    <a href="../Adjunto/pagos.html"><img class="img-proceso"
-                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU"
-                            alt="inscripcion"></a>
-                    <label for="inscripcion">Pagos de Alumnos</label>
-                </div>
-
-                <div class="col-sm-4 proceso">
-                    <a href="cursos_listas.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2017/07/04/08/15/district-2470306_960_720.jpg"
+                    <a href="calificaciones.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg"
                             alt="DatosGenerales"></a>
-                    <label for="DatosGenerales">Listas por Grupo</label>
+                    <label for="DatosGenerales">Calificaciones</label>
+                </div>
+                <div class="col-sm-4 proceso">
+                    <a href="../registro.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg"
+                            alt="historial"></a>
+                    <label for="historial">Registrar Alumno</label>
                 </div>
             </div>
 
-            
         </div>
         <div class="row">
             <div class="col-sm-12 footer">

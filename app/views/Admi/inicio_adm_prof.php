@@ -10,8 +10,8 @@
 
     <link rel="stylesheet" href="principal.css">
 
-    <link rel="stylesheet" href="principal_adm.css">
-    <title>Administradores</title>
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adm/principal_adm.css">
+    <title>Profesor</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
             
             <div class="col-sm-12" id="question">
                 <div>
-                    <p id="question-p">Más Administradores</p>
+                    <p id="question-p">Profesores</p>
                 </div>
             </div>
             
@@ -48,19 +48,24 @@
 
         <div id="margen-proceso">
             <div class="row">
-                <div class="col-sm-6 proceso">
-                    <a href="admin_agregar.html"><img class="img-proceso"
-                             src="https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg"
+                <div class="col-sm-4 proceso">
+                    <a href="prof_agregar.html"><img class="img-proceso"
+                             src="https://cdn.pixabay.com/photo/2015/01/08/18/23/white-board-593309_960_720.jpg"
                             alt="inscripcion"></a>
-                    <label for="inscripcion">Agregar</label>
+                    <label for="inscripcion">Inscribir</label>
                 </div>
-                <div class="col-sm-6 proceso">
-                    <a href="admin_consulta.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2015/03/30/18/25/magnifying-glass-699777_960_720.jpg"
+                <div class="col-sm-4 proceso">
+                    <a href="prof_consulta.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2018/09/26/09/24/board-3704097_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consultar</label>
                 </div>
-                
+                <div class="col-sm-4 proceso">
+                    <a href="prof_eva.html"><img class="img-proceso"
+                            src="https://cdn.pixabay.com/photo/2016/01/28/09/27/one-hundred-1165990_960_720.jpg"
+                            alt="historial"></a>
+                    <label for="historial">Evaluaciones</label>
+                </div>
             </div>
 
             

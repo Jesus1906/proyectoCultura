@@ -4,7 +4,7 @@ namespace App\Controllers;
 class RouteController{
 
    public function vistaHome(){
-      include "../app/views/principal/index.php";
+      require_once "../app/views/principal/index.php";
    }
 
    public function vistaRegistro($request){
@@ -21,6 +21,14 @@ class RouteController{
       }
 
       require_once '../app/views/principal/registro.php';
+   }
+
+   public function inicioALU(){
+      if ($_SESSION['user'] == 'alumno') {
+         require_once '../app/views/Alumno/principal_alumno.php';
+     } else {
+         echo 'No eres alumno';
+     }
    }
 
 }
