@@ -15,7 +15,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,19 +61,13 @@
 
         <div id="margen-proceso">
             <div class="row">
-                <div class="col-sm-4 proceso">
+                <div class="col-sm-6 proceso">
                     <a href="Inscripciones.html"><img class="img-proceso"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRg3v02DXz6qzLL7OYXDAgzin88H9VionrteEoe70E8uN7l6YCX&usqp=CAU"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Inscripción</label>
                 </div>
-                <div class="col-sm-4 proceso">
-                    <a href="datosGenerales.html"><img class="img-proceso"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU"
-                            alt="DatosGenerales"></a>
-                    <label for="DatosGenerales">Datos Generales</label>
-                </div>
-                <div class="col-sm-4 proceso">
+                <div class="col-sm-6 proceso">
                     <a href="historial.html"><img class="img-proceso"
                             src="https://businessman.ru/static/img/a/65633/443700/73899.jpg"
                             alt="historial"></a>

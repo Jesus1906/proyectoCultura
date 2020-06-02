@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="../../../public/ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,7 @@
             </ul>
             <a class="nav-link" href="cursos_alumn.html">Cursos <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="principal_alumno.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
@@ -36,58 +37,97 @@
         <h1>Actualiza tu Perfil</h1>
     </div>
 
-    <div class="modal-dialog text-center">
-        <img src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto"
-            width="180" height="180">
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-2 justify-content-center">
+            <img src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg"
+                alt="foto" width="180" height="180">
+            <div class="dropdown">
+                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cambiar Constraseña
+                </button>
+                <div class="dropdown-menu">
+                    <form>
+                        <div class="form-group">
+                            <label for="oldPassword">Escribe tu antigua contraseña</label>
+                            <input type="password" class="form-control" id="oldPassword" name="" required>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="form-group">
+                            <label for="newPassword">Escribe tu nueva contraseña</label>
+                            <input type="password" class="form-control" id="newPassword" name="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confPassword">Confirma tu nueva contraseña</label>
+                            <input type="password" class="form-control" id="confPassword" name="" required>
+                        </div>
+                        <button type="submit" class="btn btn-outline-success">Cambiar Constraseña</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
     <div class="modal-dialog text-center">
         <h4>No de Cuenta</h4>
         <h5>123456789</h5>
     </div>
    
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="Jesús">
-            </div>
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="Daniel">
-            </div>
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="López">
-            </div>
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="Gómez">
-            </div>
-        </div>
+        <form action="">
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="firtsName">Primer Nombre</label>
+                    <input class="form-control form-control-lg" type="text" id="firstName" placeholder="Jesús" name="">
+                </div>
+                <div class="col-sm-4">
+                    <label for="secondName">Segundo Nombre</label>
+                    <input class="form-control form-control-lg" type="text" id="secondName" placeholder="Daniel"
+                        name="">
+                </div>
 
-        <br>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="firtsLastName">Apellido Paterno</label>
+                    <input class="form-control form-control-lg" type="text" id="firtsLastName" placeholder="López"
+                        name="">
+                </div>
+                <div class="col-sm-4">
+                    <label for="secondsLastName">Apellido Materno</label>
+                    <input class="form-control form-control-lg" type="text" id="secondLastName" placeholder="Gómez"
+                        name="">
+                </div>
+            </div>
 
-        <div class="row">
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="micorreoxD@gmail.com">
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="correo">Correo Electronico</label>
+                    <input class="form-control form-control-lg" type="email" id="correo"
+                        placeholder="micorreoxD@gmail.com" name="">
+                </div>
+                <div class="col-sm-4">
+                    <label for="phone">Telefono</label>
+                    <input class="form-control form-control-lg" type="text" id="phone" placeholder="55 1234 5678"
+                        name="">
+                </div>
             </div>
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="contraseña vieja">
+            <br>
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col">
+                    <button class="btn btn-primary" type="submit">Actualizar Datos</button>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="contraseña nueva">
-            </div>
-            <div class="col-sm-3">
-                <input class="form-control form-control-lg" type="text" placeholder="55 1234 5678">
-            </div>
-        </div>
-        
-<br>
+        </form>
 
-        <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col">
-              <button class="btn btn-primary" type="submit">Actualizar</button>
-            </div>
-          </div>
     </div>
-
 
 
 
