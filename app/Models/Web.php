@@ -8,6 +8,12 @@ class Web
     public function cargarRutas($map)
     {
         //////////////////////////////////////////////////////////////--autenticacion de usuarios
+        //ruta para el ajax
+        $map->post('/ajax', RUTA_URL . 'ajax', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'asincronizar',
+        ]);
+
         $map->post('auth', RUTA_URL . 'auth', [
             'controlador' => RUTA_CONTROLLER . '\AuthController',
             'accion' => 'autenticacionUsuario',
