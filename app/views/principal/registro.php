@@ -143,7 +143,9 @@
                     </div>
                     <div class="justify-content-center">
                         <label for="validationServer06">Telefono</label>
-                        <input type="text" class="form-control" id="validationServer06" placeholder="(55) 1234 5678" required name="phone">
+                        <input type="tel" class="form-control" id="validationServer06" placeholder="55-12-34-56-78"
+                        data-toggle="tooltip" data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44"
+                        pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required name="phone">
                         <div class="invalid-feedback">Llena el campo</div>
                         <div class="valid-feedback">Ok!</div>
                         <label for="validationServer05">Correo Electronico</label>
