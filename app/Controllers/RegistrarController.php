@@ -263,37 +263,49 @@ class RegistrarController extends BaseController
       $examen = $files['examen'];
       $hoja = $files['hojaRespuestas'];
       $imgCurso = $files['imgCurso'];
-
       if (
          $temario->getError() == UPLOAD_ERR_OK && $manual->getError() == UPLOAD_ERR_OK
          && $examen->getError() == UPLOAD_ERR_OK && $hoja->getError() == UPLOAD_ERR_OK
          && $imgCurso->getError() == UPLOAD_ERR_OK
       ) {
-         // preguntamos si hay algun error en la subida del archivo
-         $fileName = $temario->getClientFilename(); //obtenemos el nombre del archivo
-         $temario->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+         // preguntamos si hay algun error en la subida del alguno de los archivos
+         $fileNameT = $this->generateName($temario->getClientFilename(), $post['name']); //obtenemos el nombre del archivo
+         $curso->temario = $fileNameT;
 
-         $fileName = $manual->getClientFilename(); //obtenemos el nombre del archivo
-         $manual->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+         $fileNameM = $this->generateName($manual->getClientFilename(), $post['name']); //obtenemos el nombre del archivo
+         $curso->manual = $fileNameM;
 
-         $fileName = $examen->getClientFilename(); //obtenemos el nombre del archivo
-         $examen->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+         $fileNameE = $this->generateName($examen->getClientFilename(), $post['name']); //obtenemos el nombre del archivo
+         $curso->examen = $fileNameE;
 
-         $fileName = $hoja->getClientFilename(); //obtenemos el nombre del archivo
-         $hoja->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+         $fileNameH = $this->generateName($hoja->getClientFilename(), $post['name']); //obtenemos el nombre del archivo
+         $curso->answers = $fileNameH;
 
-         $fileName = $imgCurso->getClientFilename(); //obtenemos el nombre del archivo
-         $imgCurso->moveTo("Uploads/cursos/$fileName"); //mevemos el archivo a la carpeta que queremos
+         $fileNameI = $this->generateName($imgCurso->getClientFilename(), $post['name']); //obtenemos el nombre del archivo
+         $curso->photo = $fileNameI;
 
          //validacion de errores
          $error = $val->validarErrores();
 
          if ($error != false) {
-            return $error;
+            var_dump($error);
          } else {
-            //$curso->save();
-            //return 'Exito al guardar';
+            $temario->moveTo("Uploads/cursos/$fileNameT"); //mevemos el archivo a la carpeta que queremos
+            $manual->moveTo("Uploads/cursos/$fileNameM"); //mevemos el archivo a la carpeta que queremos
+            $examen->moveTo("Uploads/cursos/$fileNameE"); //mevemos el archivo a la carpeta que queremos
+            $hoja->moveTo("Uploads/cursos/$fileNameH"); //mevemos el archivo a la carpeta que queremos
+            $imgCurso->moveTo("Uploads/cursos/$fileNameI"); //mevemos el archivo a la carpeta que queremos
+            $curso->save();
+            echo "exito";
          }
+      }else{
+         echo "error archivos";
       }
+   }
+
+
+   public function generateName($name, $curso){
+      $names = explode('.', $name);
+      return $names[0] . "-$curso." . $names[1];
    }
 }
