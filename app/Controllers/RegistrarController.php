@@ -252,10 +252,10 @@ class RegistrarController extends BaseController
       $curso->descripcion = $post['descripcion'];
 
       $val->validarTexto($post['cursoAnterior'], null, null, false);
-      $curso->cursoAnterior = $post['cursoAnterior'];
+      $curso->cursoAnterior = $this->siguienteOAnterior($post['cursoAnterior']);
 
       $val->validarTexto($post['cursoSiguiente'], null, null, false);
-      $curso->cursoSiguiente = $post['cursoSiguiente'];
+      $curso->cursoSiguiente = $this->siguienteOAnterior($post['cursoSiguiente']);
 
       $files = $request->getUploadedFiles(); //obtenemos todos los archivos que se estan subiendo
       $temario = $files['temario']; // obtenemos el temario de los archivos subidos
@@ -287,6 +287,11 @@ class RegistrarController extends BaseController
          //validacion de errores
          $error = $val->validarErrores();
 
+         if($fileNameT == "erroneo" || $fileNameM == "erroneo" || $fileNameE == "erroneo" 
+         || $fileNameH == "erroneo" || $fileNameI == "erroneo"){ // si alguno de los nombres trae algun error 
+            $error = "algun archivo no es del formato compatible";//cambiar el valor de error por el mensaje
+         }
+
          if ($error != false) {
             var_dump($error);
          } else {
@@ -304,8 +309,20 @@ class RegistrarController extends BaseController
    }
 
 
-   public function generateName($name, $curso){
+   public function generateName($name, $curso){ //agregaremos el nombre del curso al archivo 
       $names = explode('.', $name);
-      return $names[0] . "-$curso." . $names[1];
+      if(count($names)== 1 || count($names) < 2 || $names[1] != "pdf" || $names[1] != "jpg"){ //validaremos si el tipo de archivo es compatible
+         return "erroneo"; //... con el sistema :V
+      }else{
+         return $names[0] . "-$curso." . $names[1];
+      }
+   }
+
+   public function siguienteOAnterior($cursoSigOAnt){
+      if($cursoSigOAnt == "noHayCurso" || $cursoSigOAnt == "noCurso"){
+         return null;
+      }else{
+         return $cursoSigOAnt;
+      }
    }
 }

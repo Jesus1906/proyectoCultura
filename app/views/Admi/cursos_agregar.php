@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
     <title>Agregar Curso</title>
@@ -16,8 +15,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -40,7 +38,7 @@
 
     <div class="container">
         <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">
-        <form action="" method="POST" enctype = "multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-4">
@@ -59,17 +57,35 @@
                 <div class="col-sm-3">
                     <label for="curanterior">Curso Anterior</label>
                     <select class="custom-select" id="curanterior" required name="cursoAnterior">
-                        <option selected disabled value="">Elige...</option>
-                        <option>Name Curso</option>
-                        <option>Name Curso</option>
+                        <?php
+                        if (count($cursos) != 0) {
+                            echo '<option selected disabled value ="" >Elige...</option>';
+                            for ($i = 0; $i < count($cursos); $i++) {
+                                echo '<option  value = ' . $cursos[$i]['name'] . '>' . $cursos[$i]['name'] . '</option>';
+                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            }
+                            echo '<option value = "noCurso" > No tiene curso anterior</option>';
+                        }else{
+                            echo '<option selected value = "noHayCurso" > No hay cursos</option>';
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="col-sm-3">
                     <label for="cursiguiente">Curso Siguiente</label>
                     <select class="custom-select" id="cursiguiente" required name="cursoSiguiente">
-                        <option selected disabled value="">Elige...</option>
-                        <option>Name Curso</option>
-                        <option>Name Curso</option>
+                    <?php
+                        if (count($cursos) != 0) {
+                            echo '<option selected disabled value ="" >Elige...</option>';
+                            for ($i = 0; $i < count($cursos); $i++) {
+                                echo '<option  value = ' . $cursos[$i]['name'] . '>' . $cursos[$i]['name'] . '</option>';
+                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                            }
+                            echo '<option value = "noCurso" > No tiene curso siguiente</option>';
+                        }else{
+                            echo '<option selected value = "noHayCurso" > No hay cursos</option>';
+                        }
+                        ?>
                     </select>
                 </div>
             </div>
@@ -78,27 +94,26 @@
                 <div class="col-sm-3"></div>
                 <div class="col-md-6">
                     <label for="inputState">Descripción</label>
-                    <textarea class="form-control" placeholder="Escriba una Descripción del Curso" required
-                        name="descripcion"></textarea>
+                    <textarea class="form-control" placeholder="Escriba una Descripción del Curso" required name="descripcion"></textarea>
                 </div>
             </div>
-            
-            
+
+
             <div class="form-row">
                 <div class="col-sm-4"></div>
                 <div class="col-md-4">
                     <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
 
                     <label for="temario">Temario</label>
-                    <input type="file" class="form-control-file" id="temario" lang="es"  name="temario" >
+                    <input type="file" class="form-control-file" id="temario" lang="es" name="temario">
                     <label for="manual">Manual</label>
-                    <input type="file" class="form-control-file" id="manual" lang="es"  name="manual"  >
+                    <input type="file" class="form-control-file" id="manual" lang="es" name="manual">
                     <label for="examen">Examen</label>
-                    <input type="file" class="form-control-file" id="examen" lang="es"  name="examen"  >
+                    <input type="file" class="form-control-file" id="examen" lang="es" name="examen">
                     <label for="respuestas">Hojas de Respuestas</label>
-                    <input type="file" class="form-control-file" id="respuestas" lang="es"  name="hojaRespuestas"  >
+                    <input type="file" class="form-control-file" id="respuestas" lang="es" name="hojaRespuestas">
                     <label for="imagen">Imagen</label>
-                    <input type="file" class="form-control-file" id="imagen" lang="es"  name="imgCurso"  >
+                    <input type="file" class="form-control-file" id="imagen" lang="es" name="imgCurso">
                 </div>
 
 
@@ -116,8 +131,7 @@
 
 
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-                role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -152,15 +166,9 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>
