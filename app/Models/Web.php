@@ -79,6 +79,11 @@ class Web
         $this->adminActualizar($map);
     }
 
+    public function rutasAdjunto($map){
+
+    }
+
+    //inician rutas admin
     public function adminRegistro($map){
         $map->get('gAgregarAdj', RUTA_URL . 'adm/registro/adjunto', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
@@ -231,13 +236,28 @@ class Web
     }
 
     public function adminActualizar($map){
-        $map->get('gActualizarPerfil', RUTA_URL . 'adm/perfil', [
+        $map->get('gActualizarPerfilAdm', RUTA_URL . 'adm/perfil', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'actualizarPerfil',
             'auth' => true
         ]);
 
-        $map->post('pActualizarPerfil', RUTA_URL . 'adm/perfil', [
+        $map->post('pActualizarPerfilAdm', RUTA_URL . 'adm/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
+    }
+
+    //inician rutas adjunto
+    public function adjuntoActualizar($map){
+        $map->get('gActualizarPerfilAdj', RUTA_URL . 'adm/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
+
+        $map->post('pActualizarPerfilAdj', RUTA_URL . 'adm/perfil', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'actualizarPerfil',
             'auth' => true

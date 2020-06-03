@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Controllers\{RegistrarController, ConsultaController};
+use App\Controllers\{RegistrarController, ConsultaController, ActualizarController};
 
 class RouteAdminController
 {
@@ -23,9 +23,8 @@ class RouteAdminController
                 'parametro' => $_SESSION['matricula']
             ]);  
             if ($request->getMethod() == 'POST') {
-                //$adjunto = new RegistrarController();
-                //$postData = $request->getParsedBody();
-                //$adjunto->regAdjunto($postData);
+                $actualiza = new ActualizarController();
+                $actualiza->actualizarPerfil($admin, $request->getParsedBody());
             }
             require_once '../app/views/Admi/perfil_admin.php';
         } else {

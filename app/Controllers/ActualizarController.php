@@ -76,20 +76,13 @@ class ActualizarController extends BaseController
         $alumno->save();
     }
 
-    public function updateAdministrador($post)
+    public function actualizarPerfil($administrador, $post)
     {
-        $administrador = new ConsultaController;
-        $datosAdministrador = [
-            'filtro' => 'matricula',
-            'parametro' => $post['matricula']
-        ];
-        $administrador = $administrador->getAdministrador($datosAdministrador);
-        $administrador->firstName = $post['firstName'];
+        $administrador->firstname = $post['firstName'];
         $administrador->secondName = $post['secondName'];
         $administrador->firstLastName = $post['firstLastName'];
         $administrador->secondLastName = $post['secondLastName'];
         $administrador->email = $post['email'];
-        $administrador->password = password_hash($post['password'], PASSWORD_DEFAULT);
         $administrador->phone = $post['phone'];
         $administrador->save();
     }

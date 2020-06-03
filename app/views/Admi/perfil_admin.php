@@ -28,7 +28,7 @@
                 </li>
             </ul>
             <a class="nav-link" href="cursos_alumn.html">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="principal_alumno.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/proyectocultura/adm">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
         </div>
     </nav>
