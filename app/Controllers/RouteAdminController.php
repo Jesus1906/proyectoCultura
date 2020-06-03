@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Controllers\{RegistrarController};
-use App\Controllers\{ConsultaController};
+use App\Controllers\{RegistrarController, ConsultaController};
 
 class RouteAdminController
 {
@@ -11,6 +10,24 @@ class RouteAdminController
     {
         if ($_SESSION['user'] == 'admi') {
             require_once '../app/views/Admi/clasi_adm.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function actualizarPerfil($request){
+        if ($_SESSION['user'] == 'admi') {
+            $admin = new ConsultaController;
+            $admin = $admin->getAdministrador([
+                'filtro' => 'matricula',
+                'parametro' => $_SESSION['matricula']
+            ]);  
+            if ($request->getMethod() == 'POST') {
+                //$adjunto = new RegistrarController();
+                //$postData = $request->getParsedBody();
+                //$adjunto->regAdjunto($postData);
+            }
+            require_once '../app/views/Admi/perfil_admin.php';
         } else {
             echo 'No eres administrador';
         }
@@ -102,6 +119,22 @@ class RouteAdminController
                 $curso->regCurso($postData, $request);
             }
             require_once '../app/views/Admi/cursos_agregar.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function confirmaCurso($request){
+        if ($_SESSION['user'] == 'admi') {
+            $curso = new ConsultaController();
+            $cursos = $curso->getAllCursos();
+
+            if ($request->getMethod() == 'POST') {
+                $curso = new RegistrarController();
+                $postData = $request->getParsedBody();
+                $curso->regCurso($postData, $request);
+            }
+            require_once '../app/views/Admi/confirma_curso.php';
         } else {
             echo 'No eres administrador';
         }

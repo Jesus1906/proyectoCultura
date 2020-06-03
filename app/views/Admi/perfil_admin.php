@@ -32,7 +32,7 @@
             <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
         </div>
     </nav>
-
+    <br><br><br>
     <div class="modal-dialog text-center">
         <h1>Actualiza tu Perfil</h1>
     </div>
@@ -73,21 +73,21 @@
 </div>
     <div class="modal-dialog text-center">
         <h4>No de Cuenta</h4>
-        <h5>123456789</h5>
+        <?php echo '<h5>'. $admin->matriculaAdministrador . '</h5>' ?>
+        
     </div>
    
     <div class="container">
-        <form action="">
+        <form action="" method="POST">
             <div class="form-row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <label for="firtsName">Primer Nombre</label>
-                    <input class="form-control form-control-lg" type="text" id="firstName" placeholder="Jesús" name="">
+                    <input class="form-control form-control-lg" type="text" name="firstName" id="firstName" <?php echo 'value = ' . $admin->firstname . ""; ?>>
                 </div>
                 <div class="col-sm-4">
                     <label for="secondName">Segundo Nombre</label>
-                    <input class="form-control form-control-lg" type="text" id="secondName" placeholder="Daniel"
-                        name="">
+                    <input class="form-control form-control-lg" type="text" id="secondName" <?php echo 'value = ' . $admin->secondName . ""; ?> name="secondName">
                 </div>
 
             </div>
@@ -95,13 +95,13 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <label for="firtsLastName">Apellido Paterno</label>
-                    <input class="form-control form-control-lg" type="text" id="firtsLastName" placeholder="López"
-                        name="">
+                    <input class="form-control form-control-lg" type="text" id="firstLastName" placeholder="López" <?php echo 'value = ' . $admin->firstLastName . ""; ?>
+                        name="firstLastName">
                 </div>
                 <div class="col-sm-4">
                     <label for="secondsLastName">Apellido Materno</label>
-                    <input class="form-control form-control-lg" type="text" id="secondLastName" placeholder="Gómez"
-                        name="">
+                    <input class="form-control form-control-lg" type="text" id="secondLastName" placeholder="Gómez" <?php echo 'value = ' . $admin->secondLastName . ""; ?>
+                        name="secondLastName">
                 </div>
             </div>
 
@@ -110,12 +110,11 @@
                 <div class="col-sm-4">
                     <label for="correo">Correo Electronico</label>
                     <input class="form-control form-control-lg" type="email" id="correo"
-                        placeholder="micorreoxD@gmail.com" name="">
+                    <?php echo 'value = ' . $admin->email . ""; ?> name="email">
                 </div>
                 <div class="col-sm-4">
                     <label for="phone">Telefono</label>
-                    <input class="form-control form-control-lg" type="text" id="phone" placeholder="55 1234 5678"
-                        name="">
+                    <input class="form-control form-control-lg" type="text" name="phone" id="phone" <?php echo 'value = ' . $admin->phone . ""; ?>>
                 </div>
             </div>
             <br>

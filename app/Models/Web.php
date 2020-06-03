@@ -7,6 +7,8 @@ class Web
 
     public function cargarRutas($map)
     {
+        $this->rutasAdmim($map);// cargamos las rutas para el administrador
+
         //////////////////////////////////////////////////////////////--autenticacion de usuarios
         //ruta para el ajax
         $map->post('/ajax', RUTA_URL . 'ajax', [
@@ -68,8 +70,16 @@ class Web
             'controlador' => RUTA_CONTROLLER . '\RoutePrincipalController',
             'accion' => 'vistaLogin',
         ]);
+    }
 
-        //////////////////////////////////////////////////// ---inicio controlador Admin Registro
+
+    public function rutasAdmim($map){
+        $this->adminRegistro($map);
+        $this->adminConsulta($map);
+        $this->adminActualizar($map);
+    }
+
+    public function adminRegistro($map){
         $map->get('gAgregarAdj', RUTA_URL . 'adm/registro/adjunto', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'AgregarAdj',
@@ -143,8 +153,22 @@ class Web
             'accion' => 'AgregarCurso',
             'auth' => true
         ]);
-        //////////////////////////////////////////////////// ---fin controlador Admin Registro
-        //////////////////////////////////////////////////// ---inicio controlador Admin consulta
+
+        $map->get('gConfirmaCurso', RUTA_URL . 'adm/registro/confirma_curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'confirmaCurso',
+            'auth' => true
+        ]);
+
+        $map->post('pConfirmaACurso', RUTA_URL . 'adm/registro/confirma_curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'confirmaCurso',
+            'auth' => true
+        ]);
+    }
+
+    public function adminConsulta($map){
+
         $map->get('gConsultaADJ', RUTA_URL . 'adm/consulta/adjunto', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'consultaADJ',
@@ -204,7 +228,19 @@ class Web
             'accion' => 'consultaPROF',
             'auth' => true
         ]);
-        //////////////////////////////////////////////////// ---inicio controlador Admin consulta
-        //map get(nombre que se le da en url, url que debe hacer match, handler o accion a realizar )
+    }
+
+    public function adminActualizar($map){
+        $map->get('gActualizarPerfil', RUTA_URL . 'adm/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
+
+        $map->post('pActualizarPerfil', RUTA_URL . 'adm/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
     }
 }

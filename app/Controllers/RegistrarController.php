@@ -251,12 +251,6 @@ class RegistrarController extends BaseController
       $val->validarTexto($post['descripcion'], 1, null, false);
       $curso->descripcion = $post['descripcion'];
 
-      $val->validarTexto($post['cursoAnterior'], null, null, false);
-      $curso->cursoAnterior = $this->siguienteOAnterior($post['cursoAnterior']);
-
-      $val->validarTexto($post['cursoSiguiente'], null, null, false);
-      $curso->cursoSiguiente = $this->siguienteOAnterior($post['cursoSiguiente']);
-
       $files = $request->getUploadedFiles(); //obtenemos todos los archivos que se estan subiendo
       $temario = $files['temario']; // obtenemos el temario de los archivos subidos
       $manual = $files['manual'];
@@ -295,13 +289,15 @@ class RegistrarController extends BaseController
          if ($error != false) {
             var_dump($error);
          } else {
+
             $temario->moveTo("Uploads/cursos/$fileNameT"); //mevemos el archivo a la carpeta que queremos
             $manual->moveTo("Uploads/cursos/$fileNameM"); //mevemos el archivo a la carpeta que queremos
             $examen->moveTo("Uploads/cursos/$fileNameE"); //mevemos el archivo a la carpeta que queremos
             $hoja->moveTo("Uploads/cursos/$fileNameH"); //mevemos el archivo a la carpeta que queremos
             $imgCurso->moveTo("Uploads/cursos/$fileNameI"); //mevemos el archivo a la carpeta que queremos
             $curso->save();
-            echo "exito";
+            header(sprintf('%s: %s', 'location', '/proyectocultura/adm/registro/confirma_curso'), false);
+
          }
       }else{
          echo "error archivos";

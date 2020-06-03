@@ -51,48 +51,6 @@
                 </div>
             </div>
 
-<<<<<<< HEAD:app/views/Admi/cursos_agregar.html
-=======
-
-            <div class="form-row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-3">
-                    <label for="curanterior">Curso Anterior</label>
-                    <select class="custom-select" id="curanterior" required name="cursoAnterior">
-                        <?php
-                        if (count($cursos) != 0) {
-                            echo '<option selected disabled value ="" >Elige...</option>';
-                            for ($i = 0; $i < count($cursos); $i++) {
-                                echo '<option  value = ' . $cursos[$i]['name'] . '>' . $cursos[$i]['name'] . '</option>';
-                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            }
-                            echo '<option value = "noCurso" > No tiene curso anterior</option>';
-                        }else{
-                            echo '<option selected value = "noHayCurso" > No hay cursos</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="col-sm-3">
-                    <label for="cursiguiente">Curso Siguiente</label>
-                    <select class="custom-select" id="cursiguiente" required name="cursoSiguiente">
-                    <?php
-                        if (count($cursos) != 0) {
-                            echo '<option selected disabled value ="" >Elige...</option>';
-                            for ($i = 0; $i < count($cursos); $i++) {
-                                echo '<option  value = ' . $cursos[$i]['name'] . '>' . $cursos[$i]['name'] . '</option>';
-                                //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            }
-                            echo '<option value = "noCurso" > No tiene curso siguiente</option>';
-                        }else{
-                            echo '<option selected value = "noHayCurso" > No hay cursos</option>';
-                        }
-                        ?>
-                    </select>
-                </div>
-            </div>
-
->>>>>>> 8d55bdceb3fe74cf8c6267dd0bb32eb70db67165:app/views/Admi/cursos_agregar.php
             <div class="form-row">
                 <div class="col-sm-3"></div>
                 <div class="col-md-6">
