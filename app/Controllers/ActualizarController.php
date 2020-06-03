@@ -76,7 +76,7 @@ class ActualizarController extends BaseController
         $alumno->save();
     }
 
-    public function actualizarPerfil($administrador, $post)
+    public function actualizarPerfilAdm($administrador, $post)
     {
         $administrador->firstname = $post['firstName'];
         $administrador->secondName = $post['secondName'];
@@ -87,21 +87,13 @@ class ActualizarController extends BaseController
         $administrador->save();
     }
 
-    public function updateAdjunto($post){
-        $birthday = $post['year'] . '-' . $post['month'] . '-' . $post['day'];
-        $adjunto = new ConsultaController;
-        $datosAdjunto = [
-            'filtro' => 'matricula',
-            'parametro' => $post['matricula']
-        ];
-        $adjunto = $adjunto->getAdjunto($datosAdjunto);
+    public function actualizarPerfilAdj($adjunto, $post){
         $adjunto->firstName = $post['firstName'];
         $adjunto->secondName = $post['secondName'];
         $adjunto->firstLastName = $post['firstLastName'];
         $adjunto->secondLastName = $post['secondLastName'];
-        $adjunto->birthday = $birthday;
+        $adjunto->birthday = $post['birthday'];
         $adjunto->email = $post['email'];
-        $adjunto->password = password_hash($post['password'], PASSWORD_DEFAULT);
         $adjunto->phone = $post['phone'];
         $adjunto->save();
     }

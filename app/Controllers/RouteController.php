@@ -31,4 +31,22 @@ class RouteController{
      }
    }
 
+   public function actualizarPerfil($request){
+      if ($_SESSION['user'] == 'alumno') {
+         $alumno = new ConsultaController;
+         $alumno = $alumno->getAlumno([
+             'filtro' => 'matricula',
+             'parametro' => $_SESSION['matricula']
+         ]);  
+         if ($request->getMethod() == 'POST') {
+             $actualiza = new ActualizarController();
+             $actualiza->actualizarPerfilAdj($adjunto, $request->getParsedBody());
+         }
+         require_once '../app/views/adjunto/perfil_adju.html';
+     } else {
+         echo 'No eres alumno';
+     }
+   }
+   
+
 }

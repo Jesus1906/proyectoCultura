@@ -8,7 +8,7 @@ class Web
     public function cargarRutas($map)
     {
         $this->rutasAdmim($map);// cargamos las rutas para el administrador
-
+        $this->rutasAdjunto($map);//cargamo las rutas para el adjunto 
         //////////////////////////////////////////////////////////////--autenticacion de usuarios
         //ruta para el ajax
         $map->post('/ajax', RUTA_URL . 'ajax', [
@@ -80,7 +80,11 @@ class Web
     }
 
     public function rutasAdjunto($map){
+        $this->adjuntoActualizar($map);
+    }
 
+    public function rutasAlumno($map){
+        $this->alumnoActualizar($map);
     }
 
     //inician rutas admin
@@ -251,14 +255,29 @@ class Web
 
     //inician rutas adjunto
     public function adjuntoActualizar($map){
-        $map->get('gActualizarPerfilAdj', RUTA_URL . 'adm/perfil', [
-            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+        $map->get('gActualizarPerfilAdj', RUTA_URL . 'adj/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdjController',
             'accion' => 'actualizarPerfil',
             'auth' => true
         ]);
 
-        $map->post('pActualizarPerfilAdj', RUTA_URL . 'adm/perfil', [
-            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+        $map->post('pActualizarPerfilAdj', RUTA_URL . 'adj/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdjController',
+            'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
+    }
+
+    //inician rutas alumno
+    public function alumnoActualizar($map){
+        $map->get('gActualizarPerfilAlm', RUTA_URL . 'alm/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
+
+        $map->post('pActualizarPerfilAlm', RUTA_URL . 'alm/perfil', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'actualizarPerfil',
             'auth' => true
         ]);

@@ -24,7 +24,7 @@ class RouteAdminController
             ]);  
             if ($request->getMethod() == 'POST') {
                 $actualiza = new ActualizarController();
-                $actualiza->actualizarPerfil($admin, $request->getParsedBody());
+                $actualiza->actualizarPerfilAdm($admin, $request->getParsedBody());
             }
             require_once '../app/views/Admi/perfil_admin.php';
         } else {

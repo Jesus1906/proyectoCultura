@@ -15,4 +15,21 @@ class RouteAdjController
             echo 'No eres administrador';
         }
     }
+
+    public function actualizarPerfil($request){
+        if ($_SESSION['user'] == 'adjunto') {
+            $adjunto = new ConsultaController;
+            $adjunto = $adjunto->getAdjunto([
+                'filtro' => 'matricula',
+                'parametro' => $_SESSION['matricula']
+            ]);  
+            if ($request->getMethod() == 'POST') {
+                $actualiza = new ActualizarController();
+                $actualiza->actualizarPerfilAdj($adjunto, $request->getParsedBody());
+            }
+            require_once '../app/views/adjunto/perfil_adju.html';
+        } else {
+            echo 'No eres adjunto';
+        }
+    }
 }
