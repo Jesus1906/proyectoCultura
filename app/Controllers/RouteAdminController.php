@@ -47,6 +47,9 @@ class RouteAdminController
     public function AgregarALU($request)
     {
         if ($_SESSION['user'] == 'admi') {
+            $lideres = new ConsultaController();
+            $lideres = $lideres->getAllLideres();
+            $alumno = new RegistrarController();
             if ($request->getMethod() == 'POST') {
                 $alumno = new RegistrarController();
                 $postData = $request->getParsedBody();
@@ -90,12 +93,15 @@ class RouteAdminController
     public function AgregarCurso($request)
     {
         if ($_SESSION['user'] == 'admi') {
+            $curso = new ConsultaController();
+            $cursos = $curso->getAllCursos();
+
             if ($request->getMethod() == 'POST') {
                 $curso = new RegistrarController();
                 $postData = $request->getParsedBody();
                 $curso->regCurso($postData, $request);
             }
-            require_once '../app/views/Admi/cursos_agregar.html';
+            require_once '../app/views/Admi/cursos_agregar.php';
         } else {
             echo 'No eres administrador';
         }

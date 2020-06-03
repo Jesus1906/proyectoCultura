@@ -12,6 +12,11 @@ class ConsultaController extends BaseController
         $this->iniciarControladorBase();
     }
 
+    public function getAllCursos()
+    {
+        return Curso::all();
+    }
+
     public function getAllLideres()
     {
         return Lider_celula::all();
@@ -130,9 +135,9 @@ class ConsultaController extends BaseController
     {
         switch ($post['filtro']) {
             case 'Profesor_Matricula': {
-                return Profesor::find($post['parametro']);
-            }
-            break;
+                    return Profesor::find($post['parametro']);
+                }
+                break;
             case 'name': {
                     $names = explode(' ', $post['parametro']);
                     return Profesor::where('firstName', $names[0])
@@ -159,9 +164,9 @@ class ConsultaController extends BaseController
     {
         switch ($post['filtro']) {
             case 'matricula': {
-                return Administrador::find($post['parametro']);
-            }
-            break;
+                    return Administrador::find($post['parametro']);
+                }
+                break;
             case 'name': {
                     $names = explode(' ', $post['parametro']);
                     return Administrador::where('firstname', $names[0])
@@ -222,10 +227,4 @@ class ConsultaController extends BaseController
                 break;
         } //switch
     } //fin getmatricula
-
-    public function getAllCursos(){
-
-      return Curso::all();
-   }
-
 }
