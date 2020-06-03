@@ -45,12 +45,12 @@
             <img src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg"
                 alt="foto" width="180" height="180">
             <div class="dropdown">
-                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-dark btn-sm dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Cambiar Constraseña
                 </button>
                 <div class="dropdown-menu">
-                    <form>
+                    <form class="px-2 py-0">
                         <div class="form-group">
                             <label for="oldPassword">Escribe tu antigua contraseña</label>
                             <input type="password" class="form-control" id="oldPassword" name="" required>
