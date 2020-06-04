@@ -73,7 +73,7 @@ class AuthController extends BaseController{
                 break;
             case '3': {
                     $_SESSION['matricula'] = $user->matriculaAdministrador;
-                    $_SESSION['nombre'] = $user->firstName . " " . $user->secondName;
+                    $_SESSION['nombre'] = $user->firstname . " " . $user->secondName;
                     $_SESSION['user'] = 'admi';
                 }
                 break;

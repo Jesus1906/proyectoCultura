@@ -31,7 +31,7 @@
                 </li>
             </ul>
             <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="principal_adjunto.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>adj">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>" >Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
@@ -54,7 +54,7 @@
                         src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto">
                 </div>
                 <div class="text-center">
-                    <a href="perfil_adju.html">Editar Perfil</a>
+                    <a href="<?php echo RUTA_URL ?>adj/perfil">Editar Perfil</a>
                 </div>
             </div>
         </div>

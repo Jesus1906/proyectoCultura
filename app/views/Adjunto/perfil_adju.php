@@ -13,7 +13,7 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="../../../public/ImagenescULTURA/logo.jpg" alt="">Cultura
+    <a class="navbar-brand" href="<?Php echo RUTA_URL ?>"><img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" alt="">Cultura
             Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +27,8 @@
                 </li>
             </ul>
             <a class="nav-link" href="cursos_alumn.html">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="principal_alumno.html">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>adj">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>">Cerrar Sesión <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <br>
