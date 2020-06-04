@@ -17,7 +17,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
+        <a class="navbar-brand" href="<?php echo RUTA_URL ?>"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,8 +30,8 @@
                     <a class="nav-link" href="#">-</a>
                 </li>
             </ul>
-            <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="cursos">Cursos <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="adm">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>" >Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
@@ -103,7 +103,7 @@
             </div>
 
             <div class="row">
-                
+
                 <div class="col-sm-4 proceso">
                     <a href="inicio_adm_lider.html"><img class="img-proceso"
                             src="https://th.bing.com/th/id/OIP.zsT3UMNeo2t37Sxf9Ox4HwHaE8?w=238&h=160&c=7&o=5&pid=1.7"

@@ -8,12 +8,17 @@ class Web
     public function cargarRutas($map)
     {
         $this->rutasAdmim($map);// cargamos las rutas para el administrador
-        $this->rutasAdjunto($map);//cargamo las rutas para el adjunto 
+        $this->rutasAdjunto($map);//cargamo las rutas para el adjunto
         //////////////////////////////////////////////////////////////--autenticacion de usuarios
         //ruta para el ajax
         $map->post('/ajax', RUTA_URL . 'ajax', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
-            'accion' => 'asincronizar',
+            'accion' => 'asincronizarAlumno',
+        ]);
+
+        $map->post('/ajaxLider', RUTA_URL . 'ajaxLider', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'asincronizarLider',
         ]);
 
         $map->post('auth', RUTA_URL . 'auth', [

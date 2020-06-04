@@ -12,7 +12,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
+    <a class="navbar-brand" href="<?php echo RUTA_URL ?>"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@
 
       <div class="form-row justify-content-center">
         <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda" aria-label="Search" name="parametro">
+        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda" aria-label="Search" name="parametro"id="BusquedaCampo">
       </div>
       <br>
       <div class="form-row">
@@ -73,20 +73,8 @@
               <th scope="col">Telefono </th>
             </tr>
           </thead>
-          <tbody>
-            <?php
-            if ($request->getMethod() == 'GET' || $filtro != "matricula") {
-
-              foreach ($lideres as $lider) {
-                echo '<tr>';
-                echo '<th scope="row">' . $lider['firstName'] . ' ' . $lider['secondName'] . '</th>';
-                echo '<td>' . $lider['firstLastName'] . '</td>';
-                echo '<td>' . $lider['secondLastName'] . '</td>';
-                echo '<td>' . $lider['phone'] . '</td>';
-                echo '</tr>';
-              }
-            }
-            ?>
+          <tbody id="datosTabla">
+            
           </tbody>
         </table>
       </div>
@@ -106,9 +94,13 @@
   </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="<?php echo RUTA_SERVER ?>/js/lider_consulta.js"></script>
+
 </body>
 
 </html>
