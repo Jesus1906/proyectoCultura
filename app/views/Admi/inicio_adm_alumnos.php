@@ -50,14 +50,14 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4 proceso">
-                    <a href="../registro.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>registro"><img class="img-proceso"
                              src="https://cdn.pixabay.com/photo/2014/04/05/11/07/empty-314554_960_720.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Registrar</label>
                 </div>
                 
                 <div class="col-sm-4 proceso">
-                    <a href="alumnos_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/alumno"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2018/09/26/09/24/board-3704097_960_720.jpg"
                             alt="historial"></a>
                     <label for="historial">Consultar alumnos</label>

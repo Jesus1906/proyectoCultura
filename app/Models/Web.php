@@ -83,6 +83,7 @@ class Web
         $this->adminRegistro($map);
         $this->adminConsulta($map);
         $this->adminActualizar($map);
+        $this->adminPrincipales($map);
     }
 
     public function rutasAdjunto($map){
@@ -255,6 +256,56 @@ class Web
         $map->post('pActualizarPerfilAdm', RUTA_URL . 'adm/perfil', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'actualizarPerfil',
+            'auth' => true
+        ]);
+    }
+
+    public function adminPrincipales($map){
+        $map->get('principalCursos', RUTA_URL . 'adm/cursos', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalCursos',
+            'auth' => true
+        ]);
+
+        $map->get('principalEvaluaciones', RUTA_URL . 'adm/evaluaciones', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalEvaluaciones',
+            'auth' => true
+        ]);
+
+        $map->get('principalConsulta', RUTA_URL . 'adm/consulta', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalConsulta',
+            'auth' => true
+        ]);
+
+        $map->get('principalAlumnos', RUTA_URL . 'adm/alumnos', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalAlumnos',
+            'auth' => true
+        ]);
+
+        $map->get('principalProfesores', RUTA_URL . 'adm/profesores', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalProfesores',
+            'auth' => true
+        ]);
+
+        $map->get('principalAdjuntos', RUTA_URL . 'adm/adjuntos', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalAdjuntos',
+            'auth' => true
+        ]);
+
+        $map->get('principalLideres', RUTA_URL . 'adm/lideres', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalLideres',
+            'auth' => true
+        ]);
+
+        $map->get('principalAdministradores', RUTA_URL . 'adm/administradores', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'principalAdministradores',
             'auth' => true
         ]);
     }

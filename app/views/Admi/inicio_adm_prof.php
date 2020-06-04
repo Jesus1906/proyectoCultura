@@ -49,13 +49,14 @@
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-4 proceso">
-                    <a href="prof_agregar.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/registro/profesor"><img class="img-proceso"
                              src="https://cdn.pixabay.com/photo/2015/01/08/18/23/white-board-593309_960_720.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Inscribir</label>
                 </div>
+
                 <div class="col-sm-4 proceso">
-                    <a href="prof_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/profesor"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2018/09/26/09/24/board-3704097_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consultar</label>

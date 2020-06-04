@@ -15,6 +15,70 @@ class RouteAdminController
         }
     }
 
+    public function principalCursos($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_cursos.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalEvaluaciones($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_Eva.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalConsulta($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_cons.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalAlumnos($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_alumnos.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalProfesores($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_prof.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalAdjuntos($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_adj.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalLideres($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_lider.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function principalAdministradores($request){
+        if ($_SESSION['user'] == 'admi') {
+            require_once '../app/views/Admi/inicio_adm_administrador.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
     public function actualizarPerfil($request){
         if ($_SESSION['user'] == 'admi') {
             $admin = new ConsultaController;

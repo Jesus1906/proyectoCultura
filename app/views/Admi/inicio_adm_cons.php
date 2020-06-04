@@ -49,23 +49,26 @@
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-4 proceso">
-                    <a href="adj_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/adjunto"><img class="img-proceso"
                              src="https://businessman.ru/static/img/a/65633/443700/73899.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Consulta de Adjuntos</label>
                 </div>
+
                 <div class="col-sm-4 proceso">
-                    <a href="alumnos_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/alumno"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2017/02/24/02/37/classroom-2093744_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consulta de Alumnos </label>
                 </div>
+
                 <div class="col-sm-4 proceso">
-                    <a href="prof_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/profesor"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2016/11/29/09/41/bag-1868758_960_720.jpg"
                             alt="historial"></a>
                     <label for="historial">Consulta de Profesores</label>
                 </div>
+
                 <div class="col-sm-4 proceso">
                     <a href="cursos_consulta.html"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2016/09/13/08/08/board-1666644_960_720.jpg"

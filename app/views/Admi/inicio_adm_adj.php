@@ -49,13 +49,14 @@
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-6 proceso">
-                    <a href="adj_agregar.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/registro/adjunto"><img class="img-proceso"
                              src="https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Agregar</label>
                 </div>
+
                 <div class="col-sm-6 proceso">
-                    <a href="adj_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/adjunto"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2015/03/30/18/25/magnifying-glass-699777_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consultar</label>

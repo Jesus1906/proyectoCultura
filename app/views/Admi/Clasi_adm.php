@@ -54,7 +54,7 @@
                         src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto">
                 </div>
                 <div class="text-center">
-                    <a href="perfil_admin.html">Editar Perfil</a>
+                    <a href="<?php echo RUTA_URL ?>adm/perfil">Editar Perfil</a>
                 </div>
             </div>
         </div>
@@ -62,19 +62,19 @@
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-4 proceso">
-                    <a href="inico_adm_cursos.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/cursos"><img class="img-proceso"
                              src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Cursos</label>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_Eva.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/evaluaciones"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Evaluaciones</label>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_cons.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg"
                             alt="historial"></a>
                     <label for="historial">Consulta</label>
@@ -83,19 +83,21 @@
 
             <div class="row">
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_alumnos.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/alumnos"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2017/02/24/02/37/classroom-2093744_960_720.jpg"
                             alt="comprobante"></a>
                     <label for="comprobante">Alumnos</label>
                 </div>
+
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_prof.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/profesores"><img class="img-proceso"
                         src="https://cdn.pixabay.com/photo/2016/11/29/09/41/bag-1868758_960_720.jpg"
                             alt="cursos"></a>
                     <label for="cursos">Profesores</label>
                 </div>
+
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_adj.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/adjuntos"><img class="img-proceso"
                         src="https://businessman.ru/static/img/a/65633/443700/73899.jpg"
                             alt="cursos"></a>
                     <label for="cursos">Adjuntos</label>
@@ -105,13 +107,13 @@
             <div class="row">
 
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_lider.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/lideres"><img class="img-proceso"
                             src="https://th.bing.com/th/id/OIP.zsT3UMNeo2t37Sxf9Ox4HwHaE8?w=238&h=160&c=7&o=5&pid=1.7"
                             alt="comprobante"></a>
                     <label for="comprobante">Lideres de Grupos Familiares</label>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="inicio_adm_administrador.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/administradores"><img class="img-proceso"
                             src="https://www.aycelaborytax.com/wp-content/uploads/2019/02/tipos-administrador.jpg"
                             alt="comprobante"></a>
                     <label for="comprobante">Administradores</label>
