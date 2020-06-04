@@ -9,6 +9,7 @@ class Web
     {
         $this->rutasAdmim($map);// cargamos las rutas para el administrador
         $this->rutasAdjunto($map);//cargamo las rutas para el adjunto 
+        $this->rutasAlumno($map);
         //////////////////////////////////////////////////////////////--autenticacion de usuarios
         //ruta para el ajax
         $map->post('/ajax', RUTA_URL . 'ajax', [

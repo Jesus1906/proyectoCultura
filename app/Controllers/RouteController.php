@@ -1,52 +1,64 @@
 <?php
+
 namespace App\Controllers;
 
-class RouteController{
+class RouteController
+{
 
-   public function vistaHome(){
+   public function vistaHome()
+   {
       require_once "../app/views/principal/index.php";
    }
 
-   public function vistaRegistro($request){
+   public function vistaRegistro($request)
+   {
       $lideres = new ConsultaController();
       $lideres = $lideres->getAllLideres();
 
       $alumno = new RegistrarController();
 
-      if($request->getMethod() == 'POST'){
+      if ($request->getMethod() == 'POST') {
          //si existe un post
-         $mat = date('y') . date('w') . $_POST['day'] .$_POST['month'];
+         $mat = date('y') . date('w') . $_POST['day'] . $_POST['month'];
          //se genere una matricula con año semana del año dia y mes de inscripcion
-        $alumno->regAlumno($_POST,$mat);
+         $alumno->regAlumno($_POST, $mat);
       }
 
       require_once '../app/views/principal/registro.php';
    }
 
-   public function inicioALU(){
+   public function inicioALU()
+   {
       if ($_SESSION['user'] == 'alumno') {
          require_once '../app/views/Alumno/principal_alumno.php';
-     } else {
+      } else {
          echo 'No eres alumno';
-     }
+      }
    }
 
-   public function actualizarPerfil($request){
+   public function actualizarPerfil($request)
+   {
       if ($_SESSION['user'] == 'alumno') {
+         $lideres = new ConsultaController();
+         $lideres = $lideres->getAllLideres();
          $alumno = new ConsultaController;
          $alumno = $alumno->getAlumno([
-             'filtro' => 'matricula',
-             'parametro' => $_SESSION['matricula']
-         ]);  
+            'filtro' => 'matricula',
+            'parametro' => $_SESSION['matricula']
+         ]);
          if ($request->getMethod() == 'POST') {
-             $actualiza = new ActualizarController();
-             $actualiza->actualizarPerfilAdj($adjunto, $request->getParsedBody());
+            $data = $request->getParsedBody();
+            if($data['firstName']){
+               $actualiza = new ActualizarController();
+               $actualiza->actualizarPerfilAlm($alumno, $data);
+            }else{
+               $actualiza = new ActualizarController();
+               $actualiza->actualizarPassword($alumno, $data);
+            }
          }
-         require_once '../app/views/adjunto/perfil_adju.html';
-     } else {
+         require_once '../app/views/Alumno/datosGenerales.php';
+      } else {
          echo 'No eres alumno';
-     }
+      }
    }
-   
-
 }

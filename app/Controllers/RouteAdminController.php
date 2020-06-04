@@ -23,9 +23,15 @@ class RouteAdminController
                 'parametro' => $_SESSION['matricula']
             ]);  
             if ($request->getMethod() == 'POST') {
-                $actualiza = new ActualizarController();
-                $actualiza->actualizarPerfilAdm($admin, $request->getParsedBody());
-            }
+                $data = $request->getParsedBody();
+                if($data['firstName']){
+                    $actualiza = new ActualizarController();
+                    $actualiza->actualizarPerfilAdm($admin, $data);
+                }else{
+                   $actualiza = new ActualizarController();
+                   $actualiza->actualizarPassword($admin, $data);
+                }
+             }
             require_once '../app/views/Admi/perfil_admin.php';
         } else {
             echo 'No eres administrador';

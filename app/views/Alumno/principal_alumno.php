@@ -34,7 +34,7 @@
             <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>" >Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
-
+    <br><br><br>
     <div class="container">
         <div class="row" id="primer_row">
             <div class="col-sm-4">
