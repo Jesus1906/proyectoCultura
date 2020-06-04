@@ -307,7 +307,7 @@ class RegistrarController extends BaseController
 
    public function generateName($name, $curso){ //agregaremos el nombre del curso al archivo 
       $names = explode('.', $name);
-      if(count($names)== 1 || count($names) < 2 || $names[1] != "pdf" || $names[1] != "jpg"){ //validaremos si el tipo de archivo es compatible
+      if(count($names)== 1 || count($names) < 2 || ($names[1] != "pdf" && $names[1] != "jpg" &&  $names[1] != "png")){ //validaremos si el tipo de archivo es compatible
          return "erroneo"; //... con el sistema :V
       }else{
          return $names[0] . "-$curso." . $names[1];

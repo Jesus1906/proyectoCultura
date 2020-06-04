@@ -23,9 +23,15 @@ class RouteAdminController
                 'parametro' => $_SESSION['matricula']
             ]);  
             if ($request->getMethod() == 'POST') {
-                $actualiza = new ActualizarController();
-                $actualiza->actualizarPerfilAdm($admin, $request->getParsedBody());
-            }
+                $data = $request->getParsedBody();
+                if($data['firstName']){
+                    $actualiza = new ActualizarController();
+                    $actualiza->actualizarPerfilAdm($admin, $data);
+                }else{
+                   $actualiza = new ActualizarController();
+                   $actualiza->actualizarPassword($admin, $data);
+                }
+             }
             require_once '../app/views/Admi/perfil_admin.php';
         } else {
             echo 'No eres administrador';
@@ -126,12 +132,12 @@ class RouteAdminController
     public function confirmaCurso($request){
         if ($_SESSION['user'] == 'admi') {
             $curso = new ConsultaController();
-            $cursos = $curso->getAllCursos();
+            $cursos = $curso->CursosOrdenados();
 
             if ($request->getMethod() == 'POST') {
-                $curso = new RegistrarController();
+                $curso = new ActualizarController();
                 $postData = $request->getParsedBody();
-                $curso->regCurso($postData, $request);
+                $curso->actualizarCursoAyS($cursos, $postData);
             }
             require_once '../app/views/Admi/confirma_curso.php';
         } else {

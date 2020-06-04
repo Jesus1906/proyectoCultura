@@ -24,10 +24,16 @@ class RouteAdjController
                 'parametro' => $_SESSION['matricula']
             ]);  
             if ($request->getMethod() == 'POST') {
-                $actualiza = new ActualizarController();
-                $actualiza->actualizarPerfilAdj($adjunto, $request->getParsedBody());
-            }
-            require_once '../app/views/adjunto/perfil_adju.html';
+                $data = $request->getParsedBody();
+                if($data['firstName']){
+                    $actualiza = new ActualizarController();
+                    $actualiza->actualizarPerfilAdj($adjunto, $data);
+                }else{
+                   $actualiza = new ActualizarController();
+                   $actualiza->actualizarPassword($adjunto, $data);
+                }
+             }
+            require_once '../app/views/adjunto/perfil_adju.php';
         } else {
             echo 'No eres adjunto';
         }

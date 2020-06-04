@@ -15,7 +15,7 @@ class AuthController extends BaseController{
     {
         $postData = $request->getParsedBody();
         $ruta = '/proyectocultura/';
-        $user = str_split($postData['cuenta']);
+        $user = str_split($postData['cuenta']);// convertimos un string en un arreglo de char
         $identificacion = $user[4];
         switch ($identificacion) {
             case '1': {

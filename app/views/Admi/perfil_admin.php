@@ -95,12 +95,12 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <label for="firtsLastName">Apellido Paterno</label>
-                    <input class="form-control form-control-lg" type="text" id="firstLastName" placeholder="López" <?php echo 'value = ' . $admin->firstLastName . ""; ?>
+                    <input class="form-control form-control-lg" type="text" id="firstLastName" <?php echo 'value = ' . $admin->firstLastName . ""; ?>
                         name="firstLastName">
                 </div>
                 <div class="col-sm-4">
                     <label for="secondsLastName">Apellido Materno</label>
-                    <input class="form-control form-control-lg" type="text" id="secondLastName" placeholder="Gómez" <?php echo 'value = ' . $admin->secondLastName . ""; ?>
+                    <input class="form-control form-control-lg" type="text" id="secondLastName" <?php echo 'value = ' . $admin->secondLastName . ""; ?>
                         name="secondLastName">
                 </div>
             </div>
