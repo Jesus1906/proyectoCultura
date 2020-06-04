@@ -12,6 +12,14 @@ class ConsultaController extends BaseController
         $this->iniciarControladorBase();
     }
 
+    public function CursosOrdenados(){
+        return Curso::where('nivel', 1)
+        ->orWhere('nivel', 2)
+        ->orWhere('nivel', 3)
+        ->orderBy('nivel', 'asc')
+        ->get();
+    }
+
     public function getAllCursos()
     {
         return Curso::all();

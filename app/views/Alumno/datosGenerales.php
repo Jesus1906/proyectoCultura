@@ -127,10 +127,10 @@
                                 }
                                 break;
                             case 'n': {
-                                echo '<option value="y">Si</option>';
-                                echo '<option selected value="n">No</option>';
+                                    echo '<option value="y">Si</option>';
+                                    echo '<option selected value="n">No</option>';
                                 }
-                            break;
+                                break;
                         }
                         ?>
                     </select>
@@ -138,7 +138,7 @@
                 <div class="form-group col-sm-4">
                     <label for="inputState">Status Bautizo</label>
                     <select class="custom-select" id="validationServer08" required name="statusBautizo">
-                    <?php
+                        <?php
                         switch ($alumno->statusBautizo) {
 
                             case 'y': {
@@ -147,10 +147,10 @@
                                 }
                                 break;
                             case 'n': {
-                                echo '<option value="y">Si</option>';
-                                echo '<option selected value="n">No</option>';
+                                    echo '<option value="y">Si</option>';
+                                    echo '<option selected value="n">No</option>';
                                 }
-                            break;
+                                break;
                         }
                         ?>
                     </select>
@@ -162,13 +162,13 @@
                 <div class="form-group col-sm-4">
                     <label for="inputState">Grupo Familiar</label>
                     <select class="custom-select" id="validationServer09" required name="lider">
-                        
+
                         <?php
                         for ($i = 0; $i < count($lideres); $i++) {
-                            if($alumno->Lider_Celula_id == $lideres[$i]['Lider_Celula_id']){
+                            if ($alumno->Lider_Celula_id == $lideres[$i]['Lider_Celula_id']) {
                                 $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
                                 echo '<option selected value = ' . $lideres[$i]['id'] . '>' . $name . '</option>';
-                            }else{
+                            } else {
                                 $name = $lideres[$i]['firstName'] . ' ' . $lideres[$i]['secondName'] . " " . $lideres[$i]['firstLastName'] . " " . $lideres[$i]['secondLastName'];
                                 echo '<option value = ' . $lideres[$i]['id'] . '>' . $name . '</option>';
                             }
@@ -179,9 +179,9 @@
                 <div class="form-group col-sm-4">
                     <label for="inputState">Estado Civil</label>
                     <select class="custom-select" id="validationServer10" required name="statusCivil">
-                    <?php
+                        <?php
                         echo '<option selected value= ' . $alumno->maritalStatus . '>' . $alumno->maritalStatus . '</option>';
-                    ?>
+                        ?>
                         <option value="solter(a)">Soltero(a)</option>
                         <option value="Casado(a)">Casado(a)</option>
                         <option value="Divorciado(a)">Divorciado(a)</option>

@@ -108,4 +108,23 @@ class ActualizarController extends BaseController
         $user->save();
 
     }
+
+    public function actualizarCursoAyS($cursos, $post){
+        $indice = 0;
+        foreach($cursos as $curso){
+            if($post['cursoAnterior'.$indice] == 'NoCurso'){
+                $curso->cursoAnterior = null;
+            }else{
+                $curso->cursoAnterior = $post['cursoAnterior'.$indice];
+            }
+
+            if($post['cursoSiguiente'.$indice] == 'NoCurso'){
+                $curso->cursoSiguiente = null;
+            }else{
+                $curso->cursoSiguiente = $post['cursoSiguiente'.$indice];
+            }
+            $curso->save();
+            $indice++;
+        }
+    }
 }

@@ -132,12 +132,12 @@ class RouteAdminController
     public function confirmaCurso($request){
         if ($_SESSION['user'] == 'admi') {
             $curso = new ConsultaController();
-            $cursos = $curso->getAllCursos();
+            $cursos = $curso->CursosOrdenados();
 
             if ($request->getMethod() == 'POST') {
-                $curso = new RegistrarController();
+                $curso = new ActualizarController();
                 $postData = $request->getParsedBody();
-                $curso->regCurso($postData, $request);
+                $curso->actualizarCursoAyS($cursos, $postData);
             }
             require_once '../app/views/Admi/confirma_curso.php';
         } else {
