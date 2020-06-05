@@ -38,18 +38,22 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
+                <?php
+                $indiceNivel = 1;
+                echo "<li>Nivel: $indiceNivel";
+                foreach($cursos as $curso){
+                    if($curso->nivel == $indiceNivel){
+                        echo '<ul id = "' . $curso->idCurso . '">' . $curso->name .' </ul>';
+                    }else{
+                        echo '</li>';
+                        $indiceNivel++;
+                        echo "<li>Nivel: $indiceNivel";
+                        echo '<ul id = "' . $curso->idCurso . '">' . $curso->name .' </ul>';
+                    }
+                }
+                echo '</li>';
+                ?>
                 <li> Primer Nivel
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
-                </li>
-                <li> Segundo Nivel
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
-                    <ul>Nombre Curso</ul>
                     <ul>Nombre Curso</ul>
                 </li>
             </div>

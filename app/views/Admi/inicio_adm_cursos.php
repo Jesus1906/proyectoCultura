@@ -49,13 +49,13 @@
         <div id="margen-proceso">
             <div class="row">
                 <div class="col-sm-4 proceso">
-                    <a href="cursos_agregar.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/registro/curso"><img class="img-proceso"
                              src="https://cdn.pixabay.com/photo/2016/09/13/08/08/board-1666644_960_720.jpg"
                             alt="inscripcion"></a>
                     <label for="inscripcion">Agregar Curso</label>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="cursos_consulta.html"><img class="img-proceso"
+                    <a href="<?php echo RUTA_URL ?>adm/consulta/curso"><img class="img-proceso"
                             src="https://cdn.pixabay.com/photo/2017/07/04/10/05/checklist-2470549_960_720.jpg"
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consultar cursos</label>

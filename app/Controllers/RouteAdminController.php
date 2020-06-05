@@ -298,4 +298,15 @@ class RouteAdminController
             echo 'No eres administrador';
         }
     }
+
+    public function consultaCurso($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $cursos = new ConsultaController();
+            $cursos = $cursos->CursosOrdenados();
+            require_once '../app/views/Admi/cursos_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 }

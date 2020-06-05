@@ -244,6 +244,18 @@ class Web
             'accion' => 'consultaPROF',
             'auth' => true
         ]);
+
+        $map->get('gConsultaCurso', RUTA_URL . 'adm/consulta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'consultaCurso',
+            'auth' => true
+        ]);
+
+        $map->post('pConsultaCurso', RUTA_URL . 'adm/consulta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'consultaCurso',
+            'auth' => true
+        ]);
     }
 
     public function adminActualizar($map){
