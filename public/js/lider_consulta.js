@@ -20,16 +20,6 @@ $('#BusquedaCampo').keyup(function(e){
 
 
 
-$(document).on('click', '.editar',function(){
-
-   let id = $(this)[0].parentElement.parentElement;
-   let valor = $(id).attr('valor');
-   let hermano = $(this)[0].parentElement.parentElement.siblings;
-   let campo = `<input type="text" value = ${valor} class="form-control form-control-sm ml-3 w-75">`;
-   // $(this).html(campo);
-   console.log(hermano);
-})
-
 function mostrar(dato, filtro){
 
    //a un objeto ajax se le da l url a acceder, el tipo de peticion, los datos que se enviaran y en caso de ser xitoso que funcion realizar
@@ -48,11 +38,89 @@ function mostrar(dato, filtro){
                <td valor = "${tabla.firstLastName}" class = "editarValor"> ${tabla.firstLastName}</td>
                <td valor = "${tabla.secondLastName}" class = "editarValor"> ${tabla.secondLastName}</td>
                <td valor = "${tabla.phone}" class = "editarValor"> ${tabla.phone}</td>
-               <td><button class="btn editar">Edt</button></td>
+               <td><div class="text-center"><button class="btn btn-primary btn-sm editar"><i class="fas fa-edit"></i></button></div></td>
             </tr>
             `;
             $('#datosTabla').html(plantilla);
          })//foreach
       }//fin de funcion success
    })//fin de funciaon ajax
+};
+
+function consultar(id){
+   $.ajax({
+      url:'../../ajaxLider/consulta',
+      type:'POST',
+      data:{id},
+      success:function(response){
+         let tablas = JSON.parse(response);
+         let plantilla = '';
+
+         tablas.forEach(tabla =>{
+            plantilla+=`
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Primer Nombre</label>
+                     <input type="text" class="form-control" id="firstName" name="firstName" value="${tabla.firstName}">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Segundo Nombre</label>
+                     <input type="text" class="form-control" id="secondName" name="secondName"value="${tabla.secondName}">
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Apellido Paterno</label>
+                     <input type="text" class="form-control" id="firstLastName" name="firstLastName" value="${tabla.firstLastName}">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Apellido Materno</label>
+                     <input type="text" class="form-control" id="secondLastName" name="secondLastName" value="${tabla.secondLastName}">
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9">
+                <div class="form-group">
+                  <label for="" class="col-form-label">Telefono</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" value="${tabla.phone}"
+                  data-toggle="tooltip" data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44"
+                  pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                 </div>
+              </div>
+            </div>
+            `;
+            $('#modal-body').html(plantilla);
+         })//foreach
+      }//fin de funcion success
+   })//fin de funciaon ajax
+}
+
+//Editar
+$(document).on("click", ".editarValor", function(){
+   let id = $(this)[0];
+   let valor = $(id).attr('valor');
+   consultar(valor);
+   $('#modalCRUD').modal('show');
+
+});
+
+
+//IMPRIMIR
+function tabletoPDF(){
+   var printMe = document.getElementById('miTabla');
+   var wme = window.open("","","width:700, heigth:900");
+   wme.document.write(printMe.outerHTML);
+   wme.document.close();
+   wme.focus();
+   wme.print();
+   wme.close();
+
 }
