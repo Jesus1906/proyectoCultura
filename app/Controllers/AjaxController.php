@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso};
+use App\Controllers\{ValidatorController, ConsultaController};
 
 class AjaxController extends BaseController{
 
@@ -91,6 +92,45 @@ class AjaxController extends BaseController{
       $res = Lider_celula::where('id',$datos['id'])->get();
       $json = \json_encode($res);
       echo $json;
-   }
+   }//consultar lideres
 
-}
+   public function consultaLiderEditar($datos){
+
+      $lider = new ConsultaController();
+      $val = new ValidatorController();
+
+      $post = $datos->getParsedBody();
+
+      $idLider = [
+           'filtro' => 'id',
+           'parametro' => $post['id']
+      ];
+      $lider = $lider->getLider($idLider); //usamos el controlador de consulta para obetener el lider que
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
+      $lider->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
+      $lider->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
+      $lider->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
+      $lider->secondLastName = $post['secondLastName'];
+
+      $val->validarTelefono($post['phone'], false);
+      $lider->phone = $post['phone'];
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if ($error != false) {
+         echo $error;
+      } else {
+         $lider->save();
+         echo 'Exito al guardar';
+      }
+
+   }//consultar editar lider
+}//controlador ajax

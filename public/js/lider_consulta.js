@@ -55,10 +55,9 @@ function consultar(id){
       success:function(response){
          let tablas = JSON.parse(response);
          let plantilla = '';
-
          tablas.forEach(tabla =>{
             plantilla+=`
-            <div class="row">
+            <div class="row" id = "row" valor = "${tabla.id}">
                 <div class="col-sm-6">
                   <div class="form-group">
                      <label for="" class="col-form-label">Primer Nombre</label>
@@ -103,15 +102,41 @@ function consultar(id){
    })//fin de funciaon ajax
 }
 
-//Editar
+function editar($form){
+
+}
+
+//Obtener valores para Editar
 $(document).on("click", ".editarValor", function(){
    let id = $(this)[0];
    let valor = $(id).attr('valor');
    consultar(valor);
    $('#modalCRUD').modal('show');
 
+
+
 });
 
+//guardar valores editar
+$('#formUsuarios').submit(function(e){
+   let form = {
+      id: $('#row').attr('valor'),
+      firstName: $('#firstName').val(),
+      secondName: $('#secondName').val(),
+      firstLastName: $('#firstLastName').val(),
+      secondLastName: $('#secondLastName').val(),
+      phone: $('#phone').val()
+   }
+   $.post('../../ajaxLider/editar', form, function(response){
+
+      console.log(response);
+      $('#modalCRUD').modal('hide');
+      mostrar('','all');
+   })
+
+   e.preventDefault();
+
+});
 
 //IMPRIMIR
 function tabletoPDF(){
