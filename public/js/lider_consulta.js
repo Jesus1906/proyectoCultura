@@ -48,11 +48,29 @@ function mostrar(dato, filtro){
                <td valor = "${tabla.firstLastName}" class = "editarValor"> ${tabla.firstLastName}</td>
                <td valor = "${tabla.secondLastName}" class = "editarValor"> ${tabla.secondLastName}</td>
                <td valor = "${tabla.phone}" class = "editarValor"> ${tabla.phone}</td>
-               <td><button class="btn editar">Edt</button></td>
+               <td><div class="text-center"><button class="btn btn-primary btn-sm editar"><i class="fas fa-edit"></i></button></div></td>
             </tr>
             `;
             $('#datosTabla').html(plantilla);
          })//foreach
       }//fin de funcion success
    })//fin de funciaon ajax
+};
+
+//Editar
+$(document).on("click", ".editar", function(){
+   $('#modalCRUD').modal('show');
+});
+
+
+//IMPRIMIR
+function tabletoPDF(){
+   var printMe = document.getElementById('miTabla');
+   var wme = window.open("","","width:700, heigth:900");
+   wme.document.write(printMe.outerHTML);
+   wme.document.close();
+   wme.focus();
+   wme.print();
+   wme.close();
+
 }
