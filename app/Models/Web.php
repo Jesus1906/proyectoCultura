@@ -32,6 +32,11 @@ class Web
             'accion' => 'consultaCursos',
         ]);
 
+        $map->post('/ajaxLider/editar', RUTA_URL . 'ajaxLider/editar', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaLiderEditar',
+        ]);
+
         $map->post('auth', RUTA_URL . 'auth', [
             'controlador' => RUTA_CONTROLLER . '\AuthController',
             'accion' => 'autenticacionUsuario',

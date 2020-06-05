@@ -4,9 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/d350efeb91.js" crossorigin="anonymous"></script>
 
@@ -74,15 +72,15 @@
                 <th scope="col">Ap Paterno</th>
                 <th scope="col">Ap Materno</th>
                 <th scope="col">Telefono </th>
-                <th scope="col">Funciones </th>
+                <th scope="col">Editar</th>
               </tr>
             </thead>
             <tbody id="datosTabla">
-
+            
             </tbody>
           </table>
         </div>
-
+        
       </div>
 
 
@@ -98,7 +96,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formUsuarios">
+        <form id="formUsuarios">    
             <div class="modal-body" id = "modal-body">
                 <div class="row">
                     <div class="col-sm-6">
@@ -111,22 +109,22 @@
                     <div class="form-group">
                     <label for="" class="col-form-label">Segundo Nombre</label>
                     <input type="text" class="form-control" id="secondName" name="secondName">
-                    </div>
-                    </div>
+                    </div> 
+                    </div>    
                 </div>
-                <div class="row">
+                <div class="row"> 
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label for="" class="col-form-label">Apellido Paterno</label>
                     <input type="text" class="form-control" id="firstLastName" name="firstLastName">
-                    </div>
+                    </div>               
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label for="" class="col-form-label">Apellido Materno</label>
                     <input type="text" class="form-control" id="secondLastName" name="secondLastName">
                     </div>
-                    </div>
+                    </div>  
                 </div>
                 <div class="row">
                   <div class="col-sm-9">
@@ -136,17 +134,17 @@
                       data-toggle="tooltip" data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44"
                       pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
                      </div>
-                  </div>
-                </div>
+                  </div>    
+                </div>                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 <button type="submit" id="btnGuardar" class="btn btn-outline-success">Guardar</button>
             </div>
-        </form>
+        </form>    
         </div>
     </div>
-</div>
+</div>  
 
     <div class="row">
       <div class="col-sm-5"></div>
@@ -159,18 +157,16 @@
   </div>
 
 
+
+
+
+
+
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-  <script>
-    $(document).ready(function() {
-    $('#miTabla').DataTable();
-} );
-  </script>
-
+  
   <script src="<?php echo RUTA_SERVER ?>/js/lider_consulta.js"></script>
 
 </body>
