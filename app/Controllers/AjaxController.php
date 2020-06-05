@@ -86,4 +86,11 @@ class AjaxController extends BaseController{
       }//switch
    }//asincronizarlider
 
+   public function consultaLider($post){
+      $datos = $post->getParsedBody();
+      $res = Lider_celula::where('id',$datos['id'])->get();
+      $json = \json_encode($res);
+      echo $json;
+   }
+
 }

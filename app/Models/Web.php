@@ -22,6 +22,11 @@ class Web
             'accion' => 'asincronizarLider',
         ]);
 
+        $map->post('/ajaxLider/consulta', RUTA_URL . 'ajaxLider/consulta', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaLider',
+        ]);
+
         $map->post('auth', RUTA_URL . 'auth', [
             'controlador' => RUTA_CONTROLLER . '\AuthController',
             'accion' => 'autenticacionUsuario',
