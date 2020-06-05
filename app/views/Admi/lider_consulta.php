@@ -72,7 +72,7 @@
                 <th scope="col">Ap Paterno</th>
                 <th scope="col">Ap Materno</th>
                 <th scope="col">Telefono </th>
-                <th scope="col">Funciones </th>
+                <th scope="col">Editar</th>
               </tr>
             </thead>
             <tbody id="datosTabla">
