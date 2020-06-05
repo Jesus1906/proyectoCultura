@@ -93,4 +93,10 @@ class AjaxController extends BaseController{
       echo $json;
    }
 
+   public function consultaCursos($request){
+      $dataPost = $request->getParsedBody();
+      $res = Curso::all();
+      $json = json_encode($res);
+      echo $json;
+   }
 }
