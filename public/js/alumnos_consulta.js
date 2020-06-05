@@ -28,6 +28,7 @@ $('#BusquedaCampo').keyup(function(e){
                         <td> ${tabla.Lider_Celula_id}</td>
                         <td> ${tabla.cellPhone}</td>
                         <td> ${tabla.serviseStatus}</td>
+                        <td> ${tabla.statusBautizo}</td>
                         <td> ${tabla.birthday} </td>
                   </tr>
                `;
@@ -59,13 +60,37 @@ $('#BusquedaCampo').keyup(function(e){
                         <td> ${tabla.Lider_Celula_id}</td>
                         <td> ${tabla.cellPhone}</td>
                         <td> ${tabla.serviseStatus}</td>
+                        <td> ${tabla.statusBautizo}</td>
                         <td> ${tabla.birthday} </td>
+                        <td><div class="text-center"><button class="btn btn-primary btn-sm editar"><i class="fas fa-edit"></i></button></div></td>
                   </tr>
                `;
 
-               document.getElementById('datosTabla').innerHTML = plantilla;
+               $('#modal-body').html(plantilla);
             })//foreach
          }//fin de funcion success
       })//fin de funciaon ajax
    }//else dato mayor a 0
 })
+
+//Editar
+$(document).on("click", ".editarValor", function(){
+   let id = $(this)[0];
+   let valor = $(id).attr('valor');
+   consultar(valor);
+   $('#modalCRUD').modal('show');
+
+});
+
+
+//IMPRIMIR
+function tabletoPDF(){
+   var printMe = document.getElementById('miTabla');
+   var wme = window.open("","","width:700, heigth:900");
+   wme.document.write(printMe.outerHTML);
+   wme.document.close();
+   wme.focus();
+   wme.print();
+   wme.close();
+
+}
