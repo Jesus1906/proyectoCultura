@@ -20,7 +20,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="../../../public/ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
+        <a class="navbar-brand" href="#"><img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -67,7 +67,7 @@
                     <div class="contenedor">
                         <a href="cursoAsig_adju.html">
                             <figure>
-                                <img class="img-proceso" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Curso Asignado">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/adjunto/cursoAsignado.jpg" alt="Curso Asignado">
                                 <div class="capa">
                                     <h4>Consultar Curso Asigando</h4>
                                     <p>En esta ventana podrás ver el curso que se te ha asignado. Así como descargar
@@ -83,7 +83,7 @@
                     <div class="contenedor">
                         <a href="pagos.html">
                             <figure>
-                                <img class="img-proceso" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU" alt="Pago Alumnos">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/adjunto/pagosAlumnos.jpg" alt="Pago Alumnos">
                                 <div class="capa">
                                     <h4>Pagos de Alumnos</h4>
                                     <p>En esta ventana podrás actualizar y corroborar el pago de todos los alumnos, por curso.
@@ -101,7 +101,7 @@
                     <div class="contenedor">
                         <a href="calificaciones.html">
                             <figure>
-                                <img class="img-proceso" src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg" alt="Calificaciones">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/adjunto/calificaciones.jpg" alt="Calificaciones">
                                 <div class="capa">
                                     <h4>Calificaciones</h4>
                                     <p>En esta ventana podrás subir y actualizar las calificaciones de los alumnos por curso.
@@ -115,7 +115,7 @@
                     <div class="contenedor">
                         <a href="../registro.html">
                             <figure>
-                                <img class="img-proceso" src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg" alt="historial">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/adjunto/registrarAlumnos.jpg" alt="historial">
                                 <div class="capa">
                                     <h4>Registrar a Alumno</h4>
                                     <p>En esta ventana podrás registrar a los alumnos que tengan problemas para hacerlo ellos mismos.
