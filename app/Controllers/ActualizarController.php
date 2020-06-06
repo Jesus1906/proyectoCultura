@@ -21,7 +21,7 @@ class ActualizarController extends BaseController
             'parametro' => $post['id']
         ];
         $lider = new ConsultaController();
-        $lider = $lider->getLider($datosLider); //usamos el controlador de consulta para obetener el lider que 
+        $lider = $lider->getLider($datosLider); //usamos el controlador de consulta para obetener el lider que
         $lider->firstName = $post['firstName']; // queremos actualizar y sobreescribir sus datos
         $lider->secondName = $post['secondName'];
         $lider->firstLastName = $post['firstLastName'];
@@ -37,7 +37,7 @@ class ActualizarController extends BaseController
             'parametro' => $post['id']
         ];
         $profesor = new ConsultaController();
-        $profesor = $profesor->getProfesor($datosProfesor); //usamos el controlador de consulta para obetener el prof que 
+        $profesor = $profesor->getProfesor($datosProfesor); //usamos el controlador de consulta para obetener el prof que
         $profesor->firstName = $post['firstName']; // queremos actualizar y sobreescribir sus datos
         $profesor->secondName = $post['secondName'];
         $profesor->firstLastName = $post['firstLastName'];
@@ -75,7 +75,7 @@ class ActualizarController extends BaseController
     public function actualizarPerfilAdm($administrador, $post)
     {
         $administrador->firstname = $post['firstName'];
-        if($post['secondName']){
+        if(isset($post['secondName'])){
             $administrador->secondName = $post['secondName'];
         }else{
             $administrador->secondName = null;
