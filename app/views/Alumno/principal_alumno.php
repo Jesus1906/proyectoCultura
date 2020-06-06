@@ -73,7 +73,7 @@
                     <div class="contenedor">
                         <a href="Inscripciones.html">
                             <figure>
-                                <img class="img-proceso" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRg3v02DXz6qzLL7OYXDAgzin88H9VionrteEoe70E8uN7l6YCX&usqp=CAU" alt="inscripcion">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/inscripciones.jpg" alt="inscripcion">
                                 <div class="capa">
                                     <h3>Inscripción</h3>
                                     <p>¡Inscribete a tu siguiente curso!</p>
@@ -86,7 +86,7 @@
                     <div class="contenedor">
                         <a href="historial.html">
                             <figure>
-                                <img class="img-proceso" src="https://businessman.ru/static/img/a/65633/443700/73899.jpg" alt="historial">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/historial.jpg" alt="historial">
                                 <div class="capa">
                                     <h3>Historial</h3>
                                     <p>¡Consulta las calificaciones que has obtenido en cada discipulado!</p>
@@ -102,7 +102,7 @@
                     <div class="contenedor">
                         <a href="comprobantes.html">
                             <figure>
-                                <img class="img-proceso" src="https://www.elnuevosiglo.com.co/sites/default/files/styles/noticia_interna/public/2020-03/curso.jpg" alt="comprobante">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/comprobantes.jpg" alt="comprobante">
                                 <div class="capa">
                                     <h3>Comprobantes de Inscripción</h3>
                                     <p>Aquí puedes corroborar el pago de cada uno de tus discipulados</p>
@@ -115,7 +115,7 @@
                     <div class="contenedor">
                         <a href="cursos_alumn.html">
                             <figure>
-                                <img class="img-proceso" src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg" alt="cursos">
+                                <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/cursos.jpg" alt="cursos">
                                 <div class="capa">
                                     <h3>Cursos</h3>
                                     <p>Consulta el material ed apoyo que se te proporciona por curso</p>
