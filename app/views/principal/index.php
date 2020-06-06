@@ -54,7 +54,7 @@
                         <form class="px-1 py-3" action="/proyectocultura/auth" method="POST">
                             <div class="form-group">
                                 <label for="exampleDropdownFormEmail1">No. de Cuenta</label>
-                                <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Número de Cuenta" name="cuenta">
+                                <input type="number" class="form-control" id="exampleDropdownFormEmail1" placeholder="Número de Cuenta" name="cuenta">
                             </div>
                             <div class="form-group">
                                 <label for="exampleDropdownFormPassword1">Contraseña</label>
