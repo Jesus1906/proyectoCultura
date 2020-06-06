@@ -5,96 +5,100 @@ namespace App\Controllers;
 use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso};
 use App\Controllers\{ValidatorController, ConsultaController};
 
-class AjaxController extends BaseController{
+class AjaxController extends BaseController
+{
 
-   public function __construct(){
+   public function __construct()
+   {
       $this->iniciarControladorBase();
    }
 
-   public function asincronizarAlumno($post){
+   public function asincronizarAlumno($post)
+   {
       $datos = $post->getParsedBody();
       switch ($datos['filtro']) {
-         case 'matricula':{
-            //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
-            $res = Alumno::where('matriculaAlumno', 'like', '%'.$datos['dato'].'%')->get();
-            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-            $json = json_encode($res);
-            echo $json;
-         };
+         case 'matricula': {
+               //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+               $res = Alumno::where('matriculaAlumno', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
 
-         break;
+            break;
 
-         case 'name':{
-            //obtener de la tabla alumno en el campo nombre todos los datos que sean similares al dato del post
-            $res = Alumno::where('firstName', 'like', '%'.$datos['dato'].'%')->get();
-            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-            $json = json_encode($res);
-            echo $json;
-         };
+         case 'name': {
+               //obtener de la tabla alumno en el campo nombre todos los datos que sean similares al dato del post
+               $res = Alumno::where('firstName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
 
-         break;
+            break;
 
-         case 'apellido':{
-            //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
-            $res = Alumno::where('firstLastName', 'like', '%'.$datos['dato'].'%')->get();
-            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-            $json = json_encode($res);
-            echo $json;
-         };
+         case 'apellido': {
+               //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
+               $res = Alumno::where('firstLastName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
 
-         break;
+            break;
 
-      default:{
-         $res = Alumno::all();
-         //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-         $json = json_encode($res);
-         echo $json;
-      }
+         default: {
+               $res = Alumno::all();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            }
+      } //switch
+   } //asincronizarAlumno
 
-      }//switch
-   }//asincronizarAlumno
-
-   public function asincronizarLider($post){
+   public function asincronizarLider($post)
+   {
       $datos = $post->getParsedBody();
       switch ($datos['filtro']) {
-         case 'name':{
-            //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
-            $res = Lider_celula::where('firstName', 'like', '%'.$datos['dato'].'%')->get();
-            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-            $json = json_encode($res);
-            echo $json;
-         };
+         case 'name': {
+               //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+               $res = Lider_celula::where('firstName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
 
-         break;
+            break;
 
-         case 'apellido':{
-            //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
-            $res = Lider_celula::where('firstLastName', 'like', '%'.$datos['dato'].'%')->get();
-            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-            $json = json_encode($res);
-            echo $json;
-         };
+         case 'apellido': {
+               //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
+               $res = Lider_celula::where('firstLastName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
 
-         break;
+            break;
 
-      default:{
-         $res = Lider_celula::all();
-         //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
-         $json = json_encode($res);
-         echo $json;
-      }
+         default: {
+               $res = Lider_celula::all();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            }
+      } //switch
+   } //asincronizarlider
 
-      }//switch
-   }//asincronizarlider
-
-   public function consultaLider($post){
+   public function consultaLider($post)
+   {
       $datos = $post->getParsedBody();
-      $res = Lider_celula::where('id',$datos['id'])->get();
+      $res = Lider_celula::where('id', $datos['id'])->get();
       $json = \json_encode($res);
       echo $json;
-   }//consultar lideres
+   } //consultar lideres
 
-   public function consultaLiderEditar($datos){
+   public function consultaLiderEditar($datos)
+   {
 
       $lider = new ConsultaController();
       $val = new ValidatorController();
@@ -102,8 +106,8 @@ class AjaxController extends BaseController{
       $post = $datos->getParsedBody();
 
       $idLider = [
-           'filtro' => 'id',
-           'parametro' => $post['id']
+         'filtro' => 'id',
+         'parametro' => $post['id']
       ];
       $lider = $lider->getLider($idLider); //usamos el controlador de consulta para obetener el lider que
 
@@ -131,6 +135,15 @@ class AjaxController extends BaseController{
          $lider->save();
          echo 'Exito al guardar';
       }
+   }
 
-   }//consultar editar lider
-}//controlador ajax
+   public function consultaCursos($request)
+   {
+      $dataPost = $request->getParsedBody();
+      $res = Curso::all();
+      $json = json_encode($res);
+      echo $json;
+   }
+   
+}//consultar editar lider
+//controlador ajax

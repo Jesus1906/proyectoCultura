@@ -27,6 +27,11 @@ class Web
             'accion' => 'consultaLider',
         ]);
 
+        $map->post('ajaxCursos', RUTA_URL . 'ajaxCursos', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaCursos',
+        ]);
+
         $map->post('/ajaxLider/editar', RUTA_URL . 'ajaxLider/editar', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaLiderEditar',
@@ -252,6 +257,18 @@ class Web
         $map->post('pConsultaPROF', RUTA_URL . 'adm/consulta/profesor', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'consultaPROF',
+            'auth' => true
+        ]);
+
+        $map->get('gConsultaCurso', RUTA_URL . 'adm/consulta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'consultaCurso',
+            'auth' => true
+        ]);
+
+        $map->post('pConsultaCurso', RUTA_URL . 'adm/consulta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'consultaCurso',
             'auth' => true
         ]);
     }

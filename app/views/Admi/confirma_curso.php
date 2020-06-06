@@ -20,66 +20,25 @@
             <?php
             $indice = 0;
             foreach ($cursos as $curso) {
-
                 echo '            <div class="form-row">';
                 echo '                <div class="col-sm-3"></div>';
-                echo '                <div class="col-sm-4">';
+                echo '                <div class="col-sm-6">';
                 echo '                    <label for="inputState">Nombre del curso</label>';
-                echo '                    <input type="text" disabled="disabled" class="form-control" placeholder=' . $curso->name . '  name="name">';
+                echo '                    <input type="text" disabled="disabled" class="form-control" placeholder=' . str_replace(' ', '_', $curso->name) . '  name="name">';
                 echo '                </div>';
-                echo '                <div class="col-sm-2">';
-                echo '                    <label for="inputState">Nivel del Curso</label>';
-                echo '                    <input type="text" disabled="disabled" class="form-control" placeholder=' . $curso->nivel . '  name="nivel">';
-                echo '                </div>';
-                echo '                 <div class="col-sm-3"></div>';
                 echo '            </div>';
 
                 echo '            <div class="form-row">';
                 echo '                <div class="col-sm-3"></div>';
                 echo '                <div class="col-sm-3">';
-                echo '                    <label for="curanterior">Curso Anterior</label>';
-                echo '                    <select class="custom-select" id="curanterior"  name="cursoAnterior'. $indice .'">';
-                if ($curso->cursoAnterior != null) {
-                    foreach ($cursos as $curs) {
-                        if ($curs->name == $curso->cursoAnterior) {
-                            echo '                        <option selected value = ' . $curs->name . '>' . $curs->name . '</option>';
-                        } else {
-                            echo '                        <option value = ' . $curs->name . '>' . $curs->name . '</option>';
-                        }
-                        echo '                        <option value = "NoCurso">Sin Curso Anterior</option>';
-                    }
-                } else {
-                    echo '                        <option selected value = "NoCurso">Sin Curso Anterior</option>';
-                    foreach ($cursos as $curs) {
-                        echo '                        <option value = ' . $curs->name . '>' . $curs->name . '</option>';
-                    }
-                }
-                
-                echo '                    </select>';
+                echo '                    <label for="inputState">Nivel del Curso</label>';
+                echo '                    <input type="text" disabled="disabled" class="form-control" value=' . $curso->nivel . '  name="nivel">';
                 echo '                </div>';
-                echo '                <div class="col-sm-3">';
-                echo '                    <label for="cursiguiente">Curso Siguiente</label>';
-                echo '                    <select class="custom-select" id="cursiguiente" name="cursoSiguiente'. $indice .'">';
-                var_dump($curso->cursoSiguiente);
-                if ($curso->cursoSiguiente != null) {
-                    foreach ($cursos as $curs) {
-                        if ($curs->name == $curso->cursoSiguiente) {
-                            echo '                        <option selected value = ' . $curs->name . '>' . $curs->name . '</option>';
-                        } else {
-                            echo '                        <option value = ' . $curs->name . '>' . $curs->name . '</option>';
-                        }
-                        echo '                        <option value = "NoCurso">Sin Curso Siguiente</option>';
-                    }
-                } else {
-                    echo '                        <option selected value = "NoCurso">Sin Curso Siguiente</option>';
-                    foreach ($cursos as $curs) {
-                        echo '                        <option value = ' . $curs->name . '>' . $curs->name . '</option>';
-                    }
-                }
-                
-                echo '                    </select>';
+                echo '                 <div class="col-sm-3">';
+                echo '                      <label for="inputState">Subnivel del Curso</label>';
+                echo '                      <input type="number" class="form-control" value=' . $curso->subnivel . ' required name="subnivel' . $indice . '">';
                 echo '                </div>';
-                echo '            </div>';
+                echo '             </div>';
                 echo '            <hr class="solid" style="border-top: 3px solid rgb(134, 8, 8)">';
                 echo '';
                 $indice++;
