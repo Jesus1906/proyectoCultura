@@ -9,6 +9,16 @@
 
 
     <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/alm/principal_alumno.css">
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/principal/styles.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">
+
+    <!-- Ionic icons-->
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="http://localhost/proyectocultura/ImagenescULTURA/logo.jpg" />
     <title>Inicio Alumno</title>
 </head>
 
@@ -32,7 +42,7 @@
             <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
-    <br><br><br>
+    <br><br><br> <br>
     <div class="container">
         <div class="row" id="primer_row">
             <div class="col-sm-4">
@@ -57,7 +67,7 @@
         </div>
 
         <div id="margen-proceso">
-            
+
             <div class="row">
                 <div class="col-sm-6 proceso">
                     <div class="contenedor">
@@ -73,36 +83,66 @@
                     </div>
                 </div>
                 <div class="col-sm-6 proceso">
-                    <a href="historial.html"><img class="img-proceso" src="https://businessman.ru/static/img/a/65633/443700/73899.jpg" alt="historial"></a>
-                    <label for="historial">Historial</label>
+                    <div class="contenedor">
+                        <a href="historial.html">
+                            <figure>
+                                <img class="img-proceso" src="https://businessman.ru/static/img/a/65633/443700/73899.jpg" alt="historial">
+                                <div class="capa">
+                                    <h3>Historial</h3>
+                                    <p>¡Consulta las calificaciones que has obtenido en cada discipulado!</p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-6 proceso">
-                    <a href="comprobantes.html"><img class="img-proceso" src="https://www.elnuevosiglo.com.co/sites/default/files/styles/noticia_interna/public/2020-03/curso.jpg" alt="comprobante"></a>
-                    <label for="comprobante">Comprobantes de Inscripción</label>
+                    <div class="contenedor">
+                        <a href="comprobantes.html">
+                            <figure>
+                                <img class="img-proceso" src="https://www.elnuevosiglo.com.co/sites/default/files/styles/noticia_interna/public/2020-03/curso.jpg" alt="comprobante">
+                                <div class="capa">
+                                    <h3>Comprobantes de Inscripción</h3>
+                                    <p>Aquí puedes corroborar el pago de cada uno de tus discipulados</p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-sm-6 proceso">
-                    <a href="cursos_alumn.html"><img class="img-proceso" src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg" alt="cursos"></a>
-                    <label for="cursos">Cursos</label>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 footer">
-                <div>
-                    <h4>contacto</h4>
-                </div>
-
-                <div>
-                    <a href="#"><img class="item" src="https://i.pinimg.com/564x/af/de/45/afde45783f0f89280aeeb6d4849e682e.jpg" alt=""></a>
-                    <a href="#"><img class="item" src="https://i.pinimg.com/originals/d8/6b/b7/d86bb706dbba64c84f85a890d20814d5.jpg" alt=""></a>
-                    <a href="#"><img class="item" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/480px-Instagram_logo_2016.svg.png" alt=""></a>
+                    <div class="contenedor">
+                        <a href="cursos_alumn.html">
+                            <figure>
+                                <img class="img-proceso" src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg" alt="cursos">
+                                <div class="capa">
+                                    <h3>Cursos</h3>
+                                    <p>Consulta el material ed apoyo que se te proporciona por curso</p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <footer class="bgDark">
+        <div class="container">
+            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/logo.jpg" alt="..." class="rounded-circle" style="width: 90px; height: 90px;">
+
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://www.instagram.com/cultura.filadelfia/" target="_blank"><i class="icon ion-logo-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.youtube.com/channel/UCXL0xAaVTYmf3EMlccDoTFA" target="_blank"><i class="icon ion-logo-youtube"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.ministerios-filadelfia.org/" target="_blank"><i class="icon ion-logo-dribbble"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.facebook.com/Cultura-Filadelfia-187327808340452" target="_blank"><i class="icon ion-logo-facebook"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

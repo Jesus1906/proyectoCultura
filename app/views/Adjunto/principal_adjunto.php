@@ -69,7 +69,7 @@
                             <figure>
                                 <img class="img-proceso" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Curso Asignado">
                                 <div class="capa">
-                                    <h4>Consultar Curso Asigando</h4>
+                                    <h3>Consultar Curso Asigando</h3>
                                     <p>En esta ventana podrás ver el curso que se te ha asignado. Así como descargar
                                         el material necesario.
                                     </p>
@@ -85,7 +85,7 @@
                             <figure>
                                 <img class="img-proceso" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU" alt="Pago Alumnos">
                                 <div class="capa">
-                                    <h4>Pagos de Alumnos</h4>
+                                    <h3>Pagos de Alumnos</h3>
                                     <p>En esta ventana podrás actualizar y corroborar el pago de todos los alumnos, por curso.
                                     </p>
                                 </div>
@@ -103,7 +103,7 @@
                             <figure>
                                 <img class="img-proceso" src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg" alt="Calificaciones">
                                 <div class="capa">
-                                    <h4>Calificaciones</h4>
+                                    <h3>Calificaciones</h3>
                                     <p>En esta ventana podrás subir y actualizar las calificaciones de los alumnos por curso.
                                     </p>
                                 </div>
@@ -117,7 +117,7 @@
                             <figure>
                                 <img class="img-proceso" src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg" alt="historial">
                                 <div class="capa">
-                                    <h4>Registrar a Alumno</h4>
+                                    <h3>Registrar a Alumno</h3>
                                     <p>En esta ventana podrás registrar a los alumnos que tengan problemas para hacerlo ellos mismos.
                                     </p>
                                 </div>
