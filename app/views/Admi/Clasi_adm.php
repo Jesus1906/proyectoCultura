@@ -73,7 +73,7 @@
                                     <li><a href="cursos_modifcar.html">Modificar</a></li>
                                     <li><a href="cursos_ofertar.html">Ofertar</a></li>
                                     <li><a href="cursos_listas.html">Listas de Alumnos</a></li>
-                                    <li><a href="cursos_eva.html">Evaluación</a></li>
+                                    <li><a href="periodo">Agregar Periodo</a></li>
                                 </ul>
                             </div>
                         </figure>
