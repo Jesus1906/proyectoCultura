@@ -81,11 +81,11 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="secondName">Segundo Nombre</label>
-                    <input class="form-control form-control-lg" type="text" id="secondName" <?php if ($alumno->secondName) {
-                                                                                                echo 'value = ' . $alumno->secondName;
+                    <input class="form-control form-control-lg" type="text" id="secondName" value = "<?php if ($alumno->secondName) {
+                                                                                                echo $alumno->secondName;
                                                                                             } else {
-                                                                                                echo 'value = SinNombre disabled = disabled';
-                                                                                            } ?> name="secondName">
+                                                                                                echo "Sin Nombre";
+                                                                                            } ?>" name="secondName">
                 </div>
 
             </div>

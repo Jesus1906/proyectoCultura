@@ -29,7 +29,8 @@ class AjaxController extends BaseController
 
          case 'name': {
                //obtener de la tabla alumno en el campo nombre todos los datos que sean similares al dato del post
-               $res = Alumno::where('firstName', 'like', '%' . $datos['dato'] . '%')->get();
+               $res = Alumno::where('firstName', 'like', '%' . $datos['dato'] . '%')
+               ->orWhere('secondName', 'like', '%' . $datos['dato'] . '%')->get();
                //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
                $json = json_encode($res);
                echo $json;
@@ -144,6 +145,6 @@ class AjaxController extends BaseController
       $json = json_encode($res);
       echo $json;
    }
-   
+
 }//consultar editar lider
 //controlador ajax

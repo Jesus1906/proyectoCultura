@@ -113,7 +113,7 @@ class ValidatorController{
          $this->error[]="Tipo de dato invalido en Telefono";
          return false;
       }
-      $num = str_replace(('-', ' '),'',$num);
+      $num = str_replace(array('-',' '),'',$num);
 
       if(!v::stringType()->notEmpty()->validate($num) && $nulo == true){
          //se acepta nulo y esta nulo

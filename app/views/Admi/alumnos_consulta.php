@@ -85,38 +85,7 @@
             </tr>
           </thead>
           <tbody id="datosTabla">
-            <?php
-            if ($request->getMethod() || $filtro != "matricula") {
 
-              foreach ($alumnos as $alumno) {
-                echo '<tr>';
-                echo '<th scope="row">' . $alumno['matriculaAlumno'] . '</th>';
-                echo '<td>' . $alumno['firstName'] . ' ' . $alumno['secondName'] . '</td>';
-                echo '<td>' . $alumno['firstLastName'] . '</td>';
-                echo '<td>' . $alumno['secondLastName'] . '</td>';
-                echo '<td>' . $alumno['email'] . '</td>';
-                echo '<td>' . $alumno['Lider_Celula_id'] . '</td>';
-                echo '<td>' . $alumno['cellPhone'] . '</td>';
-                echo '<td>' . $alumno['serviseStatus'] . '</td>';
-                echo '<td>' . $alumno['statusBautizo'] , '</td>';
-                echo '<td>' . $alumno['birthday'] . '</td>';
-                echo '</tr>';
-              }
-            } else if ($filtro == "matricula") {
-              echo '<tr>';
-              echo '<th scope="row">' . $alumnos['matriculaAlumno'] . '</th>';
-              echo '<td>' . $alumnos['firstName'] . ' ' . $alumnos['secondName'] . '</td>';
-              echo '<td>' . $alumnos['firstLastName'] . '</td>';
-              echo '<td>' . $alumnos['secondLastName'] . '</td>';
-              echo '<td>' . $alumnos['email'] . '</td>';
-              echo '<td>' . $alumnos['Lider_Celula_id'] . '</td>';
-              echo '<td>' . $alumnos['cellPhone'] . '</td>';
-              echo '<td>' . $alumnos['serviseStatus'] . '</td>';
-              echo '<td>' . $alumno['statusBautizo'] , '</td>';
-              echo '<td>' . $alumnos['birthday'] . '</td>';
-              echo '</option> </tr>';
-            }
-            ?>
           </tbody>
           </table>
         </div>
@@ -134,7 +103,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formUsuarios">    
+        <form id="formUsuarios">
             <div class="modal-body" id = "modal-body">
                 <div class="row">
                     <div class="col-sm-6">
@@ -147,22 +116,22 @@
                     <div class="form-group">
                     <label for="" class="col-form-label">Segundo Nombre</label>
                     <input type="text" class="form-control" id="secondName" name="secondName">
-                    </div> 
-                    </div>    
+                    </div>
+                    </div>
                 </div>
-                <div class="row"> 
+                <div class="row">
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label for="" class="col-form-label">Apellido Paterno</label>
                     <input type="text" class="form-control" id="firstLastName" name="firstLastName">
-                    </div>               
+                    </div>
                     </div>
                     <div class="col-sm-6">
                     <div class="form-group">
                     <label for="" class="col-form-label">Apellido Materno</label>
                     <input type="text" class="form-control" id="secondLastName" name="secondLastName">
                     </div>
-                    </div>  
+                    </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
@@ -178,8 +147,8 @@
                       <label for="email">Correo Electronico</label>
                       <input type="email" class="form-control" id="email" name="email">
                     </div>
-                  </div>    
-                </div>  
+                  </div>
+                </div>
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-row">
@@ -230,7 +199,7 @@
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
                 <button type="submit" id="btnGuardar" class="btn btn-outline-success">Guardar</button>
             </div>
-        </form>    
+        </form>
         </div>
     </div>
     </div>

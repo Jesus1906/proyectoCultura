@@ -1,87 +1,136 @@
 //funcion para tablas asincronas
+$(document).ready(mostrar('','all'));
+
 //por medio de jquery se selecciona el campo y se le agrega un event listener
 $('#BusquedaCampo').keyup(function(e){
    //let para tomar el dato del keyup y del filtro
    let dato = $('#BusquedaCampo').val();
    let filtro = $('#inputState').val();
+
    if(dato.length == 0){
       //si el dato esta vacio mostrar todos los registros
       //aun no coloco los registros
-      $.ajax({
-         url:'../../ajax',
-         type:'POST',
-         data:{filtro},
-         success:function(response){
-            //la respuesta del controlador se obtiene como cadena de texto
-            //json parse es para regresarla a objeto tipo json(que es directamente como se extrae de la base de datos)
-            let tablas = JSON.parse(response);
-            let plantilla = '';
-
-            tablas.forEach(tabla =>{
-               plantilla+=`
-                  <tr>
-                     <th scope = "row"> ${tabla.matriculaAlumno} </th>
-                        <td> ${tabla.firstName} ${tabla.secondName} </td>
-                        <td> ${tabla.firstLastName}</td>
-                        <td> ${tabla.secondLastName}</td>
-                        <td> ${tabla.email}</td>
-                        <td> ${tabla.Lider_Celula_id}</td>
-                        <td> ${tabla.cellPhone}</td>
-                        <td> ${tabla.serviseStatus}</td>
-                        <td> ${tabla.statusBautizo}</td>
-                        <td> ${tabla.birthday} </td>
-                  </tr>
-               `;
-
-               document.getElementById('datosTabla').innerHTML = plantilla;
-            })//foreach
-         }//fin de funcion success
-      })//fin de funciaon ajax
+      mostrar('', 'all');
    }else{
-      //a un objeto ajax se le da l url a acceder, el tipo de peticion, los datos que se enviaran y en caso de ser xitoso que funcion realizar
-      $.ajax({
-         url:'../../ajax',
-         type:'POST',
-         data:{dato, filtro},
-         success:function(response){
-            //la respuesta del controlador se obtiene como cadena de texto
-            //json parse es para regresarla a objeto tipo json(que es directamente como se extrae de la base de datos)
-            let tablas = JSON.parse(response);
-            let plantilla = '';
-
-            tablas.forEach(tabla =>{
-               plantilla+=`
-                  <tr>
-                     <th scope = "row"> ${tabla.matriculaAlumno} </th>
-                        <td> ${tabla.firstName} ${tabla.secondName} </td>
-                        <td> ${tabla.firstLastName}</td>
-                        <td> ${tabla.secondLastName}</td>
-                        <td> ${tabla.email}</td>
-                        <td> ${tabla.Lider_Celula_id}</td>
-                        <td> ${tabla.cellPhone}</td>
-                        <td> ${tabla.serviseStatus}</td>
-                        <td> ${tabla.statusBautizo}</td>
-                        <td> ${tabla.birthday} </td>
-                        <td><div class="text-center"><button class="btn btn-primary btn-sm editar"><i class="fas fa-edit"></i></button></div></td>
-                  </tr>
-               `;
-
-               $('#modal-body').html(plantilla);
-            })//foreach
-         }//fin de funcion success
-      })//fin de funciaon ajax
+      mostrar(dato,filtro);
    }//else dato mayor a 0
 })
 
-//Editar
+//funcion par aactualizar la tabla por medio de busuea
+
+function mostrar(dato, filtro){
+
+   //a un objeto ajax se le da l url a acceder, el tipo de peticion, los datos que se enviaran y en caso de ser xitoso que funcion realizar
+   $.ajax({
+      url:'../../ajax',
+      type:'POST',
+      data:{dato, filtro},
+      success:function(response){
+         console.log(response);
+         let tablas = JSON.parse(response);
+         let plantilla = '';
+
+         tablas.forEach(tabla =>{
+            plantilla+=`
+            <tr>
+               <th scope = "row"> ${tabla.matriculaAlumno} </th>
+                  <td> ${tabla.firstName} ${tabla.secondName} </td>
+                  <td> ${tabla.firstLastName}</td>
+                  <td> ${tabla.secondLastName}</td>
+                  <td> ${tabla.email}</td>
+                  <td> ${tabla.Lider_Celula_id}</td>
+                  <td> ${tabla.cellPhone}</td>
+                  <td> ${tabla.serviseStatus}</td>
+                  <td> ${tabla.statusBautizo}</td>
+                  <td> ${tabla.birthday} </td>
+            </tr>
+            `;
+            $('#datosTabla').html(plantilla);
+         })//foreach
+      }//fin de funcion success
+   })//fin de funciaon ajax
+};
+
+function consultar(id){
+   $.ajax({
+      url:'../../ajaxLider/consulta',
+      type:'POST',
+      data:{id},
+      success:function(response){
+         let tablas = JSON.parse(response);
+         let plantilla = '';
+         tablas.forEach(tabla =>{
+            plantilla+=`
+            <div class="row" id = "row" valor = "${tabla.id}">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Primer Nombre</label>
+                     <input type="text" class="form-control" id="firstName" name="firstName" value="${tabla.firstName}">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Segundo Nombre</label>
+                     <input type="text" class="form-control" id="secondName" name="secondName"value="${tabla.secondName}">
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Apellido Paterno</label>
+                     <input type="text" class="form-control" id="firstLastName" name="firstLastName" value="${tabla.firstLastName}">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                     <label for="" class="col-form-label">Apellido Materno</label>
+                     <input type="text" class="form-control" id="secondLastName" name="secondLastName" value="${tabla.secondLastName}">
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9">
+                <div class="form-group">
+                  <label for="" class="col-form-label">Telefono</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" value="${tabla.phone}"
+                  data-toggle="tooltip" data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44"
+                  pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                 </div>
+              </div>
+            </div>
+            `;
+            $('#modal-body').html(plantilla);
+         })//foreach
+      }//fin de funcion success
+   })//fin de funciaon ajax
+}
+
+//Obtener valores para Editar
 $(document).on("click", ".editarValor", function(){
    let id = $(this)[0];
    let valor = $(id).attr('valor');
    consultar(valor);
    $('#modalCRUD').modal('show');
-
 });
 
+//guardar valores editar
+$('#formUsuarios').submit(function(e){
+   let form = {
+      id: $('#row').attr('valor'),
+      firstName: $('#firstName').val(),
+      secondName: $('#secondName').val(),
+      firstLastName: $('#firstLastName').val(),
+      secondLastName: $('#secondLastName').val(),
+      phone: $('#phone').val()
+   }
+   $.post('../../ajaxLider/editar', form, function(response){
+      console.log(response);
+      $('#modalCRUD').modal('hide');
+      mostrar('','all');
+   })
+   e.preventDefault();
+});
 
 //IMPRIMIR
 function tabletoPDF(){
