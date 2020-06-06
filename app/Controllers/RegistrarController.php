@@ -248,6 +248,9 @@ class RegistrarController extends BaseController
       $val->validarNumero($post['nivel']);
       $curso->nivel = $post['nivel'];
 
+      $val->validarNumero($post['subnivel']);
+      $curso->subnivel = $post['subnivel'];
+
       $val->validarTexto($post['descripcion'], 1, null, false);
       $curso->descripcion = $post['descripcion'];
 
@@ -290,11 +293,11 @@ class RegistrarController extends BaseController
             var_dump($error);
          } else {
 
-            $temario->moveTo("Uploads/cursos/$fileNameT"); //mevemos el archivo a la carpeta que queremos
-            $manual->moveTo("Uploads/cursos/$fileNameM"); //mevemos el archivo a la carpeta que queremos
-            $examen->moveTo("Uploads/cursos/$fileNameE"); //mevemos el archivo a la carpeta que queremos
-            $hoja->moveTo("Uploads/cursos/$fileNameH"); //mevemos el archivo a la carpeta que queremos
-            $imgCurso->moveTo("Uploads/cursos/$fileNameI"); //mevemos el archivo a la carpeta que queremos
+            $temario->moveTo("Uploads/cursos/temarios/$fileNameT"); //mevemos el archivo a la carpeta que queremos
+            $manual->moveTo("Uploads/cursos/manuales/$fileNameM"); //mevemos el archivo a la carpeta que queremos
+            $examen->moveTo("Uploads/cursos/examenes/$fileNameE"); //mevemos el archivo a la carpeta que queremos
+            $hoja->moveTo("Uploads/cursos/hojas/$fileNameH"); //mevemos el archivo a la carpeta que queremos
+            $imgCurso->moveTo("Uploads/cursos/img/$fileNameI"); //mevemos el archivo a la carpeta que queremos
             $curso->save();
             header(sprintf('%s: %s', 'location', '/proyectocultura/adm/registro/confirma_curso'), false);
 

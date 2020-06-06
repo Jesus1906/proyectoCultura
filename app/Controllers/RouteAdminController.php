@@ -196,7 +196,7 @@ class RouteAdminController
     public function confirmaCurso($request){
         if ($_SESSION['user'] == 'admi') {
             $curso = new ConsultaController();
-            $cursos = $curso->CursosOrdenados();
+            $cursos = $curso->CursosOrdenadosNivel();
 
             if ($request->getMethod() == 'POST') {
                 $curso = new ActualizarController();

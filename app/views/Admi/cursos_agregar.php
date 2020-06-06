@@ -41,16 +41,24 @@
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="col-sm-3"></div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <label for="inputState">Nombre del Curso</label>
                     <input type="text" class="form-control" placeholder="Nombre del Curso" required name="name">
                 </div>
-                <div class="col-sm-2">
+            </div>
+
+            <div class="form-row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
                     <label for="inputState">Nivel del Curso</label>
                     <input type="number" class="form-control" placeholder="2" required name="nivel">
                 </div>
+                <div class="col-sm-3">
+                    <label for="inputState">Subnivel del Curso</label>
+                    <input type="number" class="form-control" placeholder="1" required name="subnivel">
+                </div>
             </div>
-
+        
             <div class="form-row">
                 <div class="col-sm-3"></div>
                 <div class="col-md-6">

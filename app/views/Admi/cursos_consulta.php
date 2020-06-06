@@ -42,7 +42,7 @@
 
                 <div class="modal-dialog text-center">
                     <h3 id="nombreCurso">Nombre Curso</h3>
-                    <img src="../../ImaCursos/VIDA CON PROPOSITO.jpg" alt="Responsive image" height="360px">
+                    <img id="imgCurso" src="../../ImaCursos/VIDA CON PROPOSITO.jpg" alt="Responsive image" height="360px">
                     <p><strong>Descripcion: </strong>
                         <p id="descripcion"></p>
                     </p>
@@ -61,6 +61,8 @@
                 <dd class="col-sm-8"><a id="hoja" href="#">Respuestas</a></dd>
                 <dt class="col-sm-4">Nivel</dt>
                 <dt class="col-sm-8" id="nivel"># Nivel</dt>
+                <dt class="col-sm-4">Subnivel</dt>
+                <dt class="col-sm-8" id="subnivel"># Nivel</dt>
 
 
             </div>

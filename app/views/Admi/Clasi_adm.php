@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href=" principal.css">
 
-    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adm/principal_adm.css">
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>public/estilos/adm/principal_adm.css">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="http://localhost/proyectocultura/ImagenescULTURA/logo.jpg" />
