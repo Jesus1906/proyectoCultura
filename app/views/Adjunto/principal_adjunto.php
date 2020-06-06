@@ -5,12 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adj/principal.css">
 
     <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/adj/principal_adju.css">
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="http://localhost/proyectocultura/ImagenescULTURA/logo.jpg" />
     <title>Inicio Adjunto</title>
 </head>
 
@@ -19,8 +22,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"><img src="../../../public/ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -32,7 +34,7 @@
             </ul>
             <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="<?php echo RUTA_URL ?>adj">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="<?php echo RUTA_URL ."logout" ?>" >Cerrar Sesion <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
@@ -40,7 +42,7 @@
         <div class="row" id="primer_row">
             <div class="col-sm-4">
                 <div>
-                <p id="welcome">Bienvenido: <?php echo $_SESSION['nombre']; ?></p>
+                    <p id="welcome">Bienvenido: <?php echo $_SESSION['nombre']; ?></p>
                 </div>
             </div>
             <div class="col-sm-4" id="question">
@@ -50,8 +52,7 @@
             </div>
             <div class="col-sm-4">
                 <div id="foto">
-                    <img class="perfil"
-                        src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto">
+                    <img class="perfil" src="https://image.freepik.com/vector-gratis/perfil-empresario-dibujos-animados_18591-58479.jpg" alt="foto">
                 </div>
                 <div class="text-center">
                     <a href="<?php echo RUTA_URL ?>adj/perfil">Editar Perfil</a>
@@ -63,66 +64,81 @@
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4 proceso">
-                    <a href="cursoAsig_adju.html"><img class="img-proceso"
-                             src="https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg"
-                            alt="inscripcion"></a>
-                    <label for="inscripcion">Consultar Curso Asignado</label>
+                    <div class="contenedor">
+                        <a href="cursoAsig_adju.html">
+                            <figure>
+                                <img class="img-proceso" src="https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Curso Asignado">
+                                <div class="capa">
+                                    <h4>Consultar Curso Asigando</h4>
+                                    <p>En esta ventana podrás ver el curso que se te ha asignado. Así como descargar
+                                        el material necesario.
+                                    </p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
+
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="pagos.html"><img class="img-proceso"
-                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU"
-                            alt="inscripcion"></a>
-                    <label for="inscripcion">Pagos de Alumnos</label>
+                    <div class="contenedor">
+                        <a href="pagos.html">
+                            <figure>
+                                <img class="img-proceso" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvMqvvc_NwkNi6ktCE-VrMiN5n6YeqG4MEjlLP6gJBQUdnEX9J&usqp=CAU" alt="Pago Alumnos">
+                                <div class="capa">
+                                    <h4>Pagos de Alumnos</h4>
+                                    <p>En esta ventana podrás actualizar y corroborar el pago de todos los alumnos, por curso.
+                                    </p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
-                
             </div>
 
             <div class="row">
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4 proceso">
-                    <a href="calificaciones.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg"
-                            alt="DatosGenerales"></a>
-                    <label for="DatosGenerales">Calificaciones</label>
+                    <div class="contenedor">
+                        <a href="calificaciones.html">
+                            <figure>
+                                <img class="img-proceso" src="https://cdn.pixabay.com/photo/2018/10/04/07/48/omr-3723130_960_720.jpg" alt="Calificaciones">
+                                <div class="capa">
+                                    <h4>Calificaciones</h4>
+                                    <p>En esta ventana podrás subir y actualizar las calificaciones de los alumnos por curso.
+                                    </p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-sm-4 proceso">
-                    <a href="../registro.html"><img class="img-proceso"
-                            src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg"
-                            alt="historial"></a>
-                    <label for="historial">Registrar Alumno</label>
+                    <div class="contenedor">
+                        <a href="../registro.html">
+                            <figure>
+                                <img class="img-proceso" src="https://cdn.pixabay.com/photo/2017/08/13/16/43/notebook-2637757_960_720.jpg" alt="historial">
+                                <div class="capa">
+                                    <h4>Registrar a Alumno</h4>
+                                    <p>En esta ventana podrás registrar a los alumnos que tengan problemas para hacerlo ellos mismos.
+                                    </p>
+                                </div>
+                            </figure>
+                        </a>
+                    </div>
                 </div>
             </div>
 
         </div>
-        <div class="row">
-            <div class="col-sm-12 footer">
-                <div>
-                    <h4>contacto</h4>
-                </div>
 
-                <div>
-                    <a href="#"><img class="item"
-                            src="https://i.pinimg.com/564x/af/de/45/afde45783f0f89280aeeb6d4849e682e.jpg" alt=""></a>
-                    <a href="#"><img class="item"
-                            src="https://i.pinimg.com/originals/d8/6b/b7/d86bb706dbba64c84f85a890d20814d5.jpg"
-                            alt=""></a>
-                    <a href="#"><img class="item"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/480px-Instagram_logo_2016.svg.png"
-                            alt=""></a>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>
