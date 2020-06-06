@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso};
+use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Periodo};
 
 class ConsultaController extends BaseController
 {
@@ -36,6 +36,9 @@ class ConsultaController extends BaseController
         return Curso::all();
     }
 
+    public function getPeriodo(){
+        return Periodo::find(1);
+    }
     public function getAllLideres()
     {
         return Lider_celula::all();

@@ -209,6 +209,25 @@ class RouteAdminController
         }
     }
 
+    public function registrarPeriodo($request){
+        if ($_SESSION['user'] == 'admi') {
+            $periodo = new ConsultaController();
+            $periodo = $periodo->getPeriodo();
+            if ($request->getMethod() == 'POST') {
+                if($periodo){//validamos si existe un periodo existente
+                    $actualizar = new ActualizarController();
+                    $actualizar->actualizarPeriodo($periodo, $request->getParsedBody());
+                }else{
+                    $registro = new RegistrarController();
+                    $registro->regPeriodo($request->getParsedBody());
+                }
+            }
+            require_once '../app/views/Admi/periodo.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
     public function consultaADJ($request)
     {
         if ($_SESSION['user'] == 'admi') {
@@ -320,4 +339,6 @@ class RouteAdminController
             echo 'No eres administrador';
         }
     }
+
+    
 }

@@ -350,6 +350,18 @@ class Web
             'accion' => 'ofertaCurso',
             'auth' => true
         ]);
+
+        $map->get('gAgregarPeriodo', RUTA_URL . 'adm/registro/periodo', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'registrarPeriodo',
+            'auth' => true
+        ]);
+
+        $map->post('pAgregarPeriodo', RUTA_URL . 'adm/registro/periodo', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'registrarPeriodo',
+            'auth' => true
+        ]);
     }
 
     //inician rutas adjunto

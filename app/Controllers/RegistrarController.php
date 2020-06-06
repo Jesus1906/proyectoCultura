@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso};
+use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso, Periodo};
 use App\Controllers\ValidatorController;
 
 class RegistrarController extends BaseController
@@ -235,6 +235,14 @@ class RegistrarController extends BaseController
          $profesor->save();
          return 'Exito al guardar';
       }
+   }
+
+   public function regPeriodo($post){
+      $periodo = new Periodo();
+      $periodo->inscripcion = $post['inscripcion'];
+      $periodo->inicio = $post['inicio'];
+      $periodo->fin = $post['fin'];
+      $periodo->save();
    }
 
    public function regCurso($post, $request)

@@ -73,7 +73,7 @@
                                     <li><a href="#">Modificar</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/oferta/curso">Ofertar</a></li>
                                     <li><a href="cursos_listas.html">Listas de Alumnos</a></li>
-                                    <li><a href="periodo">Agregar Periodo</a></li>
+                                    <li><a href="<?php echo RUTA_URL ?>adm/registro/periodo">Agregar Periodo</a></li>
                                 </ul>
                             </div>
                         </figure>
