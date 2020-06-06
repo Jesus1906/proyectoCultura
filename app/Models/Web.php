@@ -99,6 +99,7 @@ class Web
         $this->adminConsulta($map);
         $this->adminActualizar($map);
         $this->adminPrincipales($map);
+        $this->adminOfertar($map);
     }
 
     public function rutasAdjunto($map){
@@ -333,6 +334,20 @@ class Web
         $map->get('principalAdministradores', RUTA_URL . 'adm/administradores', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'principalAdministradores',
+            'auth' => true
+        ]);
+    }
+
+    public function adminOfertar($map){
+        $map->get('gOfertaCurso', RUTA_URL . 'adm/oferta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'ofertaCurso',
+            'auth' => true
+        ]);
+
+        $map->post('pOfertaCurso', RUTA_URL . 'adm/oferta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'ofertaCurso',
             'auth' => true
         ]);
     }
