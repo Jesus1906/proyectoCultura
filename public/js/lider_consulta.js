@@ -16,9 +16,8 @@ $('#BusquedaCampo').keyup(function(e){
       mostrar(dato,filtro);
    }//else dato mayor a 0
 })
+
 //funcion par aactualizar la tabla por medio de busuea
-
-
 
 function mostrar(dato, filtro){
 
@@ -102,19 +101,12 @@ function consultar(id){
    })//fin de funciaon ajax
 }
 
-function editar($form){
-
-}
-
 //Obtener valores para Editar
 $(document).on("click", ".editarValor", function(){
    let id = $(this)[0];
    let valor = $(id).attr('valor');
    consultar(valor);
    $('#modalCRUD').modal('show');
-
-
-
 });
 
 //guardar valores editar
@@ -128,14 +120,11 @@ $('#formUsuarios').submit(function(e){
       phone: $('#phone').val()
    }
    $.post('../../ajaxLider/editar', form, function(response){
-
       console.log(response);
       $('#modalCRUD').modal('hide');
       mostrar('','all');
    })
-
    e.preventDefault();
-
 });
 
 //IMPRIMIR
