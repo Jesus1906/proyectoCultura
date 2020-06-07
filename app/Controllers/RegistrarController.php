@@ -2,11 +2,12 @@
 
 namespace App\Controllers;
 
-use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso, Periodo};
+use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso, Periodo, Oferta_cursos};
 use App\Controllers\ValidatorController;
 
 class RegistrarController extends BaseController
 {
+
    public function __construct()
    {
       $this->iniciarControladorBase();
@@ -331,5 +332,20 @@ class RegistrarController extends BaseController
       }else{
          return $cursoSigOAnt;
       }
+   }
+
+   public function regOfertaNueva($post, $periodo){
+      $oferta = new Oferta_cursos();
+      $oferta->periodo = $periodo['periodo'];
+      $oferta->fechaInicio = $periodo['inicio'];
+      $oferta->fechaTermino = $periodo['fin'];
+      $oferta->inicio_fecha_inscripcion = $periodo['inscripcion'];
+      $oferta->StatusActivo = 'n';//definimos el estatus en no, porque cuadno este en si es porque el curso cumplio con todos los requisitos para ser impartido
+      $oferta->turno = $post['turno'];
+      $oferta->Adjunto_matriculaAdjunto = $post['adjunto'];
+      $oferta->Profesor_Profesor_Matricula1 = $post['profesor']; //nose que paso con los nombres de los campos aqui O.o estan horribles XD
+      $oferta->Curso_idCurso = $post['idCurso'];
+      $oferta->cupoMinimo = $post['cupoMinimo'];
+      $oferta->save();
    }
 }

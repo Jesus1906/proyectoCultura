@@ -7,5 +7,4 @@ class Oferta_cursos extends Model{
     
     protected $table = 'oferta_cursos';
     protected $primaryKey = 'idOferta_Cursos';
-    public $incrementing = false;
 }

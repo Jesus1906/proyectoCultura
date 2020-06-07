@@ -72,6 +72,7 @@
     </div>
 
     <div class="container">
+
         <form action="" method="POST">
             <div class="form-row">
                 <div class="col-sm-2"></div>
@@ -81,11 +82,11 @@
                 </div>
                 <div class="col-sm-4">
                     <label for="secondName">Segundo Nombre</label>
-                    <input class="form-control form-control-lg" type="text" id="secondName" value = "<?php if ($alumno->secondName) {
-                                                                                                echo $alumno->secondName;
-                                                                                            } else {
-                                                                                                echo "Sin Nombre";
-                                                                                            } ?>" name="secondName">
+                    <input class="form-control form-control-lg" type="text" id="secondName" value="<?php if ($alumno->secondName) {
+                                                                                                        echo $alumno->secondName;
+                                                                                                    } else {
+                                                                                                        echo "Sin Nombre";
+                                                                                                    } ?>" name="secondName">
                 </div>
 
             </div>
@@ -162,7 +163,6 @@
                 <div class="form-group col-sm-4">
                     <label for="inputState">Grupo Familiar</label>
                     <select class="custom-select" id="validationServer09" required name="lider">
-
                         <?php
                         for ($i = 0; $i < count($lideres); $i++) {
                             if ($alumno->Lider_Celula_id == $lideres[$i]['Lider_Celula_id']) {

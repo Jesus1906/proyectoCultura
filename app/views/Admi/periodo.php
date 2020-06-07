@@ -76,6 +76,18 @@
                                 } ?>">
                             </div>
                         </div>
+                        <div class="row">
+                            <label for="inputState">Periodo</label>
+                        </div>
+                        <div class="form-row">
+                            <div class="col ">
+                                <input type="text" class="form-control" required name="periodo" value = "<?php if($periodo){
+                                    echo $periodo->periodo;
+                                }else{
+                                    echo '2010-1';
+                                } ?>">
+                            </div>
+                        </div>
                         <br>
                     </div>
                     <button type="submit" class="btn btn-outline-primary">Guardar Periodo</button>

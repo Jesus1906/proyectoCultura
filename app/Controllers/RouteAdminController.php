@@ -323,6 +323,7 @@ class RouteAdminController
         if ($_SESSION['user'] == 'admi') {
             $cursos = new ConsultaController();
             $cursos = $cursos->CursosOrdenados();
+
             require_once '../app/views/Admi/cursos_consulta.php';
         } else {
             echo 'No eres administrador';
@@ -332,8 +333,15 @@ class RouteAdminController
     public function ofertaCurso($request)
     {
         if ($_SESSION['user'] == 'admi') {
-            $cursos = new ConsultaController();
-            $cursos = $cursos->CursosOrdenados();
+            $consulta = new ConsultaController();
+            $profesores = $consulta->getAllProfesor();
+            $adjuntos = $consulta->getAllAdjunto();
+            $periodo = $consulta->getPeriodo();
+            $cursos = $consulta->CursosOrdenados();
+            if ($request->getMethod() == 'POST') {
+                $oferta = new RegistrarController();
+                $oferta->regOfertaNueva($request->getParsedBody(), $periodo);
+            }
             require_once '../app/views/Admi/cursos_ofertar.php';
         } else {
             echo 'No eres administrador';
