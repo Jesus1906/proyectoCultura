@@ -212,7 +212,7 @@ class RouteAdminController
     public function registrarPeriodo($request){
         if ($_SESSION['user'] == 'admi') {
             $periodo = new ConsultaController();
-            $periodo = $periodo->getPeriodo();
+            $periodo = $periodo->getPeriodo(); 
             if ($request->getMethod() == 'POST') {
                 if($periodo){//validamos si existe un periodo existente
                     $actualizar = new ActualizarController();

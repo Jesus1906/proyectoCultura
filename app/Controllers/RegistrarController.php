@@ -243,6 +243,8 @@ class RegistrarController extends BaseController
       $periodo->inscripcion = $post['inscripcion'];
       $periodo->inicio = $post['inicio'];
       $periodo->fin = $post['fin'];
+      $periodo->periodo = $post['periodo'];
+      var_dump($periodo);
       $periodo->save();
    }
 

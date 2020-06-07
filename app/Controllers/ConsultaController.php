@@ -37,7 +37,12 @@ class ConsultaController extends BaseController
     }
 
     public function getPeriodo(){
-        return Periodo::find(1);
+        $periodos = Periodo::all();
+        if($periodos){
+            return $periodos = $periodos[count($periodos)-1];
+        }else{
+            return null;
+        }
     }
     public function getAllLideres()
     {

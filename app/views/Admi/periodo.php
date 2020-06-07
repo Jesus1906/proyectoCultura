@@ -48,7 +48,7 @@
                                 <input type="date" class="form-control" required name="inscripcion" value = "<?php if($periodo){
                                     echo $periodo->inscripcion;
                                 }else{
-                                    echo '1950-01-01';
+                                    echo '2010-01-01';
                                 } ?>">
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                 <input type="date" class="form-control" required name="inicio" value = "<?php if($periodo){
                                     echo $periodo->inicio;
                                 }else{
-                                    echo '1950-01-01';
+                                    echo '2010-01-01';
                                 } ?>">
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                 <input type="date" class="form-control" required name="fin" value = "<?php if($periodo){
                                     echo $periodo->fin;
                                 }else{
-                                    echo '1950-01-01';
+                                    echo '2010-01-01';
                                 } ?>">
                             </div>
                         </div>
