@@ -74,15 +74,15 @@
                     <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
 
                     <label for="temario">Temario</label>
-                    <input type="file" class="form-control-file" id="temario" lang="es" name="temario">
+                    <input type="file" class="form-control-file" id="temario" lang="es" name="temario" required>
                     <label for="manual">Manual</label>
-                    <input type="file" class="form-control-file" id="manual" lang="es" name="manual">
+                    <input type="file" class="form-control-file" id="manual" lang="es" name="manual" required>
                     <label for="examen">Examen</label>
-                    <input type="file" class="form-control-file" id="examen" lang="es" name="examen">
+                    <input type="file" class="form-control-file" id="examen" lang="es" name="examen" required>
                     <label for="respuestas">Hojas de Respuestas</label>
-                    <input type="file" class="form-control-file" id="respuestas" lang="es" name="hojaRespuestas">
+                    <input type="file" class="form-control-file" id="respuestas" lang="es" name="hojaRespuestas" required>
                     <label for="imagen">Imagen</label>
-                    <input type="file" class="form-control-file" id="imagen" lang="es" name="imgCurso">
+                    <input type="file" class="form-control-file" id="imagen" lang="es" name="imgCurso" required>
                 </div>
 
 

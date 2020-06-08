@@ -71,9 +71,9 @@
                                     <li><a href="<?php echo RUTA_URL ?>adm/registro/curso">Agregar</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/curso">Consultar</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/modificar/curso">Modificar</a></li>
-                                    <li><a href="cursos_ofertar.html">Ofertar</a></li>
+                                    <li><a href="<?php echo RUTA_URL ?>adm/oferta/curso">Ofertar</a></li>
                                     <li><a href="cursos_listas.html">Listas de Alumnos</a></li>
-                                    <li><a href="cursos_eva.html">Evaluación</a></li>
+                                    <li><a href="<?php echo RUTA_URL ?>adm/registro/periodo">Agregar Periodo</a></li>
                                 </ul>
                             </div>
                         </figure>

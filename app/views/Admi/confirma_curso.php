@@ -24,7 +24,7 @@
                 echo '                <div class="col-sm-3"></div>';
                 echo '                <div class="col-sm-6">';
                 echo '                    <label for="inputState">Nombre del curso</label>';
-                echo '                    <input type="text" disabled="disabled" class="form-control" placeholder=' . str_replace(' ', '_', $curso->name) . '  name="name">';
+                echo '                    <input type="text" disabled="disabled" class="form-control" placeholder="' . $curso->name . '"  name="name">';
                 echo '                </div>';
                 echo '            </div>';
 

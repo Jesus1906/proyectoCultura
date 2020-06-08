@@ -35,7 +35,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-2" id="panelLateral">
+            <div class="col-sm-3" id="panelLateral">
 
             </div>
             <div class="col-sm-6">
@@ -51,7 +51,7 @@
 
 
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
 
                 <dt class="col-sm-4">Manual</dt>
                 <dd class="col-sm-8"><a id="manual" href="#">Manual</a></dd>

@@ -169,149 +169,183 @@ class RouteAdminController
             $postData = $request->getParsedBody();
             $profesor->regProfesor($postData);
             require_once '../app/views/Admi/prof_agregar.html';
-         }
-         require_once '../app/views/Admi/prof_agregar.html';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+}
 
-   public function AgregarCurso($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $curso = new ConsultaController();
-         $cursos = $curso->getAllCursos();
+    public function AgregarCurso($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $curso = new ConsultaController();
+            $cursos = $curso->getAllCursos();
 
-         if ($request->getMethod() == 'POST') {
-            $curso = new RegistrarController();
-            $postData = $request->getParsedBody();
-            $curso->regCurso($postData, $request);
-         }
-         require_once '../app/views/Admi/cursos_agregar.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+            if ($request->getMethod() == 'POST') {
+                $curso = new RegistrarController();
+                $postData = $request->getParsedBody();
+                $curso->regCurso($postData, $request);
+            }
+            require_once '../app/views/Admi/cursos_agregar.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function confirmaCurso($request){
-      if ($_SESSION['user'] == 'admi') {
-         $curso = new ConsultaController();
-         $cursos = $curso->CursosOrdenadosNivel();
+    public function confirmaCurso($request){
+        if ($_SESSION['user'] == 'admi') {
+            $curso = new ConsultaController();
+            $cursos = $curso->CursosOrdenadosNivel();
 
-         if ($request->getMethod() == 'POST') {
-            $curso = new ActualizarController();
-            $postData = $request->getParsedBody();
-            $curso->actualizarCursoAyS($cursos, $postData);
-         }
-         require_once '../app/views/Admi/confirma_curso.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+            if ($request->getMethod() == 'POST') {
+                $curso = new ActualizarController();
+                $postData = $request->getParsedBody();
+                $curso->actualizarCursoAyS($cursos, $postData);
+            }
+            require_once '../app/views/Admi/confirma_curso.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function consultaADJ($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $adjuntos = new ConsultaController();
-         $filtro = "none";
-         if ($request->getMethod() == 'GET') {
-            $adjuntos = $adjuntos->getAllAdjunto();
-         } else {
-            $data = $request->getParsedBody();
-            $filtro = $data['filtro'];
-            $adjuntos = $adjuntos->getAdjunto($data);
-         }
-         require_once '../app/views/Admi/adj_consulta.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+    public function registrarPeriodo($request){
+        if ($_SESSION['user'] == 'admi') {
+            $periodo = new ConsultaController();
+            $periodo = $periodo->getPeriodo();
+            if ($request->getMethod() == 'POST') {
+                if($periodo){//validamos si existe un periodo existente
+                    $actualizar = new ActualizarController();
+                    $actualizar->actualizarPeriodo($periodo, $request->getParsedBody());
+                }else{
+                    $registro = new RegistrarController();
+                    $registro->regPeriodo($request->getParsedBody());
+                }
+            }
+            require_once '../app/views/Admi/periodo.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function consultaADM($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $administradores = new ConsultaController();
-         $filtro = "none";
-         if ($request->getMethod() == 'GET') {
-            $administradores = $administradores->getAllAdmin();
-         } else {
-            $data = $request->getParsedBody();
-            $filtro = $data['filtro'];
-            $administradores = $administradores->getAdministrador($data);
-         }
-         require_once '../app/views/Admi/admin_consulta.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+    public function consultaADJ($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $adjuntos = new ConsultaController();
+            $filtro = "none";
+            if ($request->getMethod() == 'GET') {
+                $adjuntos = $adjuntos->getAllAdjunto();
+            } else {
+                $data = $request->getParsedBody();
+                $filtro = $data['filtro'];
+                $adjuntos = $adjuntos->getAdjunto($data);
+            }
+            require_once '../app/views/Admi/adj_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function consultaALU($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $alumnos = new ConsultaController();
-         $filtro = "none";
-         if ($request->getMethod() == 'GET') {
-            $alumnos = $alumnos->getAllAlumno();
-         } else {
-            $data = $request->getParsedBody();
-            $filtro = $data['filtro'];
-            $alumnos = $alumnos->getAlumno($data);
-         }
-         require_once '../app/views/Admi/alumnos_consulta.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+    public function consultaADM($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $administradores = new ConsultaController();
+            $filtro = "none";
+            if ($request->getMethod() == 'GET') {
+                $administradores = $administradores->getAllAdmin();
+            } else {
+                $data = $request->getParsedBody();
+                $filtro = $data['filtro'];
+                $administradores = $administradores->getAdministrador($data);
+            }
+            require_once '../app/views/Admi/admin_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function consultaLIDER($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $lideres = new ConsultaController();
-         $filtro = "none";
-         if ($request->getMethod() == 'GET') {
-            $lideres = $lideres->getAllLideres();
-         } else {
-            $data = $request->getParsedBody();
-            $filtro = $data['filtro'];
-            $lideres = $lideres->getLider($data);
-         }
-         require_once '../app/views/Admi/lider_consulta.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+    public function consultaALU($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $alumnos = new ConsultaController();
+            $filtro = "none";
+            if ($request->getMethod() == 'GET') {
+                $alumnos = $alumnos->getAllAlumno();
+            } else {
+                $data = $request->getParsedBody();
+                $filtro = $data['filtro'];
+                $alumnos = $alumnos->getAlumno($data);
+            }
+            require_once '../app/views/Admi/alumnos_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function consultaPROF($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $profesores = new ConsultaController();
-         $filtro = "none";
-         if ($request->getMethod() == 'GET') {
-            $profesores = $profesores->getAllProfesor();
-         } else {
-            $data = $request->getParsedBody();
-            $filtro = $data['filtro'];
-            $profesores = $profesores->getProfesor($data);
-         }
-         require_once '../app/views/Admi/prof_consulta.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+    public function consultaLIDER($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $lideres = new ConsultaController();
+            $filtro = "none";
+            if ($request->getMethod() == 'GET') {
+                $lideres = $lideres->getAllLideres();
+            } else {
+                $data = $request->getParsedBody();
+                $filtro = $data['filtro'];
+                $lideres = $lideres->getLider($data);
+            }
+            require_once '../app/views/Admi/lider_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
 
-   public function consultaCurso($request)
-   {
-      if ($_SESSION['user'] == 'admi') {
-         $cursos = new ConsultaController();
-         $cursos = $cursos->CursosOrdenados();
-         require_once '../app/views/Admi/cursos_consulta.php';
-      } else {
-         echo 'No eres administrador';
-      }
-   }
+    public function consultaPROF($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $profesores = new ConsultaController();
+            $filtro = "none";
+            if ($request->getMethod() == 'GET') {
+                $profesores = $profesores->getAllProfesor();
 
-   public function modificarCurso($request)
-   {
+            require_once '../app/views/Admi/prof_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+}
+
+    public function consultaCurso($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $cursos = new ConsultaController();
+            $cursos = $cursos->CursosOrdenados();
+
+            require_once '../app/views/Admi/cursos_consulta.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function ofertaCurso($request)
+    {
+        if ($_SESSION['user'] == 'admi') {
+            $consulta = new ConsultaController();
+            $profesores = $consulta->getAllProfesor();
+            $adjuntos = $consulta->getAllAdjunto();
+            $periodo = $consulta->getPeriodo();
+            $cursos = $consulta->CursosOrdenados();
+            if ($request->getMethod() == 'POST') {
+                $oferta = new RegistrarController();
+                $oferta->regOfertaNueva($request->getParsedBody(), $periodo);
+            }
+            require_once '../app/views/Admi/cursos_ofertar.php';
+        } else {
+            echo 'No eres administrador';
+        }
+    }
+
+    public function modificarCurso($request)
+    {
       //revision de usuario
       if ($_SESSION['user'] == 'admi') {
          //si se envia por post
@@ -338,17 +372,19 @@ class RouteAdminController
                //si hay errores en formulario muestra errores
                var_dump($error);
             } else {
-               //si no hay errores en formulario  actualiza cursos
-               $exito = $curso->actualizarCursos($curso,$post, $files);
-               if(isset($exito)){
-                  //si existe exito(se llamo al controlador actualizar y este realizo su tarea)
-                  var_dump($exito);
+                  //si no hay errores en formulario  actualiza cursos
+                  $exito = $curso->actualizarCursos($curso,$post, $files);
+                  if(isset($exito)){
+                     //si existe exito(se llamo al controlador actualizar y este realizo su tarea)
+                     var_dump($exito);
+                  }
                }
-            }
          }//if request met
          require_once '../app/views/Admi/cursos_modificar.php';
       } else {
          echo 'No eres administrador';
       }
-   }
+   }//modificarCurso
+
+
 }

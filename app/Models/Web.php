@@ -110,6 +110,7 @@ class Web
         $this->adminActualizar($map);
         $this->adminPrincipales($map);
         $this->adminModificar($map);
+        $this->adminOfertar($map);
     }
 
     public function rutasAdjunto($map){
@@ -344,6 +345,32 @@ class Web
         $map->get('principalAdministradores', RUTA_URL . 'adm/administradores', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'principalAdministradores',
+            'auth' => true
+        ]);
+    }
+
+    public function adminOfertar($map){
+        $map->get('gOfertaCurso', RUTA_URL . 'adm/oferta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'ofertaCurso',
+            'auth' => true
+        ]);
+
+        $map->post('pOfertaCurso', RUTA_URL . 'adm/oferta/curso', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'ofertaCurso',
+            'auth' => true
+        ]);
+
+        $map->get('gAgregarPeriodo', RUTA_URL . 'adm/registro/periodo', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'registrarPeriodo',
+            'auth' => true
+        ]);
+
+        $map->post('pAgregarPeriodo', RUTA_URL . 'adm/registro/periodo', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'registrarPeriodo',
             'auth' => true
         ]);
     }

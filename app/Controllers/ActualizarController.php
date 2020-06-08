@@ -109,6 +109,14 @@ class ActualizarController extends BaseController
 
     }
 
+    public function actualizarPeriodo($periodo, $post){
+        $periodo->inscripcion = $post['inscripcion'];
+        $periodo->inicio = $post['inicio'];
+        $periodo->fin = $post['fin'];
+        $periodo->periodo = $post['periodo'];
+        $periodo->save();
+    }
+
     public function actualizarCursoAyS($cursos, $post){
         $indice = 0;
         foreach($cursos as $curso){
