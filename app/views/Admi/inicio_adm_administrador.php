@@ -37,13 +37,13 @@
 
     <div class="container">
         <div class="row" id="primer_row">
-            
+
             <div class="col-sm-12" id="question">
                 <div>
                     <p id="question-p">Más Administradores</p>
                 </div>
             </div>
-            
+
         </div>
 
         <div id="margen-proceso">
@@ -61,10 +61,10 @@
                             alt="DatosGenerales"></a>
                     <label for="DatosGenerales">Consultar</label>
                 </div>
-                
+
             </div>
 
-            
+
         </div>
         <div class="row">
             <div class="col-sm-12 footer">

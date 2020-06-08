@@ -245,10 +245,10 @@ class RegistrarController extends BaseController
       $val->validarTexto($post['name'], 4, 50, false);
       $curso->name = $post['name'];
 
-      $val->validarNumero($post['nivel']);
+      $val->validarNumero($post['nivel'],1,20);
       $curso->nivel = $post['nivel'];
 
-      $val->validarNumero($post['subnivel']);
+      $val->validarNumero($post['subnivel'],1,20);
       $curso->subnivel = $post['subnivel'];
 
       $val->validarTexto($post['descripcion'], 1, null, false);
@@ -284,8 +284,8 @@ class RegistrarController extends BaseController
          //validacion de errores
          $error = $val->validarErrores();
 
-         if($fileNameT == "erroneo" || $fileNameM == "erroneo" || $fileNameE == "erroneo" 
-         || $fileNameH == "erroneo" || $fileNameI == "erroneo"){ // si alguno de los nombres trae algun error 
+         if($fileNameT == "erroneo" || $fileNameM == "erroneo" || $fileNameE == "erroneo"
+         || $fileNameH == "erroneo" || $fileNameI == "erroneo"){ // si alguno de los nombres trae algun error
             $error = "algun archivo no es del formato compatible";//cambiar el valor de error por el mensaje
          }
 
@@ -308,7 +308,7 @@ class RegistrarController extends BaseController
    }
 
 
-   public function generateName($name, $curso){ //agregaremos el nombre del curso al archivo 
+   public function generateName($name, $curso){ //agregaremos el nombre del curso al archivo
       $names = explode('.', $name);
       if(count($names)== 1 || count($names) < 2 || ($names[1] != "pdf" && $names[1] != "jpg" &&  $names[1] != "png")){ //validaremos si el tipo de archivo es compatible
          return "erroneo"; //... con el sistema :V

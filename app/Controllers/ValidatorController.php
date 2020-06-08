@@ -176,14 +176,14 @@ class ValidatorController{
       }
    }//validar errores
 
-   public function validarNumero($num){
+   public function validarNumero($num, $min, $max){
       //valida un numero y que este entre ciertos valores
       if(!v::IntVal()->validate($num)){
          $this->error[]= "Tipo de dato Invalido en Numero";
          return false;
       }
 
-      if(V::Between(1,2)->validate($num)){
+      if(V::Between($min,$max)->validate($num)){
          return true;
       }else{
          $this->error[]="Numero fuera de rango";
