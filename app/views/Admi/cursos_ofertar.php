@@ -52,12 +52,9 @@
             <div class="col-sm-3">
                 <form action="" method="POST">
                     <div class="col ">
-                        <div class="row">
-                            <label for="inputState">Id Curso</label>
-                        </div>
                         <div class="form-row">
                             <div class="col ">
-                                <input id="idCurso" value="" type="text" class="form-control" required name="idCurso">
+                                <input id="idCurso" value="" type="text" class="form-control" required name="idCurso" hidden>
                             </div>
                         </div>
 
@@ -65,7 +62,7 @@
                             <label for="inputState">Horario</label>
                             <select id="inputState" class="form-control" required name="turno">
                                 <option selected value="M">Matutino</option>
-                                <option value="V" >Vespertino</option>
+                                <option value="V">Vespertino</option>
                             </select>
                         </div>
                         <div class="row">
@@ -82,9 +79,9 @@
                                 <option selected disabled="disabled">Elige...</option>
                                 <?php
 
-use App\Models\Periodo;
+                                use App\Models\Periodo;
 
-for ($i = 0; $i < count($profesores); $i++) {
+                                for ($i = 0; $i < count($profesores); $i++) {
                                     $name = $profesores[$i]['firstName'] . ' ' . $profesores[$i]['secondName'] . " " . $profesores[$i]['firstLastName'] . " " . $profesores[$i]['secondLastName'];
                                     echo '<option value = "' . $profesores[$i]['Profesor_Matricula'] . '">' . $name . '</option>';
                                 }
