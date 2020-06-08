@@ -38,8 +38,8 @@
                 </li>
             </ul>
             <a class="nav-link" href="<?php echo RUTA_URL ?>alm">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>cursos">Cursos <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL?>logout">Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <br><br><br> <br>

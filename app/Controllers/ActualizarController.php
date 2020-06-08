@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\ConsultaController;
 use App\Http\Controllers\Controller;
-use App\Models\{Lider_celula, Profesor};
+use App\Models\{Lider_celula, Profesor, Curso};
 
 class ActualizarController extends BaseController
 {
@@ -125,4 +125,97 @@ class ActualizarController extends BaseController
             $indice++;
         }
     }
+
+    public function actualizarCursos($curso, $post, $files){
+      //requiere el objeto cursos , los datos del post(formulario) y los archivos del post(files)
+      //instancian controladores
+      $curso = new ConsultaController();
+      $archivo = new RegistrarController();
+      //se crea array de respuestas
+      $exito = [];
+      //se obtiene el curso a editar
+      $id = $post['idCurso'];
+      $curso = $curso->getCurso($id);
+
+      //se obtienen los correspondientes archivs
+      $temario = $files['temario'];
+      $manual = $files['manual'];
+      $examen = $files['examen'];
+      $hoja = $files['answers'];
+      $imgCurso = $files['photo'];
+
+      //se obtienen los nombres de los archivos en caso de ser correcto el tipo o el mensaje de error en caso de no serlo
+      $temarioNombre = $this->subidaArchivo($temario,$post['name']);
+      $manualNombre = $this->subidaArchivo($manual,$post['name']);
+      $examenNombre = $this->subidaArchivo($examen,$post['name']);
+      $hojaNombre = $this->subidaArchivo($hoja,$post['name']);
+      $imgCursoNombre = $this->subidaArchivo($imgCurso,$post['name']);
+
+      //si se obtiene un archivo y este tiene un nombre valido se actualiza su correspondiente registro en db y el status de exito se guarda en el array de respuestas
+      //en caso de que no exista un archivo y/o este tenga como nombre error solo se ingresa en el array de respuestas
+      $exito[]= $this->ActualizarArchivo($temarioNombre,$curso,'temario',$temario,'temarios');
+      $exito[]= $this->ActualizarArchivo($manualNombre,$curso,'manual',$manual, 'manuales');
+      $exito[]= $this->ActualizarArchivo($examenNombre,$curso,'examen',$examen,'examenes');
+      $exito[]= $this->ActualizarArchivo($hojaNombre,$curso,'answers',$hoja,'hojas');
+      $exito[]= $this->ActualizarArchivo($imgCursoNombre,$curso,'photo',$imgCurso,'img');
+
+      //se cambian los datos del formulario
+      $curso->name = $post['name'];
+      $curso->nivel = $post['nivel'];
+      $curso->descripcion = $post['descripcion'];
+      $curso->subnivel = $post['subnivel'];
+
+      foreach ($exito as $error) {
+         if($error ==="Error al subir archivo"){
+            return $exito;
+         }
+      }
+      $curso->save();
+      //se regresa el array de respuestas
+      return $exito;
+
+   }//actualizarcurso
+
+   public function subidaArchivo($file, $name){
+      $archivo = new RegistrarController();
+      if($file->getError() == UPLOAD_ERR_OK){
+         $fileName = $archivo->generateName($file->getClientFilename(),$name);
+         return $fileName;
+      }
+   }//subidaArchivo
+   public function errorArchivo($fileNombre, $name){
+      if($fileNombre == "erroneo"){
+         $error = "Error al subir archivo";
+         return $error;
+      }else{
+         //false significa que no hubo error
+         return false;
+      }
+   }//error archivo
+
+   public function ActualizarArchivo($archivoNombre, $curso, $tabla,$archivo,$carpeta){
+      //requiere el nombre del archivo, el objeto curso y que archivo es el que se va a subir
+      if(isset($archivoNombre)){
+         $curso->$tabla = $archivoNombre;
+         $error = $this->errorArchivo($archivoNombre, $archivo->getClientFilename());
+
+         if($error==false){
+            //si el archivo ya existe, remplazalo
+            if(file_exists("Uploads/cursos/$carpeta/$archivoNombre")){
+               $curso->save();
+               return "Archivo ya existente no se guardaran cambios en $archivoNombre";
+            }else{
+               $archivo->moveTo("Uploads/cursos/$carpeta/$archivoNombre"); //mevemos el archivo a la carpeta que queremos
+               $curso->save();
+            }
+            return "exito al guardar";
+         }else{
+            return $error;
+         }
+
+
+      }else{
+         return "no seteado";
+      }
+   }//actualizar Archivo
 }

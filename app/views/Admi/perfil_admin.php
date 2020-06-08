@@ -27,9 +27,9 @@
                     <a class="nav-link" href="#">-</a>
                 </li>
             </ul>
-            <a class="nav-link" href="cursos_alumn.html">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="/proyectocultura/adm">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Cerrar Sesión <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>cursos">Cursos <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>adm">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>logout">Cerrar Sesión <span class="sr-only">(current)</span></a>
         </div>
     </nav>
     <br><br><br>
@@ -74,9 +74,9 @@
     <div class="modal-dialog text-center">
         <h4>No de Cuenta</h4>
         <?php echo '<h5>'. $admin->matriculaAdministrador . '</h5>' ?>
-        
+
     </div>
-   
+
     <div class="container">
         <form action="" method="POST">
             <div class="form-row">

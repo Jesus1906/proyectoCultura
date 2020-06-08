@@ -265,4 +265,9 @@ class ConsultaController extends BaseController
                 break;
         } //switch
     } //fin getmatricula
+
+    public function getCurso($id){
+      return Curso::find($id);
+   }
+
 }

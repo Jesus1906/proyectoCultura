@@ -32,6 +32,16 @@ class Web
             'accion' => 'consultaCursos',
         ]);
 
+        $map->post('ajaxCursos/buscar', RUTA_URL . 'ajaxCursos/buscar', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'buscarCursos',
+        ]);
+
+        $map->post('ajaxCursos/editar', RUTA_URL . 'ajaxCursos/editar', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'editarCursos',
+        ]);
+
         $map->post('/ajaxLider/editar', RUTA_URL . 'ajaxLider/editar', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaLiderEditar',
@@ -99,6 +109,7 @@ class Web
         $this->adminConsulta($map);
         $this->adminActualizar($map);
         $this->adminPrincipales($map);
+        $this->adminModificar($map);
         $this->adminOfertar($map);
     }
 
@@ -409,4 +420,18 @@ class Web
             'auth' => true
         ]);
     }
+
+    public function adminModificar($map){
+      $map->get('gModificarCurso', RUTA_URL . 'adm/modificar/curso', [
+         'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+         'accion' => 'modificarCurso',
+         'auth' => true
+      ]);
+
+      $map->post('pModificarCurso', RUTA_URL . 'adm/modificar/curso', [
+         'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+         'accion' => 'modificarCurso',
+         'auth' => true
+      ]);
+   }
 }

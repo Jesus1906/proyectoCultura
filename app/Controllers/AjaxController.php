@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso};
-use App\Controllers\{ValidatorController, ConsultaController};
+use App\Controllers\{ValidatorController, ConsultaController, ActualizarController};
 
 class AjaxController extends BaseController
 {
@@ -145,6 +145,35 @@ class AjaxController extends BaseController
       $json = json_encode($res);
       echo $json;
    }
+
+   public function buscarCursos($request){
+      $datos = $request->getParsedBody($request);
+      $res = Curso::where('idCurso', $datos['id'])->get();
+      $json = \json_encode($res);
+      echo $json;
+   }//buscarcurso
+
+   public function editarCursos($request){
+      $post = $request->getParsedBody($request);
+      $val = new ValidatorController();
+      $curso = new ActualizarController();
+
+      $val->validarTexto($post['name'], 4, 70, false);
+      $val->validarNumero($post['nivel'],1,20);
+      $val->validarTexto($post['descripcion'],4,null,false);
+      $val->validarNumero($post['subnivel'],1,20);
+
+      //validacion de errores
+      $error = $val->validarErrores();
+      
+      if ($error != false) {
+         echo $error;
+      } else {
+         $curso->actualizarCursos($curso,$post);
+         echo 'Exito al guardar';
+      }
+
+   }//editar cursos
 
 }//consultar editar lider
 //controlador ajax
