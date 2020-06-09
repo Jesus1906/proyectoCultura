@@ -1,6 +1,7 @@
 #cuerpo{
     width: 100%;
     height: 100%;
+    margin-top: 250px;
 }
 
 .animated {
@@ -25,3 +26,6 @@
   .flash {
     animation-name: flash;
   }
+   .h1{
+      
+   }

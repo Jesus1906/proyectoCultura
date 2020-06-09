@@ -48,15 +48,13 @@
         </div>
     </nav>
 
-    <br><br><br><br><br>
     <div class="container" id="cuerpo">
-        <div class="row">
-            <div class="col-sm4">
-            </div>
-            <div class="col-sm4">
+        <div class="row justify-content-center">
+            
+            <div class="col-sm-6 text-center">
                 <h1 class="text animated bounce">Inscripciones no disponibles</h1>
             </div>
-            <div class="col-sm4"></div>
+
         </div>
     </div>
 
