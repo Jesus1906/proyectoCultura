@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/alm/principal_alumno.css">
-    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>/public/estilos/principal/styles.css">
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>public/estilos/alm/principal_alumno.css">
+    <link rel="stylesheet" href="<?php echo RUTA_SERVER ?>public/estilos/principal/styles.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600" rel="stylesheet">

@@ -12,6 +12,11 @@ class ConsultaController extends BaseController
         $this->iniciarControladorBase();
     }
 
+    public function getFecha(){
+        date_default_timezone_set("America/Mexico_city");
+        return $fechaActual = date('Y-m-d');
+    }
+
     public function CursosOrdenadosNivel()
     {
         $UltimoCurso = $this->getAllCursos();
