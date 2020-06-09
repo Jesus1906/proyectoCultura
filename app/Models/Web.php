@@ -119,6 +119,7 @@ class Web
 
     public function rutasAlumno($map){
         $this->alumnoActualizar($map);
+        $this->alumnoInscripcion($map);
     }
 
     //inician rutas admin
@@ -390,7 +391,22 @@ class Web
         ]);
     }
 
+
     //inician rutas alumno
+    public function alumnoInscripcion($map){
+        $map->get('gInscripcionAlm', RUTA_URL . 'alm/inscripcion', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'inscripcionAlm',
+            'auth' => true
+        ]);
+
+        $map->post('pInscripcionAlm', RUTA_URL . 'alm/inscripcion', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'pInscripcionAlm',
+            'auth' => true
+        ]);
+    }
+
     public function alumnoActualizar($map){
         $map->get('gActualizarPerfilAlm', RUTA_URL . 'alm/perfil', [
             'controlador' => RUTA_CONTROLLER . '\RouteController',

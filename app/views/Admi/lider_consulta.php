@@ -59,25 +59,28 @@
     <div class="row">
 
       <div class="col-sm-12">
-        <div class="modal-dialog text-center">
-          <h3>Líderes</h3>
-        </div>
-        <div class="table-responsive-sm">
-          <table class="table" id="miTabla">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Nombre(s)</th>
-                <th scope="col">Ap Paterno</th>
-                <th scope="col">Ap Materno</th>
-                <th scope="col">Telefono </th>
-                <th scope="col">Editar</th>
-              </tr>
-            </thead>
-            <tbody id="datosTabla">
+        <div class="imprimir">
+          <div class="modal-dialog text-center">
+            <h3>Líderes</h3>
+          </div>
+          <div class="table-responsive-sm">
+            <table class="table" id="miTabla">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Nombre(s)</th>
+                  <th scope="col">Ap Paterno</th>
+                  <th scope="col">Ap Materno</th>
+                  <th scope="col">Telefono </th>
+                  <th scope="col">Editar</th>
+                </tr>
+              </thead>
+              <tbody id="datosTabla">
 
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
+
 
       </div>
 
@@ -142,12 +145,10 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-5"></div>
-      <div class="col">
-        <button type="submit" class="btn btn-secondary" onclick="tabletoPDF()"><i class="fas fa-print"></i> Imprimir</button>
-        
-      </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-outline-secondary" id="btnImprimir"><i class="fas fa-print"></i> Imprimir</button>
+        </div>
     </div>
 
   </div>
@@ -163,7 +164,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
   <script src="<?php echo RUTA_SERVER ?>/js/lider_consulta.js"></script>
-
+  <script src="<?php echo RUTA_SERVER ?>/js/printThis.js"></script>
 </body>
 
 </html>

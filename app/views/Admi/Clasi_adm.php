@@ -104,6 +104,7 @@
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/adjunto">Adjuntos</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/alumno">Alumnos</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/profesor">Profesores</a></li>
+                                    <li><a href="<?php echo RUTA_URL ?>adm/consulta/lider">Líderes</a></li>
                                     <li><a href="cursos_consulta.html">Cursos</a></li>
                                 </ul>
                             </div>

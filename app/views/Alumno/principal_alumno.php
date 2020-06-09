@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-sm-6 proceso">
                     <div class="contenedor">
-                        <a href="Inscripciones">
+                        <a href="<?php echo RUTA_URL ?>alm/inscripcion">
                             <figure>
                                 <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/inscripciones.jpg" alt="inscripcion">
                                 <div class="capa">

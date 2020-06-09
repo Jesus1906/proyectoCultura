@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Periodo};
+use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Oferta_cursos, Periodo};
 
 class ConsultaController extends BaseController
 {
@@ -69,6 +69,17 @@ class ConsultaController extends BaseController
         return Administrador::all();
     }
 
+    public function getCursos($nivel, $subnivel){
+        return Curso::where('nivel', $nivel)
+        ->where('subnivel', $subnivel)
+        ->get();
+    }
+
+    public function getCursoOferta($idCurso, $turno){
+        return Oferta_cursos::where('Curso_idCurso', $idCurso)
+        ->where('turno', $turno)
+        ->get();
+    }
     public function getAdjunto($post)
     {
         switch ($post['filtro']) {

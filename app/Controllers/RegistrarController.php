@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso, Periodo, Oferta_cursos};
+use App\Models\{Alumno, Lider_celula, Profesor, Adjunto, Administrador, Curso, Periodo, Oferta_cursos, Alumno_ofertaCursos};
 use App\Controllers\ValidatorController;
 
 class RegistrarController extends BaseController
@@ -349,5 +349,12 @@ class RegistrarController extends BaseController
       $oferta->Curso_idCurso = $post['idCurso'];
       $oferta->cupoMinimo = $post['cupoMinimo'];
       $oferta->save();
+   }
+
+   public function regInscripcion($post){
+      $registro = new Alumno_ofertaCursos();
+      $registro->Alumno_matriculaAlumno = $post['idAlumno'];
+      $registro->Oferta_Cursos_idOferta_Cursos = $post['idOferta'];
+      $registro->save();
    }
 }

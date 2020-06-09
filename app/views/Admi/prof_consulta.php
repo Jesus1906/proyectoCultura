@@ -61,115 +61,112 @@
     <div class="row">
 
       <div class="col-sm-12">
-        <div class="modal-dialog text-center">
-          <h3>Profesores</h3>
+        <div class="imprimir">
+          <div class="modal-dialog text-center">
+            <h3>Profesores</h3>
+          </div>
+
+          <table class="table" id="miTabla">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nombre(s)</th>
+                <th scope="col">Ap Paterno</th>
+                <th scope="col">Ap Materno</th>
+                <th scope="col">Telefono </th>
+                <th scope="col">Email </th>
+                <th scope="col">Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              if ($request->getMethod() == 'GET' || $filtro != "matricula") {
+
+                foreach ($profesores as $profesor) {
+                  echo '<tr>';
+                  echo '<th scope="row">' . $profesor['firstName'] . ' ' . $profesor['secondName'] . '</th>';
+                  echo '<td>' . $profesor['firstLastName'] . '</td>';
+                  echo '<td>' . $profesor['secondLastName'] . '</td>';
+                  echo '<td>' . $profesor['phone'] . '</td>';
+                  echo '<td>' . $profesor['email'] . '</td>';
+                  echo '</tr>';
+                }
+              }
+              ?>
+            </tbody>
+          </table>
         </div>
 
-        <table class="table" id="miTabla">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Nombre(s)</th>
-              <th scope="col">Ap Paterno</th>
-              <th scope="col">Ap Materno</th>
-              <th scope="col">Telefono </th>
-              <th scope="col">Email </th>
-              <th scope="col">Editar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            if ($request->getMethod() == 'GET' || $filtro != "matricula") {
-
-              foreach ($profesores as $profesor) {
-                echo '<tr>';
-                echo '<th scope="row">' . $profesor['firstName'] . ' ' . $profesor['secondName'] . '</th>';
-                echo '<td>' . $profesor['firstLastName'] . '</td>';
-                echo '<td>' . $profesor['secondLastName'] . '</td>';
-                echo '<td>' . $profesor['phone'] . '</td>';
-                echo '<td>' . $profesor['email'] . '</td>';
-                echo '</tr>';
-              }
-            }
-            ?>
-          </tbody>
-        </table>
       </div>
 
-
-
     </div>
-    
+
     <!--Modal para EDITAR-->
     <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Líder</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <form id="formUsuarios">    
-            <div class="modal-body" id = "modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                    <div class="form-group">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Líder</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form id="formUsuarios">
+            <div class="modal-body" id="modal-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
                     <label for="" class="col-form-label">Primer Nombre</label>
                     <input type="text" class="form-control" id="firstName" name="firstName">
-                    </div>
-                    </div>
-                    <div class="col-sm-6">
-                    <div class="form-group">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
                     <label for="" class="col-form-label">Segundo Nombre</label>
                     <input type="text" class="form-control" id="secondName" name="secondName">
-                    </div> 
-                    </div>    
+                  </div>
                 </div>
-                <div class="row"> 
-                    <div class="col-sm-6">
-                    <div class="form-group">
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
                     <label for="" class="col-form-label">Apellido Paterno</label>
                     <input type="text" class="form-control" id="firstLastName" name="firstLastName">
-                    </div>               
-                    </div>
-                    <div class="col-sm-6">
-                    <div class="form-group">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
                     <label for="" class="col-form-label">Apellido Materno</label>
                     <input type="text" class="form-control" id="secondLastName" name="secondLastName">
-                    </div>
-                    </div>  
-                </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label for="phone" class="col-form-label">Telefono</label>
-                      <input type="tel" class="form-control" id="phone" name="phone"
-                      data-toggle="tooltip" data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44"
-                      pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
-                     </div>
                   </div>
-                  <div class="col-sm-6">
-                    <div class="form-row">
-                      <label for="email">Correo Electronico</label>
-                      <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                  </div>    
-                </div>                
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="phone" class="col-form-label">Telefono</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" data-toggle="tooltip" data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-row">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
-                <button type="submit" id="btnGuardar" class="btn btn-outline-success">Guardar</button>
+              <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+              <button type="submit" id="btnGuardar" class="btn btn-outline-success">Guardar</button>
             </div>
-        </form>    
+          </form>
         </div>
-    </div>
+      </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-5"></div>
-      <div class="col">
-      <button type="submit" class="btn btn-secondary" onclick="tabletoPDF()"><i class="fas fa-print"></i> Imprimir</button>
-        <button type="submit" class="btn btn-primary">Editar Datos</button>
-      </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-outline-secondary" id="btnImprimir"><i class="fas fa-print"></i> Imprimir</button>
+        </div>
     </div>
 
   </div>
@@ -178,6 +175,9 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="<?php echo RUTA_SERVER ?>/js/printThis.js"></script>
+
 </body>
 
 </html>
