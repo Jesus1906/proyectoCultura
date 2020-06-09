@@ -8,6 +8,7 @@ session_start();//iniciamos las seciones
 define('RUTA_URL', '/proyectocultura/');
 define('RUTA_SERVER', 'http://localhost/proyectocultura/');
 define('RUTA_CONTROLLER', 'App\Controllers');
+define('RAIZ', dirname(__FILE__));
 
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
    $_SERVER,
