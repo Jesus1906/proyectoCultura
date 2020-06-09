@@ -69,9 +69,9 @@ class ConsultaController extends BaseController
         return Administrador::all();
     }
 
-    public function getPrimerCurso(){
-        return Curso::where('nivel', 1)
-        ->where('subnivel', 1)
+    public function getCursos($nivel, $subnivel){
+        return Curso::where('nivel', $nivel)
+        ->where('subnivel', $subnivel)
         ->get();
     }
 

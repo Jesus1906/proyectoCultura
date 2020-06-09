@@ -402,7 +402,7 @@ class Web
 
         $map->post('pInscripcionAlm', RUTA_URL . 'alm/inscripcion', [
             'controlador' => RUTA_CONTROLLER . '\RouteController',
-            'accion' => 'inscripcionAlm',
+            'accion' => 'pInscripcionAlm',
             'auth' => true
         ]);
     }

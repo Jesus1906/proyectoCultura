@@ -47,7 +47,9 @@
           <ul class="list-group list-group-flush">
 
             <li class="list-group-item"><?php if (count($ofertaMatutin) > 0) {
-                                          echo 'Horario de 13:00-14:00 hrs Todos los domingos';
+                                          if (!$completoCursos) {
+                                            echo 'Horario de 13:00-14:00 hrs Todos los domingos';
+                                          }
                                         } else {
                                           echo '<strong>Aviso:</strong> El curso que te toca no se ha abierto en el turno Matutino, revisa el siguiente turno o regresa el siguiente periodo';
                                         } ?></li>
@@ -66,9 +68,20 @@
 
           </ul>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#cursoMañana">
-            ¡Inscribete!
-          </button>
+          <form action="" method="POST">
+            <input type="text" name="idOferta" value="<?php if (count($ofertaMatutin) > 0) {
+                                                        echo $ofertaMatutina->idOferta_Cursos;
+                                                      } ?>" hidden>
+
+            <input type="text" name="idAlumno" value="<?php if (count($ofertaMatutin) > 0) {
+                                                        echo $_SESSION['matricula'];
+                                                      } ?>" hidden>
+            <button type="submit" class="btn btn-outline-warning" <?php if ($completoCursos || count($ofertaMatutin) == 0) {
+                                            echo 'disabled';
+                                          }?>>
+              ¡Inscribete!
+            </button>
+          </form>
 
           <!-- Modal -->
           <div class="modal fade" id="cursoMañana" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -117,7 +130,9 @@
           <ul class="list-group list-group-flush">
 
             <li class="list-group-item"><?php if (count($ofertaVespertin) > 0) {
-                                          echo 'Horario de 13:00-14:00 hrs Todos los domingos';
+                                          if (!$completoCursos) {
+                                            echo 'Horario de 13:00-14:00 hrs Todos los domingos';
+                                          }
                                         } else {
                                           echo '<strong>Aviso:</strong> El curso que te toca no se ha abierto en el turno Vespertino, revisa el siguiente turno o regresa el siguiente periodo';
                                         } ?></li>
@@ -136,9 +151,20 @@
 
           </ul>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#cursoTarde">
-            ¡Inscribete!
-          </button>
+          <form action="" method="POST">
+            <input type="text" name="idOferta" value="<?php if (count($ofertaVespertin) > 0) {
+                                                        echo $ofertaVespertina->idOferta_Cursos;
+                                                      } ?>" hidden>
+
+            <input type="text" name="idAlumno" value="<?php if (count($ofertaVespertin) > 0) {
+                                                        echo $_SESSION['matricula'];
+                                                      } ?>" hidden>
+            <button type="submit" class="btn btn-outline-warning" <?php if ($completoCursos || count($ofertaVespertin) == 0) {
+                                            echo 'disabled';
+                                          }?> >
+              ¡Inscribete!
+            </button>
+          </form>
 
           <!-- Modal -->
           <div class="modal fade" id="cursoTarde" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -2,6 +2,9 @@
 
 namespace App\Controllers;
 
+use App\Models\Adjunto;
+use Symfony\Component\VarDumper\VarDumper;
+
 class RouteController
 {
 
@@ -70,14 +73,87 @@ class RouteController
             'filtro' => 'matricula',
             'parametro' => $_SESSION['matricula']
          ]);
+
          if ($alumno->ultimoCurso) {
-            $curso = null;
+            
+            $curs = explode("-", $alumno->ultimoCurso);
+            $curso = $consulta->getCursos($curs[0], $curs[1] + 1); //nos trae un arreglo de cursos que coinsidan con el nivel y el subnivel mandado
+            
+            if (count($curso) == 0) {// preguntamos si existe el curso siguiente del ultimo que curso, si no preguntamos en el siguiente nivel
+            
+               $curso = $consulta->getCursos($curs[0] + 1, 1);
+            
+            }
+
+            if (count($curso) > 0) {//si no hay curso aqui es porque ya no hay mas cursos que este alumno pueda cursar
+               
+               $completoCursos = false;
+               $curso = $curso[0]; //tomamos el primero y unico
+               $ofertaMatutin = $consulta->getCursoOferta($curso->idCurso, 'M');//esto me trae un arreglo de las ofertas matutinas de un curso
+               
+               if (count($ofertaMatutin) > 0) {//si el arreglo esta en 0 significa que no hay oferta matutina
+                  
+                  $ofertaMatutina = $ofertaMatutin[0];//obtenemos la oferta matutina
+
+                  $profesor = $ofertaMatutina->Profesor_Profesor_Matricula1;
+                  $profesor = $consulta->getProfesor([
+                     'filtro' => 'Profesor_Matricula',
+                     'parametro' => $profesor
+                  ]);
+                  $profesor = $profesor['firstName'] . ' ' . $profesor['secondName'] . " " . $profesor['firstLastName'] . " " . $profesor['secondLastName'];
+                  $adjunto = $ofertaMatutina->Adjunto_matriculaAdjunto;
+                  $adjunto = $consulta->getAdjunto([
+                     'filtro' => 'matricula',
+                     'parametro' => $adjunto
+                  ]);
+                  
+                  $adjunto = $adjunto['firstName'] . ' ' . $adjunto['secondName'] . " " . $adjunto['firstLastName'] . " " . $adjunto['secondLastName'];
+               
+               }
+
+               //oferta Vespertina
+               $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V');//esto me trae un arreglo de las ofertas vespertinas de un curso
+               
+               if (count($ofertaVespertin) > 0) {//si el arreglo esta en 0 significa que no hay oferta vespertina
+
+                  $ofertaVespertina = $ofertaVespertin[0];//obtenemos la oferta vespertina
+                  $profesor1 = $ofertaVespertina->Profesor_Profesor_Matricula1;
+                  $profesor1 = $consulta->getProfesor([
+                     'filtro' => 'Profesor_Matricula',
+                     'parametro' => $profesor1
+                  ]);
+                  $profesor1 = $profesor1['firstName'] . ' ' . $profesor1['secondName'] . " " . $profesor1['firstLastName'] . " " . $profesor1['secondLastName'];
+                  $adjunto1 = $ofertaVespertina->Adjunto_matriculaAdjunto;
+                  $adjunto1 = $consulta->getAdjunto([
+                     'filtro' => 'matricula',
+                     'parametro' => $adjunto1
+                  ]);
+                  $adjunto1 = $adjunto1['firstName'] . ' ' . $adjunto1['secondName'] . " " . $adjunto1['firstLastName'] . " " . $adjunto1['secondLastName'];
+               }
+            }else{
+
+               $curso = $consulta->getCursos(1, 1); //nos trae un arreglo de cursos que coinsidan con el nivel y el subnivel mandado
+               $curso = $curso[0]; //tomamos el primero y unico
+               $curso->name = "Felicidades!!!!, no existen más cursos ya tomaste todos";
+               $completoCursos = true;
+               $profesor = "Felicidades!!!!, no existen más cursos ya tomaste todos";
+               $adjunto = $profesor;
+               $profesor1 = $profesor;
+               $adjunto1 = $profesor;
+               $ofertaMatutin = [];
+               $ofertaVespertin = [];
+
+            }
          } else {
+
             //oferta Matutina
-            $curso = $consulta->getPrimerCurso(); //nos trae un arreglo de cursos
+            $completoCursos = false;
+            $curso = $consulta->getCursos(1, 1); //nos trae un arreglo de cursos que coinsidan con el nivel y el subnivel mandado
             $curso = $curso[0]; //tomamos el primero y unico
             $ofertaMatutin = $consulta->getCursoOferta($curso->idCurso, 'M');
+            
             if (count($ofertaMatutin) > 0) {
+
                $ofertaMatutina = $ofertaMatutin[0];
 
                $profesor = $ofertaMatutina->Profesor_Profesor_Matricula1;
@@ -92,11 +168,14 @@ class RouteController
                   'parametro' => $adjunto
                ]);
                $adjunto = $adjunto['firstName'] . ' ' . $adjunto['secondName'] . " " . $adjunto['firstLastName'] . " " . $adjunto['secondLastName'];
+            
             }
 
             //oferta Vespertina
             $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V');
+
             if (count($ofertaVespertin) > 0) {
+
                $ofertaVespertina = $ofertaVespertin[0];
                $profesor1 = $ofertaVespertina->Profesor_Profesor_Matricula1;
                $profesor1 = $consulta->getProfesor([
@@ -110,9 +189,21 @@ class RouteController
                   'parametro' => $adjunto
                ]);
                $adjunto1 = $adjunto1['firstName'] . ' ' . $adjunto1['secondName'] . " " . $adjunto1['firstLastName'] . " " . $adjunto1['secondLastName'];
+            
             }
+         
          }
          require_once '../app/views/Alumno/inscripciones.php';
+      } else {
+         echo 'No eres alumno';
+      }
+   }
+
+   public function pInscripcionAlm($request){
+      if ($_SESSION['user'] == 'alumno') {
+         $registro = new RegistrarController();
+         $registro->regInscripcion($request->getParsedBody());
+         $this->inscripcionAlm();
       } else {
          echo 'No eres alumno';
       }
