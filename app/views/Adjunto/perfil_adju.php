@@ -50,16 +50,16 @@
                         <form class="px-2 py-0">
                             <div class="form-group">
                                 <label for="oldPassword">Escribe tu antigua contraseña</label>
-                                <input type="password" class="form-control" id="oldPassword" name="" required>
+                                <input type="password" class="form-control" id="oldPassword" name="oldPassword" required>
                             </div>
                             <div class="dropdown-divider"></div>
                             <div class="form-group">
                                 <label for="newPassword">Escribe tu nueva contraseña</label>
-                                <input type="password" class="form-control" id="newPassword" name="" required>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword" required>
                             </div>
                             <div class="form-group">
                                 <label for="confPassword">Confirma tu nueva contraseña</label>
-                                <input type="password" class="form-control" id="confPassword" name="" required>
+                                <input type="password" class="form-control" id="confPassword" name="confPassword" required>
                             </div>
                             <button type="submit" class="btn btn-outline-success">Cambiar Constraseña</button>
                         </form>
