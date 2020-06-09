@@ -165,6 +165,12 @@ class ActualizarController extends BaseController
       $curso->descripcion = $post['descripcion'];
       $curso->subnivel = $post['subnivel'];
 
+      $curso->temario = $this->actualizarNombre($post['name'],$curso->temario, 'temarios');
+      $curso->manual = $this->actualizarNombre($post['name'],$curso->manual, 'manuales');
+      $curso->examen = $this->actualizarNombre($post['name'],$curso->examen, 'examenes');
+      $curso->answers = $this->actualizarNombre($post['name'],$curso->answers, 'hojas');
+      $curso->photo = $this->actualizarNombre($post['name'],$curso->photo, 'img');
+
       foreach ($exito as $error) {
          if($error ==="Error al subir archivo"){
             return $exito;
@@ -218,4 +224,20 @@ class ActualizarController extends BaseController
          return "no seteado";
       }
    }//actualizar Archivo
+
+   public function actualizarNombre($postName, $archivo, $carpeta){
+
+
+      $exNombre = explode('-', $archivo);
+      $extension = explode('.',$archivo);
+
+
+      if(count($extension)== 1 || count($extension) < 2 || ($extension[1] != "pdf" && $extension[1] != "jpg" &&  $extension[1] != "png")){ //validaremos si el tipo de archivo es compatible
+         return "erroneo"; //... con el sistema :V
+      }else{
+         $nNombre = $exNombre[0].'-'.$postName.'.'.$extension[1];
+         rename(RAIZ."\Uploads\cursos\\$carpeta\\$archivo", RAIZ."\Uploads\cursos\\$carpeta\\$nNombre");
+         return $nNombre;
+      }
+   }
 }
