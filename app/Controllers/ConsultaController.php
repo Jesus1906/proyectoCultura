@@ -102,6 +102,14 @@ class ConsultaController extends BaseController
             ->where('turno', $turno)
             ->get();
     }
+
+    public function getOfertaExistente($oferta, $periodo){
+        return Oferta_cursos::where('Curso_idCurso', $oferta['idCurso'])
+        ->where('periodo', $periodo['periodo'])
+        ->where('turno', $oferta['turno'])
+        ->get();
+    }
+
     public function getAdjunto($post)
     {
         switch ($post['filtro']) {

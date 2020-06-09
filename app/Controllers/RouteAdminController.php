@@ -335,8 +335,18 @@ class RouteAdminController
             $periodo = $consulta->getPeriodo();
             $cursos = $consulta->CursosOrdenados();
             if ($request->getMethod() == 'POST') {
-                $oferta = new RegistrarController();
-                $oferta->regOfertaNueva($request->getParsedBody(), $periodo);
+
+               $ofertaExistente = $consulta->getOfertaExistente($request->getParsedBody(), $periodo);
+              
+               if(count($ofertaExistente) == 0){
+
+                  $oferta = new RegistrarController();
+                  $oferta->regOfertaNueva($request->getParsedBody(), $periodo);
+               
+               }else{
+                  echo 'en este periodo ya se oferto el curso en el turno indicado';
+               }
+                
             }
             require_once '../app/views/Admi/cursos_ofertar.php';
         } else {
