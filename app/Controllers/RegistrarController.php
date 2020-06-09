@@ -354,7 +354,11 @@ class RegistrarController extends BaseController
    public function regInscripcion($post){
       $registro = new Alumno_ofertaCursos();
       $registro->Alumno_matriculaAlumno = $post['idAlumno'];
-      $registro->Oferta_Cursos_idOferta_Cursos = $post['idOferta'];
+      if($post['turno'] == 'M'){
+         $registro->Oferta_Cursos_idOferta_Cursos = $post['idOfertaM'];
+      }else{
+         $registro->Oferta_Cursos_idOferta_Cursos = $post['idOfertaV'];
+      }
       $registro->save();
    }
 }

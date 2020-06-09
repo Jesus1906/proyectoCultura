@@ -201,8 +201,16 @@ class RouteController
 
    public function pInscripcionAlm($request){
       if ($_SESSION['user'] == 'alumno') {
-         $registro = new RegistrarController();
-         $registro->regInscripcion($request->getParsedBody());
+         $dataInscripcion = $request->getParsedBody();
+         $registro = new ConsultaController();
+         $registro = $registro->getInscripcion($dataInscripcion['idAlumno'], $dataInscripcion['idOfertaM'], $dataInscripcion['idOfertaV']);
+         //buscamos si ya esta registrado ya sea en el turno de la mañana o de la tarde
+         if(count($registro) == 0){// si el registro es igual a 0 es porque no se ha inscrito aun si es diferente es porque ya tiene una inscripcion
+            $registro = new RegistrarController();
+            $registro->regInscripcion($dataInscripcion);
+         }else{
+            echo "ya te has inscrito";
+         }
          $this->inscripcionAlm();
       } else {
          echo 'No eres alumno';

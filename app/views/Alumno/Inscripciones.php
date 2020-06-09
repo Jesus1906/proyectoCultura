@@ -69,13 +69,18 @@
           </ul>
           <!-- Button trigger modal -->
           <form action="" method="POST">
-            <input type="text" name="idOferta" value="<?php if (count($ofertaMatutin) > 0) {
+            <input type="text" name="idOfertaM" value="<?php if (count($ofertaMatutin) > 0) {
                                                         echo $ofertaMatutina->idOferta_Cursos;
                                                       } ?>" hidden>
 
             <input type="text" name="idAlumno" value="<?php if (count($ofertaMatutin) > 0) {
                                                         echo $_SESSION['matricula'];
                                                       } ?>" hidden>
+            <input type="text" name="idOfertaV" value="<?php if (count($ofertaVespertin) > 0) {
+                                                        echo $ofertaVespertina->idOferta_Cursos;
+                                                      } ?>" hidden>
+            
+            <input type="text" name="turno" value="M" hidden>
             <button type="submit" class="btn btn-outline-warning" <?php if ($completoCursos || count($ofertaMatutin) == 0) {
                                             echo 'disabled';
                                           }?>>
@@ -152,13 +157,19 @@
           </ul>
           <!-- Button trigger modal -->
           <form action="" method="POST">
-            <input type="text" name="idOferta" value="<?php if (count($ofertaVespertin) > 0) {
+            <input type="text" name="idOfertaV" value="<?php if (count($ofertaVespertin) > 0) {
                                                         echo $ofertaVespertina->idOferta_Cursos;
                                                       } ?>" hidden>
 
             <input type="text" name="idAlumno" value="<?php if (count($ofertaVespertin) > 0) {
                                                         echo $_SESSION['matricula'];
                                                       } ?>" hidden>
+
+            <input type="text" name="idOfertaM" value="<?php if (count($ofertaMatutin) > 0) {
+                                                        echo $ofertaMatutina->idOferta_Cursos;
+                                                      } ?>" hidden>    
+                                                      
+            <input type="text" name="turno" value="V" hidden>                                                      
             <button type="submit" class="btn btn-outline-warning" <?php if ($completoCursos || count($ofertaVespertin) == 0) {
                                             echo 'disabled';
                                           }?> >

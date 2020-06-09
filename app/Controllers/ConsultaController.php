@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Oferta_cursos, Periodo};
+use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Oferta_cursos, Periodo, Alumno_ofertaCursos};
 
 class ConsultaController extends BaseController
 {
@@ -12,35 +12,55 @@ class ConsultaController extends BaseController
         $this->iniciarControladorBase();
     }
 
-    public function CursosOrdenadosNivel(){
+    public function CursosOrdenadosNivel()
+    {
         $UltimoCurso = $this->getAllCursos();
         $numero = count($UltimoCurso);
-        $UltimoCurso = Curso::find($UltimoCurso[$numero-1]->idCurso);
+        $UltimoCurso = Curso::find($UltimoCurso[$numero - 1]->idCurso);
         return Curso::where('nivel', $UltimoCurso->nivel)
-        //->orWhere('nivel', 2)
-        //->orWhere('nivel', 3)
-        //->orderBy('nivel', 'asc')
-        ->get();
+            //->orWhere('nivel', 2)
+            //->orWhere('nivel', 3)
+            //->orderBy('nivel', 'asc')
+            ->get();
     }
 
-    public function CursosOrdenados(){
+    public function CursosOrdenados()
+    {
         return Curso::where('nivel', 1)
-        ->orWhere('nivel', 2)
-        ->orWhere('nivel', 3)
-        ->orderBy('nivel', 'asc')
-        ->get();
+            ->orWhere('nivel', 2)
+            ->orWhere('nivel', 3)
+            ->orderBy('nivel', 'asc')
+            ->get();
     }
 
+    public function getInscripcion($idAlumno, $idOfertaM, $idOfertaV)
+    {
+        if ($idOfertaM == "") {
+            return Alumno_ofertaCursos::where('Alumno_matriculaAlumno', $idAlumno)
+                ->where('Oferta_Cursos_idOferta_Cursos', $idOfertaV)
+                ->get();
+        } else if ($idOfertaV == "") {
+            return Alumno_ofertaCursos::where('Alumno_matriculaAlumno', $idAlumno)
+                ->where('Oferta_Cursos_idOferta_Cursos', $idOfertaM)
+                ->get();
+        }else{
+            return Alumno_ofertaCursos::where('Alumno_matriculaAlumno', $idAlumno)
+            ->where('Oferta_Cursos_idOferta_Cursos', $idOfertaM)
+            ->orWhere('Oferta_Cursos_idOferta_Cursos', $idOfertaV)
+            ->get();
+        }
+    }
     public function getAllCursos()
     {
         return Curso::all();
     }
 
-    public function getPeriodo(){
+    public function getPeriodo()
+    {
         $periodos = Periodo::all();
-        if($periodos){
-            return $periodos = $periodos[count($periodos)-1];
-        }else{
+        if ($periodos) {
+            return $periodos = $periodos[count($periodos) - 1];
+        } else {
             return null;
         }
     }
@@ -69,16 +89,18 @@ class ConsultaController extends BaseController
         return Administrador::all();
     }
 
-    public function getCursos($nivel, $subnivel){
+    public function getCursos($nivel, $subnivel)
+    {
         return Curso::where('nivel', $nivel)
-        ->where('subnivel', $subnivel)
-        ->get();
+            ->where('subnivel', $subnivel)
+            ->get();
     }
 
-    public function getCursoOferta($idCurso, $turno){
+    public function getCursoOferta($idCurso, $turno)
+    {
         return Oferta_cursos::where('Curso_idCurso', $idCurso)
-        ->where('turno', $turno)
-        ->get();
+            ->where('turno', $turno)
+            ->get();
     }
     public function getAdjunto($post)
     {
@@ -266,8 +288,8 @@ class ConsultaController extends BaseController
         } //switch
     } //fin getmatricula
 
-    public function getCurso($id){
-      return Curso::find($id);
-   }
-
+    public function getCurso($id)
+    {
+        return Curso::find($id);
+    }
 }
