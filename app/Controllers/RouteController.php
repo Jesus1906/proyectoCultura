@@ -77,9 +77,8 @@ class RouteController
          $periodo = $consulta->getPeriodo();
          $inicioClases = strtotime($periodo->inicio);
          $fecha = strtotime($consulta->getFecha());
-
-         if ($inicioClases < $fecha) {
-
+         $ofertaIgualAPeriodo = $consulta->periodoYOfertaActual($periodo);
+         if ($fecha > $inicioClases || $ofertaIgualAPeriodo) {
             require_once '../app/views/Alumno/inscripcionNoDisponible.php';
 
          } else {
@@ -93,6 +92,7 @@ class RouteController
                if (count($curso) == 0) { // preguntamos si existe el curso siguiente del ultimo que curso, si no preguntamos en el siguiente nivel
 
                   $curso = $consulta->getCursos($curs[0] + 1, 1);
+
                }
 
                if (count($curso) > 0) { //si no hay curso aqui es porque ya no hay mas cursos que este alumno pueda cursar

@@ -305,4 +305,21 @@ class ConsultaController extends BaseController
     {
         return Curso::find($id);
     }
+
+    public function periodoYOfertaActual($periodo){
+        $ofertas = Oferta_cursos::all();
+        
+        if(count($ofertas) == 0){// preguntamos si en la bd esxisten ofertas
+            return true; //retornamos true para que entre a la condicion y muestre inscripciones no disponibles
+        
+        }else{
+            $ofertaReciente = $ofertas[count($ofertas)-1];
+            if($periodo->periodo == $ofertaReciente->periodo){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+    }
 }
