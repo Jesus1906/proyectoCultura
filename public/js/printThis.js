@@ -333,7 +333,7 @@
         afterPrint: null            // function called before iframe is removed
     };
 
-    $('#btnPrint').on("click", function () {
+    $('#btnImprimir').on("click", function () {
         $('.imprimir').printThis({
             debug: false,
             importCSS: true,
