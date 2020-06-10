@@ -2,6 +2,7 @@ let cursos = 0;
 let plantilla = '';
 let indiceNivel = 0;
 let img = document.getElementById('imgCurso');
+
 $(document).ready(mostrar(cursos, plantilla, indiceNivel));
 
 function mostrar(cursos, plantilla, indiceNivel) {

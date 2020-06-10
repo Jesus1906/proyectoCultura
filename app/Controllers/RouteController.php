@@ -66,6 +66,25 @@ class RouteController
       }
    }
 
+   public function cursos(){
+      if ($_SESSION['user'] == 'alumno') {
+         $consulta = new ConsultaController();
+         $data = $consulta->getOfertayCurso($_SESSION['matricula']);
+         if(count($data) != 0){
+            $data = $data[0];
+            
+            require_once '../app/views/Alumno/cursos_alumn.php';
+
+         }else{
+
+            require_once '../app/views/Alumno/sincurso.php';
+
+         }
+      } else {
+         echo 'No eres alumno';
+      }
+   }
+
    public function inscripcionAlm()
    {
       if ($_SESSION['user'] == 'alumno') {

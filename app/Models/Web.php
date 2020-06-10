@@ -32,6 +32,11 @@ class Web
             'accion' => 'consultaCursos',
         ]);
 
+        $map->post('ajaxprof', RUTA_URL . 'ajaxprof', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaProf',
+        ]);
+
         $map->post('ajaxCursos/buscar', RUTA_URL . 'ajaxCursos/buscar', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'buscarCursos',
@@ -120,6 +125,7 @@ class Web
     public function rutasAlumno($map){
         $this->alumnoActualizar($map);
         $this->alumnoInscripcion($map);
+        $this->alumnoConsulta($map);
     }
 
     //inician rutas admin
@@ -376,6 +382,19 @@ class Web
         ]);
     }
 
+    public function adminModificar($map){
+        $map->get('gModificarCurso', RUTA_URL . 'adm/modificar/curso', [
+           'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+           'accion' => 'modificarCurso',
+           'auth' => true
+        ]);
+  
+        $map->post('pModificarCurso', RUTA_URL . 'adm/modificar/curso', [
+           'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+           'accion' => 'modificarCurso',
+           'auth' => true
+        ]);
+     }
     //inician rutas adjunto
     public function adjuntoActualizar($map){
         $map->get('gActualizarPerfilAdj', RUTA_URL . 'adj/perfil', [
@@ -421,17 +440,18 @@ class Web
         ]);
     }
 
-    public function adminModificar($map){
-      $map->get('gModificarCurso', RUTA_URL . 'adm/modificar/curso', [
-         'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
-         'accion' => 'modificarCurso',
-         'auth' => true
-      ]);
+    public function alumnoConsulta($map){
+        $map->get('gConsultaCursos', RUTA_URL . 'alm/cursos', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'cursos',
+            'auth' => true
+        ]);
 
-      $map->post('pModificarCurso', RUTA_URL . 'adm/modificar/curso', [
-         'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
-         'accion' => 'modificarCurso',
-         'auth' => true
-      ]);
-   }
+        $map->post('pConsultaCursos', RUTA_URL . 'alm/cursos', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'cursos',
+            'auth' => true
+        ]);
+    }
+
 }

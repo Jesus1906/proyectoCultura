@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Oferta_cursos, Periodo, Alumno_ofertaCursos};
 
 class ConsultaController extends BaseController
@@ -12,7 +13,8 @@ class ConsultaController extends BaseController
         $this->iniciarControladorBase();
     }
 
-    public function getFecha(){
+    public function getFecha()
+    {
         date_default_timezone_set("America/Mexico_city");
         return $fechaActual = date('Y-m-d');
     }
@@ -48,11 +50,11 @@ class ConsultaController extends BaseController
             return Alumno_ofertaCursos::where('Alumno_matriculaAlumno', $idAlumno)
                 ->where('Oferta_Cursos_idOferta_Cursos', $idOfertaM)
                 ->get();
-        }else{
+        } else {
             return Alumno_ofertaCursos::where('Alumno_matriculaAlumno', $idAlumno)
-            ->where('Oferta_Cursos_idOferta_Cursos', $idOfertaM)
-            ->orWhere('Oferta_Cursos_idOferta_Cursos', $idOfertaV)
-            ->get();
+                ->where('Oferta_Cursos_idOferta_Cursos', $idOfertaM)
+                ->orWhere('Oferta_Cursos_idOferta_Cursos', $idOfertaV)
+                ->get();
         }
     }
     public function getAllCursos()
@@ -108,11 +110,12 @@ class ConsultaController extends BaseController
             ->get();
     }
 
-    public function getOfertaExistente($oferta, $periodo){
+    public function getOfertaExistente($oferta, $periodo)
+    {
         return Oferta_cursos::where('Curso_idCurso', $oferta['idCurso'])
-        ->where('periodo', $periodo['periodo'])
-        ->where('turno', $oferta['turno'])
-        ->get();
+            ->where('periodo', $periodo['periodo'])
+            ->where('turno', $oferta['turno'])
+            ->get();
     }
 
     public function getAdjunto($post)
@@ -306,20 +309,49 @@ class ConsultaController extends BaseController
         return Curso::find($id);
     }
 
-    public function periodoYOfertaActual($periodo){
+    public function periodoYOfertaActual($periodo)
+    {
         $ofertas = Oferta_cursos::all();
-        
-        if(count($ofertas) == 0){// preguntamos si en la bd esxisten ofertas
+
+        if (count($ofertas) == 0) { // preguntamos si en la bd esxisten ofertas
             return true; //retornamos true para que entre a la condicion y muestre inscripciones no disponibles
-        
-        }else{
-            $ofertaReciente = $ofertas[count($ofertas)-1];
-            if($periodo->periodo == $ofertaReciente->periodo){
+
+        } else {
+            $ofertaReciente = $ofertas[count($ofertas) - 1];
+            if ($periodo->periodo == $ofertaReciente->periodo) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
         }
+    }
 
+    public function getOfertayCurso($alumno)
+    {
+        $ofertaCurso = alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
+            ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
+            ->join('adjunto', 'oferta_cursos.Adjunto_matriculaAdjunto', '=', 'matriculaAdjunto')
+            ->join('profesor', 'oferta_cursos.Profesor_Profesor_Matricula1', '=', 'Profesor_Matricula')
+            ->select(
+                'oferta_cursos.turno',
+                'oferta_cursos.fechaInicio As inicio',
+                'oferta_cursos.fechaTermino As fin',
+                "curso.name",
+                'curso.photo',
+                'curso.manual',
+                'curso.descripcion',
+                'adjunto.firstName AS adjuntoName1',
+                'adjunto.secondName AS adjuntoName2',
+                'adjunto.firstLastName AS adjuntoName3',
+                'adjunto.secondLastName AS adjuntoName4',
+                'adjunto.phone',
+                'profesor.firstName AS profName1',
+                'profesor.secondName AS profName2',
+                'profesor.firstLastName AS profName3',
+                'profesor.secondLastName AS profName4',
+            )
+            ->where('alumno_ofertacursos.Alumno_matriculaAlumno', $alumno)
+            ->get();
+        return $ofertaCurso;
     }
 }

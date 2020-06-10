@@ -146,6 +146,14 @@ class AjaxController extends BaseController
       echo $json;
    }
 
+   public function consultaProf($request){
+      $dataPost = $request->getParsedBody();
+      $res = Profesor::find($dataPost['id']);
+      $res = $res->firstName + " " + $res->secondName;
+      $json = json_encode($res);
+      echo $json;
+   }
+
    public function buscarCursos($request){
       $datos = $request->getParsedBody($request);
       $res = Curso::where('idCurso', $datos['id'])->get();

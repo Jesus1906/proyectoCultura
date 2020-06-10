@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-sm-6 proceso">
                     <div class="contenedor">
-                        <a href="cursos_alumn.html">
+                        <a href="<?php echo RUTA_URL ?>alm/cursos">
                             <figure>
                                 <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/cursos.jpg" alt="cursos">
                                 <div class="capa">

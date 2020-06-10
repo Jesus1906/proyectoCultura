@@ -117,7 +117,7 @@ class RegistrarController extends BaseController
          return $error;
       } else {
          $alumno->save();
-         return 'Exito al guardar';
+         return 'Exito al guardar Tu numero de cuenta es: ' . $alumno->matriculaAlumno . '';
       }
    }
 
@@ -157,7 +157,7 @@ class RegistrarController extends BaseController
          return $error;
       } else {
          $administrador->save();
-         return 'Exito al guardar';
+         return 'Exito al guardar Tu numero de cuenta es: ' . $administrador->matriculaAdministrador;
       }
    }
 
@@ -200,7 +200,7 @@ class RegistrarController extends BaseController
          return $error;
       } else {
          $adjunto->save();
-         return 'Exito al guardar';
+         return 'Exito al guardar Tu numero de cuenta es: ' . $adjunto->matriculaAdjunto;
       }
    }
 
