@@ -90,6 +90,39 @@ class AjaxController extends BaseController
       } //switch
    } //asincronizarlider
 
+   public function asincronizarProf($post)
+   {
+      $datos = $post->getParsedBody();
+      switch ($datos['filtro']) {
+         case 'name': {
+               //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+               $res = Profesor::where('firstName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
+
+            break;
+
+         case 'apellido': {
+               //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
+               $res = Profesor::where('firstLastName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
+
+            break;
+
+         default: {
+               $res = Profesor::all();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            }
+      } //switch
+   } //asincronizarlider
+
    public function consultaLider($post)
    {
       $datos = $post->getParsedBody();
@@ -136,20 +169,12 @@ class AjaxController extends BaseController
          $lider->save();
          echo 'Exito al guardar';
       }
-   }
+   }//consultar editar lider
 
    public function consultaCursos($request)
    {
       $dataPost = $request->getParsedBody();
       $res = Curso::all();
-      $json = json_encode($res);
-      echo $json;
-   }
-
-   public function consultaProf($request){
-      $dataPost = $request->getParsedBody();
-      $res = Profesor::find($dataPost['id']);
-      $res = $res->firstName + " " + $res->secondName;
       $json = json_encode($res);
       echo $json;
    }
@@ -173,7 +198,7 @@ class AjaxController extends BaseController
 
       //validacion de errores
       $error = $val->validarErrores();
-      
+
       if ($error != false) {
          echo $error;
       } else {
@@ -183,5 +208,148 @@ class AjaxController extends BaseController
 
    }//editar cursos
 
-}//consultar editar lider
+   public function asincronizarAdjunto($post)
+   {
+      $datos = $post->getParsedBody();
+      switch ($datos['filtro']) {
+         case 'matricula':{
+            //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+            $res = Adjunto::where('matriculaAdjunto', 'like', '%' . $datos['dato'] . '%')->get();
+            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+            $json = json_encode($res);
+            echo $json;
+            };
+
+            break;
+
+         case 'name': {
+               //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+               $res = Adjunto::where('firstName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
+
+            break;
+
+         case 'apellido': {
+               //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
+               $res = Adjunto::where('firstLastName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
+
+            break;
+
+         default: {
+               $res = Adjunto::all();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            }
+      } //switch
+   } //asincronizarlider
+
+   public function consultaAdjunto($post)
+   {
+      $datos = $post->getParsedBody();
+      $res = Adjunto::where('matriculaAdjunto', $datos['id'])->get();
+      $json = \json_encode($res);
+      echo $json;
+   } //consultar lideres
+
+   public function consultaAdjuntoEditar($datos)
+   {
+
+      $adj = new ConsultaController();
+      $val = new ValidatorController();
+
+      $post = $datos->getParsedBody();
+
+      $idAdj = [
+         'filtro' => 'matricula',
+         'parametro' => $post['matriculaAdjunto']
+      ];
+      $adj = $adj->getAdjunto($idAdj); //usamos el controlador de consulta para obetener el lider que
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
+      $adj->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
+      $adj->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
+      $adj->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
+      $adj->secondLastName = $post['secondLastName'];
+
+      $val->validarTelefono($post['phone'], false);
+      $adj->phone = $post['phone'];
+
+      $val->validarCorreo($post['email'], false);
+      $adj->email = $post['email'];
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if ($error != false) {
+         echo $error;
+      } else {
+         $adj->save();
+         echo 'Exito al guardar';
+      }
+   }//consultar editar lider
+
+   public function consultaProf($post)
+   {
+      $datos = $post->getParsedBody();
+      $res = Profesor::where('Profesor_Matricula', $datos['id'])->get();
+      $json = \json_encode($res);
+      echo $json;
+   } //consultar lideres
+
+   public function consultaProfEditar($datos)
+   {
+
+      $prof = new ConsultaController();
+      $val = new ValidatorController();
+
+      $post = $datos->getParsedBody();
+
+      $idProf = [
+         'filtro' => 'Profesor_Matricula',
+         'parametro' => $post['Profesor_Matricula']
+      ];
+      $prof = $prof->getProfesor($idProf); //usamos el controlador de consulta para obetener el lider que
+
+      $val->validarTexto($post['firstName'], 4, 15, false);
+      $prof->firstName = $post['firstName'];
+
+      $val->validarTexto($post['secondName'], 4, 22, true);
+      $prof->secondName = $post['secondName'];
+
+      $val->validarTexto($post['firstLastName'], 4, 15, false);
+      $prof->firstLastName = $post['firstLastName'];
+
+      $val->validarTexto($post['secondLastName'], 4, 15, false);
+      $prof->secondLastName = $post['secondLastName'];
+
+      $val->validarTelefono($post['phone'], false);
+      $prof->phone = $post['phone'];
+
+      //validacion de errores
+      $error = $val->validarErrores();
+
+      if ($error != false) {
+         echo $error;
+      } else {
+         $prof->save();
+         echo 'Exito al guardar';
+      }
+   }//consultar editar lider
+
+
+}
 //controlador ajax

@@ -22,9 +22,29 @@ class Web
             'accion' => 'asincronizarLider',
         ]);
 
+        $map->post('/ajaxProf', RUTA_URL . 'ajaxProf', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'asincronizarProf',
+        ]);
+
         $map->post('/ajaxLider/consulta', RUTA_URL . 'ajaxLider/consulta', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaLider',
+        ]);
+
+        $map->post('/ajaxProf/consulta', RUTA_URL . 'ajaxProf/consulta', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaProf',
+        ]);
+
+        $map->post('/ajax/consulta/adjunto', RUTA_URL . 'ajax/consulta/adjunto', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'asincronizarAdjunto',
+        ]);
+
+        $map->post('/ajaxAdjunto/consulta', RUTA_URL . 'ajaxAdjunto/consulta', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaAdjunto',
         ]);
 
         $map->post('ajaxCursos', RUTA_URL . 'ajaxCursos', [
@@ -50,6 +70,16 @@ class Web
         $map->post('/ajaxLider/editar', RUTA_URL . 'ajaxLider/editar', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaLiderEditar',
+        ]);
+
+        $map->post('/ajaxAdjunto/editar', RUTA_URL . 'ajaxAdjunto/editar', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaAdjuntoEditar',
+        ]);
+
+        $map->post('/ajaxProf/editar', RUTA_URL . 'ajaxProf/editar', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaProfEditar',
         ]);
 
         $map->post('auth', RUTA_URL . 'auth', [
@@ -388,7 +418,7 @@ class Web
            'accion' => 'modificarCurso',
            'auth' => true
         ]);
-  
+
         $map->post('pModificarCurso', RUTA_URL . 'adm/modificar/curso', [
            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
            'accion' => 'modificarCurso',
