@@ -22,11 +22,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">-</a>
+
         </li>
       </ul>
-      <a class="nav-link" href="<?php echo RUTA_URL ?>cursos">Cursos <span class="sr-only">(current)</span></a>
-      <a class="nav-link" href="<?php echo RUTA_URL ?>adm">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?php echo RUTA_URL ?>adm">Inicio <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
     </div>
   </nav>
 

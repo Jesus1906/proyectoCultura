@@ -174,7 +174,8 @@ class AjaxController extends BaseController
    public function consultaCursos($request)
    {
       $dataPost = $request->getParsedBody();
-      $res = Curso::all();
+      $res = new ConsultaController();
+      $res = $res->CursosOrdenados();
       $json = json_encode($res);
       echo $json;
    }

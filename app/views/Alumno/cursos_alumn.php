@@ -12,7 +12,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
+    <a class="navbar-brand" href="#"><img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,11 +21,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">-</a>
+                    <a class="nav-link" href="#"></a>
                 </li>
             </ul>
-            <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>alm">Inicio<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>logout">Cerrar Sesión<span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
@@ -37,15 +37,27 @@
         <div class="row">
             <div class="col-sm-3" id="panelLateral">
                 <dt class="col-sm-4">Profesor</dt>
-                <dd class="col-sm-8"><?php if($data->profName2 != null){ echo "$data->profName1 $data->profName2 $data->profName3 $data->profName4";}else{echo "$data->profName1 $data->profName3 $data->profName4";} ?></dd>
+                <dd class="col-sm-8"><?php if ($data->profName2 != null) {
+                                            echo "$data->profName1 $data->profName2 $data->profName3 $data->profName4";
+                                        } else {
+                                            echo "$data->profName1 $data->profName3 $data->profName4";
+                                        } ?></dd>
                 <br>
                 <br>
                 <dt class="col-sm-4">Adjunto</dt>
-                <dd class="col-sm-8"><?php if($data->adjuntoName2 != null){echo "$data->adjuntoName1 $data->adjuntoName2 $data->adjuntoName3 $data->adjuntoName4";}else{echo "$data->adjuntoName1 $data->adjuntoName3 $data->adjuntoName4";} ?></dd>
+                <dd class="col-sm-8"><?php if ($data->adjuntoName2 != null) {
+                                            echo "$data->adjuntoName1 $data->adjuntoName2 $data->adjuntoName3 $data->adjuntoName4";
+                                        } else {
+                                            echo "$data->adjuntoName1 $data->adjuntoName3 $data->adjuntoName4";
+                                        } ?></dd>
                 <br>
                 <br>
                 <dt class="col-sm-4">Horario</dt>
-                <dd class="col-sm-8"><?php if($data->turno == 'M'){ echo 'Matutino'; }else{ echo 'Vespertino'; } ?></dd>
+                <dd class="col-sm-8"><?php if ($data->turno == 'M') {
+                                            echo 'Matutino';
+                                        } else {
+                                            echo 'Vespertino';
+                                        } ?></dd>
             </div>
             <div class="col-sm-6">
 
