@@ -37,6 +37,7 @@ class ConsultaController extends BaseController
             ->orWhere('nivel', 2)
             ->orWhere('nivel', 3)
             ->orderBy('nivel', 'asc')
+            ->orderBy('subnivel', 'asc')
             ->get();
     }
 

@@ -25,8 +25,8 @@
                     <a class="nav-link" href="#">-</a>
                 </li>
             </ul>
-            <a class="nav-link" href="#">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>adm">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 

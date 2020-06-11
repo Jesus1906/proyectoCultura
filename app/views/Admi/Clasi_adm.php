@@ -19,7 +19,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="<?php echo RUTA_URL ?>"><img src="../../ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
+    <a class="navbar-brand" href="#"><img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" alt="">Cultura Filadelfia</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,11 +28,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">-</a>
+                    
                 </li>
             </ul>
-            <a class="nav-link" href="cursos">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="adm">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>adm/consulta/curso">Cursos <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="adm">Inicio <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
@@ -105,7 +105,7 @@
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/alumno">Alumnos</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/profesor">Profesores</a></li>
                                     <li><a href="<?php echo RUTA_URL ?>adm/consulta/lider">Líderes</a></li>
-                                    <li><a href="cursos_consulta.html">Cursos</a></li>
+                                    <li><a href="<?php echo RUTA_URL ?>adm/consulta/curso">Cursos</a></li>
                                 </ul>
                             </div>
                         </figure>

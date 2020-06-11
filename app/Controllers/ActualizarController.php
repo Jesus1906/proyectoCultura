@@ -116,6 +116,7 @@ class ActualizarController extends BaseController
                     $user->password = password_hash($post['newPassword'], PASSWORD_DEFAULT);
                     $user->save();
                     echo 'contraseña guardada con exito';
+                    
                 }else{
                     echo 'las contraseñas no coinciden';
                 }

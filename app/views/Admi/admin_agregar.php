@@ -9,7 +9,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
-    <title>Agregar Profesor</title>
+    <title>Agregar Administrador</title>
 </head>
 
 <body>
@@ -24,16 +24,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">-</a>
                 </li>
             </ul>
-            <a class="nav-link" href="cursos_alumn.html">Cursos <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="Clasi_adm.html">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL ?>adm">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo RUTA_URL . "logout" ?>">Cerrar Sesion <span class="sr-only">(current)</span></a>
         </div>
     </nav>
 
     <div class="modal-dialog text-center">
-        <h1>Agregar un Profesor</h1>
+        <h1>Agregar un nuevo Administrador</h1>
     </div>
 
 
@@ -70,26 +69,40 @@
 
             <hr class="solid" style="border-top: 1px solid rgb(134, 8, 8)">
             <div class="form-row">
+
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
-                    <label for="phone">Telefono</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="55-12-34-56-78" required name="phone"
+                    <label for="inputState">Telefono</label>
+                    <input type="tel" class="form-control" placeholder="Telefono" required name="phone"
                         data-toggle="tooltip" data-placement="left"
                         title="Inserta tu número en el siguiente formato: 55-11-22-33-44" data-toggle="tooltip"
                         data-placement="left" title="Inserta tu número en el siguiente formato: 55-11-22-33-44"
                         pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required name="phone">
                 </div>
                 <div class="col-sm-4">
-                    <label for="email">Correo</label>
-                    <input type="email" class="form-control" id="email" placeholder="Correo Electronico" required
-                        name="email">
+                    <label for="inputState">Correo</label>
+                    <input type="email" class="form-control" placeholder="Correo Electronico" required name="email">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <label for="inputState">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Debe contener minimo 8 digitos" required
+                        minlength="8" maxlength="20" name="password">
+                </div>
+                <div class="col-sm-4">
+                    <label for="inputState">Confirmar Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Ingresa Nuevamente tu Contraseña"
+                        minlength="8" maxlength="20">
                 </div>
             </div>
 
             <br>
             <!-- Button trigger modal -->
             <div class="row justify-content-md-center">
-                <button type="submit" class="btn btn-outline-primary" data-toggle="modal">
+                <button type="submit" class="btn btn-outline-primary" data-toggle="modal" data-target="#staticBackdrop">
                     Agregar
                 </button>
             </div>
@@ -101,17 +114,17 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Adjunto Agregado</h5>
+                            <h5 class="modal-title" id="staticBackdropLabel">Administrador Agregado</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            El Adjunto ha sido agregado con éxito
+                            El Administrador ha sido agregado con éxito
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" action="" method="POST">Aceptar</button>
+                            <button type="button" class="btn btn-primary">Aceptar</button>
                         </div>
                     </div>
                 </div>
@@ -120,15 +133,7 @@
 
     </div>
 
-
-
-
-
-
-
-
-
-
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
