@@ -38,14 +38,13 @@
 
       <div class="form-row justify-content-center">
         <i class="fas fa-search" aria-hidden="true"></i>
-        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda" aria-label="Search" name="parametro">
+        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Busqueda" aria-label="Search" name="parametro" id = "BusquedaCampo">
       </div>
       <br>
       <div class="form-row">
 
         <div class=" col-sm-4">
           <select id="inputState" class="custom-select" name="filtro">
-            <option selected value="all">Todos los Administradores</option>
             <option selected value="matricula">Matricula</option>
             <option value="name">Nombre(s)</option>
             <option value="apellido">Apellido(s)</option>
@@ -65,7 +64,7 @@
             <table class="table" id="miTabla">
               <thead class="thead-dark">
                 <tr>
-                  <th>
+                  <th scope="col">Matricula</th>
                   <th scope="col">Nombres</th>
                   <th scope="col">Ap Paterno</th>
                   <th scope="col">Ap Materno</th>
