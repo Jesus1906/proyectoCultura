@@ -349,17 +349,27 @@ class ConsultaController extends BaseController
                 'profesor.firstName AS profName1',
                 'profesor.secondName AS profName2',
                 'profesor.firstLastName AS profName3',
-                'profesor.secondLastName AS profName4',
+                'profesor.secondLastName AS profName4'
             )
             ->where('alumno_ofertacursos.Alumno_matriculaAlumno', $alumno)
             ->get();
         return $ofertaCurso;
     }
 
-    public function getDataOfertayPago(){
+    public function getDataOfertayPago($periodo){
         $ofertayPago = Alumno_ofertaCursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
         ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
         ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
-        ->where
+        ->select('alumno.matriculaAlumno',
+            'alumno.firstName',
+            'alumno.secondName',
+            'alumno.firstLastName',
+            'alumno.secondLastName',
+            'curso.name',
+            'alumno.pago'
+        )
+        ->where('oferta_cursos.periodo', $periodo)
+        ->get();
+        return $ofertayPago;
     }
 }

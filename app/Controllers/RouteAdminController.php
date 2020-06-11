@@ -441,5 +441,14 @@ class RouteAdminController
       }
    } //modificarCurso
 
+   public function consultaPagos()
+   {
+      if ($_SESSION['user'] == 'admi') {
+         require_once '../app/views/Adjunto/pagos.php';
+      } else {
+         echo 'No eres administrador';
+      }
+   }
+
 
 }

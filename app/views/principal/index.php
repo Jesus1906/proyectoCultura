@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -27,8 +27,7 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="<?Php echo RUTA_URL ?>">
-            <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""
-                loading="lazy">
+            <img src="<?php echo RUTA_SERVER ?>/ImagenescULTURA/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
             Cultura Filadelfia</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,10 +39,13 @@
                     <a class="nav-link" href="<?php echo RUTA_URL ?>">Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="info">Sobre Nosotros<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#info">Sobre Nosotros<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cursos">Cursos</a>
+                    <a class="nav-link" href="#reconocimientos">Alumnos<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cursos">Cursos</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -81,12 +83,10 @@
 
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/Inscripciones.jpg" class="d-block w-100"
-                                style="height: 600px; width: 300px;">
+                            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/Inscripciones.jpg" class="d-block w-100" style="height: 600px; width: 300px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/70008709_2501561010074382_6545377534010440019_n.jpg"
-                                class="d-block w-100" style="height: 600px; width: 300px;">
+                            <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/70008709_2501561010074382_6545377534010440019_n.jpg" class="d-block w-100" style="height: 600px; width: 300px;">
                         </div>
 
                     </div>
@@ -123,7 +123,12 @@
                     aliquam reiciendis dignissimos, vitae sapiente neque, cum dolorum. Suscipit expedita obcaecati
                     nesciunt error ut quidem autem.</p>
             </div>
+
+            <div class="content-center" id="reconocimientos">
+                <h2>Entrega de Reconocimientos</h2>
+            </div>
             <div class="row">
+
                 <div class="col-md-6">
                     <div class="portfolio-container">
                         <img src="<?php echo RUTA_SERVER ?>ImagenescULTURA/entrega.jpg" class="img-fluid" alt="Portfolio 01">
@@ -172,6 +177,7 @@
                                     <div class="col-md-9 col-9">
                                         <h6>Nombre de curso</h6>
                                         <span>Nivel</span>
+                                        <span>Subnivel</span>
                                     </div>
                                 </div>
                             </div>
@@ -190,6 +196,7 @@
                                     <div class="col-sm-9 col-9">
                                         <h6>Nombre de curso</h6>
                                         <span>Nivel</span>
+                                        <span>Subnivel</span>
                                     </div>
                                 </div>
                             </div>
@@ -203,11 +210,12 @@
                             <div class="testimonial-user">
                                 <div class="row">
                                     <div class="col-md-3 col-3">
-                                        <img src="<?php echo RUTA_SERVER?>ImaCursos/PORTADA.AUT.jpg" class="img-fluid" alt="">
+                                        <img src="<?php echo RUTA_SERVER ?>ImaCursos/PORTADA.AUT.jpg" class="img-fluid" alt="">
                                     </div>
                                     <div class="col-md-9 col-9">
                                         <h6>Nombre de Curso</h6>
                                         <span>Nivel</span>
+                                        <span>Subnivel</span>
                                     </div>
                                 </div>
                             </div>

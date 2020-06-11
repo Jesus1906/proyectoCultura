@@ -75,7 +75,6 @@
                 <th scope="col">Status Servicio</th>
                 <th scope="col">Status Bautizo</th>
                 <th scope="col">Fecha de Nacimiento</th>
-                <th scope="col">Editar</th>
 
               </tr>
             </thead>
