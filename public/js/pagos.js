@@ -22,10 +22,11 @@ function mostrar(dato, filtro){
 
    //a un objeto ajax se le da l url a acceder, el tipo de peticion, los datos que se enviaran y en caso de ser xitoso que funcion realizar
    $.ajax({
-      url:'../../ajax',
+      url:'../../ajaxPago',
       type:'POST',
       data:{dato, filtro},
       success:function(response){
+         console.log(response);
          let tablas = JSON.parse(response);
          let plantilla = '';
 

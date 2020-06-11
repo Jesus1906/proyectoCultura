@@ -17,7 +17,7 @@ class Web
             'accion' => 'asincronizarAlumno',
         ]);
 
-        $map->get('/ajaxpago', RUTA_URL . 'ajaxPago', [
+        $map->post('/ajaxPago', RUTA_URL . 'ajaxPago', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'pago',
         ]);
