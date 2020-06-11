@@ -362,5 +362,6 @@ class RegistrarController extends BaseController
          $registro->Oferta_Cursos_idOferta_Cursos = $post['idOfertaV'];
       }
       $registro->save();
+      
    }
 }

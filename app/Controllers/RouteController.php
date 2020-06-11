@@ -69,7 +69,8 @@ class RouteController
    public function cursos(){
       if ($_SESSION['user'] == 'alumno') {
          $consulta = new ConsultaController();
-         $data = $consulta->getOfertayCurso($_SESSION['matricula']);
+         $periodo = $consulta->getPeriodo();
+         $data = $consulta->getCursoInscritoEnPeriodoActual($_SESSION['matricula'], $periodo->periodo);
          if(count($data) != 0){
             $data = $data[0];
             
@@ -92,12 +93,14 @@ class RouteController
          $alumno = $consulta->getAlumno([
             'filtro' => 'matricula',
             'parametro' => $_SESSION['matricula']
-         ]);
-         $periodo = $consulta->getPeriodo();
-         $inicioClases = strtotime($periodo->inicio);
-         $fecha = strtotime($consulta->getFecha());
-         $ofertaIgualAPeriodo = $consulta->periodoYOfertaActual($periodo);
-         if ($fecha > $inicioClases || $ofertaIgualAPeriodo) {
+         ]);//traemos la matricula del alumno
+
+         $periodo = $consulta->getPeriodo();//traemos el periodo actual
+         $inicioClases = strtotime($periodo->inicio);//convertimos la fecha de inicio de clase en time
+         $fecha = strtotime($consulta->getFecha());//convertimos la fecha de hoy en time
+         $ultimaOfertaIgualAPeriodo = $consulta->periodoYOfertaActual($periodo);//traemos si la ultima oferta que se hizo fue dentro del periodo actual
+
+         if ($fecha > $inicioClases || $ultimaOfertaIgualAPeriodo) {//preguntamos si la fecha actual es menor al inicio de clase y si la ultima oferta que se hizo fue dentro de este periodo
             require_once '../app/views/Alumno/inscripcionNoDisponible.php';
 
          } else {
@@ -118,7 +121,7 @@ class RouteController
 
                   $completoCursos = false;
                   $curso = $curso[0]; //tomamos el primero y unico
-                  $ofertaMatutin = $consulta->getCursoOferta($curso->idCurso, 'M'); //esto me trae un arreglo de las ofertas matutinas de un curso
+                  $ofertaMatutin = $consulta->getCursoOferta($curso->idCurso, 'M', $periodo->periodo); //esto me trae un arreglo de las ofertas matutinas de un curso
 
                   if (count($ofertaMatutin) > 0) { //si el arreglo esta en 0 significa que no hay oferta matutina
 
@@ -140,7 +143,7 @@ class RouteController
                   }
 
                   //oferta Vespertina
-                  $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V'); //esto me trae un arreglo de las ofertas vespertinas de un curso
+                  $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V', $periodo->periodo); //esto me trae un arreglo de las ofertas vespertinas de un curso
 
                   if (count($ofertaVespertin) > 0) { //si el arreglo esta en 0 significa que no hay oferta vespertina
 
@@ -177,7 +180,7 @@ class RouteController
                $completoCursos = false;
                $curso = $consulta->getCursos(1, 1); //nos trae un arreglo de cursos que coinsidan con el nivel y el subnivel mandado
                $curso = $curso[0]; //tomamos el primero y unico
-               $ofertaMatutin = $consulta->getCursoOferta($curso->idCurso, 'M');
+               $ofertaMatutin = $consulta->getCursoOferta($curso->idCurso, 'M', $periodo->periodo);
 
                if (count($ofertaMatutin) > 0) {
 
@@ -198,7 +201,7 @@ class RouteController
                }
 
                //oferta Vespertina
-               $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V');
+               $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V', $periodo->periodo);
 
                if (count($ofertaVespertin) > 0) {
 
@@ -228,16 +231,34 @@ class RouteController
    {
       if ($_SESSION['user'] == 'alumno') {
          $dataInscripcion = $request->getParsedBody();
-         $registro = new ConsultaController();
-         $registro = $registro->getInscripcion($dataInscripcion['idAlumno'], $dataInscripcion['idOfertaM'], $dataInscripcion['idOfertaV']);
+         $consulta = new ConsultaController();
+         $periodo = $consulta->getPeriodo();
+         $registro = $consulta->getInscripcion($dataInscripcion['idAlumno'], $dataInscripcion['idOfertaM'], $dataInscripcion['idOfertaV'], $periodo->periodo);
          //buscamos si ya esta registrado ya sea en el turno de la mañana o de la tarde
          if (count($registro) == 0) { // si el registro es igual a 0 es porque no se ha inscrito aun si es diferente es porque ya tiene una inscripcion
             $registro = new RegistrarController();
             $registro->regInscripcion($dataInscripcion);
+            $data = $consulta->getInfoFirstComprobante($periodo->periodo, $dataInscripcion['idAlumno']);
+            
+            if(count($data) != 0){
+               $data = $data[0];
+               
+               require_once '../app/views/Alumno/comprobante1.php';
+   
+            }else{
+   
+               echo "<script>
+               alert('Algo Salio mal ve a la ventana de comprobantes y/o cursos y verifica tu incripcion')
+               </script>";
+               $this->inscripcionAlm();
+   
+            }
          } else {
-            echo "ya te has inscrito";
+            echo "<script>
+               alert('ya te has inscrito')
+               </script>";
+            $this->inscripcionAlm();
          }
-         $this->inscripcionAlm();
       } else {
          echo 'No eres alumno';
       }
