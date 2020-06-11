@@ -37,7 +37,7 @@ function mostrar(dato, filtro){
                   <td> ${tabla.firstName} ${tabla.secondName} </td>
                   <td> ${tabla.firstLastName}</td>
                   <td> ${tabla.secondLastName}</td>
-                  <td> CURSO</td>
+                  <td> ${tabla.name}</td>
                `;
                if(tabla.pago == 0){
                   plantilla+=`

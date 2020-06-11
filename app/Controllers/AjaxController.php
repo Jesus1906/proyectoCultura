@@ -420,7 +420,6 @@ class AjaxController extends BaseController
       $periodo = $consulta->getPeriodo();
       $res = $consulta->getDataOfertayPago($periodo->periodo);
       $json = \json_encode($res);
-      var_dump($json);
       echo $json;
    }
 
