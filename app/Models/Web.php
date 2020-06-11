@@ -42,6 +42,11 @@ class Web
             'accion' => 'asincronizarAdjunto',
         ]);
 
+        $map->post('/ajax/consulta/administrador', RUTA_URL . 'ajax/consulta/administrador', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'asincronizarAdmin',
+        ]);
+
         $map->post('/ajaxAdjunto/consulta', RUTA_URL . 'ajaxAdjunto/consulta', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaAdjunto',
@@ -70,6 +75,11 @@ class Web
         $map->post('/ajaxLider/editar', RUTA_URL . 'ajaxLider/editar', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaLiderEditar',
+        ]);
+
+        $map->post('/ajaxPago/editar', RUTA_URL . 'ajaxPago/editar', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaPagoEditar',
         ]);
 
         $map->post('/ajaxAdjunto/editar', RUTA_URL . 'ajaxAdjunto/editar', [
@@ -320,6 +330,18 @@ class Web
             'accion' => 'consultaCurso',
             'auth' => true
         ]);
+
+        $map->post('pConsultaPagos', RUTA_URL . 'adm/consulta/pagos', [
+           'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+           'accion' => 'consultaPagos',
+           'auth' => true
+       ]);
+
+       $map->get('gConsultaPagos', RUTA_URL . 'adm/consulta/pagos', [
+          'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+          'accion' => 'consultaPagos',
+          'auth' => true
+      ]);
     }
 
     public function adminActualizar($map){

@@ -351,6 +351,67 @@ class AjaxController extends BaseController
       }
    }//consultar editar lider
 
+   public function consultaPagoEditar($datos)
+   {
+
+      $alm = new ConsultaController();
+      $post = $datos->getParsedBody();
+
+      $idAlm = [
+         'filtro' => 'matricula',
+         'parametro' => $post['id']
+      ];
+      $alm = $alm->getAlumno($idAlm); //usamos el controlador de consulta para obetener el lider que
+
+      $alm->pago = $post['pago'];
+
+         $alm->save();
+         echo 'Pago Actualizado';
+   }//consultar editar lider
+
+   public function asincronizarAdmin($post)
+   {
+      $datos = $post->getParsedBody();
+      switch ($datos['filtro']) {
+         case 'matricula':{
+            //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+            $res = Administrador::where('matriculaAdministrador', 'like', '%' . $datos['dato'] . '%')->get();
+            //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+            $json = json_encode($res);
+            echo $json;
+            };
+
+            break;
+
+         case 'name': {
+               //obtener de la tabla alumno en el campo matriculaAlumno todos los datos que sean similares al dato del post
+               $res = Administrador::where('firstName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
+
+            break;
+
+         case 'apellido': {
+               //obtener de la tabla alumno en el campo apellido todos los datos que sean similares al dato del post
+               $res = Administrador::where('firstLastName', 'like', '%' . $datos['dato'] . '%')->get();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            };
+
+            break;
+
+         default: {
+               $res = Administrador::all();
+               //transformar los resultados(que vienen como objeto JSON)a string para poder ser enviados al JS
+               $json = json_encode($res);
+               echo $json;
+            }
+      } //switch
+   } //asincronizarlider
+
 
 }
 //controlador ajax

@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    
+
                 </li>
             </ul>
             <a class="nav-link" href="<?php echo RUTA_URL ?>adm/consulta/curso">Cursos <span class="sr-only">(current)</span></a>
@@ -123,7 +123,7 @@
                             <ul>
                                 <li><a href="<?php echo RUTA_URL ?>registro">Registrar</a></li>
                                 <li><a href="<?php echo RUTA_URL ?>adm/consulta/alumno">Consultar</a></li>
-                                <li><a href="../Adjunto/pagos.html">Consultar Pagos</a></li>
+                                <li><a href="<?php echo RUTA_URL ?>adm/consulta/pagos">Consultar Pagos</a></li>
                                 <li><a href="cursos_listas.html">Listas por curso</a></li>
                             </ul>
                         </div>

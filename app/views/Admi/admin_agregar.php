@@ -95,7 +95,7 @@
                 <div class="col-sm-4">
                     <label for="inputState">Confirmar Contraseña</label>
                     <input type="password" class="form-control" placeholder="Ingresa Nuevamente tu Contraseña"
-                        minlength="8" maxlength="20">
+                        minlength="8" maxlength="20" name="password1">
                 </div>
             </div>
 
