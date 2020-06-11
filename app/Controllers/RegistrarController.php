@@ -117,7 +117,9 @@ class RegistrarController extends BaseController
          return $error;
       } else {
          $alumno->save();
-         return 'Exito al guardar Tu numero de cuenta es: ' . $alumno->matriculaAlumno . '';
+         echo "<script>
+               alert('Te registraste con exito, tu numero de cuenta es: ' . $alumno->matriculaAlumno')
+               </script>";
       }
    }
 

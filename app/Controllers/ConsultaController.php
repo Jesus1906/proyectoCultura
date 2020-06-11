@@ -355,4 +355,11 @@ class ConsultaController extends BaseController
             ->get();
         return $ofertaCurso;
     }
+
+    public function getDataOfertayPago(){
+        $ofertayPago = Alumno_ofertaCursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
+        ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
+        ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
+        ->where
+    }
 }

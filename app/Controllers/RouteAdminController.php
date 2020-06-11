@@ -103,7 +103,6 @@ class RouteAdminController
                echo "<script>
                alert('Datos Guardados con exito')
                </script>";
-               
             } else {
                $actualiza = new ActualizarController();
                $actualiza->actualizarPassword($admin, $data);
@@ -125,6 +124,9 @@ class RouteAdminController
             $adjunto = new RegistrarController();
             $postData = $request->getParsedBody();
             $adjunto->regAdjunto($postData);
+            echo "<script>
+               alert('Adjunto registrado con exito')
+               </script>";
          }
          require_once '../app/views/Admi/adj_agregar.php';
       } else {
@@ -139,6 +141,9 @@ class RouteAdminController
             $admin = new RegistrarController();
             $postData = $request->getParsedBody();
             $admin->regAdministrador($postData);
+            echo "<script>
+               alert('Administrador registrado con exito')
+               </script>";
          }
          require_once '../app/views/Admi/admin_agregar.php';
       } else {
@@ -170,6 +175,9 @@ class RouteAdminController
             $lider = new RegistrarController();
             $postData = $request->getParsedBody();
             $lider->regLider($postData);
+            echo "<script>
+               alert('Lider registrado con exito')
+               </script>";
          }
          require_once '../app/views/Admi/lider_agregar.php';
       } else {
