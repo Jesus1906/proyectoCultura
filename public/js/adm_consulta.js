@@ -32,13 +32,13 @@ function mostrar(dato, filtro){
 
          tablas.forEach(tabla =>{
             plantilla+=`
-            <tr valor = "${tabla.matriculaAdjunto}" class = "editarValor">
-               <th valor = "${tabla.matriculaAdjunto}" class="editarValor" >${tabla.matriculaAdjunto}</th>
-               <td valor = "${tabla.firstName} ${tabla.secondName} class = "editarValor">${tabla.firstName} ${tabla.secondName}</td>
-               <td valor = "${tabla.firstLastName}" class = "editarValor"> ${tabla.firstLastName}</td>
-               <td valor = "${tabla.secondLastName}" class = "editarValor"> ${tabla.secondLastName}</td>
-               <td valor = "${tabla.phone}" class = "editarValor"> ${tabla.phone}</td>
-               <td valor = "${tabla.email}" class = "editarValor"> ${tabla.email}</td>
+            <tr>
+               <th>${tabla.matriculaAdministrador}</th>
+               <td>${tabla.firstname} ${tabla.secondName}</td>
+               <td> ${tabla.firstLastName}</td>
+               <td> ${tabla.secondLastName}</td>
+               <td> ${tabla.phone}</td>
+               <td> ${tabla.email}</td>
             </tr>
             `;
             $('#datosTabla').html(plantilla);
