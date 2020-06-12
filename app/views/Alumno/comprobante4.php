@@ -47,8 +47,12 @@
                     </div>
                     <hr class="my-6">
                     <div class="text-center">
-                        <p>Presentate el día <strong>"FECHA INICIO"</strong> en el horario
-                            <strong>"TURNO"</strong> para comenzar con su discipulado
+                        <p>Presentate el día <strong><?php echo $data->inicio; ?></strong> en el horario
+                            <strong><?php if ($data->turno == 'M') {
+                                        echo 'Matutino';
+                                    } else {
+                                        echo 'Vespertino';
+                                    } ?></strong> para comenzar con su discipulado
                         </p>
                     </div>
                 </div>

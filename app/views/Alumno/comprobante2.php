@@ -41,7 +41,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="text-center">
-                            <p class="lead"> Lo sentimos. El discipulado "NOMBRE DE CURSO" al cual estaba
+                            <p class="lead"> Lo sentimos. El discipulado <strong><?php echo $data->name; ?></strong> al cual estaba
                                 inscrito no cumplio con el mínimo de alumnos
                             </p>
                         </div>

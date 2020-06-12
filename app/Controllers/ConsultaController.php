@@ -310,6 +310,10 @@ class ConsultaController extends BaseController
             ->get();
     }
 
+    public function getCursosPeriodo($periodo){
+        return Oferta_cursos::where('periodo', $periodo)
+            ->get();
+    }
     public function getInscripcion($idAlumno, $idOfertaM, $idOfertaV, $periodo)
     {
         if ($idOfertaM == "") {
@@ -407,5 +411,41 @@ class ConsultaController extends BaseController
             ->where('oferta_cursos.periodo', $periodo)
             ->get();
         return $ofertayPago;
+    }
+
+    public function dataComprobantes($alumno, $periodo){
+        $data =  alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
+        ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
+        ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
+        ->join('adjunto', 'oferta_cursos.Adjunto_matriculaAdjunto', '=', 'matriculaAdjunto')
+        ->join('profesor', 'oferta_cursos.Profesor_Profesor_Matricula1', '=', 'Profesor_Matricula')
+        ->select(
+            'alumno.pago',
+            'oferta_cursos.turno',
+            'oferta_cursos.fechaInicio As inicio',
+            'curso.name',
+            'oferta_cursos.StatusActivo AS cursoStatus',
+            'adjunto.firstName AS adjuntoName1',
+            'adjunto.secondName AS adjuntoName2',
+            'adjunto.firstLastName AS adjuntoName3',
+            'adjunto.secondLastName AS adjuntoName4',
+            'profesor.firstName AS profName1',
+            'profesor.secondName AS profName2',
+            'profesor.firstLastName AS profName3',
+            'profesor.secondLastName AS profName4'
+        )
+        ->where('alumno_ofertacursos.Alumno_matriculaAlumno', $alumno)
+        ->where('oferta_cursos.periodo', $periodo)
+        ->get();
+        return $data;
+    }
+
+    public function getDataPagosCompletados($idOferta){
+        $data = Alumno_ofertaCursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
+            ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
+            ->where('oferta_cursos.idOferta_Cursos', $idOferta)
+            ->where('alumno.pago', 1)
+            ->count();
+        return $data;
     }
 }

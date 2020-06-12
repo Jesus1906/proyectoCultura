@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col-sm-6 proceso">
                     <div class="contenedor">
-                        <a href="comprobantes.html">
+                        <a href="<?php echo RUTA_URL ?>alm/comprobante">
                             <figure>
                                 <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/comprobantes.jpg" alt="comprobante">
                                 <div class="capa">

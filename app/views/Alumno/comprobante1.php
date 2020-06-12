@@ -40,7 +40,7 @@
                         <h1 class="modal-title text-center">Comprobante</h1>
                     </div>
                     <div class="modal-body">
-                        <p class="lead"> Usted ha iniciado su inscripción a la materia <strong><?php echo $data->name; ?><strong>
+                        <p class="lead"> Usted ha iniciado su inscripción a la materia <strong><?php echo $data->name; ?></strong>
                                     con el profesor: <strong><?php if ($data->profName2 != null) {
                                                                     echo "$data->profName1 $data->profName2 $data->profName3 $data->profName4";
                                                                 } else {

@@ -171,6 +171,7 @@ class Web
         $this->alumnoActualizar($map);
         $this->alumnoInscripcion($map);
         $this->alumnoConsulta($map);
+        $this->alumnoComprobante($map);
     }
 
     //inician rutas admin
@@ -513,6 +514,14 @@ class Web
         $map->post('pConsultaCursos', RUTA_URL . 'alm/cursos', [
             'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'cursos',
+            'auth' => true
+        ]);
+    }
+
+    public function alumnoComprobante($map){
+        $map->get('gConsultaComprobante', RUTA_URL . 'alm/comprobante', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'consultaComprobante',
             'auth' => true
         ]);
     }

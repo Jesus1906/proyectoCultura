@@ -272,11 +272,32 @@ class RouteAdminController
    }
 
    public function cerrarInscripcion(){
-      $periodo = new ConsultaController();
-      $periodo = $periodo->getPeriodo();
+      $consulta = new ConsultaController();
+      $periodo = $consulta->getPeriodo();
       $periodo->inscripcionFin = 1;
       $periodo->save();
-      header('Location: '.RUTA_URL.'adm/registro/periodo');
+
+      $ofertasCurso = $consulta->getCursosPeriodo($periodo->periodo);
+
+      foreach($ofertasCurso as $ofertaCurso){
+         
+         $cupoMinimo = $ofertaCurso->cupoMinimo;
+         $alumnosPagados = $consulta->getDataPagosCompletados($ofertaCurso->idOferta_Cursos);
+         
+         if($cupoMinimo <= $alumnosPagados){//si cupo minimo es menor o igual a los alumnos pagados
+
+            $ofertaCurso->StatusActivo = 'y';
+
+         }else{
+
+            $ofertaCurso->StatusActivo = 'n';
+
+         }
+
+         $ofertaCurso->save();
+      }
+
+      header('Location: '.RUTA_URL.'adm');
    }
 
    public function consultaADJ($request)

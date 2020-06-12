@@ -66,20 +66,19 @@ class RouteController
       }
    }
 
-   public function cursos(){
+   public function cursos()
+   {
       if ($_SESSION['user'] == 'alumno') {
          $consulta = new ConsultaController();
          $periodo = $consulta->getPeriodo();
          $data = $consulta->getCursoInscritoEnPeriodoActual($_SESSION['matricula'], $periodo->periodo);
-         if(count($data) != 0){
+         if (count($data) != 0) {
             $data = $data[0];
-            
-            require_once '../app/views/Alumno/cursos_alumn.php';
 
-         }else{
+            require_once '../app/views/Alumno/cursos_alumn.php';
+         } else {
 
             require_once '../app/views/Alumno/sincurso.php';
-
          }
       } else {
          echo 'No eres alumno';
@@ -93,15 +92,14 @@ class RouteController
          $alumno = $consulta->getAlumno([
             'filtro' => 'matricula',
             'parametro' => $_SESSION['matricula']
-         ]);//traemos la matricula del alumno
+         ]); //traemos la matricula del alumno
 
-         $periodo = $consulta->getPeriodo();//traemos el periodo actual
-         $inicioClases = strtotime($periodo->inicio);//convertimos la fecha de inicio de clase en time
-         $fecha = strtotime($consulta->getFecha());//convertimos la fecha de hoy en time
-         $ultimaOfertaIgualAPeriodo = $consulta->periodoYOfertaActual($periodo);//traemos si la ultima oferta que se hizo fue dentro del periodo actual
-         if ($fecha > $inicioClases || $ultimaOfertaIgualAPeriodo || $periodo->inscripcionFin == 1) {//preguntamos si la fecha actual es menor al inicio de clase y si la ultima oferta que se hizo fue dentro de este periodo
+         $periodo = $consulta->getPeriodo(); //traemos el periodo actual
+         $inicioClases = strtotime($periodo->inicio); //convertimos la fecha de inicio de clase en time
+         $fecha = strtotime($consulta->getFecha()); //convertimos la fecha de hoy en time
+         $ultimaOfertaIgualAPeriodo = $consulta->periodoYOfertaActual($periodo); //traemos si la ultima oferta que se hizo fue dentro del periodo actual
+         if ($fecha > $inicioClases || $ultimaOfertaIgualAPeriodo || $periodo->inscripcionFin == 1) { //preguntamos si la fecha actual es menor al inicio de clase y si la ultima oferta que se hizo fue dentro de este periodo
             require_once '../app/views/Alumno/inscripcionNoDisponible.php';
-
          } else {
 
 
@@ -113,7 +111,6 @@ class RouteController
                if (count($curso) == 0) { // preguntamos si existe el curso siguiente del ultimo que curso, si no preguntamos en el siguiente nivel
 
                   $curso = $consulta->getCursos($curs[0] + 1, 1);
-
                }
 
                if (count($curso) > 0) { //si no hay curso aqui es porque ya no hay mas cursos que este alumno pueda cursar
@@ -201,20 +198,18 @@ class RouteController
 
                //oferta Vespertina
                $ofertaVespertin = $consulta->getCursoOferta($curso->idCurso, 'V', $periodo->periodo);
-
                if (count($ofertaVespertin) > 0) {
-
                   $ofertaVespertina = $ofertaVespertin[0];
                   $profesor1 = $ofertaVespertina->Profesor_Profesor_Matricula1;
                   $profesor1 = $consulta->getProfesor([
                      'filtro' => 'Profesor_Matricula',
-                     'parametro' => $profesor
+                     'parametro' => $profesor1
                   ]);
                   $profesor1 = $profesor1['firstName'] . ' ' . $profesor1['secondName'] . " " . $profesor1['firstLastName'] . " " . $profesor1['secondLastName'];
                   $adjunto1 = $ofertaVespertina->Adjunto_matriculaAdjunto;
                   $adjunto1 = $consulta->getAdjunto([
                      'filtro' => 'matricula',
-                     'parametro' => $adjunto
+                     'parametro' => $adjunto1
                   ]);
                   $adjunto1 = $adjunto1['firstName'] . ' ' . $adjunto1['secondName'] . " " . $adjunto1['firstLastName'] . " " . $adjunto1['secondLastName'];
                }
@@ -238,19 +233,17 @@ class RouteController
             $registro = new RegistrarController();
             $registro->regInscripcion($dataInscripcion);
             $data = $consulta->getInfoFirstComprobante($periodo->periodo, $dataInscripcion['idAlumno']);
-            
-            if(count($data) != 0){
+
+            if (count($data) != 0) {
                $data = $data[0];
-               
+
                require_once '../app/views/Alumno/comprobante1.php';
-   
-            }else{
-   
+            } else {
+
                echo "<script>
                alert('Algo Salio mal ve a la ventana de comprobantes y/o cursos y verifica tu incripcion')
                </script>";
                $this->inscripcionAlm();
-   
             }
          } else {
             echo "<script>
@@ -260,6 +253,47 @@ class RouteController
          }
       } else {
          echo 'No eres alumno';
+      }
+   }
+
+   public function consultaComprobante()
+   {
+      $consulta = new ConsultaController();
+      $periodo = $consulta->getPeriodo();
+      $data = $consulta->dataComprobantes($_SESSION['matricula'], $periodo->periodo); //consultamos el curso al cual esta inscrito en este periodo
+
+      if (count($data) != 0) {//preguntamos si esta inscrito a un curso
+         
+         $data = $data[0];
+
+         if ($periodo->inscripcionFin != 1) {//preguntamos si las inscripciones ya finalizaron
+
+            require_once '../app/views/Alumno/comprobante1.php';
+
+         }else{
+            
+            if($data->cursoStatus == 'y'){//preguntamos si el curso en el que se inscribio si se abrio para el publico
+               
+               if($data->pago == 1){//preguntamos si el alumno pago el curso
+
+                  require_once '../app/views/Alumno/comprobante4.php';
+
+               }else{
+
+                  require_once '../app/views/Alumno/comprobante3.php';
+
+               }
+
+            }else{
+
+               require_once '../app/views/Alumno/comprobante2.php';
+
+            }
+         }
+
+      } else {
+
+         require_once '../app/views/Alumno/sincurso.php';
       }
    }
 }
