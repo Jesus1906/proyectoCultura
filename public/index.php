@@ -33,7 +33,7 @@ $matcher = $routerContainer->getMatcher();
 $route = $matcher->match($request);
 
 if (!$route) {
-   echo 'No hay ruta <br>';
+   require_once '../app/views/principal/error.php';
 } else {
 
    $datosHandler = $route->handler;

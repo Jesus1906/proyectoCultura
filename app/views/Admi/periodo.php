@@ -45,11 +45,11 @@
                         </div>
                         <div class="form-row">
                             <div class="col ">
-                                <input type="date" class="form-control" required name="inscripcion" value = "<?php if($periodo){
-                                    echo $periodo->inscripcion;
-                                }else{
-                                    echo '2010-01-01';
-                                } ?>">
+                                <input type="date" class="form-control" required name="inscripcion" value="<?php if ($periodo) {
+                                                                                                                echo $periodo->inscripcion;
+                                                                                                            } else {
+                                                                                                                echo '2010-01-01';
+                                                                                                            } ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -57,11 +57,11 @@
                         </div>
                         <div class="form-row">
                             <div class="col ">
-                                <input type="date" class="form-control" required name="inicio" value = "<?php if($periodo){
-                                    echo $periodo->inicio;
-                                }else{
-                                    echo '2010-01-01';
-                                } ?>">
+                                <input type="date" class="form-control" required name="inicio" value="<?php if ($periodo) {
+                                                                                                            echo $periodo->inicio;
+                                                                                                        } else {
+                                                                                                            echo '2010-01-01';
+                                                                                                        } ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -69,11 +69,11 @@
                         </div>
                         <div class="form-row">
                             <div class="col ">
-                                <input type="date" class="form-control" required name="fin" value = "<?php if($periodo){
-                                    echo $periodo->fin;
-                                }else{
-                                    echo '2010-01-01';
-                                } ?>">
+                                <input type="date" class="form-control" required name="fin" value="<?php if ($periodo) {
+                                                                                                        echo $periodo->fin;
+                                                                                                    } else {
+                                                                                                        echo '2010-01-01';
+                                                                                                    } ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -81,11 +81,11 @@
                         </div>
                         <div class="form-row">
                             <div class="col ">
-                                <input type="text" class="form-control" required name="periodo" value = "<?php if($periodo){
-                                    echo $periodo->periodo;
-                                }else{
-                                    echo '2010-1';
-                                } ?>">
+                                <input type="text" class="form-control" required name="periodo" value="<?php if ($periodo) {
+                                                                                                            echo $periodo->periodo;
+                                                                                                        } else {
+                                                                                                            echo '2010-1';
+                                                                                                        } ?>">
                             </div>
                         </div>
                         <br>
@@ -93,9 +93,18 @@
                     <button type="submit" class="btn btn-outline-primary">Guardar Periodo</button>
                 </form>
             </div>
-
-
-
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <br><br>
+                <?php
+                if($inscripcion != 1){
+                    echo '<label><h4>Inscripciones en Proceso</h4></label> <br>';
+                    echo "<a class = " . "btn btn-outline-primary " . " href=" . RUTA_URL . "adm/cerrar/inscripcion>Cerrar inscripciones</a>";
+                }
+                ?>
+            </div>
         </div>
     </div>
 

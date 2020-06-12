@@ -34,42 +34,22 @@
 
     <div class="col-sm-9">
         <div class="imprimir">
-            <div class="modal-dialog" id="comprobante">
+            <div class="modal-dialog" id="registroExitoso">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title text-center">Comprobante</h1>
+                        <h1 class="modal-title text-center">Registro Exitoso</h1>
                     </div>
                     <div class="modal-body">
-                        <p class="lead"> Usted ha iniciado su inscripción a la materia <strong><?php echo $data->name; ?><strong>
-                                    con el profesor: <strong><?php if ($data->profName2 != null) {
-                                                                    echo "$data->profName1 $data->profName2 $data->profName3 $data->profName4";
-                                                                } else {
-                                                                    echo "$data->profName1 $data->profName3 $data->profName4";
-                                                                } ?></strong> y el adjunto: <strong><?php if ($data->adjuntoName2 != null) {
-                                                                                                        echo "$data->adjuntoName1 $data->adjuntoName2 $data->adjuntoName3 $data->adjuntoName4";
-                                                                                                    } else {
-                                                                                                        echo "$data->adjuntoName1 $data->adjuntoName3 $data->adjuntoName4";
-                                                                                                    } ?></strong>
-                                    en el horario <strong><?php if ($data->turno == 'M') {
-                                                                echo 'Matutino';
-                                                            } else {
-                                                                echo 'Vespertino';
-                                                            } ?></strong>.
-                        </p>
-                        <hr class="my-4">
                         <div class="text-center">
-                            <p>Acude al modulo de "Cultura Filadelfia" para realizar tu pago de
-                                <strong>$100</strong> y concluir
-                                tu
-                                inscripcion
+                            <p class="lead"> <em>¡Felicidades!</em> Su registro se completo con exito
                             </p>
-                            <p>
-                                O has un deposito a No. Cuenta 0160510696 <br>
-                                Clabe Interbancaria 012180001605106960 <br>
-                                BBVA
-                            </p>
-
                         </div>
+                    </div>
+                    <hr class="my-6">
+                    <div class="text-center">
+                        <p>Presentate el día <strong>"FECHA INICIO"</strong> en el horario
+                            <strong>"TURNO"</strong> para comenzar con su discipulado
+                        </p>
                     </div>
                 </div>
             </div>

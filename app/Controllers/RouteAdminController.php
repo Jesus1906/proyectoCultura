@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\{RegistrarController, ConsultaController, ActualizarController};
+use App\Models\Periodo;
 
 class RouteAdminController
 {
@@ -11,7 +12,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/clasi_adm.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -20,7 +21,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_cursos.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -29,7 +30,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_Eva.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -38,7 +39,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_cons.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -47,7 +48,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_alumnos.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -56,7 +57,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_prof.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -65,7 +66,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_adj.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -74,7 +75,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_lider.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -83,7 +84,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Admi/inicio_adm_administrador.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -113,7 +114,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/perfil_admin.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -130,7 +131,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/adj_agregar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -147,7 +148,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/admin_agregar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -164,7 +165,7 @@ class RouteAdminController
          }
          require_once '../app/views/principal/registro.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -181,7 +182,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/lider_agregar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -199,7 +200,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/prof_agregar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -216,7 +217,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/cursos_agregar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -238,7 +239,7 @@ class RouteAdminController
             require_once '../app/views/Admi/confirma_curso.php';
          }
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -247,6 +248,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          $periodo = new ConsultaController();
          $periodo = $periodo->getPeriodo();
+         $inscripcion = $periodo->inscripcionFin;
          if ($request->getMethod() == 'POST') {
             if ($periodo) { //validamos si existe un periodo existente
                $actualizar = new ActualizarController();
@@ -265,8 +267,16 @@ class RouteAdminController
 
          require_once '../app/views/Admi/periodo.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
+   }
+
+   public function cerrarInscripcion(){
+      $periodo = new ConsultaController();
+      $periodo = $periodo->getPeriodo();
+      $periodo->inscripcionFin = 1;
+      $periodo->save();
+      header('Location: '.RUTA_URL.'adm/registro/periodo');
    }
 
    public function consultaADJ($request)
@@ -283,7 +293,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/adj_consulta.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -301,7 +311,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/admin_consulta.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -319,7 +329,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/alumnos_consulta.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -337,7 +347,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/lider_consulta.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -351,7 +361,7 @@ class RouteAdminController
 
             require_once '../app/views/Admi/prof_consulta.php';
          } else {
-            echo 'No eres administrador';
+            require_once '../app/views/principal/error.php';
          }
       }
    }
@@ -364,7 +374,7 @@ class RouteAdminController
 
          require_once '../app/views/Admi/cursos_consulta.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -395,7 +405,7 @@ class RouteAdminController
          }
          require_once '../app/views/Admi/cursos_ofertar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 
@@ -437,7 +447,7 @@ class RouteAdminController
          } //if request met
          require_once '../app/views/Admi/cursos_modificar.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    } //modificarCurso
 
@@ -446,7 +456,7 @@ class RouteAdminController
       if ($_SESSION['user'] == 'admi') {
          require_once '../app/views/Adjunto/pagos.php';
       } else {
-         echo 'No eres administrador';
+         require_once '../app/views/principal/error.php';
       }
    }
 

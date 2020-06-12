@@ -99,8 +99,7 @@ class RouteController
          $inicioClases = strtotime($periodo->inicio);//convertimos la fecha de inicio de clase en time
          $fecha = strtotime($consulta->getFecha());//convertimos la fecha de hoy en time
          $ultimaOfertaIgualAPeriodo = $consulta->periodoYOfertaActual($periodo);//traemos si la ultima oferta que se hizo fue dentro del periodo actual
-
-         if ($fecha > $inicioClases || $ultimaOfertaIgualAPeriodo) {//preguntamos si la fecha actual es menor al inicio de clase y si la ultima oferta que se hizo fue dentro de este periodo
+         if ($fecha > $inicioClases || $ultimaOfertaIgualAPeriodo || $periodo->inscripcionFin == 1) {//preguntamos si la fecha actual es menor al inicio de clase y si la ultima oferta que se hizo fue dentro de este periodo
             require_once '../app/views/Alumno/inscripcionNoDisponible.php';
 
          } else {

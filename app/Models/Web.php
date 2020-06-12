@@ -350,6 +350,12 @@ class Web
     }
 
     public function adminActualizar($map){
+        $map->get('gCerrarInscripcion', RUTA_URL . 'adm/cerrar/inscripcion', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'cerrarInscripcion',
+            'auth' => true
+        ]);
+
         $map->get('gActualizarPerfilAdm', RUTA_URL . 'adm/perfil', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
             'accion' => 'actualizarPerfil',

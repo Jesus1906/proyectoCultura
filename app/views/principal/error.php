@@ -18,7 +18,7 @@
             
             <div class="col-sm-6 text-center">
                 <figure>
-                    <img src="<?php echo RUTA_SERVER ?>/imaPrincipales/error.jpg"
+                    <img src="<?php echo RUTA_SERVER ?>public/imaPrincipales/error.jpg"
                     class="rounded img-fluid" alt="" width="600px" height="400px">
                 </figure>
               
