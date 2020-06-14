@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-sm-6 proceso">
                     <div class="contenedor">
-                        <a href="historial.html">
+                        <a href="<?php echo RUTA_URL ?>alm/historial">
                             <figure>
                                 <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/alumno/historial.jpg" alt="historial">
                                 <div class="capa">

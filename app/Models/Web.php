@@ -22,6 +22,11 @@ class Web
             'accion' => 'pago',
         ]);
 
+        $map->post('/ajaxListas', RUTA_URL . 'ajaxListas', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'lista',
+        ]);
+
         $map->post('/ajaxLider', RUTA_URL . 'ajaxLider', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'asincronizarLider',
@@ -60,6 +65,16 @@ class Web
         $map->post('ajaxCursos', RUTA_URL . 'ajaxCursos', [
             'controlador' => RUTA_CONTROLLER . '\AjaxController',
             'accion' => 'consultaCursos',
+        ]);
+
+        $map->post('ajaxCursosPeriodo', RUTA_URL . 'ajaxCursosPeriodo', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaCursosPeriodo',
+        ]);
+
+        $map->post('ajaxListasPeriodo', RUTA_URL . 'ajaxListasOferta', [
+            'controlador' => RUTA_CONTROLLER . '\AjaxController',
+            'accion' => 'consultaListasOferta',
         ]);
 
         $map->post('ajaxprof', RUTA_URL . 'ajaxprof', [
@@ -264,6 +279,18 @@ class Web
     }
 
     public function adminConsulta($map){
+
+        $map->get('gConsultaListas', RUTA_URL . 'adm/consulta/listas', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'consultaListas',
+            'auth' => true
+        ]);
+
+        $map->post('pConsultaListas', RUTA_URL . 'adm/consulta/listas', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
+            'accion' => 'consultaListas',
+            'auth' => true
+        ]);
 
         $map->get('gConsultaADJ', RUTA_URL . 'adm/consulta/adjunto', [
             'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
@@ -505,6 +532,7 @@ class Web
     }
 
     public function alumnoConsulta($map){
+
         $map->get('gConsultaCursos', RUTA_URL . 'alm/cursos', [
             'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'cursos',
@@ -514,6 +542,12 @@ class Web
         $map->post('pConsultaCursos', RUTA_URL . 'alm/cursos', [
             'controlador' => RUTA_CONTROLLER . '\RouteController',
             'accion' => 'cursos',
+            'auth' => true
+        ]);
+
+        $map->get('ghistorial', RUTA_URL . 'alm/historial', [
+            'controlador' => RUTA_CONTROLLER . '\RouteController',
+            'accion' => 'historial',
             'auth' => true
         ]);
     }

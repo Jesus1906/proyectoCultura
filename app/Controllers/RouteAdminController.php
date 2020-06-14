@@ -390,10 +390,20 @@ class RouteAdminController
    public function consultaCurso($request)
    {
       if ($_SESSION['user'] == 'admi') {
-         $cursos = new ConsultaController();
-         $cursos = $cursos->CursosOrdenados();
 
          require_once '../app/views/Admi/cursos_consulta.php';
+         
+      } else {
+         require_once '../app/views/principal/error.php';
+      }
+   }
+
+   public function consultaListas($request){
+      if ($_SESSION['user'] == 'admi') {
+         //$cursos = new ConsultaController();
+         //$cursos = $cursos->CursosOrdenados();
+
+         require_once '../app/views/Admi/cursos_listas.php';
       } else {
          require_once '../app/views/principal/error.php';
       }

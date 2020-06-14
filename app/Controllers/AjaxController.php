@@ -173,7 +173,6 @@ class AjaxController extends BaseController
 
    public function consultaCursos($request)
    {
-      $dataPost = $request->getParsedBody();
       $res = new ConsultaController();
       $res = $res->CursosOrdenados();
       $json = json_encode($res);
@@ -420,6 +419,23 @@ class AjaxController extends BaseController
       $periodo = $consulta->getPeriodo();
       $res = $consulta->getDataOfertayPago($periodo->periodo);
       $json = \json_encode($res);
+      echo $json;
+   }
+
+   public function consultaCursosPeriodo($request)
+   {
+      $consulta = new ConsultaController();
+      $periodo = $consulta->getPeriodo();
+      $res = $consulta->getCursoPeriodoLista($periodo->periodo);
+      $json = json_encode($res);
+      echo $json;
+   }
+
+   public function consultaListasOferta($request){
+      $data = $request->getParsedBody();
+      $consulta = new ConsultaController();
+      $res = $consulta->getListaCurso($data['id']);
+      $json = json_encode($res);
       echo $json;
    }
 

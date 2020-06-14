@@ -296,4 +296,13 @@ class RouteController
          require_once '../app/views/Alumno/sincurso.php';
       }
    }
+
+   public function historial(){
+      if ($_SESSION['user'] == 'alumno') {
+
+         require_once '../app/views/Alumno/historial.html';
+      } else {
+         echo 'No eres alumno';
+      }
+   }
 }
