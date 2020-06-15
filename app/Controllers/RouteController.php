@@ -299,8 +299,26 @@ class RouteController
 
    public function historial(){
       if ($_SESSION['user'] == 'alumno') {
+         $consulta = new ConsultaController();
+         $historial = $consulta->getHistorial($_SESSION['matricula']);
+         $alumno = $consulta->getAlumno([
+            'filtro' => 'matricula',
+            'parametro' => $_SESSION['matricula']
+         ]);
 
-         require_once '../app/views/Alumno/historial.html';
+         if($alumno['secondName'] != null){
+            
+            $alumno = $alumno['firstName'] .' '. $alumno['secondName'] .' '. $alumno['firstLastName'] .' '. $alumno['secondLastName'];
+         }else{
+
+            $alumno = $alumno['firstName'] .' '. $alumno['firstLastName'] .' '. $alumno['secondLastName'];
+         }
+         
+         $bandera = true;
+         if(count($historial) == 0){
+            $bandera = false;
+         }
+         require_once '../app/views/Alumno/historial.php';
       } else {
          echo 'No eres alumno';
       }

@@ -180,6 +180,7 @@ class Web
 
     public function rutasAdjunto($map){
         $this->adjuntoActualizar($map);
+        $this->adjuntoConsulta($map);
     }
 
     public function rutasAlumno($map){
@@ -374,7 +375,7 @@ class Web
           'controlador' => RUTA_CONTROLLER . '\RouteAdminController',
           'accion' => 'consultaPagos',
           'auth' => true
-      ]);
+        ]);
     }
 
     public function adminActualizar($map){
@@ -499,6 +500,14 @@ class Web
             'accion' => 'actualizarPerfil',
             'auth' => true
         ]);
+    }
+
+    public function adjuntoConsulta($map){
+        $map->get('gAConsultaPagos', RUTA_URL . 'adj/consulta/pagos', [
+            'controlador' => RUTA_CONTROLLER . '\RouteAdjController',
+            'accion' => 'consultaPagos',
+            'auth' => true
+          ]);
     }
 
 

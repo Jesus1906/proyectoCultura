@@ -184,6 +184,7 @@ class ConsultaController extends BaseController
                 break;
         }
     }
+    
     public function getProfesor($post)
     {
         switch ($post['filtro']) {
@@ -503,10 +504,14 @@ class ConsultaController extends BaseController
 
     public function getHistorial($alumno)
     {
-        alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
+        return alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
             ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
             ->select(
+                //'alumno.firstName AS name1',
+                //'alumno.secondName AS name2',
+                //'alumno.firstLastName AS name3',
+                //'alumno.secondLastName AS name4',
                 'curso.nivel',
                 'curso.subnivel',
                 'curso.name',
@@ -514,6 +519,9 @@ class ConsultaController extends BaseController
                 'oferta_cursos.periodo'
             )
             ->where('alumno.matriculaAlumno', $alumno)
+            ->where('alumno_ofertacursos.calificacion', '!=', null)
+            ->orderBy('nivel', 'asc')
+            ->orderBy('subnivel', 'asc')
             ->get();
     }
 }

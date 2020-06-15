@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-sm-4 proceso">
                     <div class="contenedor">
-                        <a href="pagos.html">
+                        <a href="<?php echo RUTA_URL ?>adj/consulta/pagos">
                             <figure>
                                 <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/adjunto/pagosAlumnos.jpg" alt="Pago Alumnos">
                                 <div class="capa">

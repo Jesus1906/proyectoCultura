@@ -38,4 +38,13 @@ class RouteAdjController
             echo 'No eres adjunto';
         }
     }
+
+    public function consultaPagos()
+   {
+      if ($_SESSION['user'] == 'adjunto') {
+         require_once '../app/views/Adjunto/pagos.php';
+      } else {
+         require_once '../app/views/principal/error.php';
+      }
+   }
 }
