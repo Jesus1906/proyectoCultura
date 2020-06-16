@@ -34,7 +34,18 @@ function mostrar(dato, filtro){
             plantilla+=`
             <tr>
                <th scope = "row"> ${tabla.matriculaAlumno} </th>
+               `;
+
+               if(tabla.secondName != null){
+                  plantilla+=`
                   <td> ${tabla.firstName} ${tabla.secondName} </td>
+                  `;
+               }else{
+                  plantilla+=`
+                  <td> ${tabla.firstName}</td>
+                  `;
+               }
+               plantilla+=`
                   <td> ${tabla.firstLastName}</td>
                   <td> ${tabla.secondLastName}</td>
                   <td> ${tabla.name}</td>

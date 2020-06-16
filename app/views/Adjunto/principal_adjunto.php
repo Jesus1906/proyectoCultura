@@ -113,7 +113,7 @@
                 </div>
                 <div class="col-sm-4 proceso">
                     <div class="contenedor">
-                        <a href="../registro.html">
+                        <a href="<?php echo RUTA_URL ?>registro">
                             <figure>
                                 <img class="img-proceso" src="<?php echo RUTA_SERVER ?>/imaPrincipales/adjunto/registrarAlumnos.jpg" alt="historial">
                                 <div class="capa">

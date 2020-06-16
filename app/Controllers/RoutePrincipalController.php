@@ -23,7 +23,7 @@ class RoutePrincipalController{
 
          if(!$exito['error']){
             echo "<script>
-               alert('Te registraste con exito, tu numero de cuenta es: ' . $exito[value] . ')
+               alert('Te registraste con exito, tu numero de cuenta es:' + $exito[value]);
                </script>";
          }
          
