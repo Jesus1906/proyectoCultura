@@ -16,9 +16,14 @@ class AuthController extends BaseController
     {
         $postData = $request->getParsedBody();
         $ruta = '/proyectocultura/';
-        $user = str_split($postData['cuenta']); // convertimos un string en un arreglo de char
+        $user = str_split($postData['cuenta']); 
+        // convertimos un string en un arreglo de char
+
         $identificacion = $user[4];
+        //el ultimo digito del numero de cuenta es el identificador
+
         switch ($identificacion) {
+            //depende del que ingrese sera el actor que buscara y se asignara su ruta principal
             case '1': {
                     $user = Alumno::find($postData['cuenta']);
                     $ruta .= 'alm';
@@ -37,9 +42,17 @@ class AuthController extends BaseController
         }
 
         if ($user) {
+            // validamos si existe el usuario el cual ingresamos
+
             if (password_verify($postData['password'], $user->password)) {
+                //varificamos que la contraseña ingresada coincida con la de la bd
+
                 $this->sesion($identificacion, $user);
-                header(sprintf('%s: %s', 'location', $ruta), false); // cuando el usuario logra ingresar se agrega el redireccionamiento a los headers
+                // mandamos a llamar al metodo session mandandole el registro del usuario y el identificador
+
+                header(sprintf('%s: %s', 'location', $ruta), false); 
+                // cuando el usuario logra ingresar se agrega el redireccionamiento a los headers
+
             } else {
                 echo "<script>
                alert('Datos incorrectos')
@@ -56,6 +69,7 @@ class AuthController extends BaseController
 
     public function logOut()
     {
+        //creamos la funcion de cerrar sesion donde eliminamos todo lo que guardamos en session
         unset($_SESSION['matricula']);
         unset($_SESSION['nombre']);
         unset($_SESSION['user']);
@@ -64,7 +78,10 @@ class AuthController extends BaseController
 
     public function sesion($identificacion, $user)
     {
+        //metodo sesion
+
         switch ($identificacion) {
+            //identificamos al usuario y guardamos en session su matricula nombre y que tipo de usuario es 
             case '1': {
                     $_SESSION['matricula'] = $user->matriculaAlumno;
                     $_SESSION['nombre'] = $user->firstName . " " . $user->secondName;

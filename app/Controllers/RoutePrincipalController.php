@@ -13,17 +13,16 @@ class RoutePrincipalController{
       $lideres = new ConsultaController();
       $alumno = new RegistrarController();
 
-      //se obtienen los daots
+      //se obtienen los datos
       $lideres = $lideres->getAllLideres();
 
       if ($request->getMethod() == 'POST') {
          $datos = $request->getParsedBody();
          $exito = $alumno->regAlumno($datos);
-         var_dump($exito);
 
          if(!$exito['error']){
             echo "<script>
-               alert('Te registraste con exito, tu numero de cuenta es:' + $exito[value]);
+               alert('Te registraste con exito, tu numero de cuenta es: ' + $exito[value]);
                </script>";
          }
          

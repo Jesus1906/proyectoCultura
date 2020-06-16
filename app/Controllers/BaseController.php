@@ -1,5 +1,5 @@
 <?php
-
+// aqui creamos la conexion a la BD
 namespace App\Controllers;
 use Illuminate\Database\Capsule\Manager as Capsule;
 

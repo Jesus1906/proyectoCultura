@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use App\Models\{Lider_celula, Alumno, Adjunto, Administrador, Profesor, Curso, Oferta_cursos, Periodo, Alumno_ofertaCursos};
 
 class ConsultaController extends BaseController
@@ -15,15 +14,24 @@ class ConsultaController extends BaseController
 
     public function getFecha()
     {
+        //obtenemos la fecha configurando la zona donde estamos
         date_default_timezone_set("America/Mexico_city");
         return $fechaActual = date('Y-m-d');
     }
 
     public function CursosOrdenadosNivel()
     {
+        //obtenemos los cursos ordenados
+        
         $UltimoCurso = $this->getAllCursos();
+        //obtenemos todos los cursos
+        
         $numero = count($UltimoCurso);
+        //contamos los registros que trae
+
         $UltimoCurso = Curso::find($UltimoCurso[$numero - 1]->idCurso);
+        //obtenemos el ultimos curso buscandolo por su llave primaria 
+
         return Curso::where('nivel', $UltimoCurso->nivel)
             //->orWhere('nivel', 2)
             //->orWhere('nivel', 3)
@@ -33,6 +41,7 @@ class ConsultaController extends BaseController
 
     public function CursosOrdenados()
     {
+        //obtenemos los cursos ordenados
         return Curso::where('nivel', 1)
             ->orWhere('nivel', 2)
             ->orWhere('nivel', 3)
@@ -55,6 +64,7 @@ class ConsultaController extends BaseController
             return null;
         }
     }
+
     public function getAllLideres()
     {
         return Lider_celula::all();
@@ -82,6 +92,7 @@ class ConsultaController extends BaseController
 
     public function getCursos($nivel, $subnivel)
     {
+        //obtenemos el curso que coinsida con el nivel y el subnivel ingresado
         return Curso::where('nivel', $nivel)
             ->where('subnivel', $subnivel)
             ->get();
@@ -89,6 +100,7 @@ class ConsultaController extends BaseController
 
     public function getOfertaExistente($oferta, $periodo)
     {
+        //obtenemos las ofertas que coincidan con el id del curso, periodo, y turno especificados
         return Oferta_cursos::where('Curso_idCurso', $oferta['idCurso'])
             ->where('periodo', $periodo['periodo'])
             ->where('turno', $oferta['turno'])
@@ -97,6 +109,7 @@ class ConsultaController extends BaseController
 
     public function getAdjunto($post)
     {
+        //obtenemos adjuntos  dependiendo el filtro de busqueda 
         switch ($post['filtro']) {
             case 'matricula': {
                     return Adjunto::find($post['parametro']);
@@ -128,6 +141,7 @@ class ConsultaController extends BaseController
 
     public function getAlumno($post)
     {
+        //obtenemos alumnos  dependiendo el filtro de busqueda 
         switch ($post['filtro']) {
             case 'matricula': {
                     return Alumno::find($post['parametro']);
@@ -158,6 +172,7 @@ class ConsultaController extends BaseController
 
     public function getLider($post)
     {
+        //obtenemos lideres  dependiendo el filtro de busqueda 
         switch ($post['filtro']) {
             case 'id': {
                     return Lider_celula::find($post['parametro']);
@@ -187,6 +202,7 @@ class ConsultaController extends BaseController
     
     public function getProfesor($post)
     {
+        //obtenemos profesores  dependiendo el filtro de busqueda 
         switch ($post['filtro']) {
             case 'Profesor_Matricula': {
                     return Profesor::find($post['parametro']);
@@ -216,6 +232,7 @@ class ConsultaController extends BaseController
 
     public function getAdministrador($post)
     {
+        //obtenemos administradores  dependiendo el filtro de busqueda 
         switch ($post['filtro']) {
             case 'matricula': {
                     return Administrador::find($post['parametro']);

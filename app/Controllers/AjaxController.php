@@ -418,12 +418,14 @@ class AjaxController extends BaseController
       $consulta = new ConsultaController();
       $periodo = $consulta->getPeriodo();
       $res = $consulta->getDataOfertayPago($periodo->periodo);
+      //obtenemos la lista de los alumnos inscritos en los cursos de la oferta actual hayan pagado o no
       $json = \json_encode($res);
       echo $json;
    }
 
    public function consultaCursosPeriodo($request)
    {
+      //consultamos el periodo
       $consulta = new ConsultaController();
       $periodo = $consulta->getPeriodo();
       $res = $consulta->getCursoPeriodoLista($periodo->periodo);
@@ -432,6 +434,7 @@ class AjaxController extends BaseController
    }
 
    public function consultaListasOferta($request){
+      //obtenemos la lista de alumnos de un cursos en especifico segun su oferta
       $data = $request->getParsedBody();
       $consulta = new ConsultaController();
       $res = $consulta->getListaCurso($data['id']);
