@@ -42,15 +42,17 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <label for="validationServer01">Primer Nombre</label>
-                    <input type="text" class="form-control" id="validationServer01" required name="firstName">
+                    <input type="text" class="form-control" id="validationServer01" required name="firstName"
+                    minlength="3" maxlength="15">
                     <div class="invalid-feedback">Llena el campo</div>
                     <div class="valid-feedback">Ok!</div>
                 </div>
-                <div class="invalid-feedback">More example invalid feedback text</div>
+                <div class="invalid-feedback">Llena el campo correctamente</div>
                 <div class="valid-feedback">ok</div>
                 <div class="col-sm-4">
                     <label for="validationServer02">Segundo Nombre (Opcional)</label>
-                    <input type="text" class="form-control" id="validationServer02" name="secondName">
+                    <input type="text" class="form-control" id="validationServer02" name="secondName"
+                    minlength="3" maxlength="15">
                     <div class="invalid-feedback">Llena el campo</div>
                     <div class="valid-feedback">Ok!</div>
                 </div>
@@ -60,13 +62,15 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <label for="validationServer03">Apellido Paterno</label>
-                    <input type="text" class="form-control " id="validationServer03" required name="firstLastName">
+                    <input type="text" class="form-control " id="validationServer03" required name="firstLastName"
+                    minlength="3" maxlength="15">
                     <div class="invalid-feedback">Llena el campo</div>
                     <div class="valid-feedback">Ok!</div>
                 </div>
                 <div class="col-sm-4">
                     <label for="validationServer04">Apellido Materno</label>
-                    <input type="text" class="form-control " id="validationServer04" required name="secondLastName">
+                    <input type="text" class="form-control " id="validationServer04" required name="secondLastName"
+                    minlength="3" maxlength="15">
                     <div class="invalid-feedback">Llena el campo</div>
                     <div class="valid-feedback">Ok!</div>
                 </div>
@@ -76,7 +80,8 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-4">
                     <label for="birthday"> Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" name="birthday" id="birthday" required>
+                    <input type="date" class="form-control" name="birthday" id="birthday" required
+                    min="1936-01-01" max="2005-01-01">
                     <div class="invalid-feedback">Llena el campo</div>
                     <div class="valid-feedback">Ok!</div>
                 </div>
