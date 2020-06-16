@@ -71,8 +71,8 @@ class RegistrarController extends BaseController
       $matricula = new MatriculaController();
       $alumno = new Alumno();
       $val = new ValidatorController();
-
-      $alumno->matriculaAlumno = $matricula->asignarMatricula('alu');
+      $matri = $matricula->asignarMatricula('alu');
+      $alumno->matriculaAlumno = $matri;
 
       $val->validarTexto($post['firstName'], 4, 15, false);
       $alumno->firstName = $post['firstName'];
@@ -88,8 +88,6 @@ class RegistrarController extends BaseController
 
       $val->validarTelefono($post['phone'], false);
       $alumno->cellPhone = $post['phone'];
-
-      $alumno->housePhone = null; //este
 
       $val->validarEdad($post['birthday'], 15);
       $alumno->birthday = $post['birthday'];
@@ -114,12 +112,16 @@ class RegistrarController extends BaseController
       $error = $val->validarErrores();
 
       if ($error != false) {
-         return $error;
+         return [
+            'error' => true,
+            'value' => $error
+         ];
       } else {
          $alumno->save();
-         echo "<script>
-               alert('Te registraste con exito, tu numero de cuenta es: ' . $alumno->matriculaAlumno')
-               </script>";
+         return [
+            'error' => false,
+            'value' => $matri
+         ];
       }
    }
 

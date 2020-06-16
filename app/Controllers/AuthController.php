@@ -5,7 +5,8 @@ namespace App\Controllers;
 use App\Models\{Alumno, Administrador, Adjunto};
 use Laminas\Diactoros\Response\RedirectResponse;
 
-class AuthController extends BaseController{
+class AuthController extends BaseController
+{
 
     public function __construct()
     {
@@ -15,7 +16,7 @@ class AuthController extends BaseController{
     {
         $postData = $request->getParsedBody();
         $ruta = '/proyectocultura/';
-        $user = str_split($postData['cuenta']);// convertimos un string en un arreglo de char
+        $user = str_split($postData['cuenta']); // convertimos un string en un arreglo de char
         $identificacion = $user[4];
         switch ($identificacion) {
             case '1': {
@@ -35,29 +36,34 @@ class AuthController extends BaseController{
                 break;
         }
 
-        if($user){
-            if(password_verify($postData['password'], $user->password)){
+        if ($user) {
+            if (password_verify($postData['password'], $user->password)) {
                 $this->sesion($identificacion, $user);
-                header(sprintf('%s: %s', 'location', $ruta), false);// cuando el usuario logra ingresar se agrega el redireccionamiento a los headers
-            }else{
+                header(sprintf('%s: %s', 'location', $ruta), false); // cuando el usuario logra ingresar se agrega el redireccionamiento a los headers
+            } else {
+                echo "<script>
+               alert('Datos incorrectos')
+                </script>";
                 header(sprintf('%s: %s', 'location', '/proyectocultura/'), false);
-                echo 'wrong';
             }
-            
-        }else{
+        } else {
+            echo "<script>
+               alert('Datos incorrectos')
+                </script>";
             header(sprintf('%s: %s', 'location', '/proyectocultura/'), false);
         }
-
     }
 
-    public function logOut(){
+    public function logOut()
+    {
         unset($_SESSION['matricula']);
         unset($_SESSION['nombre']);
         unset($_SESSION['user']);
         header(sprintf('%s: %s', 'location', '/proyectocultura/'), false);
     }
 
-    public function sesion($identificacion, $user){
+    public function sesion($identificacion, $user)
+    {
         switch ($identificacion) {
             case '1': {
                     $_SESSION['matricula'] = $user->matriculaAlumno;

@@ -136,6 +136,7 @@ class ActualizarController extends BaseController
         $periodo->inicio = $post['inicio'];
         $periodo->fin = $post['fin'];
         $periodo->periodo = $post['periodo'];
+        $periodo->inscripcionFin = 0;
         $periodo->save();
     }
 

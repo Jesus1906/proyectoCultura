@@ -20,6 +20,13 @@ class RoutePrincipalController{
          $datos = $request->getParsedBody();
          $exito = $alumno->regAlumno($datos);
          var_dump($exito);
+
+         if(!$exito['error']){
+            echo "<script>
+               alert('Te registraste con exito, tu numero de cuenta es: ' . $exito[value] . ')
+               </script>";
+         }
+         
       }
       require_once '../app/views/principal/registro.php';
    }//fin vista registro
