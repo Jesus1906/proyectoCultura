@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\ConsultaController;
 use App\Http\Controllers\Controller;
-use App\Models\{Lider_celula, Profesor, Curso};
+use App\Models\{Alumno, Lider_celula, Profesor, Curso};
 
 class ActualizarController extends BaseController
 {
@@ -138,6 +138,12 @@ class ActualizarController extends BaseController
         $periodo->periodo = $post['periodo'];
         $periodo->inscripcionFin = 0;
         $periodo->save();
+        $this->reiniciarPagos();
+    }
+
+    public function reiniciarPagos(){
+        Alumno::where('pago', 1)
+        ->update(['pago' => 0]);
     }
 
     public function actualizarCursoAyS($cursos, $post)
@@ -214,6 +220,7 @@ class ActualizarController extends BaseController
             return $fileName;
         }
     } //subidaArchivo
+
     public function errorArchivo($fileNombre, $name)
     {
         if ($fileNombre == "erroneo") {
