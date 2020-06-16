@@ -124,10 +124,14 @@ class RouteAdminController
          if ($request->getMethod() == 'POST') {
             $adjunto = new RegistrarController();
             $postData = $request->getParsedBody();
-            $adjunto->regAdjunto($postData);
-            echo "<script>
-               alert('Adjunto registrado con exito')
-               </script>";
+            $exito =  $adjunto->regAdjunto($postData);
+
+            if(!$exito['error']){
+               echo "<script>
+                  alert('Adjunto registrado con exito, su numero de cuenta es: ' + $exito[value]);
+                  </script>";
+            }
+
          }
          require_once '../app/views/Admi/adj_agregar.php';
       } else {
@@ -141,10 +145,13 @@ class RouteAdminController
          if ($request->getMethod() == 'POST') {
             $admin = new RegistrarController();
             $postData = $request->getParsedBody();
-            $admin->regAdministrador($postData);
-            echo "<script>
-               alert('Administrador registrado con exito')
-               </script>";
+            $exito = $admin->regAdministrador($postData);
+            
+            if(!$exito['error']){
+               echo "<script>
+               alert('administrador registrado con exito, su numero de cuenta es: ' + $exito[value]);
+                  </script>";
+            }
          }
          require_once '../app/views/Admi/admin_agregar.php';
       } else {
@@ -161,7 +168,13 @@ class RouteAdminController
          if ($request->getMethod() == 'POST') {
             $alumno = new RegistrarController();
             $postData = $request->getParsedBody();
-            $alumno->regAlumno($postData);
+            $exito = $alumno->regAlumno($postData);
+
+            if(!$exito['error']){
+               echo "<script>
+               alert('Alumno registrado con exito, su numero de cuenta es: ' + $exito[value]);
+                  </script>";
+            }
          }
          require_once '../app/views/principal/registro.php';
       } else {

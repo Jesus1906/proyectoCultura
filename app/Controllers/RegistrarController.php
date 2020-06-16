@@ -13,38 +13,23 @@ class RegistrarController extends BaseController
       $this->iniciarControladorBase();
    }
 
-   public function regUsuario($queReg, $quienReg)
-   {
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-         switch ($quienReg) {
-            case '3': {
-                  echo "Admin reg";
-               }
-               break;
-            case '2': {
-                  echo "Adjun reg";
-               }
-               break;
-            case '1': {
-                  echo "Alumn reg";
-               }
-               break;
-         } // fin de switch
-      } else {
-         die('Error al realizar Registro');
-      }
-   }
-
    public function regLider($post)
    {
+      //registramos lider
+
       $lider = new Lider_celula();
+      //creamos un nuevo lider
+
       $val = new ValidatorController();
+      //instancia de la clase validadora
 
       $val->validarTexto($post['firstName'], 4, 15, false);
       $lider->firstName = $post['firstName'];
+      //validamos si el texto ingresado en el primer nombre cumpla con un rango de tamaño y lo asignamos
 
       $val->validarTexto($post['secondName'], 4, 22, true);
       $lider->secondName = $post['secondName'];
+
 
       $val->validarTexto($post['firstLastName'], 4, 15, false);
       $lider->firstLastName = $post['firstLastName'];
@@ -55,7 +40,7 @@ class RegistrarController extends BaseController
       $val->validarTelefono($post['phone'], false);
       $lider->phone = $post['phone'];
 
-      //validacion de errores
+      //validacion de errores si algo salio mal por defecto se habra guardado un false
       $error = $val->validarErrores();
 
       if ($error != false) {
@@ -69,10 +54,17 @@ class RegistrarController extends BaseController
    public function regAlumno($post)
    {
       $matricula = new MatriculaController();
+      //creamos una instancia del controlador de la matricula
+
       $alumno = new Alumno();
+      //un nuevo modelo de alumno
+
       $val = new ValidatorController();
+      //la clase validadora
+
       $matri = $matricula->asignarMatricula('alu');
       $alumno->matriculaAlumno = $matri;
+      // asignamos la matrucula a una variable que usaremos mas abajo y tambien se la pasamos al alumno
 
       $val->validarTexto($post['firstName'], 4, 15, false);
       $alumno->firstName = $post['firstName'];
@@ -91,6 +83,7 @@ class RegistrarController extends BaseController
 
       $val->validarEdad($post['birthday'], 15);
       $alumno->birthday = $post['birthday'];
+      //validamos que tenga minimo 15 años de edad 
 
       $alumno->maritalStatus = $post['statusCivil'];
       $alumno->serviseStatus = $post['statusService'];
@@ -101,6 +94,7 @@ class RegistrarController extends BaseController
 
       $val->validarPassIgual($post['password'], $post['password1']);
       $alumno->password = password_hash($post['password'], PASSWORD_DEFAULT);
+      //validamos que las contraseñas que digito sean iguales y una vez que sea asi la hashearemos y la guardamos en la bd
 
       $alumno->photo = null;
       $alumno->activo = 'true';
@@ -117,6 +111,8 @@ class RegistrarController extends BaseController
             'value' => $error
          ];
       } else {
+         //si no dio error guardamos en un array que la operacion no tuvo errores 
+         //y mandamos la matricula para ser impresa en pantalla
          $alumno->save();
          return [
             'error' => false,
@@ -131,7 +127,9 @@ class RegistrarController extends BaseController
       $administrador = new Administrador();
       $val = new ValidatorController();
 
-      $administrador->matriculaAdministrador = $matricula->asignarMatricula('adm');
+      $matri = $matricula->asignarMatricula('adm');
+
+      $administrador->matriculaAdministrador = $matri;
 
       $val->validarTexto($post['firstName'], 4, 15, false);
       $administrador->firstName = $post['firstName'];
@@ -158,10 +156,16 @@ class RegistrarController extends BaseController
       $error = $val->validarErrores();
 
       if ($error != false) {
-         return $error;
+         return [
+            'error' => true,
+            'value' => $error
+         ];
       } else {
          $administrador->save();
-         return 'Exito al guardar Tu numero de cuenta es: ' . $administrador->matriculaAdministrador;
+         return [
+            'error' => false,
+            'value' => $matri
+         ];
       }
    }
 
@@ -171,7 +175,8 @@ class RegistrarController extends BaseController
       $adjunto = new Adjunto();
       $val = new ValidatorController();
 
-      $adjunto->matriculaAdjunto = $matricula->asignarMatricula('adj');
+      $matri = $matricula->asignarMatricula('adj');
+      $adjunto->matriculaAdjunto = $matri;
 
       $val->validarTexto($post['firstName'], 4, 15, false);
       $adjunto->firstName = $post['firstName'];
@@ -201,10 +206,16 @@ class RegistrarController extends BaseController
       $error = $val->validarErrores();
 
       if ($error != false) {
-         return $error;
+         return [
+            'error' => true,
+            'value' => $error
+         ];
       } else {
          $adjunto->save();
-         return 'Exito al guardar Tu numero de cuenta es: ' . $adjunto->matriculaAdjunto;
+         return [
+            'error' => false,
+            'value' => $matri
+         ];
       }
    }
 
@@ -248,7 +259,6 @@ class RegistrarController extends BaseController
       $periodo->inicio = $post['inicio'];
       $periodo->fin = $post['fin'];
       $periodo->periodo = $post['periodo'];
-      var_dump($periodo);
       $periodo->save();
    }
 

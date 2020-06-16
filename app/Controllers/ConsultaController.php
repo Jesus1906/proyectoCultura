@@ -308,12 +308,18 @@ class ConsultaController extends BaseController
     {
         $ofertas = Oferta_cursos::all();
 
-        if (count($ofertas) == 0) { // preguntamos si en la bd esxisten ofertas
+        if (count($ofertas) == 0) { 
+            // preguntamos si en la bd esxisten ofertas
+            
             return true; //retornamos true para que entre a la condicion y muestre inscripciones no disponibles
 
         } else {
             $ofertaReciente = $ofertas[count($ofertas) - 1];
+            // si no obtenemos la ultima oferta
+
             if ($periodo->periodo == $ofertaReciente->periodo) {
+                //preguntamos si el pereodo de la ultima oferta es igual al pereodo actual
+
                 return false;
             } else {
                 return true;
@@ -323,6 +329,7 @@ class ConsultaController extends BaseController
 
     public function getCursoOferta($idCurso, $turno, $periodo)
     {
+        //retornamos la oferta  que coincida con el curso, turno y periodo
         return Oferta_cursos::where('Curso_idCurso', $idCurso)
             ->where('turno', $turno)
             ->where('periodo', $periodo)
@@ -331,6 +338,7 @@ class ConsultaController extends BaseController
 
     public function getCursosPeriodo($periodo)
     {
+        //obtenemos las ofertas que coincidan con el pereodo actual
         return Oferta_cursos::where('periodo', $periodo)
             ->get();
     }
@@ -359,10 +367,15 @@ class ConsultaController extends BaseController
                 ->orWhere('Oferta_Cursos_idOferta_Cursos', $idOfertaV)
                 ->get();
         }
+        //retornamos el id de la oferta dede la tabla alumno oferta que es la tabla de inscripciones
+        //o buen retornamos las inscripciones que coincidan con el id del alumno, el de la oferta ya sea matutina o
+        //vespertina un if por cada caso en el turno y el periodo
     }
 
     public function getCursoInscritoEnPeriodoActual($alumno, $periodo)
     {
+        //retornamos toda la informacion para mostrarle al alumno el curso, el profesor, el adjunto y el turno del 
+        //curso al cual se inscribio en este periodo
         $ofertaCurso = alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
             ->join('adjunto', 'oferta_cursos.Adjunto_matriculaAdjunto', '=', 'matriculaAdjunto')
@@ -393,6 +406,7 @@ class ConsultaController extends BaseController
 
     public function getInfoFirstComprobante($periodo, $alumno)
     {
+        //obtenemos la informacion necesaria para mostrarle al alumno su primer comprobante
         $info = alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
             ->join('adjunto', 'oferta_cursos.Adjunto_matriculaAdjunto', '=', 'matriculaAdjunto')
@@ -417,6 +431,7 @@ class ConsultaController extends BaseController
 
     public function getDataOfertayPago($periodo)
     {
+        //obtenemos todos los alumnos inscritos a un curso asi hayan pagado o no
         $ofertayPago = Alumno_ofertaCursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
             ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
@@ -436,6 +451,7 @@ class ConsultaController extends BaseController
 
     public function dataComprobantes($alumno, $periodo)
     {
+        //traemos los datos para los comprobantes 
         $data =  alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
             ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
@@ -464,6 +480,7 @@ class ConsultaController extends BaseController
 
     public function getDataPagosCompletados($idOferta)
     {
+        //obtenemos el conteo de ofertas que coincidan con el id de oferta ingresado  y siempre y cuando el alumno haya pagado
         $data = Alumno_ofertaCursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
             ->where('oferta_cursos.idOferta_Cursos', $idOferta)
@@ -474,8 +491,11 @@ class ConsultaController extends BaseController
 
     public function getListaCurso($idOferta)
     {
+        //obtenemso las listas por curso
         $periodo = $this->getPeriodo();
         if ($periodo->inscripcionFin == 1) {
+            //preguntamos si la inscripcion ya finalizo para que la lista que retornemos solo sea de los alumnos que pagaron
+            
             $data = Alumno_ofertaCursos::join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
                 ->select(
                     'alumno.matriculaAlumno',
@@ -489,6 +509,8 @@ class ConsultaController extends BaseController
                 ->where('alumno.pago', 1)
                 ->get();
         } else {
+            //si la inscripcion lo ha terminado retornaremos todos los alumno asi hayan pagado o no
+            
             $data = Alumno_ofertaCursos::join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
                 ->select(
                     'alumno.matriculaAlumno',
@@ -506,6 +528,8 @@ class ConsultaController extends BaseController
 
     public function getCursoPeriodoLista($periodo)
     {
+
+        //obtenemos informacion del curso y la oferta de los curos que coincidan con el periodo actual
         return Oferta_cursos::join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
             ->select(
                 'curso.name',
@@ -521,6 +545,7 @@ class ConsultaController extends BaseController
 
     public function getHistorial($alumno)
     {
+        //obtenemos el historial academico de un alumno
         return alumno_ofertacursos::join('oferta_cursos', 'alumno_ofertacursos.Oferta_Cursos_idOferta_cursos', '=', 'oferta_cursos.idOferta_Cursos')
             ->join('alumno', 'alumno.matriculaAlumno', '=', 'Alumno_ofertaCursos.Alumno_matriculaAlumno')
             ->join('curso', 'oferta_cursos.Curso_idCurso', '=', 'curso.idCurso')
